@@ -117,7 +117,6 @@
     <Content Include="Images\rent-4.jpg" />
     <Content Include="about-us.aspx" />
     <Content Include="Javascript\adminJavaScript.js" />
-    <Content Include="Javascript\TestScript.js" />
     <Content Include="services.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>

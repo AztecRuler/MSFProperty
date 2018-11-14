@@ -2,18 +2,27 @@
     $('iframe').load(function () {
         $('iframe').contents().find("head")
             .append($("<style type='text/css'>  #footer,#wpg-bar{display:none;} .editable{ box-shadow: none;} .editable:hover {box-shadow: 0 0 25px red;  inset 0 0 10px white;}</style>"));
-        var allElements = $(this).contents().find(".editable").not('div[class*="bgimg"]');
+        var allTextElements = $(this).contents().find(".editable").not('div[class*="bgimg"]');
+        var allImageElements = $(this).contents().find('div[class*="bgimg"]');
+
+
         $(this).contents().find(".editable").on('click', function (event) {
             if (this.tagName === "A") {
                 event.preventDefault();
                 event.stopPropagation();
             }
+            $('#AdminPanel').css({ 'display': 'block' });
             var editableElement = $(this).get(0);
-            console.log(allElements.length);
-            
             highlighElement(event, editableElement);
-            loadAdminPanel(allElements, editableElement);
-        
+
+            if ($.inArray(this, allTextElements) > -1) {
+                loadTextAdminPanel(allTextElements, editableElement);
+            }
+            else {
+                loadImageAdminPanel(allImageElements, editableElement);
+
+            }
+
         });
     });
 
@@ -32,24 +41,23 @@ function highlighElement(event, element) {
     });
 }
 
-function loadAdminPanel(allElements, selectedElement)
-{
-    $('#AdminPanel').css({ 'display': 'block' }); 
-    $('#TextChangePanel').css({ 'display': 'block' }); 
+function loadImageAdminPanel(allTextElements, selectedElement) {
+
+    $('#TextChangePanel').css({ 'display': 'block' });
 
     var EditableEllement = {
-         id : 1,
-         pageName : "",
-         pageId : 1,
-         elementText : "",
-         elementNumber : 0,
-         elementType : "",
-         elemenetLink : "",
+        id: 1,
+        pageName: "",
+        pageId: 1,
+        elementText: "",
+        elementNumber: 0,
+        elementType: "",
+        elemenetLink: "",
     }
 
-    allElements.each(function (i, obj) {
+    allTextElements.each(function (i, obj) {
         if (obj === selectedElement) {
-            console.log(i);
+
             EditableEllement.elementNumber = i;
 
             EditableEllement.pageName = "test";
@@ -60,44 +68,59 @@ function loadAdminPanel(allElements, selectedElement)
             if (obj.tagName === "A") {
                 EditableEllement.elemenetLink = $(obj).attr('href');
             }
+            return false;
         }
     });
 
-
-
-    $("#pageName").val( EditableEllement.pageName);
-    $("#pageId").val( EditableEllement.pageId);
-    $("#elementText").val( EditableEllement.elementText);
+    $("#pageName").val(EditableEllement.pageName);
+    $("#pageId").val(EditableEllement.pageId);
+    $("#elementText").val(EditableEllement.elementText);
     $("#elementNumber").val(EditableEllement.elementNumber);
-    $("#elementType").val( EditableEllement.elementType);
-    $("#elemenetLink").val( EditableEllement.elemenetLink);
-
-
-    console.dir(EditableEllement);
-
-   
-        //things = JSON.stringify({
-        //    'things': EditableEllement
-        //});
-
-        //$.ajax({
-        //    contentType: 'application/json; charset=utf-8',
-        //    dataType: 'json',
-        //    type: 'POST',
-        //    url: 'admin.aspx/PassThings',
-        //    data: things,
-        //    success: function () {
-        //        alert("success");
-        //    },
-        //    error: function (response) {
-        //        alert(JSON.stringify(response));
-        //    }
-        //});
+    $("#elementType").val(EditableEllement.elementType);
+    $("#elemenetLink").val(EditableEllement.elemenetLink);
 }
 
-function clearIframe(FrameID) {
-    alert(1);
-    document.getElementById(FrameID).contentDocument.location.reload(true);
+function loadTextAdminPanel(allTextElements, selectedElement) {
+   
+    $('#TextChangePanel').css({ 'display': 'block' });
+
+    var EditableEllement = {
+        id: 1,
+        pageName: "",
+        pageId: 1,
+        elementText: "",
+        elementNumber: 0,
+        elementType: "",
+        elemenetLink: "",
+    }
+
+    allTextElements.each(function (i, obj) {
+        if (obj === selectedElement) {
+
+            EditableEllement.elementNumber = i;
+
+            EditableEllement.pageName = "test";
+            EditableEllement.pageId = 1;
+
+            EditableEllement.elementText = $(obj).text();
+            EditableEllement.elementType = obj.tagName;
+            if (obj.tagName === "A") {
+                EditableEllement.elemenetLink = $(obj).attr('href');
+            }
+            return false;
+        }
+    });
+
+    $("#pageName").val(EditableEllement.pageName);
+    $("#pageId").val(EditableEllement.pageId);
+    $("#elementText").val(EditableEllement.elementText);
+    $("#elementNumber").val(EditableEllement.elementNumber);
+    $("#elementType").val(EditableEllement.elementType);
+    $("#elemenetLink").val(EditableEllement.elemenetLink);
+}
+
+function clearIframe() {
+    $('#iframe1').attr('src', function (i, val) { return val; });
 }
 function setAccordians() {
     var acc = document.getElementsByClassName("accordion");

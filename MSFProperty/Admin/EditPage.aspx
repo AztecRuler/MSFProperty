@@ -2,30 +2,11 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<%--    <asp:ScriptManagerProxy ID="ScriptManagerProxy1" runat="server">
+    <asp:ScriptManagerProxy ID="ScriptManagerProxy1" runat="server">
         <Scripts>
             <asp:ScriptReference Path="../Javascript/adminJavaScript.js"></asp:ScriptReference>
         </Scripts>
-    </asp:ScriptManagerProxy>--%>
-    
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
-        <Scripts>
-                        <asp:ScriptReference Path="../Javascript/adminJavaScript.js"></asp:ScriptReference>
-
-        </Scripts>
-    </asp:ScriptManager>
-    <script type="text/javascript">
-    function clientValidate() {
-        alert("execute before");
-        return true;
-    }
-
-    function executeAfter() {
-        alert("execute after");
-    }
-</script>
-    <asp:Button ID="btnLogin" runat="server" Text="Login" CausesValidation="true" OnClientClick="clientValidate()" onclick="btnLogin_Click"/>
-
+    </asp:ScriptManagerProxy>
     <div class="leftWrapper">
         <span>Select a page to edit it from the list below</span>
         <div id="accordion">
@@ -84,7 +65,7 @@
                                     <asp:Label runat="server" ID="elementNumberLabel">Element Number</asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox runat="server" ID="elementNumber"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="elementNumber" ReadOnly="true"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>

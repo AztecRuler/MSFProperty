@@ -13,11 +13,11 @@
 <body>
 
     <form id="form1" runat="server">
-<%--        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
             <Scripts>
                 <asp:ScriptReference Path="https://code.jquery.com/jquery-1.12.4.js"></asp:ScriptReference>
             </Scripts>
-        </asp:ScriptManager>--%>
+        </asp:ScriptManager>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
