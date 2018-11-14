@@ -46,6 +46,15 @@
     width: 25%;
 }
 
-#AdminPanel, #TextChangePanel, #pageId {
+#AdminPanel, #TextChangePanel, #pageId, #ImageChangePanel {
     display: none;
+}
+
+img#imagePreview {
+    width: 69%;
+    height: 125px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }

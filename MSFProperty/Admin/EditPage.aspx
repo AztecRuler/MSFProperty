@@ -26,11 +26,86 @@
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <div class="rightWrapper" id="AdminPanel">
-                <asp:Panel runat="server" ID="ImageChangePanel" Visible="False">
-                    <asp:Image ID="Image1" runat="server" />
-                    <asp:FileUpload ID="FileUpload1" runat="server" />
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                    <asp:Button ID="Button1" runat="server" Text="Button" Height="25px" />
+                <asp:Panel runat="server" ID="ImageChangePanel" >
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <asp:Label runat="server" ID="Label1">Image Preview</asp:Label>
+
+                                </td>
+                                <td>
+                                    <asp:Image ID="imagePreview" runat="server" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Label runat="server" ID="Label2">File Upload</asp:Label>
+
+                                </td>
+                                <td>
+                                    <asp:FileUpload ID="FileUpload1" runat="server" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Label runat="server" ID="Label3">New Image Name</asp:Label>
+
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="imageNewName" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+
+
+
+                            <tr>
+                                <td>
+                                    <asp:Label runat="server" ID="Label4">ImageID</asp:Label>
+
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="ImageID" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Label runat="server" ID="Label5">ImageName</asp:Label>
+
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="ImageName" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td>
+                                    <asp:Label runat="server" ID="Label6">ImageUrl</asp:Label>
+
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="ImageUrl" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Label runat="server" ID="Label7">PageName</asp:Label>
+
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="ImagePageName" runat="server"></asp:TextBox>
+                                </td>
+                            </tr> <tr>
+                                <td>
+                                    <asp:Label runat="server" ID="Label8">PageId</asp:Label>
+
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="ImagePageId" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                                               
+                        </tbody>
+                    </table>
                 </asp:Panel>
 
                 <asp:Panel runat="server" ID="TextChangePanel">

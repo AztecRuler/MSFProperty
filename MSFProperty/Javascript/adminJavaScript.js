@@ -7,6 +7,8 @@
 
 
         $(this).contents().find(".editable").on('click', function (event) {
+
+            $('#ImageChangePanel, #TextChangePanel').css({ 'display': 'none' });
             if (this.tagName === "A") {
                 event.preventDefault();
                 event.stopPropagation();
@@ -41,43 +43,51 @@ function highlighElement(event, element) {
     });
 }
 
-function loadImageAdminPanel(allTextElements, selectedElement) {
+function loadImageAdminPanel(allImageElements, selectedElement) {
 
-    $('#TextChangePanel').css({ 'display': 'block' });
+    $('#ImageChangePanel').css({ 'display': 'block' });
+
+
 
     var EditableEllement = {
-        id: 1,
-        pageName: "",
-        pageId: 1,
-        elementText: "",
-        elementNumber: 0,
-        elementType: "",
-        elemenetLink: "",
-    }
+     
+        ImageID: 0,
+        ImageName: "",
+        ImageUrl: "", 
+        PageName: "",
+        PageId: 0
+    };
 
-    allTextElements.each(function (i, obj) {
+    allImageElements.each(function (i, obj) {
         if (obj === selectedElement) {
 
-            EditableEllement.elementNumber = i;
+            EditableEllement.ImageID = $(obj).ImageID;
 
-            EditableEllement.pageName = "test";
-            EditableEllement.pageId = 1;
+            EditableEllement.ImageUrl = $(selectedElement).css("background-image");
+            EditableEllement.ImageUrl = EditableEllement.ImageUrl.replace(/.*\s?url\([\'\"]?/, '').replace(/[\'\"]?\).*/, '')
 
-            EditableEllement.elementText = $(obj).text();
-            EditableEllement.elementType = obj.tagName;
-            if (obj.tagName === "A") {
-                EditableEllement.elemenetLink = $(obj).attr('href');
-            }
+            EditableEllement.ImageName = $(obj).ImageName;
+
+            EditableEllement.PageName = "Home";
+            EditableEllement.PageId = "1";
+         
             return false;
         }
     });
 
-    $("#pageName").val(EditableEllement.pageName);
-    $("#pageId").val(EditableEllement.pageId);
-    $("#elementText").val(EditableEllement.elementText);
-    $("#elementNumber").val(EditableEllement.elementNumber);
-    $("#elementType").val(EditableEllement.elementType);
-    $("#elemenetLink").val(EditableEllement.elemenetLink);
+    
+
+
+    $("#imagePreview").css("background-image", "url(" + EditableEllement.ImageUrl+")");
+    $("#FileUpload1").val(EditableEllement.pageId);
+    $("#imageName").val(EditableEllement.ImageName);
+
+    $("#ImageID").val(EditableEllement.ImageID);
+    $("#ImageName").val(EditableEllement.ImageName);
+    $("#ImageUrl").val(EditableEllement.ImageUrl);
+    $("#ImagePageName").val(EditableEllement.PageName);
+    $("#ImagePageId").val(EditableEllement.PageId);
+   
 }
 
 function loadTextAdminPanel(allTextElements, selectedElement) {
@@ -91,15 +101,15 @@ function loadTextAdminPanel(allTextElements, selectedElement) {
         elementText: "",
         elementNumber: 0,
         elementType: "",
-        elemenetLink: "",
-    }
+        elemenetLink: ""
+    };
 
     allTextElements.each(function (i, obj) {
         if (obj === selectedElement) {
 
             EditableEllement.elementNumber = i;
 
-            EditableEllement.pageName = "test";
+            EditableEllement.pageName = "Home";
             EditableEllement.pageId = 1;
 
             EditableEllement.elementText = $(obj).text();
