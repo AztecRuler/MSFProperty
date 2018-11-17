@@ -103,6 +103,24 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.WebControls.TextBox imageNewName;
         
         /// <summary>
+        /// Label5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label5;
+        
+        /// <summary>
+        /// FileUpload2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload2;
+        
+        /// <summary>
         /// Label4 control.
         /// </summary>
         /// <remarks>
@@ -119,24 +137,6 @@ namespace MSFProperty.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ImageID;
-        
-        /// <summary>
-        /// Label5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
-        
-        /// <summary>
-        /// ImageName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ImageName;
         
         /// <summary>
         /// Label6 control.
@@ -193,6 +193,15 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.WebControls.TextBox ImagePageId;
         
         /// <summary>
+        /// ImageSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ImageSave;
+        
+        /// <summary>
         /// TextChangePanel control.
         /// </summary>
         /// <remarks>
@@ -202,15 +211,6 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.WebControls.Panel TextChangePanel;
         
         /// <summary>
-        /// pageNameLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label pageNameLabel;
-        
-        /// <summary>
         /// pageName control.
         /// </summary>
         /// <remarks>
@@ -218,15 +218,6 @@ namespace MSFProperty.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox pageName;
-        
-        /// <summary>
-        /// pageIdLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label pageIdLabel;
         
         /// <summary>
         /// pageId control.
@@ -256,15 +247,6 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.WebControls.TextBox elementText;
         
         /// <summary>
-        /// elementNumberLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label elementNumberLabel;
-        
-        /// <summary>
         /// elementNumber control.
         /// </summary>
         /// <remarks>
@@ -272,15 +254,6 @@ namespace MSFProperty.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox elementNumber;
-        
-        /// <summary>
-        /// elementTypeLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label elementTypeLabel;
         
         /// <summary>
         /// elementType control.
@@ -292,15 +265,6 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.WebControls.TextBox elementType;
         
         /// <summary>
-        /// elemenetLinkLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label elemenetLinkLabel;
-        
-        /// <summary>
         /// elemenetLink control.
         /// </summary>
         /// <remarks>
@@ -310,12 +274,21 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.WebControls.TextBox elemenetLink;
         
         /// <summary>
-        /// save control.
+        /// textSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button save;
+        protected global::System.Web.UI.WebControls.Button textSave;
+        
+        /// <summary>
+        /// UploadedTab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField UploadedTab;
     }
 }

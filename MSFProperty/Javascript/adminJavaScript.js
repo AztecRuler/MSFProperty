@@ -1,4 +1,6 @@
 ﻿$(document).ready(function () {
+
+    var isUploaded = false; 
     $('iframe').load(function () {
         $('iframe').contents().find("head")
             .append($("<style type='text/css'>  #footer,#wpg-bar{display:none;} .editable{ box-shadow: none;} .editable:hover {box-shadow: 0 0 25px red;  inset 0 0 10px white;}</style>"));
@@ -61,7 +63,7 @@ function loadImageAdminPanel(allImageElements, selectedElement) {
     allImageElements.each(function (i, obj) {
         if (obj === selectedElement) {
 
-            EditableEllement.ImageID = $(obj).ImageID;
+            EditableEllement.ImageID = i+1;
 
             EditableEllement.ImageUrl = $(selectedElement).css("background-image");
             EditableEllement.ImageUrl = EditableEllement.ImageUrl.replace(/.*\s?url\([\'\"]?/, '').replace(/[\'\"]?\).*/, '')
@@ -146,5 +148,9 @@ function setAccordians() {
                 panel.style.maxHeight = panel.scrollHeight + "px";
             }
         });
+    }
+
+    function uploaded(boolean) {
+        document.getElementById('UploadedTab').value = boolean;
     }
 }

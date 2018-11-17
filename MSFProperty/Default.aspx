@@ -7,7 +7,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainBody" runat="server">
 
-    <div id="bgimg-1" class="bgimg-1 editable">
+    <div id="bgimg-1" class="bgimg-1 editable" style="background-image: url('../Images/<%=GetImage(1)%>')">
         <div class="caption">
             <div class="container" style="margin-top: -300px;">
                 <h2 class="editable"><%=GetText(1)%></h2>
@@ -80,7 +80,7 @@
 
         <span class="editable"  class="top_front_div"><%--This will be called from the database blurb--%> <%=GetText(12)%> </span> </div>
 
-    <div class="bgimg-2 editable">
+    <div class="bgimg-2 editable"  style="background-image: url('../Images/<%=GetImage(2)%>'">
         <div class="caption">
             <span class="border"><a class="border editable"><%=GetText(13)%></a></span>
         </div>
@@ -253,7 +253,7 @@ Elegant apartment in the heart of the centre. The accommo...    <a style="z-inde
         </div>
     </div>
 
-    <div class="bgimg-3 editable">
+    <div class="bgimg-3 editable"  style="background-image: url('../Images/<%=GetImage(3)%>'">
         <div class="caption">
             <span class="border editable"><%=GetText(14)%></span>
         </div>

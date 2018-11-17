@@ -46,11 +46,11 @@
     width: 25%;
 }
 
-#AdminPanel, #TextChangePanel, #pageId, #ImageChangePanel {
+#AdminPanel, #TextChangePanel, #pageId, #ImageChangePanel, #elementNumber, #elementType, #elemenetLink, #pageId, #pageName, #imageprops {
     display: none;
 }
 
-img#imagePreview {
+#imagePreview {
     width: 69%;
     height: 125px;
     -webkit-background-size: cover;

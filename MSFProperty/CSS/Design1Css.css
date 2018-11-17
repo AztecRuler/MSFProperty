@@ -47,19 +47,16 @@ h3 {
 }
 
 .bgimg-1 {
-    background-image: url('../Images/EdinburghView.jpg');
     min-height: 100%;
     opacity: 0.85;
     height: 1200px;
 }
 
 .bgimg-2 {
-    background-image: url('../Images/keys.jpg');
     min-height: 800px;
 }
 
 .bgimg-3 {
-    background-image: url('../Images/luxury-villa0.jpg');
     min-height: 800px;
     background-repeat: repeat;
     background-size: auto;

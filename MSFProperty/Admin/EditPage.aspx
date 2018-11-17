@@ -24,9 +24,13 @@
         </div>
     </div>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <Triggers>
+            <asp:PostBackTrigger ControlID="ImageSave" />
+
+        </Triggers>
         <ContentTemplate>
             <div class="rightWrapper" id="AdminPanel">
-                <asp:Panel runat="server" ID="ImageChangePanel" >
+                <asp:Panel runat="server" ID="ImageChangePanel">
                     <table>
                         <tbody>
                             <tr>
@@ -44,7 +48,7 @@
 
                                 </td>
                                 <td>
-                                    <asp:FileUpload ID="FileUpload1" runat="server" />
+                                    <asp:FileUpload ID="FileUpload1" runat="server" onchange="uploaded(true)" />
                                 </td>
                             </tr>
                             <tr>
@@ -56,9 +60,19 @@
                                     <asp:TextBox ID="imageNewName" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
+                                   <tr>
+                                <td>
+                                    <asp:Label runat="server" ID="Label5">Load existing image</asp:Label>
 
-
-
+                                </td>
+                                <td>
+                                    <asp:FileUpload ID="FileUpload2" runat="server" onchange="uploaded(false)" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table id="imageprops">
+                        <tbody>
                             <tr>
                                 <td>
                                     <asp:Label runat="server" ID="Label4">ImageID</asp:Label>
@@ -70,59 +84,49 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:Label runat="server" ID="Label5">ImageName</asp:Label>
+                                    <asp:Label runat="server" ID="Label6" >ImageUrl</asp:Label>
 
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="ImageName" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                             <tr>
-                                <td>
-                                    <asp:Label runat="server" ID="Label6">ImageUrl</asp:Label>
-
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="ImageUrl" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="ImageUrl" runat="server" ReadOnly="true"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:Label runat="server" ID="Label7">PageName</asp:Label>
+                                    <asp:Label runat="server" ID="Label7" >PageName</asp:Label>
 
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="ImagePageName" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="ImagePageName" runat="server" ReadOnly="true"></asp:TextBox>
                                 </td>
-                            </tr> <tr>
+                            </tr>
+                            <tr>
                                 <td>
                                     <asp:Label runat="server" ID="Label8">PageId</asp:Label>
 
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="ImagePageId" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="ImagePageId" runat="server" ReadOnly="true"></asp:TextBox>
                                 </td>
                             </tr>
-                                               
+
                         </tbody>
                     </table>
+                    <asp:Button runat="server" ID="ImageSave" Text="Save" OnClick="Image_Save_Click" />
+
                 </asp:Panel>
 
                 <asp:Panel runat="server" ID="TextChangePanel">
                     <table>
                         <tbody>
                             <tr>
-                                <td>
-                                    <asp:Label runat="server" ID="pageNameLabel">Name Of Page</asp:Label>
-                                </td>
+
                                 <td>
                                     <asp:TextBox runat="server" ID="pageName" ReadOnly="true"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    <asp:Label runat="server" ID="pageIdLabel">Page Id</asp:Label>
-                                </td>
+
                                 <td>
                                     <asp:TextBox runat="server" ID="pageId" ReadOnly="true"></asp:TextBox>
                                 </td>
@@ -136,25 +140,19 @@
                                 </td>
                             </tr>
                             <tr>
+
                                 <td>
-                                    <asp:Label runat="server" ID="elementNumberLabel">Element Number</asp:Label>
-                                </td>
-                                <td>
-                                    <asp:TextBox runat="server" ID="elementNumber" ReadOnly="true"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="elementNumber"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    <asp:Label runat="server" ID="elementTypeLabel">TypeOfElement</asp:Label>
-                                </td>
+
                                 <td>
                                     <asp:TextBox runat="server" ID="elementType" ReadOnly="true"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
-                                    <asp:Label runat="server" ID="elemenetLinkLabel">Element Link</asp:Label>
-                                </td>
+
                                 <td>
                                     <asp:TextBox runat="server" ID="elemenetLink" ReadOnly="true"></asp:TextBox>
                                 </td>
@@ -162,9 +160,10 @@
                         </tbody>
                     </table>
 
+                    <asp:Button runat="server" ID="textSave" Text="Save" OnClick="Save_Click" />
+
                 </asp:Panel>
 
-                <asp:Button runat="server" ID="save" Text="Save" OnClick="Save_Click" />
             </div>
 
         </ContentTemplate>
@@ -172,5 +171,5 @@
     <div id="Content">
     </div>
 
-
+    <asp:HiddenField ID="UploadedTab" runat="server" />
 </asp:Content>
