@@ -31,11 +31,6 @@
                                 </label>
                             </div>
                         </li>
-
-
-
-
-
                         <li id="LI_128">
                             <input type="submit" value="Search" id="INPUT_129">
                         </li>

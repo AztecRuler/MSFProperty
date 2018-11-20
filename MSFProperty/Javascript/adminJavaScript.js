@@ -1,6 +1,18 @@
 ﻿$(document).ready(function () {
 
-    var isUploaded = false; 
+    $('#showUploadImages').click(function () {
+        $('#useUploadedFile').css("display", "block");
+     
+        event.preventDefault();
+    });
+
+
+    $(".imageButtonUpload").click(function (index) {
+        $('#uploadedImageUrl').val($(this).attr('src'));
+        event.preventDefault();
+        alert($('#uploadedImageUrl').val());
+        });
+
     $('iframe').load(function () {
         $('iframe').contents().find("head")
             .append($("<style type='text/css'>  #footer,#wpg-bar{display:none;} .editable{ box-shadow: none;} .editable:hover {box-shadow: 0 0 25px red;  inset 0 0 10px white;}</style>"));
@@ -48,8 +60,6 @@ function highlighElement(event, element) {
 function loadImageAdminPanel(allImageElements, selectedElement) {
 
     $('#ImageChangePanel').css({ 'display': 'block' });
-
-
 
     var EditableEllement = {
      
@@ -150,7 +160,5 @@ function setAccordians() {
         });
     }
 
-    function uploaded(boolean) {
-        document.getElementById('UploadedTab').value = boolean;
-    }
+
 }

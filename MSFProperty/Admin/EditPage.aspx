@@ -48,7 +48,7 @@
 
                                 </td>
                                 <td>
-                                    <asp:FileUpload ID="FileUpload1" runat="server" onchange="uploaded(true)" />
+                                    <asp:FileUpload ID="FileUpload1" runat="server" accept=".png,.jpg,.jpeg,.gif" />
                                 </td>
                             </tr>
                             <tr>
@@ -60,13 +60,19 @@
                                     <asp:TextBox ID="imageNewName" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
-                                   <tr>
+                            <tr>
                                 <td>
-                                    <asp:Label runat="server" ID="Label5">Load existing image</asp:Label>
 
-                                </td>
-                                <td>
-                                    <asp:FileUpload ID="FileUpload2" runat="server" onchange="uploaded(false)" />
+                                    <button ID="showUploadImages">Load existing image</button>
+                                    <asp:Panel ID="useUploadedFile" runat="server">
+
+                                        <asp:Repeater ID="Repeater1" runat="server">
+                                            <ItemTemplate>
+                                                <asp:ImageButton  CssClass="imageButtonUpload" runat="server" ImageUrl='<%# string.Format("../images/{0}",Eval("ImageUrl"))%>' />
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+                                         <asp:TextBox ID="uploadedImageUrl" runat="server" ></asp:TextBox>
+                                    </asp:Panel>
                                 </td>
                             </tr>
                         </tbody>
@@ -84,7 +90,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:Label runat="server" ID="Label6" >ImageUrl</asp:Label>
+                                    <asp:Label runat="server" ID="Label6">ImageUrl</asp:Label>
 
                                 </td>
                                 <td>
@@ -93,7 +99,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:Label runat="server" ID="Label7" >PageName</asp:Label>
+                                    <asp:Label runat="server" ID="Label7">PageName</asp:Label>
 
                                 </td>
                                 <td>
@@ -172,4 +178,6 @@
     </div>
 
     <asp:HiddenField ID="UploadedTab" runat="server" />
+
+
 </asp:Content>

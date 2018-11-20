@@ -58,3 +58,16 @@
     -o-background-size: cover;
     background-size: cover;
 }
+
+.imageButtonUpload {
+    max-width: 200px;
+    max-height: 150px;
+    height: 150px;
+    padding-top: 14px;
+}
+
+#useUploadedFile {
+    display: none;
+    max-height: 500px;
+    overflow: auto;
+}
