@@ -98,23 +98,6 @@
     <Content Include="CSS\AdminStyleSheet1.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Images\banner1.jpg" />
-    <Content Include="Images\banner2.jpg" />
-    <Content Include="Images\banner3.jpg" />
-    <Content Include="Images\banner4.jpg" />
-    <Content Include="Images\banner5.jpg" />
-    <Content Include="Images\banner6.jpg" />
-    <Content Include="Images\EdinburghView.jpg" />
-    <Content Include="Images\house-1.jpg" />
-    <Content Include="Images\house-2.jpg" />
-    <Content Include="Images\house-3.jpg" />
-    <Content Include="Images\house-4.jpg" />
-    <Content Include="Images\keys.jpg" />
-    <Content Include="Images\luxury-villa0.jpg" />
-    <Content Include="Images\rent-1.jpg" />
-    <Content Include="Images\rent-2.jpg" />
-    <Content Include="Images\rent-3.jpg" />
-    <Content Include="Images\rent-4.jpg" />
     <Content Include="about-us.aspx" />
     <Content Include="Javascript\adminJavaScript.js" />
     <Content Include="services.aspx" />
@@ -214,6 +197,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="WinHttp">

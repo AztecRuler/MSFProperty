@@ -75,7 +75,7 @@
 
         <span class="editable"  class="top_front_div"><%--This will be called from the database blurb--%> <%=GetText(12)%> </span> </div>
 
-    <div class="bgimg-2 editable"  style="background-image: url('../Images/<%=GetImage(2)%>'">
+    <div class="bgimg-2 editable"  style="background-image: url('../Images/<%=GetImage(2)%>')">
         <div class="caption">
             <span class="border"><a class="border editable"><%=GetText(13)%></a></span>
         </div>

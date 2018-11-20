@@ -23,10 +23,10 @@
             </asp:Repeater>
         </div>
     </div>
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
         <Triggers>
             <asp:PostBackTrigger ControlID="ImageSave" />
-
+       
         </Triggers>
         <ContentTemplate>
             <div class="rightWrapper" id="AdminPanel">
@@ -68,7 +68,7 @@
 
                                         <asp:Repeater ID="Repeater1" runat="server">
                                             <ItemTemplate>
-                                                <asp:ImageButton  CssClass="imageButtonUpload" runat="server" ImageUrl='<%# string.Format("../images/{0}",Eval("ImageUrl"))%>' />
+                                                <asp:ImageButton  CssClass="imageButtonUpload" runat="server" ImageUrl='<%# string.Format("../images/{0}", Container.DataItem.ToString() )%>'/>
                                             </ItemTemplate>
                                         </asp:Repeater>
                                          <asp:TextBox ID="uploadedImageUrl" runat="server" ></asp:TextBox>

@@ -3,10 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
-using System.Web.Services;
 using System.Web.UI;
 using System.IO;
-using MSFProperty.Admin;
 
 namespace MSFProperty.Admin
 {
@@ -32,18 +30,18 @@ namespace MSFProperty.Admin
                 }
 
                 List<string> imageList = new List<string>();
-                using (var db = new Model1())
-                {
-                    foreach (var item in db.PageImages)
+                String[] filenames = Directory.GetFiles(Server.MapPath("~/Images"));
+
+                foreach (var item in filenames)
                     {
-                        pageList.Add(item.ImageUrl.ToString().Replace(" ", string.Empty));
+                    imageList.Add(item.ToString().Replace(" ", string.Empty).Split('\\').Last());
 
                     }
 
-                    Repeater1.DataSource = db.PageImages.ToList();
+                    Repeater1.DataSource = imageList.ToList();
 
                     Repeater1.DataBind();
-                }
+             
             }
         }
 
@@ -68,7 +66,8 @@ namespace MSFProperty.Admin
         protected void Image_Save_Click(object sender, EventArgs e)
         {
             string realPhysicalPath = "";
-            if (IsImage(this.FileUpload1.FileContent))
+           
+            if (IsImage(this.FileUpload1.FileContent) || uploadedImageUrl.Text !="")
             {
                 using (var db = new Model1())
                 {
@@ -82,13 +81,11 @@ namespace MSFProperty.Admin
                         result = db.PageImages.SingleOrDefault(b => b.ImageID == ImageID.Text);
                         Filename = "MSF-" + this.FileUpload1.FileName;
                     }
-                    //else if (this.FileUpload2.HasFile)
-                    //{
-                    //    realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), this.FileUpload1.FileName);
-                    //    this.FileUpload1.SaveAs(realPhysicalPath);
-                    //    result = db.PageImages.SingleOrDefault(b => b.ImageID == ImageID.Text);
-                    //    Filename = this.FileUpload1.FileName;
-                    //}
+                    else if (uploadedImageUrl.Text != "")
+                    {
+                        result = db.PageImages.SingleOrDefault(b => b.ImageID == ImageID.Text);
+                        Filename = uploadedImageUrl.Text.Replace("../images/", String.Empty); ;
+                    }
                     if (result != null)
                     {
 

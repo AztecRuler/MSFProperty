@@ -10,8 +10,8 @@
     $(".imageButtonUpload").click(function (index) {
         $('#uploadedImageUrl').val($(this).attr('src'));
         event.preventDefault();
-        alert($('#uploadedImageUrl').val());
-        });
+        $("#imagePreview").css("background-image", "url(" + $('#uploadedImageUrl').val() + ")");
+          });
 
     $('iframe').load(function () {
         $('iframe').contents().find("head")
@@ -76,7 +76,7 @@ function loadImageAdminPanel(allImageElements, selectedElement) {
             EditableEllement.ImageID = i+1;
 
             EditableEllement.ImageUrl = $(selectedElement).css("background-image");
-            EditableEllement.ImageUrl = EditableEllement.ImageUrl.replace(/.*\s?url\([\'\"]?/, '').replace(/[\'\"]?\).*/, '')
+            EditableEllement.ImageUrl = EditableEllement.ImageUrl.replace(/.*\s?url\([\'\"]?/, '').replace(/[\'\"]?\).*/, '');
 
             EditableEllement.ImageName = $(obj).ImageName;
 
