@@ -13,7 +13,7 @@
 
             <asp:Repeater ID="rpData" runat="server">
                 <ItemTemplate>
-                    <div class="accordion"><%# Eval("PageName") %></div>
+                    <div class="accordion iframeAccordion"><%# Eval("PageName") %></div>
                     <div class="panel">
 
                         <iframe id="iframe<%# Container.ItemIndex + 1 %>" src="../<%# Eval("URL")  %>.aspx" width="100%" height="800px" frameborder="0" scrolling="yes"></iframe>
@@ -23,60 +23,72 @@
             </asp:Repeater>
         </div>
     </div>
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <Triggers>
             <asp:PostBackTrigger ControlID="ImageSave" />
-       
+
         </Triggers>
         <ContentTemplate>
             <div class="rightWrapper" id="AdminPanel">
+                                    <span>Select where you want to get your new image from </span>
+
                 <asp:Panel runat="server" ID="ImageChangePanel">
-                    <table>
-                        <tbody>
+
+                    <div class="accordion imageAccordion">Upload a new image</div>
+                    <div class="panel">
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <asp:Label runat="server" ID="Label1">Image Preview</asp:Label>
+
+                                    </td>
+                                    <td>
+                                        <asp:Image ID="imagePreview" runat="server" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:Label runat="server" ID="Label2">File Upload</asp:Label>
+
+                                    </td>
+                                    <td>
+                                        <asp:FileUpload ID="FileUpload1"  runat="server" accept=".png,.jpg,.jpeg,.gif" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:Label runat="server" ID="Label3">New Image Name</asp:Label>
+
+                                    </td>
+                                    <td>
+                                        <asp:TextBox ID="imageNewName" runat="server"></asp:TextBox>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="accordion imageAccordion">Use an existing image</div>
+                    <div class="panel">
+                        <table>
                             <tr>
                                 <td>
-                                    <asp:Label runat="server" ID="Label1">Image Preview</asp:Label>
-
-                                </td>
-                                <td>
-                                    <asp:Image ID="imagePreview" runat="server" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Label runat="server" ID="Label2">File Upload</asp:Label>
-
-                                </td>
-                                <td>
-                                    <asp:FileUpload ID="FileUpload1" runat="server" accept=".png,.jpg,.jpeg,.gif" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Label runat="server" ID="Label3">New Image Name</asp:Label>
-
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="imageNewName" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <button ID="showUploadImages">Load existing image</button>
                                     <asp:Panel ID="useUploadedFile" runat="server">
 
                                         <asp:Repeater ID="Repeater1" runat="server">
                                             <ItemTemplate>
-                                                <asp:ImageButton  CssClass="imageButtonUpload" runat="server" ImageUrl='<%# string.Format("../images/{0}", Container.DataItem.ToString() )%>'/>
+                                                <asp:ImageButton CssClass="imageButtonUpload" runat="server" ImageUrl='<%# string.Format("../images/{0}", Container.DataItem.ToString() )%>' />
                                             </ItemTemplate>
                                         </asp:Repeater>
-                                         <asp:TextBox ID="uploadedImageUrl" runat="server" ></asp:TextBox>
+                                        <asp:TextBox ID="uploadedImageUrl" runat="server"></asp:TextBox>
                                     </asp:Panel>
                                 </td>
                             </tr>
-                        </tbody>
-                    </table>
+                        </table>
+                    </div>
+
                     <table id="imageprops">
                         <tbody>
                             <tr>

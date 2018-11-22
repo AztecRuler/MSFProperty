@@ -73,7 +73,7 @@
     <div class="foregroundDiv">
         <h3 class="editable"  style="text-align: center;"> <%=GetText(11)%> </h3>
 
-        <span class="editable"  class="top_front_div"><%--This will be called from the database blurb--%> <%=GetText(12)%> </span> </div>
+        <span class="editable top_front_div"> <%=GetText(12)%> </span> </div>
 
     <div class="bgimg-2 editable"  style="background-image: url('../Images/<%=GetImage(2)%>')">
         <div class="caption">
@@ -248,7 +248,7 @@ Elegant apartment in the heart of the centre. The accommo...    <a style="z-inde
         </div>
     </div>
 
-    <div class="bgimg-3 editable"  style="background-image: url('../Images/<%=GetImage(3)%>'">
+    <div class="bgimg-3 editable"  style="background-image: url('../Images/<%=GetImage(3)%>')">
         <div class="caption">
             <span class="border editable"><%=GetText(14)%></span>
         </div>

@@ -66,8 +66,11 @@
     padding-top: 14px;
 }
 
+    .imageButtonUpload:focus {
+        border: red solid 3px;
+    }
+
 #useUploadedFile {
-    display: none;
     max-height: 500px;
     overflow: auto;
 }

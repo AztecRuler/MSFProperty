@@ -29,20 +29,26 @@ namespace MSFProperty.Admin
                     rpData.DataBind();
                 }
 
-                List<string> imageList = new List<string>();
-                String[] filenames = Directory.GetFiles(Server.MapPath("~/Images"));
+                GetImagesFromFolder();
 
-                foreach (var item in filenames)
-                    {
-                    imageList.Add(item.ToString().Replace(" ", string.Empty).Split('\\').Last());
-
-                    }
-
-                    Repeater1.DataSource = imageList.ToList();
-
-                    Repeater1.DataBind();
              
             }
+        }
+
+        private void GetImagesFromFolder()
+        {
+            List<string> imageList = new List<string>();
+            String[] filenames = Directory.GetFiles(Server.MapPath("~/Images"));
+
+            foreach (var item in filenames)
+            {
+                imageList.Add(item.ToString().Replace(" ", string.Empty).Split('\\').Last());
+
+            }
+
+            Repeater1.DataSource = imageList.ToList();
+
+            Repeater1.DataBind();
         }
 
         protected void Save_Click(object sender, EventArgs e)
@@ -102,7 +108,7 @@ namespace MSFProperty.Admin
 
                     db.SaveChanges();
                 }
-
+                GetImagesFromFolder();
                 if (!Page.ClientScript.IsStartupScriptRegistered("reload"))
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "reload", "<script>clearIframe();</script>", false);
