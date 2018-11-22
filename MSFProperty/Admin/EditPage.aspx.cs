@@ -5,11 +5,13 @@ using System.Linq;
 using System.Web.UI.WebControls;
 using System.Web.UI;
 using System.IO;
+using System.Web;
 
 namespace MSFProperty.Admin
 {
     public partial class EditPage : System.Web.UI.Page
     {
+        private int? elementPageId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,7 +33,6 @@ namespace MSFProperty.Admin
 
                 GetImagesFromFolder();
 
-             
             }
         }
 
@@ -53,9 +54,11 @@ namespace MSFProperty.Admin
 
         protected void Save_Click(object sender, EventArgs e)
         {
+            elementPageId = Convert.ToInt32(hdnfldVariable.Value);
+
             using (var db = new Model1())
             {
-                TextContent result = db.TextContents.SingleOrDefault(b => b.ElementNumber == elementNumber.Text);
+                TextContent result = db.TextContents.SingleOrDefault(b => b.ElementNumber == elementNumber.Text && b.PageId == elementPageId);
                 if (result != null)
                 {
                     result.ElementText = elementText.Text;
@@ -143,6 +146,7 @@ namespace MSFProperty.Admin
                 return false;
         }
 
- 
     }
+
+
 }

@@ -155,6 +155,8 @@ function setAccordians() {
             classList = classList.filter(function (item) {
                 return item.indexOf("accordion") !== 0;
             });
+            var hdnfldVariable = document.getElementById('hdnfldVariable');
+            hdnfldVariable.value = $(this).attr("data-id");
 
             closeRelatedAccordians(classList);
             var panel = this.nextElementSibling;;

@@ -13,7 +13,7 @@
 
             <asp:Repeater ID="rpData" runat="server">
                 <ItemTemplate>
-                    <div class="accordion iframeAccordion"><%# Eval("PageName") %></div>
+                    <div class="accordion iframeAccordion" data-id="<%# Eval("ID") %>"><%# Eval("PageName") %></div>
                     <div class="panel">
 
                         <iframe id="iframe<%# Container.ItemIndex + 1 %>" src="../<%# Eval("URL")  %>.aspx" width="100%" height="800px" frameborder="0" scrolling="yes"></iframe>
@@ -190,6 +190,6 @@
     </div>
 
     <asp:HiddenField ID="UploadedTab" runat="server" />
-
+    <asp:HiddenField ID="hdnfldVariable" runat="server" />
 
 </asp:Content>
