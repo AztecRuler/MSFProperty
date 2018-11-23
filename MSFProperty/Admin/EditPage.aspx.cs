@@ -75,25 +75,24 @@ namespace MSFProperty.Admin
         protected void Image_Save_Click(object sender, EventArgs e)
         {
             string realPhysicalPath = "";
-           
+            elementPageId = Convert.ToInt32(hdnfldVariable.Value);
+
             if (IsImage(this.FileUpload1.FileContent) || uploadedImageUrl.Text !="")
             {
                 using (var db = new Model1())
                 {
-                    PageImage result = null;
+                    PageImage result = db.PageImages.SingleOrDefault(b => b.ImageID == ImageID.Text && b.PageId == elementPageId);
                     String Filename = "";
 
                     if (this.FileUpload1.HasFile)
                     {
                         realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + this.FileUpload1.FileName);
                         this.FileUpload1.SaveAs(realPhysicalPath);
-                        result = db.PageImages.SingleOrDefault(b => b.ImageID == ImageID.Text);
                         Filename = "MSF-" + this.FileUpload1.FileName;
                     }
                     else if (uploadedImageUrl.Text != "")
                     {
-                        result = db.PageImages.SingleOrDefault(b => b.ImageID == ImageID.Text);
-                        Filename = uploadedImageUrl.Text.Replace("../images/", String.Empty); ;
+                        Filename = uploadedImageUrl.Text.Replace("../images/", String.Empty); 
                     }
                     if (result != null)
                     {

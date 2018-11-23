@@ -9,7 +9,7 @@
 
     $('iframe').load(function () {
         $('iframe').contents().find("head")
-            .append($("<style type='text/css'>  #footer,#wpg-bar{display:none;} .editable{ box-shadow: none;} .editable:hover {box-shadow: 0 0 25px red;  inset 0 0 10px white;}</style>"));
+            .append($("<style type='text/css'>  #footer,#wpg-bar{display:none;} .editable{ box-shadow: none;} .editable:hover {box-shadow: 0 0 25px red;  inset 0 0 10px white;}  div[class*='bgimg'] {width: 99%; margin: auto;}</style>"));
         var allTextElements = $(this).contents().find(".editable").not('div[class*="bgimg"]');
         var allImageElements = $(this).contents().find('div[class*="bgimg"]');
 
@@ -81,8 +81,10 @@ function loadImageAdminPanel(allImageElements, selectedElement) {
 
             EditableEllement.ImageName = $(obj).ImageName;
 
-            EditableEllement.PageName = "Home";
-            EditableEllement.PageId = "1";
+            EditableEllement.PageName = "";
+            var hdnfldVariable = document.getElementById('hdnfldVariable');
+           
+            EditableEllement.PageId = hdnfldVariable.value;
          
             return false;
         }
@@ -155,9 +157,10 @@ function setAccordians() {
             classList = classList.filter(function (item) {
                 return item.indexOf("accordion") !== 0;
             });
-            var hdnfldVariable = document.getElementById('hdnfldVariable');
-            hdnfldVariable.value = $(this).attr("data-id");
-
+            if ($(this).data('id')) {
+                var hdnfldVariable = document.getElementById('hdnfldVariable');
+                hdnfldVariable.value = $(this).attr("data-id");
+            }
             closeRelatedAccordians(classList);
             var panel = this.nextElementSibling;;
             if (this.classList.contains("active")) {
