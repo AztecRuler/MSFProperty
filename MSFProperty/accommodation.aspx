@@ -1,51 +1,18 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="accommodation.aspx.cs" Inherits="MSFProperty.accommodation" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MSFMaster.Master"  CodeFile="accommodation.aspx.cs" Inherits="MSFProperty.accommodation" %>
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>properties</title>
-     <link href="CSS/Design1Css.css" rel="stylesheet" />
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div id="wpg-bar">
-        <div class="container clear-both-fix">
-            <h1 class="wpg-logo"><a href="Default.aspx">MSF Property Management 
-                <br>
-                <span>MSF Property Management</span>
-            </a>
-            </h1>
-            <ul class="wpg-bar-mobile-menu">
-                <li class="wpg-phone-button"><a href="tel:07709 649 292 "><span>Phone</span></a></li>
-                <li class="wpg-open-menu-button"><a href="#"><span>Open menu </span></a></li>
-            </ul>
-            <ul id="menu-main-menu" class="wpg-bar-main-menu wpg-mobile-menu" style="">
-                <li id="menu-item-19" class="menu-item menu-item-type-post_type menu-item-object-page  page_item page-item-5 current_page_item"><a href="Default.aspx">Home<span class="center-block">Welcome </span></a></li>
-                <li id="menu-item-18" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="services.aspx">Services<span class="center-block">Our services</span></a></li>
-                <li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item "><a href="accommodation.aspx">Propertiess<span class="center-block">View our properties</span></a></li>
-                                <li id="menu-item-27" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="about-us.aspx">About us<span class="center-block">Learn More</span></a></li>
-                <li id="menu-item-16" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="blog.aspx">Journal<span class="center-block">Our Blog</span></a></li>
-                <li id="menu-item-15" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="contact-us.aspx">Contact Us<span class="center-block">Get in touch</span></a></li>
-            </ul>
-        </div>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>Properties</title>
+    <link href="CSS/Design1Css.css" rel="stylesheet" />
+</asp:Content>
 
-        <div class="wpg-bar-black">
-            <div class="container clear-both-fix">
-                <ul class="wpg-bar-black-inset wpg-mobile-menu" style="min-height: 0px;">
-                    <li class="wpg-bar-black-tel"><a href="tel:07709 649 292 ">07709 649 292 </a></li>
-                    <li class="wpg-bar-black-email"><a href="mailto:info@msfproperty.co.uk">info@msfproperty.co.uk</a></li>
-                    <li class="wpg-bar-black-book"><a href="../book-now">Book Now</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainBody" runat="server">>
 
-<div class="wpg-main-bg-header" style="background-image: url(Images/banner1.jpg); max-height: 871px;">
+<div class="wpg-main-bg-header bgimg editable" style="background-image: url('../Images/<%=GetImage(5)%>')" max-height: 871px;">
 		<div class="span-table">
 			<div class="span-table-cell vertical-align-middle text-align-center">
 				<div class="container">
-					<h2>Our Properties</h2>
-					<p>Lorem Ipsum Secondary Header Text</p>
+					<h2 class="editable"><%=GetText(25)%></h2>
+					<p class="editable"><%=GetText(26)%></p>
 				</div>
 			</div>
 		</div>
@@ -189,74 +156,4 @@ Elegant apartment in the heart of the centre. The accommo...    <a style="z-inde
         </div>
     </div>
         
-    <div id="footer" class="footer">
-<div id="footerDIV_1">
-	<div id="footerDIV_2">
-		<div id="footerDIV_3">
-			<div id="footerDIV_4">
-				<ul id="footerUL_5">
-					<li id="footerLI_6">
-						<a href="accommodation.aspx" id="footerA_7">Our Properties</a>
-					</li>
-					<li id="footerLI_8">
-						<a href="#" id="footerA_9">Amenities</a>
-					</li>
-					<li id="footerLI_10">
-						<a href="#" id="footerA_11">Location</a>
-					</li>
-				</ul>
-			</div>
-			<div id="footerDIV_12">
-				<ul id="footerUL_13">
-					<li id="footerLI_14">
-						<a href="#" id="footerA_15">Availability</a>
-					</li>
-					<li id="footerLI_16">
-						<a href="#" id="footerA_17">Book Now</a>
-					</li>
-					<li id="footerLI_18">
-						<a href="#" id="footerA_19">Reviews</a>
-					</li>
-				</ul>
-			</div>
-			<div id="footerDIV_20">
-				<ul id="footerUL_21">
-					<li id="footerLI_22">
-						<a href="about-us.aspx" id="footerA_23">About us</a>
-					</li>
-					<li id="footerLI_24">
-						<a href="blog.aspx" id="footerA_25">Journal</a>
-					</li>
-					<li id="footerLI_26">
-						<a href="contact-us.aspx" id="footerA_27">Contact Us</a>
-					</li>
-				</ul>
-			</div>
-			<div id="footerDIV_28">
-				<ul id="footerUL_29">
-					<li id="footerLI_30">
-						<a href="#" id="footerA_31"><span id="footerSPAN_32">Twitter</span></a>
-					</li>
-					<li id="footerLI_33">
-						<a href="#" id="footerA_34"><span id="footerSPAN_35">Google Plus</span></a>
-					</li>
-					<li id="footerLI_36">
-						<a href="#" id="footerA_37"><span id="footerSPAN_38">Printerest</span></a>
-					</li>
-					<li id="footerLI_39">
-						<a href="#" id="footerA_40"><span id="footerSPAN_41">Linkedin</span></a>
-					</li>
-				</ul>
-				<p id="footerP_42">
-					<a href="Default.aspx" id="footerA_43">Powered by Calssantics</a>
-				</p>
-			</div>
-		</div>
-	</div>
-</div>
-    </div>
-
-    </form>
-</body>
-
-</html>
+</asp:Content>

@@ -7,6 +7,7 @@
     <title></title>
     <script src="../Javascript/TestScript.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="../CSS/AdminStyleSheet1.css" rel="stylesheet" type="text/css" runat="server" />
     </asp:ContentPlaceHolder>
 </head>
@@ -19,8 +20,67 @@
             </Scripts>
         </asp:ScriptManager>
         <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+            <asp:ContentPlaceHolder ID="AdminPanel" runat="server">
+                <div id="wrapper" class="toggled">
+
+                    <!-- Sidebar -->
+                    <div id="sidebar-wrapper">
+                        <ul class="sidebar-nav">
+                            <li class="sidebar-brand">
+                                <a href="Admin.aspx">DashBoard Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="EditPage.aspx">Edit WebSite Pages</a>
+                            </li>
+                            <li>
+                                <a href="PropertyPage.aspx">Edit Properties</a>
+                            </li>
+                            <li>
+                                <a href="#">Edit Images</a>
+                            </li>
+                            <li>
+                                <a href="#">Analytics</a>
+                            </li>
+                            <li>
+                                <a href="#">Blog</a>
+                            </li>
+                            <li>
+                                <a href="#">Email</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul id="navBar">
+                        <li><a class="active" href="#home">Home</a></li>
+                        <li><a href="#news">News</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li style="float: right"><a href="#about">About</a></li>
+                    </ul>
+                                        <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+
+                    <div id="page-content-wrapper">
+                        <div class="container-fluid">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                    <!-- /#page-content-wrapper -->
+
+                </div>
+
+                <script>
+                    $("#menu-toggle").click(function (e) {
+                        e.preventDefault();
+                        $("#wrapper").toggleClass("toggled");
+                    });
+                </script>
+
             </asp:ContentPlaceHolder>
+
         </div>
     </form>
 </body>

@@ -257,7 +257,4 @@ Elegant apartment in the heart of the centre. The accommo...    <a style="z-inde
     <div style="position: relative;">
       
     </div>
-
-
-
 </asp:Content>

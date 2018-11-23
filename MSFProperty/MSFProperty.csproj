@@ -92,6 +92,7 @@
     <Content Include="accommodation.aspx" />
     <Content Include="Admin\Admin.aspx" />
     <Content Include="Admin\EditPage.aspx" />
+    <Content Include="Admin\PropertyPage.aspx" />
     <Content Include="blog.aspx" />
     <Content Include="contact-us.aspx" />
     <Content Include="CSS\Design1Css.css" />
@@ -99,6 +100,8 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="about-us.aspx" />
+    <Content Include="Icons\font-awesome.css" />
+    <Content Include="Icons\ionicons.css" />
     <Content Include="Javascript\adminJavaScript.js" />
     <Content Include="services.aspx" />
     <Content Include="Web.config" />
@@ -136,6 +139,13 @@
     <Compile Include="Admin\EF\Page.cs" />
     <Compile Include="Admin\EF\PageImage.cs" />
     <Compile Include="Admin\EF\TextContent.cs" />
+    <Compile Include="Admin\PropertyPage.aspx.cs">
+      <DependentUpon>PropertyPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\PropertyPage.aspx.designer.cs">
+      <DependentUpon>PropertyPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="blog.aspx.cs">
       <DependentUpon>blog.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -187,6 +197,10 @@
     <Content Include="Fonts\Roboto-Regular.ttf" />
     <Content Include="MSFMaster.Master" />
     <Content Include="Admin\AdminMasterPage.Master" />
+    <Content Include="Fonts\fontawesome-webfont.woff" />
+    <Content Include="Fonts\fontawesome-webfont.woff2" />
+    <Content Include="Fonts\ionicons.woff" />
+    <Content Include="Fonts\fontawesome-webfont.eot" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -144,8 +144,8 @@ function loadTextAdminPanel(allTextElements, selectedElement) {
     $("#elemenetLink").val(EditableEllement.elemenetLink);
 }
 
-function clearIframe() {
-    $('#iframe1').attr('src', function (i, val) { return val; });
+function clearIframe(num) {
+    $('#iframe' + num).attr('src', function (i, val) { return val; });
 }
 function setAccordians() {
     var acc = document.getElementsByClassName("accordion");
@@ -162,7 +162,7 @@ function setAccordians() {
                 hdnfldVariable.value = $(this).attr("data-id");
             }
             closeRelatedAccordians(classList);
-            var panel = this.nextElementSibling;;
+            var panel = this.nextElementSibling;
             if (this.classList.contains("active")) {
                 panel.style.maxHeight = null;
                
@@ -195,3 +195,5 @@ function closeRelatedAccordians(Aval) {
        
     }
 }
+
+

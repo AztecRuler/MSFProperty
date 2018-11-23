@@ -1872,18 +1872,6 @@ p, li {
             z-index: 10;
         }
 
-        .wpg-main-bg-header:before {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-attachment: fixed;
-            z-index: 9;
-        }
-
         .wpg-main-bg-header .container {
             padding: 14px;
             max-width: 748px;

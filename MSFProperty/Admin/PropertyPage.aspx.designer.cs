@@ -11,7 +11,7 @@ namespace MSFProperty.Admin
 {
 
 
-    public partial class Admin
+    public partial class PropertyPage
     {
     }
 }

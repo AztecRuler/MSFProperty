@@ -68,7 +68,7 @@ namespace MSFProperty.Admin
             }
             if (!Page.ClientScript.IsStartupScriptRegistered("reload"))
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "reload", "<script>clearIframe();</script>", false);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "reload", "<script>clearIframe(" + elementPageId + ");</script>", false);
             }
 
         }
