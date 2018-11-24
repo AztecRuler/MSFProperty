@@ -91,6 +91,7 @@
   <ItemGroup>
     <Content Include="accommodation.aspx" />
     <Content Include="Admin\Admin.aspx" />
+    <Content Include="Admin\EditImages.aspx" />
     <Content Include="Admin\EditPage.aspx" />
     <Content Include="Admin\PropertyPage.aspx" />
     <Content Include="blog.aspx" />
@@ -102,6 +103,7 @@
     <Content Include="about-us.aspx" />
     <Content Include="Icons\font-awesome.css" />
     <Content Include="Icons\ionicons.css" />
+    <Content Include="ajax-loader.gif" />
     <Content Include="Javascript\adminJavaScript.js" />
     <Content Include="services.aspx" />
     <Content Include="Web.config" />
@@ -127,6 +129,13 @@
     </Compile>
     <Compile Include="Admin\AdminMasterPage.Master.designer.cs">
       <DependentUpon>AdminMasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditImages.aspx.cs">
+      <DependentUpon>EditImages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditImages.aspx.designer.cs">
+      <DependentUpon>EditImages.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\EditPage.aspx.cs">
       <DependentUpon>EditPage.aspx</DependentUpon>

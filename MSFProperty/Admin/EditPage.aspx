@@ -32,7 +32,7 @@
             <div class="rightWrapper" id="AdminPanel">
                                     <span>Select where you want to get your new image from </span>
 
-                <asp:Panel runat="server" ID="ImageChangePanel">
+                <asp:Panel runat="server" ID="MainImageChangePanel">
 
                     <div class="accordion imageAccordion">Upload a new image</div>
                     <div class="panel">

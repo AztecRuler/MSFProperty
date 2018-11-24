@@ -10,7 +10,7 @@
 namespace MSFProperty.Admin {
     
     
-    public partial class EditPage {
+    public partial class EditImages {
         
         /// <summary>
         /// ScriptManagerProxy1 control.
@@ -22,15 +22,6 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.ScriptManagerProxy ScriptManagerProxy1;
         
         /// <summary>
-        /// rpData control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpData;
-        
-        /// <summary>
         /// UpdatePanel1 control.
         /// </summary>
         /// <remarks>
@@ -40,13 +31,13 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// MainImageChangePanel control.
+        /// mainImageChangePanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel MainImageChangePanel;
+        protected global::System.Web.UI.WebControls.Panel mainImageChangePanel;
         
         /// <summary>
         /// Label1 control.
@@ -103,31 +94,13 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.WebControls.TextBox imageNewName;
         
         /// <summary>
-        /// useUploadedFile control.
+        /// ImageSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel useUploadedFile;
-        
-        /// <summary>
-        /// Repeater1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Repeater1;
-        
-        /// <summary>
-        /// uploadedImageUrl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uploadedImageUrl;
+        protected global::System.Web.UI.WebControls.Button ImageSave;
         
         /// <summary>
         /// Label4 control.
@@ -202,94 +175,49 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.WebControls.TextBox ImagePageId;
         
         /// <summary>
-        /// ImageSave control.
+        /// deleteImages control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ImageSave;
+        protected global::System.Web.UI.WebControls.Panel deleteImages;
         
         /// <summary>
-        /// TextChangePanel control.
+        /// useUploadedFile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel TextChangePanel;
+        protected global::System.Web.UI.WebControls.Panel useUploadedFile;
         
         /// <summary>
-        /// pageName control.
+        /// ImageRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox pageName;
+        protected global::System.Web.UI.WebControls.Repeater ImageRepeater;
         
         /// <summary>
-        /// pageId control.
+        /// uploadedImageUrl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox pageId;
+        protected global::System.Web.UI.WebControls.TextBox uploadedImageUrl;
         
         /// <summary>
-        /// elementTextLabel control.
+        /// DeleteImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label elementTextLabel;
-        
-        /// <summary>
-        /// elementText control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox elementText;
-        
-        /// <summary>
-        /// elementNumber control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox elementNumber;
-        
-        /// <summary>
-        /// elementType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox elementType;
-        
-        /// <summary>
-        /// elemenetLink control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox elemenetLink;
-        
-        /// <summary>
-        /// textSave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button textSave;
+        protected global::System.Web.UI.WebControls.Button DeleteImage;
         
         /// <summary>
         /// UploadedTab control.
