@@ -10,7 +10,7 @@
 namespace MSFProperty {
     
     
-    public partial class blog {
+    public partial class Blog {
         
         /// <summary>
         /// form1 control.

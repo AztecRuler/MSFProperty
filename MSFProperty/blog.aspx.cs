@@ -3,7 +3,7 @@ using MSFProperty.Admin.EF;
 
 namespace MSFProperty
 {
-    public partial class blog : System.Web.UI.Page
+    public partial class Blog : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

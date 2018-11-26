@@ -11,7 +11,7 @@
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <Triggers>
             <asp:PostBackTrigger ControlID="ImageSave" />
-
+            <asp:AsyncPostBackTrigger ControlID="DeleteImage" />
         </Triggers>
         <ContentTemplate>
 
@@ -29,7 +29,7 @@
 
                                     </td>
                                     <td>
-                                        <asp:Image ID="imagePreview" runat="server" />
+                                        <asp:Image ID="imagePreview" class="editImagePreview" runat="server" />
                                     </td>
                                 </tr>
                                 <tr>

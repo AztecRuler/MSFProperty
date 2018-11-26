@@ -36,49 +36,37 @@ namespace MSFProperty.Admin
             ImageRepeater.DataBind(); 
         }
 
+        protected void Image_Delete(object sender, EventArgs e)
+        {
+
+            var test = Server.MapPath(uploadedImageUrl.Text); 
+            if ((File.Exists(test)))
+            {
+                File.Delete(test);
+            }
+            GetImagesFromFolder();
+        }
+
+
         protected void Image_Save_Click(object sender, EventArgs e)
         {
             string realPhysicalPath = "";
+            if(hdnfldVariable.Value != "")
             elementPageId = Convert.ToInt32(hdnfldVariable.Value);
 
-            if (IsImage(this.FileUpload1.FileContent) || uploadedImageUrl.Text != "")
+            if (IsImage(FileUpload1.FileContent))
             {
-                using (var db = new Model1())
-                {
-                    PageImage result = db.PageImages.SingleOrDefault(b => b.ImageID == ImageID.Text && b.PageId == elementPageId);
                     String Filename = "";
 
-                    if (this.FileUpload1.HasFile)
+                    if (FileUpload1.HasFile)
                     {
                         realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + this.FileUpload1.FileName);
-                        this.FileUpload1.SaveAs(realPhysicalPath);
-                        Filename = "MSF-" + this.FileUpload1.FileName;
-                    }
-                    else if (uploadedImageUrl.Text != "")
-                    {
-                        Filename = uploadedImageUrl.Text.Replace("../images/", String.Empty);
-                    }
-                    if (result != null)
-                    {
-
-                        result.ImageUrl = Filename;
-                        if (imageNewName.Text != "")
-                        {
-                            result.ImageName = imageNewName.Text;
-                        }
-                        else
-                        {
-                            result.ImageName = Filename;
-                        }
+                    FileUpload1.SaveAs(realPhysicalPath);
+                        Filename = "MSF-" + FileUpload1.FileName;
                     }
 
-                    db.SaveChanges();
-                }
                 GetImagesFromFolder();
-                if (!Page.ClientScript.IsStartupScriptRegistered("reload"))
-                {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "reload", "<script>clearIframe();</script>", false);
-                }
+
             }
         }
 

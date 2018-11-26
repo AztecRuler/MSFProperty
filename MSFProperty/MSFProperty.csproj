@@ -48,6 +48,10 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FreeTextBox, Version=3.3.1.12354, Culture=neutral, PublicKeyToken=5962a4e684a48b87, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\FreeTextBox.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -91,10 +95,11 @@
   <ItemGroup>
     <Content Include="accommodation.aspx" />
     <Content Include="Admin\Admin.aspx" />
+    <Content Include="Admin\AdminBlog.aspx" />
     <Content Include="Admin\EditImages.aspx" />
     <Content Include="Admin\EditPage.aspx" />
     <Content Include="Admin\PropertyPage.aspx" />
-    <Content Include="blog.aspx" />
+    <Content Include="Blog.aspx" />
     <Content Include="contact-us.aspx" />
     <Content Include="CSS\Design1Css.css" />
     <Content Include="CSS\AdminStyleSheet1.css" />
@@ -130,6 +135,13 @@
     <Compile Include="Admin\AdminMasterPage.Master.designer.cs">
       <DependentUpon>AdminMasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AdminBlog.aspx.cs">
+      <DependentUpon>AdminBlog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminBlog.aspx.designer.cs">
+      <DependentUpon>AdminBlog.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\EditImages.aspx.cs">
       <DependentUpon>EditImages.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -155,12 +167,12 @@
     <Compile Include="Admin\PropertyPage.aspx.designer.cs">
       <DependentUpon>PropertyPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="blog.aspx.cs">
-      <DependentUpon>blog.aspx</DependentUpon>
+    <Compile Include="Blog.aspx.cs">
+      <DependentUpon>Blog.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="blog.aspx.designer.cs">
-      <DependentUpon>blog.aspx</DependentUpon>
+    <Compile Include="Blog.aspx.designer.cs">
+      <DependentUpon>Blog.aspx</DependentUpon>
     </Compile>
     <Compile Include="contact-us.aspx.cs">
       <DependentUpon>contact-us.aspx</DependentUpon>
@@ -232,6 +244,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

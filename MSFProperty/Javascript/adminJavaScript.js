@@ -1,51 +1,66 @@
-﻿$(document).ready(function () {
-    var oldPanel; 
-
-    $(".imageButtonUpload").click(function (index) {
-        $('#uploadedImageUrl').val($(this).attr('src'));
-        event.preventDefault();
-        $("#imagePreview").css("background-image", "url(" + $('#uploadedImageUrl').val() + ")");
-          });
-
-    $('iframe').load(function () {
-        $('iframe').contents().find("head")
-            .append($("<style type='text/css'>  #footer,#wpg-bar{display:none;} .editable{ box-shadow: none;} .editable:hover {box-shadow: 0 0 25px red;  inset 0 0 10px white;}  div[class*='bgimg'] {width: 99%; margin: auto;}</style>"));
-        var allTextElements = $(this).contents().find(".editable").not('div[class*="bgimg"]');
-        var allImageElements = $(this).contents().find('div[class*="bgimg"]');
+﻿function pageLoad() {
+    $(document).ready(function () {
+        var oldPanel;
 
 
-        $(this).contents().find(".editable").on('click', function (event) {
-
-            $('#ImageChangePanel, #TextChangePanel').css({ 'display': 'none' });
-            if (this.tagName === "A") {
-                event.preventDefault();
-                event.stopPropagation();
-            }
-            $('#AdminPanel').css({ 'display': 'block' });
-            var editableElement = $(this).get(0);
-            highlighElement(event, editableElement);
-
-            if ($.inArray(this, allTextElements) > -1) {
-                loadTextAdminPanel(allTextElements, editableElement);
-            }
-            else {
-                loadImageAdminPanel(allImageElements, editableElement);
-
-            }
+        $(".imageButtonUpload").on('click', function (event) {
+            event.stopPropagation();
+            event.stopImmediatePropagation();
+            event.preventDefault();
+            $('#uploadedImageUrl').val($(this).attr('src'));
+            $("#imagePreview").css("background-image", "url(" + $('#uploadedImageUrl').val() + ")");
 
         });
+
+        $('iframe').load(function () {
+            $('iframe').contents().find("head")
+                .append($("<style type='text/css'>  #footer,#wpg-bar{display:none;} .editable{ box-shadow: none;} .editable:hover {box-shadow: 0 0 25px red;  inset 0 0 10px white;}  div[class*='bgimg'] {width: 99%; margin: auto;}</style>"));
+            var allTextElements = $(this).contents().find(".editable").not('div[class*="bgimg"]');
+            var allImageElements = $(this).contents().find('div[class*="bgimg"]');
+
+
+            $(this).contents().find(".editable").on('click', function (event) {
+
+                $('#ImageChangePanel, #TextChangePanel').css({ 'display': 'none' });
+                if (this.tagName === "A") {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                $('#AdminPanel').css({ 'display': 'block' });
+                var editableElement = $(this).get(0);
+                highlighElement(event, editableElement);
+
+                if ($.inArray(this, allTextElements) > -1) {
+                    loadTextAdminPanel(allTextElements, editableElement);
+                }
+                else {
+                    loadImageAdminPanel(allImageElements, editableElement);
+
+                }
+
+            });
+        });
+
+        setAccordians();
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imagePreview').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#FileUpload1").change(function () {
+            readURL(this);
+
+        });
+
     });
-
-    //$("#FileUpload1").change(function () {
-    //    var newImage = "../Images/" + document.getElementById("FileUpload1").files[0].name;;
-    //    $("#imagePreview").css("background-image", "url(" + newImage + ")");
-
-    //});
-
-
-    setAccordians();
-
-});
+};
 
 function highlighElement(event, element) {
 

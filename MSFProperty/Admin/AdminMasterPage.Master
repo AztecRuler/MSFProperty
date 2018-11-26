@@ -38,7 +38,7 @@
                                 <a href="PropertyPage.aspx">Edit Properties</a>
                             </li>
                             <li>
-                                <a href="#">Edit Images</a>
+                                <a href="EditImages.aspx">Edit Images</a>
                             </li>
                             <li>
                                 <a href="#">Analytics</a>

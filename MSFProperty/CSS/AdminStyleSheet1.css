@@ -47,8 +47,8 @@
 }
 
 #imagePreview {
-    width: 69%;
-    height: 125px;
+    width: 200px;
+    height: 200px;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -247,3 +247,4 @@ body {
 .active {
     background-color: #84862d;
 }
+
