@@ -1,9 +1,9 @@
-﻿using System;
-using MSFProperty.Admin.EF;
+﻿using MSFProperty.Admin.EF;
+using System;
 
 namespace MSFProperty
 {
-    public partial class Blog : System.Web.UI.Page
+    public partial class BlogMainPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MSFMaster.Master" CodeFile="blog.aspx.cs" Inherits="MSFProperty.Blog" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MSFMaster.Master" AutoEventWireup="true" CodeBehind="BlogMainPage.aspx.cs" Inherits="MSFProperty.BlogMainPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Blog</title>
     <link href="CSS/Design1Css.css" rel="stylesheet" />

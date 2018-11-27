@@ -12,12 +12,25 @@ namespace MSFProperty.Admin.EF
         {
         }
 
+        public virtual DbSet<Blog> Blogs { get; set; }
         public virtual DbSet<PageImage> PageImages { get; set; }
         public virtual DbSet<Page> Pages { get; set; }
         public virtual DbSet<TextContent> TextContents { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Blog>()
+                .Property(e => e.Name)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Blog>()
+                .Property(e => e.Title)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Blog>()
+                .Property(e => e.Contents)
+                .IsUnicode(false);
+
             modelBuilder.Entity<PageImage>()
                 .Property(e => e.ImageID)
                 .IsFixedLength();

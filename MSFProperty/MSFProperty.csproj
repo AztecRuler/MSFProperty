@@ -95,11 +95,11 @@
   <ItemGroup>
     <Content Include="accommodation.aspx" />
     <Content Include="Admin\Admin.aspx" />
-    <Content Include="Admin\AdminBlog.aspx" />
+    <Content Include="Admin\AdminBlogPage.aspx" />
     <Content Include="Admin\EditImages.aspx" />
     <Content Include="Admin\EditPage.aspx" />
     <Content Include="Admin\PropertyPage.aspx" />
-    <Content Include="Blog.aspx" />
+    <Content Include="BlogMainPage.aspx" />
     <Content Include="contact-us.aspx" />
     <Content Include="CSS\Design1Css.css" />
     <Content Include="CSS\AdminStyleSheet1.css" />
@@ -128,19 +128,19 @@
     <Compile Include="Admin\Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AdminBlogPage.aspx.cs">
+      <DependentUpon>AdminBlogPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminBlogPage.aspx.designer.cs">
+      <DependentUpon>AdminBlogPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AdminMasterPage.Master.cs">
       <DependentUpon>AdminMasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\AdminMasterPage.Master.designer.cs">
       <DependentUpon>AdminMasterPage.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\AdminBlog.aspx.cs">
-      <DependentUpon>AdminBlog.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\AdminBlog.aspx.designer.cs">
-      <DependentUpon>AdminBlog.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\EditImages.aspx.cs">
       <DependentUpon>EditImages.aspx</DependentUpon>
@@ -156,6 +156,7 @@
     <Compile Include="Admin\EditPage.aspx.designer.cs">
       <DependentUpon>EditPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EF\Blog.cs" />
     <Compile Include="Admin\EF\Model1.cs" />
     <Compile Include="Admin\EF\Page.cs" />
     <Compile Include="Admin\EF\PageImage.cs" />
@@ -167,12 +168,12 @@
     <Compile Include="Admin\PropertyPage.aspx.designer.cs">
       <DependentUpon>PropertyPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Blog.aspx.cs">
-      <DependentUpon>Blog.aspx</DependentUpon>
+    <Compile Include="BlogMainPage.aspx.cs">
+      <DependentUpon>BlogMainPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Blog.aspx.designer.cs">
-      <DependentUpon>Blog.aspx</DependentUpon>
+    <Compile Include="BlogMainPage.aspx.designer.cs">
+      <DependentUpon>BlogMainPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="contact-us.aspx.cs">
       <DependentUpon>contact-us.aspx</DependentUpon>
