@@ -23,5 +23,8 @@ namespace MSFProperty.Admin.EF
 
         [Column(TypeName = "text")]
         public string Contents { get; set; }
+
+        [StringLength(2083)]
+        public string ImageUrl { get; set; }
     }
 }

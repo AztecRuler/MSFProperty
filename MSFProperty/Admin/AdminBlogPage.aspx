@@ -40,6 +40,17 @@
                                 <asp:TextBox runat="server" ID="blogTitle"></asp:TextBox>
                             </td>
                         </tr>
+                         <tr>
+                            <td>
+                                <asp:Label runat="server">chose an image for the blog</asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:FileUpload runat="server" ID="blogImage"></asp:FileUpload>
+                            </td>
+                        </tr>
+
                             <tr>
                             <td>
                                 <asp:Label runat="server">Enter the blog contents into the box and press save to save the blog</asp:Label>

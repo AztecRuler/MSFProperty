@@ -31,6 +31,10 @@ namespace MSFProperty.Admin.EF
                 .Property(e => e.Contents)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<Blog>()
+                .Property(e => e.ImageUrl)
+                .IsUnicode(false);
+
             modelBuilder.Entity<PageImage>()
                 .Property(e => e.ImageID)
                 .IsFixedLength();

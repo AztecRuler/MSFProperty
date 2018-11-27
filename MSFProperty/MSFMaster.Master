@@ -29,7 +29,7 @@
                             <li id="menu-item-18" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="services.aspx">Services</a></li>
                             <li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="accommodation.aspx">Propertiess</a></li>
                             <li id="menu-item-27" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="about-us.aspx">About us</a></li>
-                            <li id="menu-item-16" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="blog.aspx">Journal</a></li>
+                            <li id="menu-item-16" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="BlogMainPage.aspx">Journal</a></li>
                             <li id="menu-item-15" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="contact-us.aspx">Contact Us</a></li>
                         </ul>
                     </div>
@@ -45,7 +45,7 @@
             <asp:ContentPlaceHolder ID="footerMaster" runat="server">
 
 
-                <div id="footer" class="footer">
+<%--                <div id="footer" class="footer">
                     <div id="footerDIV_1">
                         <div id="footerDIV_2">
                             <div id="footerDIV_3">
@@ -110,7 +110,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--%>
             </asp:ContentPlaceHolder>
 
         </div>
