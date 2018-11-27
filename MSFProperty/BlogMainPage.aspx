@@ -35,6 +35,7 @@
                 <span style="text-align: center; margin: 0 auto;" class="top_front_div">
                     <asp:Repeater ID="BlogRepeaterItems" runat="server">
                         <ItemTemplate>
+                            <a href="BlogPageView.aspx?id=<%# Eval("ID") %> ">
                             <div class="blogCard">
                                 <h2><%# Eval("Title") %></h2>
                                 <h5><%# Eval("Name") %> <%# Eval("Date") %></h5>
@@ -42,7 +43,7 @@
                               <%# Eval("Contents") %>
 
                             </div>
-
+                                </a>
                         </ItemTemplate>
                     </asp:Repeater>
                 </span>

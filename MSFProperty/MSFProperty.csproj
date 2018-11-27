@@ -100,6 +100,7 @@
     <Content Include="Admin\EditPage.aspx" />
     <Content Include="Admin\PropertyPage.aspx" />
     <Content Include="BlogMainPage.aspx" />
+    <Content Include="BlogPageView.aspx" />
     <Content Include="contact-us.aspx" />
     <Content Include="CSS\Design1Css.css" />
     <Content Include="CSS\AdminStyleSheet1.css" />
@@ -174,6 +175,13 @@
     </Compile>
     <Compile Include="BlogMainPage.aspx.designer.cs">
       <DependentUpon>BlogMainPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BlogPageView.aspx.cs">
+      <DependentUpon>BlogPageView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BlogPageView.aspx.designer.cs">
+      <DependentUpon>BlogPageView.aspx</DependentUpon>
     </Compile>
     <Compile Include="contact-us.aspx.cs">
       <DependentUpon>contact-us.aspx</DependentUpon>
