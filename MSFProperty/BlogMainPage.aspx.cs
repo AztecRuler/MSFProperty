@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace MSFProperty
 {
@@ -23,6 +24,40 @@ namespace MSFProperty
 
             }
         }
+
+        public string getContents(int id)
+        {
+           using (var db = new Model1())
+            {
+                foreach (var item in db.Blogs)
+                {
+                    if (item.ID == id)
+                        return  Regex.Replace(item.Contents, "<.*?>", string.Empty);
+
+                }
+            }
+
+            return "";
+        }
+
+
+        public string getPopularBlogs(int id)
+        {
+            using (var db = new Model1())
+            {
+                foreach (var item in db.Blogs)
+                {
+                    if (item.ID == id)
+                    {
+                        if(item.Popular == true)
+                       return "";
+                    }
+                }
+            }
+
+            return  "hidden";
+        }
+
 
         public string GetText(int id)
         {

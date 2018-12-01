@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminMasterPage.Master" AutoEventWireup="true" CodeBehind="AdminBlogPage.aspx.cs" Inherits="MSFProperty.Admin.AdminBlogPage" ValidateRequest="false"  %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminMasterPage.Master" AutoEventWireup="true" CodeBehind="AdminBlogPage.aspx.cs" Inherits="MSFProperty.Admin.AdminBlogPage" ValidateRequest="false" %>
+
 <%@ Register TagPrefix="FTB" Namespace="FreeTextBoxControls" Assembly="FreeTextBox" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -8,6 +9,10 @@
         </Scripts>
     </asp:ScriptManagerProxy>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+             <Triggers>
+            <asp:PostBackTrigger ControlID="SaveButton" />
+
+        </Triggers>
         <ContentTemplate>
             <div class="tab">
                 <button class="tablinks active" onclick="OpenBlogTab(event, 'createBlog')">Create A New Blog</button>
@@ -20,7 +25,7 @@
                     <table>
                         <tr>
                             <td>
-                                <asp:Label runat="server">Enter the Name of the blog here or it will be called blog and whatever number blogs are up to</asp:Label>
+                                <asp:Label runat="server">Enter the Name of the blog here </asp:Label>
                             </td>
                         </tr>
                         <tr>
@@ -32,7 +37,7 @@
 
                         <tr>
                             <td>
-                                <asp:Label runat="server">Enter the title of the blog here or it will be called blog-title and whatever number blogs are up to</asp:Label>
+                                <asp:Label runat="server">Enter the title of the blog here </asp:Label>
                             </td>
                         </tr>
                         <tr>
@@ -40,7 +45,7 @@
                                 <asp:TextBox runat="server" ID="blogTitle"></asp:TextBox>
                             </td>
                         </tr>
-                         <tr>
+                        <tr>
                             <td>
                                 <asp:Label runat="server">chose an image for the blog</asp:Label>
                             </td>
@@ -50,8 +55,18 @@
                                 <asp:FileUpload runat="server" ID="blogImage"></asp:FileUpload>
                             </td>
                         </tr>
-
                             <tr>
+                            <td>
+                                <asp:Label runat="server">Is this a popular blog ? check yes empty no</asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                               <asp:CheckBox ID="popularCheck" runat="server" />
+                            </td>
+                        </tr>
+
+                        <tr>
                             <td>
                                 <asp:Label runat="server">Enter the blog contents into the box and press save to save the blog</asp:Label>
                             </td>
@@ -68,7 +83,7 @@
                         </tr>
                         <tr>
                             <td>
-                               <asp:Label runat="server" ID="errorText" Visible="false"></asp:Label>
+                                <asp:Label runat="server" ID="errorText" Visible="false"></asp:Label>
                             </td>
                         </tr>
                     </table>

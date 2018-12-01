@@ -31,22 +31,24 @@
 
         <div class="blogRow">
             <div class="blogLeftcolumn">
+                <asp:Repeater ID="BlogRepeaterItems" runat="server">
 
-                <span style="text-align: center; margin: 0 auto;" class="top_front_div">
-                    <asp:Repeater ID="BlogRepeaterItems" runat="server">
-                        <ItemTemplate>
-                            <a href="BlogPageView.aspx?id=<%# Eval("ID") %> ">
+                    <ItemTemplate>
+                        <a href="BlogPageView.aspx?id=<%# Eval("ID") %>">
                             <div class="blogCard">
-                                <h2><%# Eval("Title") %></h2>
-                                <h5><%# Eval("Name") %> <%# Eval("Date") %></h5>
-                                <div class="blogImg" style="height: 200px;"><image src="../Images/<%# Eval("ImageUrl") %>"></image> </div>
-                              <%# Eval("Contents") %>
+                                <h1 class="blogTitle"><%# Eval("Title") %></h1>
+                                <span class="BlogNameAndDate"><%# Eval("Name") %> <%# Eval("Date") %></span>
+                                <div class="blogImg">
+                                    <image src="../Images/<%# Eval("ImageUrl") %>"></image>
+                                </div>
+                                <div class="smallBlogBlurb">
+                                    <%# getContents(Convert.ToInt32(Eval("ID"))) %>
+                                </div>
 
                             </div>
-                                </a>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                </span>
+                        </a>
+                    </ItemTemplate>
+                </asp:Repeater>
             </div>
 
             <div class="blogRightcolumn">
@@ -54,8 +56,10 @@
                     <h3>Popular Post</h3>
                     <asp:Repeater ID="BlogRepeaterPopular" runat="server">
                         <ItemTemplate>
-                            <div class="blogImg" ><image src="../Images/<%# Eval("ImageUrl") %>"></image></div>
-                            <br>
+                            <div class='popularBlogposts  <%# getPopularBlogs(Convert.ToInt32(Eval("ID"))) %>'><a href="BlogPageView.aspx?id=<%# Eval("ID") %> ">
+                                <h2 class='blogTitle'><%# Eval("Title") %></h2>
+                            </a></div>
+                           
                         </ItemTemplate>
                     </asp:Repeater>
                 </div>

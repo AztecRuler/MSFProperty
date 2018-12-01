@@ -85,14 +85,13 @@ h3 {
         font-weight: 700;
         letter-spacing: 1px;
         margin-bottom: 21px;
+        text-align: center;
     }
 
     .foregroundDiv span {
-        font-size: 16px;
-        font-size: 1.6rem;
+        font-size: 12px;
         line-height: 180%;
         color: #6c6f70;
-        margin-bottom: 24px;
     }
 
 .foregroundDiv_dark {
@@ -3704,7 +3703,10 @@ div#footerDIV_1 li {
 .blogRightcolumn {
     float: left;
     width: 25%;
-    padding-left: 20px;
+    padding: 20px;
+    height: 885px;
+    background: #f2f2f2;
+    margin: 14px 0;
 }
 
 .blogImg {
@@ -3713,9 +3715,13 @@ div#footerDIV_1 li {
 }
 
 .blogCard {
-    background-color: white;
-    padding: 20px;
-    margin-top: 20px;
+    background-color: #f2f2f2;
+    padding: 17px 50px;
+    float: left;
+    margin: 14px 14px;
+    height: 442px;
+    width: 569px;
+    text-align: center;
 }
 
 .row:after {
@@ -3724,6 +3730,31 @@ div#footerDIV_1 li {
     clear: both;
 }
 
+.smallBlogBlurb {
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: auto;
+    height: 30px;
+    font-size: 25px;
+}
+
+.popularBlogposts {
+    text-align: center;
+    padding: 5px;
+    border: lightgrey 1px solid;
+    margin-bottom: 14px;
+}
+
+.blogImg img {
+    width: 100%;
+    height: 243px;
+}
+.hidden{
+    display: none; 
+
+}
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {

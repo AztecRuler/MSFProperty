@@ -58,6 +58,15 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.WebControls.FileUpload blogImage;
         
         /// <summary>
+        /// popularCheck control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox popularCheck;
+        
+        /// <summary>
         /// FreeTextBox1 control.
         /// </summary>
         /// <remarks>

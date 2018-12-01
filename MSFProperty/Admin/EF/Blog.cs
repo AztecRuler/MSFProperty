@@ -26,5 +26,7 @@ namespace MSFProperty.Admin.EF
 
         [StringLength(2083)]
         public string ImageUrl { get; set; }
+
+        public bool? Popular { get; set; }
     }
 }
