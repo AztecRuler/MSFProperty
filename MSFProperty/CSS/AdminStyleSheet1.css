@@ -293,6 +293,68 @@ body {
     width: 50%;
 }
 
+.hidden {
+    display: none;
+}
+
+.blogEditPanel tr {
+    border: 1px solid lightgrey;
+    background: aliceblue;
+}
+
+.blogEditPanel table {
+    border-collapse: collapse;
+}
+
+.blogImg {
+    width: 100%;
+    padding: 20px;
+}
+
+.blogCard {
+    background-color: #f2f2f2;
+    padding: 17px 50px;
+    float: left;
+    margin: 14px 14px;
+    height: 442px;
+    width: 569px;
+    text-align: center;
+}
+#textBoxPrevious {
+    width: 60%;
+    margin: 14px;
+    height: 300px;
+    overflow: auto;
+    background: white;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.smallBlogBlurb {
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: auto;
+    height: 30px;
+    font-size: 25px;
+}
+
+.popularBlogposts {
+    text-align: center;
+    padding: 5px;
+    border: lightgrey 1px solid;
+    margin-bottom: 14px;
+}
+
+.blogImg img {
+    width: 100%;
+    height: 243px;
+}
 /* Fade in tabs */
 @-webkit-keyframes fadeEffect {
     from {
