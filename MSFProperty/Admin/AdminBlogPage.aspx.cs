@@ -14,12 +14,7 @@ namespace MSFProperty.Admin
     {
         protected void Page_Load(Object Src, EventArgs E)
         {
-
-            if (!Page.IsPostBack)
-            {
-                setUpEditBlog(); 
-       
-                List<string> pageList = new List<string>();
+            List<string> pageList = new List<string>();
                 using (var db = new Model1())
                 {
                     EditBlogRepeaterItems.DataSource = db.Blogs.ToList();
@@ -27,7 +22,6 @@ namespace MSFProperty.Admin
                     EditBlogRepeaterItems.DataBind();
                 }
 
-            }
         }
 
         public string getContents(int id)
@@ -44,23 +38,6 @@ namespace MSFProperty.Admin
 
             return "";
         }
-
-        private void setUpEditBlog()
-        {
-
-        //     blogEditTextBox1.Text = 
-        //    "editButton" +
-        //        "blogEditTextBox2" +
-        //        "Button2" class="editButton" 
-        //blogEditFileUpload1
-        //    Button3" class="editButton" 
-        //    blogEditCheckBox1
-        //    Button4" class="editButton" 
-        //    blogEditFreeTextBox2
-        //    Button5" class="editButton"
-        //    "SaveEditBlog" 
-        }
-
 
         
         protected void EditBlogSaveButton_Click(object sender, EventArgs e)
@@ -131,6 +108,7 @@ namespace MSFProperty.Admin
                 errorText.Text = "Please fill in all values";
             }
 
+            UpdatePanel3.Update();
         }
 
 

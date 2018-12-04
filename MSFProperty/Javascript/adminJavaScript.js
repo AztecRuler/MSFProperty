@@ -4,6 +4,10 @@
 
         setBlogEditClick();
      
+        var prm = Sys.WebForms.PageRequestManager.getInstance();
+        prm.add_endRequest(function (s, e) {
+            FixTabs();
+        });
 
         $(".imageButtonUpload").on('click', function (event) {
             event.stopPropagation();
@@ -64,6 +68,23 @@
 
     });
 };
+
+function FixTabs() {
+    var tabIndex = document.getElementById('<%=hdnTab.ClientID%>').value;
+    var t1 = document.getElementById("createNewBlog");
+    var t2 = document.getElementById("editBlog");
+    var t3 = document.getElementById("organizeBlog");
+
+    t1.setAttribute('class', '');
+    t2.setAttribute('class', '');
+    t3.setAttribute('class', '');
+    if (tabIndex === "1")
+        t1.setAttribute('class', 'active');
+    else if (tabIndex === "2")
+        t2.setAttribute('class', 'active');
+    else if (tabIndex === "3")
+        t3.setAttribute('class', 'active');
+}
 
 function setBlogEditClick() {
 
@@ -247,7 +268,7 @@ function closeRelatedAccordians(Aval) {
 
 //tabs 
 
-function OpenBlogTab(evt, tabName) {
+function OpenBlogTab(evt, tabName, tabId) {
     evt.preventDefault();
     evt.stopPropagation();
     if (!$(".blogEditPanel").hasClass("hidden")) {
@@ -265,4 +286,5 @@ function OpenBlogTab(evt, tabName) {
     }
     document.getElementById(tabName).style.display = "table";
     evt.currentTarget.className += " active";
+    document.getElementById('<%=hdnTab.ClientID %>').value = tabId;
 }
