@@ -8,14 +8,17 @@
         prm.add_endRequest(function (s, e) {
             FixTabs();
         });
-
+        $(function () {
+            $("#datepicker2").datepicker();
+            $("#datepicker1").datepicker();
+        });
         $(".imageButtonUpload").on('click', function (event) {
             event.stopPropagation();
             event.stopImmediatePropagation();
             event.preventDefault();
             $('#uploadedImageUrl').val($(this).attr('src'));
             $("#imagePreview").css("background-image", "url(" + $('#uploadedImageUrl').val() + ")");
-
+        
         });
 
         $('iframe').load(function () {

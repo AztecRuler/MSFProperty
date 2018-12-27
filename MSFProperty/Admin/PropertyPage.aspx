@@ -1,7 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminMasterPage.Master" AutoEventWireup="true" CodeBehind="PropertyPage.aspx.cs" Inherits="MSFProperty.Admin.PropertyPage" %>
+<%@ Register TagPrefix="FTB" Namespace="FreeTextBoxControls" Assembly="FreeTextBox" %>
+
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+        <asp:ScriptManagerProxy ID="ScriptManagerProxy1" runat="server">
+        <Scripts>
+            <asp:ScriptReference Path="../Javascript/adminJavaScript.js"></asp:ScriptReference>
+        </Scripts>
+    </asp:ScriptManagerProxy>
     <asp:Panel ID="Panel1" runat="server" GroupingText="Blog">
         <div class="tab">
             <button class="tablinks active" id="createNewBlog" onclick="OpenBlogTab(event, 'createBlog', 1)">Create A New Property Listing</button>
@@ -133,11 +139,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <!-- A DatePicker that has March 23, 2009 selected and 
-           displays the Long date format. -->
-                                    <datepicker selecteddateformat="Long" selecteddate="3/23/09"
-                                        displaydatestart="1/01/09" displaydateend="12/31/09"
-                                        firstdayofweek="Monday" />
+                                <p>Date: <input type="text" id="datepicker1"></p>
                                 </td>
 
                             </tr>
@@ -148,11 +150,7 @@
                             </tr>
                             <tr>
                                 <td>
-      <!-- A DatePicker that has March 23, 2009 selected and 
-           displays the Long date format. -->
-                                    <datepicker selecteddateformat="Long" selecteddate="3/23/09"
-                                        displaydatestart="1/01/09" displaydateend="12/31/09"
-                                        firstdayofweek="Monday" />
+                       <p>Date: <input type="text" id="datepicker2"></p>
 
                                 </td>
 
@@ -186,28 +184,59 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:Label runat="server">Door number</asp:Label>
-                                    <asp:TextBox runat="server" ID="PropertyHouseNumber"></asp:TextBox>
-                                       
-                                    <asp:Label runat="server">Street</asp:Label>
-                                    <asp:TextBox runat="server" ID="PropertyStreet"></asp:TextBox>
-                                        
-                                    <asp:Label runat="server">Street2</asp:Label>
-                                    <asp:TextBox runat="server" ID="PropertyStreet2"></asp:TextBox>
-                                        
-                                    <asp:Label runat="server">County</asp:Label>
-                                    <asp:TextBox runat="server" ID="PropertyCounty"></asp:TextBox>
-                                    
-                                    <asp:Label runat="server">Country</asp:Label>
-                                    <asp:TextBox runat="server" ID="PropertyCountry"></asp:TextBox>
-
-                                       <asp:Label runat="server">PostCode</asp:Label>
-                                    <asp:TextBox runat="server" ID="PropertyPostCode"></asp:TextBox>
+                                    <table id="streetTable">
+                                         <tr>
+                                             <td>
+                                                 <asp:Label runat="server">Number</asp:Label>
+                                                 <asp:TextBox runat="server" ID="PropertyHouseNumber"></asp:TextBox>
+                                             </td>
+                                         </tr>
+                                         <tr>
+                                             <td>
+                                                 <asp:Label runat="server">Street</asp:Label>
+                                                 <asp:TextBox runat="server" ID="PropertyStreet"></asp:TextBox>
+                                             </td>
+                                         </tr>
+                                         <tr>
+                                             <td>
+                                                 <asp:Label runat="server">Street2</asp:Label>
+                                                 <asp:TextBox runat="server" ID="PropertyStreet2"></asp:TextBox>
+                                             </td>
+                                         </tr>
+                                         <tr>
+                                             <td>
+                                                 <asp:Label runat="server">County</asp:Label>
+                                                 <asp:TextBox runat="server" ID="PropertyCounty"></asp:TextBox>
+                                             </td>
+                                         </tr>
+                                         <tr>
+                                             <td>
+                                                 <asp:Label runat="server">Country</asp:Label>
+                                                 <asp:TextBox runat="server" ID="PropertyCountry"></asp:TextBox>
+                                             </td>
+                                         </tr>
+                                         <tr>
+                                             <td>
+                                                 <asp:Label runat="server">PostCode</asp:Label>
+                                                 <asp:TextBox runat="server" ID="PropertyPostCode"></asp:TextBox>
+                                             </td>
+                                         </tr>
+                                     </table>
                                 </td>
 
                             </tr>
 
+                              <tr>
+                                <td>
+                                    <asp:Label runat="server">upload the property images here </asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:FileUpload ID="FileUpload1" runat="server" AllowMultiple="true" />
+                                </td>
 
+                            </tr>
 
                             <tr>
                                 <td>
@@ -221,7 +250,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:Button ID="SaveButton" runat="server" Text="Save" OnClick="SaveButton_Click1" />
+                                    <asp:Button ID="SaveButton" runat="server" Text="Save" OnClick="SaveNewProperty()" />
                                 </td>
                             </tr>
                             <tr>
@@ -235,7 +264,7 @@
             </asp:UpdatePanel>
         </div>
 
-        <div id="existingBlog" class="tabcontent">
+<%--        <div id="existingBlog" class="tabcontent">
             <asp:UpdatePanel ID="UpdatePanel3" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                 <Triggers>
                     <asp:PostBackTrigger ControlID="SaveEditBlog" />
@@ -380,26 +409,8 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
 
-        </div>
+        </div>--%>
     </asp:Panel>
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-Area
-
-images
 
 </asp:Content>
 

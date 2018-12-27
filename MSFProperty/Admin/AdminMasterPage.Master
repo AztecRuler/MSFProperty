@@ -9,6 +9,8 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="../CSS/AdminStyleSheet1.css" rel="stylesheet" type="text/css" runat="server" />
+        <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
+
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -16,7 +18,10 @@
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="true" EnableScriptGlobalization="true">
             <Scripts>
-                <asp:ScriptReference Path="https://code.jquery.com/jquery-1.12.4.js"></asp:ScriptReference>
+                <asp:ScriptReference Path="https://code.jquery.com/jquery-2.2.4.min.js"></asp:ScriptReference>
+
+                <asp:ScriptReference Path="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></asp:ScriptReference>
+
             </Scripts>
         </asp:ScriptManager>
         <div>
@@ -60,7 +65,7 @@
                         <li><a href="#contact">Contact</a></li>
                         <li style="float: right"><a href="#about">About</a></li>
                     </ul>
-                                        <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+                    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
 
                     <div id="page-content-wrapper">
                         <div class="container-fluid">

@@ -110,6 +110,7 @@
     <Content Include="Icons\font-awesome.css" />
     <Content Include="Icons\ionicons.css" />
     <Content Include="ajax-loader.gif" />
+    <Content Include="Images\calender.png" />
     <Content Include="Javascript\adminJavaScript.js" />
     <Content Include="services.aspx" />
     <Content Include="Web.config" />
@@ -241,7 +242,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="WinHttp">
