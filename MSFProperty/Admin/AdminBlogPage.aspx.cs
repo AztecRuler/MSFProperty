@@ -14,16 +14,24 @@ namespace MSFProperty.Admin
     {
         protected void Page_Load(Object Src, EventArgs E)
         {
-            List<string> pageList = new List<string>();
-                using (var db = new Model1())
-                {
-                    EditBlogRepeaterItems.DataSource = db.Blogs.ToList();
-
-                    EditBlogRepeaterItems.DataBind();
-                }
-
+            if (!IsPostBack)
+            {
+                fillRepeaterData();
+            }
         }
 
+        private void fillRepeaterData()
+        {
+            List<string> pageList = new List<string>();
+            using (var db = new Model1())
+            {
+                EditBlogRepeaterItems.DataSource = db.Blogs.ToList();
+                Repeater1.DataSource = db.Blogs.ToList();
+                EditBlogRepeaterItems.DataBind();
+                Repeater1.DataBind();
+            }
+
+        }
         public string getContents(int id)
         {
             using (var db = new Model1())
@@ -39,16 +47,28 @@ namespace MSFProperty.Admin
             return "";
         }
 
-        
+       protected void EditBlogDeleteButton_Click(object sender, EventArgs e)
+        {
+            using (var db = new Model1())
+            {
+                int blogEditId = 0;
+                Int32.TryParse(delteHiddenField1.Value, out blogEditId);
+
+                Blog result = db.Blogs.SingleOrDefault(b => b.ID == blogEditId);
+                if (result != null)
+                {
+                    db.Blogs.Remove(result);
+                    db.SaveChanges();
+                    fillRepeaterData();
+                }
+            }
+
+        }
         protected void EditBlogSaveButton_Click(object sender, EventArgs e)
         {
             var Output = blogEditFreeTextBox2.Text;
             var todaysDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
-
-
             string realPhysicalPath = "";
-
-
 
             if (EditValidation(Output))
             {
@@ -98,6 +118,7 @@ namespace MSFProperty.Admin
                     result.Popular = popular;
 
                     db.SaveChanges();
+                    fillRepeaterData();
 
                 }
             }
@@ -110,8 +131,6 @@ namespace MSFProperty.Admin
 
             UpdatePanel3.Update();
         }
-
-
         protected void SaveButton_Click1(object sender, EventArgs e)
         {
             var Output = FreeTextBox1.Text;
@@ -168,8 +187,7 @@ namespace MSFProperty.Admin
             }
 
        }
-
-            private bool IsImage(Stream stream)
+        private bool IsImage(Stream stream)
             {
                 stream.Seek(0, SeekOrigin.Begin);
 
@@ -195,9 +213,7 @@ namespace MSFProperty.Admin
 
                 return false;
             }
-
-
-            private bool Validation(string output)
+        private bool Validation(string output)
         {
           return ( output != null && blogTitle.Text != "" && blogName.Text != "");
           

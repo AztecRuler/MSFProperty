@@ -311,7 +311,7 @@ body {
     padding: 20px;
 }
 
-.blogCard {
+.blogCard, .blogCardDelete {
     background-color: #f2f2f2;
     padding: 17px 50px;
     float: left;

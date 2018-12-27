@@ -8,13 +8,13 @@
             <asp:ScriptReference Path="../Javascript/adminJavaScript.js"></asp:ScriptReference>
         </Scripts>
     </asp:ScriptManagerProxy>
-        <asp:UpdatePanel ID="UpdatePanel1" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
+<%--        <asp:UpdatePanel ID="UpdatePanel1" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
         <Triggers>
             <asp:PostBackTrigger ControlID="SaveButton" />
                     <asp:PostBackTrigger ControlID="SaveEditBlog" />
 
         </Triggers>
-        <ContentTemplate>
+        <ContentTemplate>--%>
     <asp:Panel ID="Panel1" runat="server" GroupingText="Blog">
         <div class="tab">
             <button class="tablinks active" id="createNewBlog" onclick="OpenBlogTab(event, 'createBlog', 1)">Create A New Blog</button>
@@ -214,11 +214,42 @@
         </div>
 
         <div id="organiseExistingBlogs" class="tabcontent">
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
+                <Triggers>
+                    <asp:PostBackTrigger ControlID="SaveEditBlog" />
+
+                </Triggers>
+                <ContentTemplate>
+
+                    <div class="blogEditSelect">
+                        <h2>Select the Blog you wish to Delete</h2>
+                        <asp:Repeater ID="Repeater1" runat="server">
+
+                            <ItemTemplate>
+                                <asp:Panel runat="server">
+                                    <div runat="server" class="blogCardDelete" data-id='<%# Eval("ID") %>' data-name='<%#Eval("Name") %>' data-date='<%#Eval("Date") %>' data-title='<%#Eval("Title") %>' data-contents='<%#Eval("Contents") %>' data-image='<%#Eval("ImageUrl") %>' data-popular='<%#Eval("Popular") %>'>
+                                        <span>
+                                            <h1 class="blogTitle"><%# Eval("Title") %></h1>
+                                            <span class="BlogNameAndDate"><%# Eval("Name") %> <%# Eval("Date") %></span>
+                                            <div class="blogImg">
+                                                <image src="../Images/<%# Eval("ImageUrl") %>"></image>
+                                            </div>
+                                            <asp:Button class="blogDeleteButton" runat="server" data-name='<%#Eval("Name") %>' Text="Delete"  OnClick="EditBlogDeleteButton_Click" />
+                                        </span>
+                                    </div>
+                                </asp:Panel>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
+                                    <asp:HiddenField runat="server" ID="delteHiddenField1"></asp:HiddenField>
+                       </ContentTemplate>
+            </asp:UpdatePanel>
+      
         </div>
     </asp:Panel>
 
-           </ContentTemplate>
-    </asp:UpdatePanel>
+<%--           </ContentTemplate>
+    </asp:UpdatePanel>--%>
 </asp:Content>
 
 

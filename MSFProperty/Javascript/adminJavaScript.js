@@ -3,7 +3,7 @@
         var oldPanel;
 
         setBlogEditClick();
-     
+        SetForDeleteBlog();
         var prm = Sys.WebForms.PageRequestManager.getInstance();
         prm.add_endRequest(function (s, e) {
             FixTabs();
@@ -111,12 +111,31 @@ function setBlogEditClick() {
         $("#blogEditFreeTextBox2").val(blogArray[2]);
         $(".blogEditSelect, .blogEditPanel").toggleClass("hidden");
         $("#editBlogId").val(blogArray[6]);
-        console.log($("#editBlogId").val());
+
     });
 
 
 
 }
+
+function SetForDeleteBlog(){
+
+    $(".blogEditSelect .blogDeleteButton").on('click', function (event) {
+
+        var arrayCapture = $(this).parent().parent().map(function () {
+            return [$.map($(this).data(), function (v) {
+                return v;
+            })];
+        }).get();
+
+        var blogArray = arrayCapture[0];
+        $("#delteHiddenField1").val(blogArray[6]);
+
+    });
+
+
+}
+
 function highlighElement(event, element) {
 
     event.stopPropagation();
