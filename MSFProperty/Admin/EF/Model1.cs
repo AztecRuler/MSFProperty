@@ -15,6 +15,7 @@ namespace MSFProperty.Admin.EF
         public virtual DbSet<Blog> Blogs { get; set; }
         public virtual DbSet<PageImage> PageImages { get; set; }
         public virtual DbSet<Page> Pages { get; set; }
+        public virtual DbSet<Property> Properties { get; set; }
         public virtual DbSet<TextContent> TextContents { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -54,6 +55,58 @@ namespace MSFProperty.Admin.EF
             modelBuilder.Entity<Page>()
                 .Property(e => e.URL)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Property>()
+                .Property(e => e.MainImage)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Property>()
+                .Property(e => e.Amenities)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Property>()
+                .Property(e => e.BathType)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Property>()
+                .Property(e => e.Location)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Property>()
+                .Property(e => e.LocationX)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Property>()
+                .Property(e => e.LocationY)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Property>()
+                .Property(e => e.RentPrice)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Property>()
+                .Property(e => e.Deposit)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Property>()
+                .Property(e => e.Address)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Property>()
+                .Property(e => e.Area)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Property>()
+                .Property(e => e.Blurb)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Property>()
+                .Property(e => e.Images)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Property>()
+                .Property(e => e.PropertyName)
+                .IsFixedLength();
 
             modelBuilder.Entity<TextContent>()
                 .Property(e => e.PageName)

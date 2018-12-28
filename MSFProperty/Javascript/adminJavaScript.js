@@ -11,7 +11,24 @@
         $(function () {
             $("#datepicker2").datepicker();
             $("#datepicker1").datepicker();
+
         });
+
+        //$('#datepicker1').on('input propertychange paste', function () {
+        //    alert(1);
+        //    $('#datepicker1Value').val($("#datepicker1").val);
+        //});
+        $("#datepicker1").datepicker({
+            onSelect: function (dateText, inst) {
+                $('#datepicker1Value').val(dateText);
+            }
+        });
+        $("#datepicker2").datepicker({
+            onSelect: function (dateText, inst) {
+                $('#datepicker2Value').val(dateText);
+            }
+        });
+
         $(".imageButtonUpload").on('click', function (event) {
             event.stopPropagation();
             event.stopImmediatePropagation();
@@ -70,7 +87,7 @@
 
 
     });
-};
+}
 
 function FixTabs() {
     var tabIndex = document.getElementById('<%=hdnTab.ClientID%>').value;

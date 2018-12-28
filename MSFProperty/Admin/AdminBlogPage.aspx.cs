@@ -16,11 +16,11 @@ namespace MSFProperty.Admin
         {
             if (!IsPostBack)
             {
-                fillRepeaterData();
+                FillRepeaterData();
             }
         }
 
-        private void fillRepeaterData()
+        private void FillRepeaterData()
         {
             List<string> pageList = new List<string>();
             using (var db = new Model1())
@@ -32,7 +32,7 @@ namespace MSFProperty.Admin
             }
 
         }
-        public string getContents(int id)
+        public string GetContents(int id)
         {
             using (var db = new Model1())
             {
@@ -51,15 +51,14 @@ namespace MSFProperty.Admin
         {
             using (var db = new Model1())
             {
-                int blogEditId = 0;
-                Int32.TryParse(delteHiddenField1.Value, out blogEditId);
+                Int32.TryParse(delteHiddenField1.Value, out int blogEditId);
 
                 Blog result = db.Blogs.SingleOrDefault(b => b.ID == blogEditId);
                 if (result != null)
                 {
                     db.Blogs.Remove(result);
                     db.SaveChanges();
-                    fillRepeaterData();
+                    FillRepeaterData();
                 }
             }
 
@@ -76,9 +75,8 @@ namespace MSFProperty.Admin
                 {
                     String Filename = "";
                     Boolean popular = blogEditCheckBox1.Checked;
-                    int blogEditId = 0;
-                    Int32.TryParse(editBlogId.Value, out blogEditId);
-                    
+                    Int32.TryParse(editBlogId.Value, out int blogEditId);
+
                     Blog result = db.Blogs.SingleOrDefault(b => b.ID == blogEditId);
 
                     Blog oldResults = new Blog
@@ -118,7 +116,7 @@ namespace MSFProperty.Admin
                     result.Popular = popular;
 
                     db.SaveChanges();
-                    fillRepeaterData();
+                    FillRepeaterData();
 
                 }
             }
@@ -175,7 +173,7 @@ namespace MSFProperty.Admin
 
                     db.Blogs.Add(blog);
                     db.SaveChanges();
-                    emptyAll();
+                    EmptyAll();
 
                 }
             }
@@ -225,7 +223,7 @@ namespace MSFProperty.Admin
 
 
         }
-        private void emptyAll()
+        private void EmptyAll()
         {
             blogTitle.Text = "";
             blogName.Text = "";

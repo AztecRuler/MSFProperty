@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -14,52 +15,40 @@ namespace MSFProperty.Admin
     {
         protected void SaveNewProperty(object sender, EventArgs e)
         {
-            var Output = FreeTextBox1.Text;
             var todaysDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
-            string realPhysicalPath = "";
+        
 
             if (Validation())
             {
                 using (var db = new Model1())
                 {
                     int ID;
-                    String MainImage;
-                    int Bedrooms;
-                    String Amenities;
-                    String BathType;
-                    String Location;
-                    float LocationX;
-                    float LocationY;
-                    Boolean Pets;
-                    DateTime AvailableFrom = DateTime.Now;
-                    string AvailableFromLongDate = AvailableFrom.ToLongDateString();
-                    DateTime AvaiableTo = DateTime.Now;
-                    string AvaiableToLongDate = AvaiableTo.ToLongDateString();
-                    int RentPrice;
-                    int Deposit;
-                    String Address;
-                    String Area;
-                    String Blurb;
-                    Boolean Featured;
-                    DateTime Created = todaysDate;
-                    string CreatedToLongDate = Created.ToLongDateString();
-                    String Images;
-                    String PropertyName;
+                    String mainImage = GetMainImage();
+                    int bedrooms = GetRooms();
+                    IList<String> amenities = GetAmenities();
+                    String bathType = GetBathType();
+                    Boolean pets = GetPets();
+                    String availableFrom = GetAvailableFrom();
+                    String avaiableTo = GetAvaiableTo();
+                    int rentPrice = GetRentPrice();
+                    int deposit = GetDeposit();
+                    String blurb = GetBlurb();
+                    Boolean featured = GetFeatured();
+                    DateTime created = todaysDate;
+                    List<String> images = GetImages();
+                    String propertyName = PropertyName;
 
-                    if (IsImage(this.propertyImage.FileContent))
-                    {
-                        if (this.propertyImage.HasFile)
-                        {
-                            realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + this.propertyImage.FileName);
-                            this.propertyImage.SaveAs(realPhysicalPath);
-                            MainImage = "MSF-" + this.propertyImage.FileName;
-                        }
-                    }
+                    //String address = GetAddress();
+                    //String area = GetArea(address);
+                    //String location = GetLocation();
+                    //float locationX = GetLocationX(location);
+                    //float locationY = GetLocationY(location);
 
-                    Blog blog = new Blog { Contents = Output, Title = blogTitle.Text, Name = blogName.Text, Date = todaysDate, ImageUrl = Filename, Popular = popular };
-                    db.Blogs.Add(blog);
-                    db.SaveChanges();
-                    emptyAll();
+
+                    //    Property property = new Property { Address = address, Amenities= amenities, Area= area, AvaiableTo= avaiableTo, AvailableFrom= availableFrom, BathType= bathType, Bedrooms= bedrooms, Blurb= blurb, Deposit = deposit, Location= location, LocationX= locationX, LocationY= locationY, MainImage= mainImage, Pets= pets, RentPrice= rentPrice };
+                    //    db.Properties.Add(property);
+                    // db.SaveChanges();
+                    //emptyAll();
                 }
             }
             else
@@ -67,6 +56,91 @@ namespace MSFProperty.Admin
                 errorText.Visible = true;
                 errorText.Text = "Please fill in all values";
             }
+        }
+
+        private string PropertyName => propertyName.Text;
+
+        private string GetMainImage()
+        {
+            string realPhysicalPath = "";
+
+            if (propertyImage.HasFile)
+            {
+                if (IsImage(propertyImage.FileContent))
+                {
+                
+                    realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + propertyImage.FileName);
+                    propertyImage.SaveAs(realPhysicalPath);
+                   return "MSF-" + propertyImage.FileName;
+                }
+            }
+
+            return null;
+        }
+
+        private List<string> GetImages()
+        {
+            string realPhysicalPath = "";
+            List<String> listOfFiles = new List<String>();
+
+            if (PropertyImages.HasFile) {
+                foreach (var uploadedFile in PropertyImages.PostedFiles)
+                {
+                    if (IsImage(uploadedFile.InputStream))
+                    {
+                        realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + uploadedFile.FileName);
+                        uploadedFile.SaveAs("");
+                        listOfFiles.Add("MSF-" + uploadedFile.FileName);
+                    }
+                }
+            }
+            return listOfFiles;
+        }
+
+        private bool GetFeatured() => propertyPopularCheck.Checked;
+
+        private string GetBlurb() => PropertyBlurb.Text;
+
+        private int GetDeposit()
+        {
+            Int32.TryParse(PropertyDeposit.Text, out int retVal);
+            return retVal;
+        }
+
+        private int GetRentPrice()
+        {
+            Int32.TryParse(PropertyRentPrice.Text, out int retVal);
+            return retVal;
+        }
+
+        private String GetAvaiableTo() => datepicker2Value.Value;
+
+        private String GetAvailableFrom() => datepicker1Value.Value;
+
+        private bool GetPets() => PetCheckBox.Checked;
+
+        private String GetBathType()
+        {
+            string items = string.Empty;
+            foreach (ListItem i in BathTypeCheckBox.Items)
+            {
+                if (i.Selected == true)
+                {
+                    items += i.Text + ",";
+                }
+            }
+
+            return items;            
+                
+        }
+
+        private IList<string> GetAmenities() => PropertyAmenities.Text.Split(',').Reverse().ToList();
+
+        private int GetRooms()
+        {
+            Int32.TryParse(propertyBedrooms.SelectedValue, out int retVal);
+            return retVal;
+          
         }
 
         protected void Page_Load(Object Src, EventArgs E)
@@ -191,7 +265,8 @@ namespace MSFProperty.Admin
         }
         private bool Validation()
         {
-            return (PropertyLocation.Text != "" && PropertyRentPrice.Text != "" && PropertyDeposit.Text != "");
+            return true; 
+           // return (PropertyLocation.Text != "" && PropertyRentPrice.Text != "" && PropertyDeposit.Text != "");
         }
         //private bool EditValidation(string output)
         //{
