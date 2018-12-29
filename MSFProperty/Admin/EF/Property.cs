@@ -48,7 +48,7 @@ namespace MSFProperty.Admin.EF
         public string Deposit { get; set; }
 
         [StringLength(100)]
-        public string Address { get; set; }
+        public string AddressNumber { get; set; }
 
         [StringLength(100)]
         public string Area { get; set; }
@@ -66,5 +66,20 @@ namespace MSFProperty.Admin.EF
 
         [StringLength(100)]
         public string PropertyName { get; set; }
+
+        [StringLength(100)]
+        public string Street { get; set; }
+
+        [StringLength(100)]
+        public string Street2 { get; set; }
+
+        [StringLength(100)]
+        public string County { get; set; }
+
+        [StringLength(100)]
+        public string Country { get; set; }
+
+        [StringLength(10)]
+        public string PostCode { get; set; }
     }
 }

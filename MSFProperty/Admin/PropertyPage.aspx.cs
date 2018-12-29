@@ -44,13 +44,8 @@ namespace MSFProperty.Admin
                     List<String> images = GetImages();
                     String propertyName = PropertyName;
 
-                    //String address = GetAddress();
-                    //String area = GetArea(address);
-                    //String location = GetLocation();
-                    //float locationX = GetLocationX(location);
-                    //float locationY = GetLocationY(location);
-
-
+                    GetAddress();
+              
                     //    Property property = new Property { Address = address, Amenities= amenities, Area= area, AvaiableTo= avaiableTo, AvailableFrom= availableFrom, BathType= bathType, Bedrooms= bedrooms, Blurb= blurb, Deposit = deposit, Location= location, LocationX= locationX, LocationY= locationY, MainImage= mainImage, Pets= pets, RentPrice= rentPrice };
                     //    db.Properties.Add(property);
                     // db.SaveChanges();
@@ -62,6 +57,30 @@ namespace MSFProperty.Admin
                 errorText.Visible = true;
                 errorText.Text = "Please fill in all values";
             }
+        }
+
+        private void GetAddress()
+        {
+            //Address address = new Address();
+            //address.Road = PropertyStreet.Text;
+            //address.Neighbourhood = PropertyLocation.Text;
+            //address.Suburb = (string)jUser["suburb"];
+            //address.Village = PropertyStreet2.Text;
+            //address.County = PropertyCounty.Text;
+            //address.State = PropertyCountry.Text;
+            //address.Postcode = PropertyPostCode.Text;
+            //address.Country = (string)jUser["country"];
+            //address.CountryCode = (string)jUser["country_code"];
+
+
+            //PropertyHouseNumber.Text = houseNumber;
+
+
+            //     = address.State != null ? address.State : resultPC.Country;
+            //     = PropertyPostCode.Text == address.Postcode ? address.Postcode : resultPC.Postcode;
+            //    = address.Neighbourhood != null ? address.Neighbourhood : resultPC.AdminDistrict;
+            //PropertyLocationX.Text = resultPC.Latitude.ToString();
+            //PropertyY.Text = resultPC.Longitude.ToString();
         }
 
         private string PropertyName => propertyName.Text;
@@ -283,9 +302,10 @@ namespace MSFProperty.Admin
             {
                 var clientPC = new PostcodesIOClient();
                 var resultPC = clientPC.Lookup(postcodeResult);
-
+                var houseNumber = "";
                 if (resultPC != null)
                 {
+                    houseNumber = validateHouseNumber(PropertyHouseNumber.Text);
                     emptyTextBoxesForAdress();
                     var client = new RestClient("https://nominatim.openstreetmap.org/");
 
@@ -293,23 +313,24 @@ namespace MSFProperty.Admin
 
                     var response = client.Execute(request);
                     var content = response.Content;
-
-
                     Address address = new Address(content);
 
-
+                    PropertyHouseNumber.Text = houseNumber;
                     PropertyStreet.Text = address.Road;
-                    PropertyStreet2.Text = address.Village;
-                    PropertyCounty.Text = address.County;
-                    PropertyCountry.Text = address.State;
-                    PropertyPostCode.Text = address.Postcode;
-                    PropertyLocation.Text = address.Neighbourhood;
+                    PropertyStreet2.Text = address.Village != null ? address.Village : resultPC.AdminWard;
+                    PropertyCounty.Text = address.County != null ? address.County : resultPC.AdminDistrict;
+                    PropertyCountry.Text = address.State != null ? address.State : resultPC.Country;
+                    PropertyPostCode.Text = PropertyPostCode.Text == address.Postcode ? address.Postcode : resultPC.Postcode;
+                    PropertyLocation.Text = address.Neighbourhood != null ? address.Neighbourhood : resultPC.AdminDistrict;
                     PropertyLocationX.Text = resultPC.Latitude.ToString();
                     PropertyY.Text = resultPC.Longitude.ToString();
-                    mapForPostcode.Attributes["src"] = "http://maps.google.com/maps?q=" + resultPC.Latitude.ToString() +"," + resultPC.Longitude.ToString() + "&z=16&output=embed";
+
+                    mapForPostcode.Attributes["src"] = "http://maps.google.com/maps?q=" + PropertyHouseNumber.Text.ToString() + " " + address.Road.ToString() + " " + address.County + "&z=16&output=embed";
                 }
             }
         }
+
+        private string validateHouseNumber(string text) => Regex.Replace(text, "[^-.//0-9]", "");
 
         private string ValidatePostcode(string text)
         {
@@ -329,7 +350,10 @@ namespace MSFProperty.Admin
 
         private void emptyTextBoxesForAdress()
         {
-            String empty = ""; 
+            String empty = "";
+         
+            PropertyHouseNumber.Text = empty;
+            PropertyPostCode.Text = empty;
             PropertyStreet.Text = empty;
             PropertyStreet2.Text = empty;
             PropertyCounty.Text = empty;
@@ -341,6 +365,11 @@ namespace MSFProperty.Admin
 
         public class Address
         {
+            public Address()
+            {
+              
+            }
+
             public Address(string json)
             {
                 JObject jObject = JObject.Parse(json);
@@ -368,7 +397,12 @@ namespace MSFProperty.Admin
 
         }
 
-  
+        protected void ClearTextBoxes_Click(object sender, EventArgs e)
+        {
+            emptyTextBoxesForAdress();
+        }
+
+
         //private bool EditValidation(string output)
         //{
         //    return (output != null && blogEditTextBox1.Text != "" && blogEditTextBox2.Text != "");

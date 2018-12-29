@@ -89,7 +89,7 @@ namespace MSFProperty.Admin.EF
                 .IsFixedLength();
 
             modelBuilder.Entity<Property>()
-                .Property(e => e.Address)
+                .Property(e => e.AddressNumber)
                 .IsFixedLength();
 
             modelBuilder.Entity<Property>()
@@ -106,6 +106,26 @@ namespace MSFProperty.Admin.EF
 
             modelBuilder.Entity<Property>()
                 .Property(e => e.PropertyName)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Property>()
+                .Property(e => e.Street)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Property>()
+                .Property(e => e.Street2)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Property>()
+                .Property(e => e.County)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Property>()
+                .Property(e => e.Country)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Property>()
+                .Property(e => e.PostCode)
                 .IsFixedLength();
 
             modelBuilder.Entity<TextContent>()

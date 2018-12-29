@@ -23,6 +23,7 @@
                 <Triggers>
                     <asp:PostBackTrigger ControlID="SaveButton" />
                     <asp:PostBackTrigger ControlID="PostCodeLookUp" />
+                    <asp:PostBackTrigger ControlID="ClearTextBoxes" />
 
 
                 </Triggers>
@@ -35,8 +36,8 @@
                                         <asp:Label runat="server">Number</asp:Label>
                                         <asp:TextBox runat="server" ID="PropertyHouseNumber"></asp:TextBox>
                                     </td>
-                                  
-                                  
+
+
                                 </tr>
                                 <tr>
                                     <td>
@@ -67,6 +68,7 @@
                                         <asp:Label runat="server">PostCode</asp:Label>
                                         <asp:TextBox runat="server" ID="PropertyPostCode"></asp:TextBox>
                                         <asp:Button ID="PostCodeLookUp" runat="server" Text="Get Address From Postcode" OnClick="PostCodeLookUp_Click" />
+
                                     </td>
                                 </tr>
                                 <tr>
@@ -102,8 +104,13 @@
                                     </td>
 
                                 </tr>
+                                <tr>
+                                    <td>
+                                        <asp:Button ID="ClearTextBoxes" runat="server" Text="Clear Boxes" OnClick="ClearTextBoxes_Click"  />
+                                    </td>
+                                </tr>
                             </table>
-                            <iframe src="" width="1000" runat="server"  frameborder="0" id="mapForPostcode" style="border: 0"></iframe>
+                            <iframe src="" width="1000" runat="server" frameborder="0" id="mapForPostcode" style="border: 0"></iframe>
 
                         </asp:Panel>
                         <asp:Panel ID="Panel3" runat="server" GroupingText="Property Details">
