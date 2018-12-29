@@ -1,8 +1,14 @@
-﻿using MSFProperty.Admin.EF;
+﻿using MarkEmbling.PostcodesIO;
+using MSFProperty.Admin.EF;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using RestSharp;
+using RestSharp.Deserializers;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Script.Serialization;
@@ -268,6 +274,100 @@ namespace MSFProperty.Admin
             return true; 
            // return (PropertyLocation.Text != "" && PropertyRentPrice.Text != "" && PropertyDeposit.Text != "");
         }
+
+        protected void PostCodeLookUp_Click(object sender, EventArgs e)
+        {
+
+            String postcodeResult = ValidatePostcode(PropertyPostCode.Text);
+            if (postcodeResult != "")
+            {
+                var clientPC = new PostcodesIOClient();
+                var resultPC = clientPC.Lookup(postcodeResult);
+
+                if (resultPC != null)
+                {
+                    emptyTextBoxesForAdress();
+                    var client = new RestClient("https://nominatim.openstreetmap.org/");
+
+                    var request = new RestRequest("reverse?format=json&lat=" + resultPC.Latitude + "&lon=" + resultPC.Longitude, Method.GET);
+
+                    var response = client.Execute(request);
+                    var content = response.Content;
+
+
+                    Address address = new Address(content);
+
+
+                    PropertyStreet.Text = address.Road;
+                    PropertyStreet2.Text = address.Village;
+                    PropertyCounty.Text = address.County;
+                    PropertyCountry.Text = address.State;
+                    PropertyPostCode.Text = address.Postcode;
+                    PropertyLocation.Text = address.Neighbourhood;
+                    PropertyLocationX.Text = resultPC.Latitude.ToString();
+                    PropertyY.Text = resultPC.Longitude.ToString();
+                }
+            }
+        }
+
+        private string ValidatePostcode(string text)
+        {
+            var regex = "^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?)|(([a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW])|" +
+                "([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]))) {0,}[0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2}))$";
+
+
+                var match = Regex.Match(text, regex, RegexOptions.IgnoreCase);
+
+            if (match.Success) { 
+
+                return text;
+            }
+            return "";
+
+        }
+
+        private void emptyTextBoxesForAdress()
+        {
+            String empty = ""; 
+            PropertyStreet.Text = empty;
+            PropertyStreet2.Text = empty;
+            PropertyCounty.Text = empty;
+            PropertyCountry.Text = empty;
+            PropertyLocation.Text = empty;
+            PropertyLocationX.Text = empty;
+            PropertyY.Text = empty;
+        }
+
+        public class Address
+        {
+            public Address(string json)
+            {
+                JObject jObject = JObject.Parse(json);
+                JToken jUser = jObject["address"];
+                Road = (string)jUser["road"];
+                Neighbourhood = (string)jUser["neighbourhood"];
+                Suburb = (string)jUser["suburb"];
+                Village = (string)jUser["village"];
+                County = (string)jUser["county"];
+                State = (string)jUser["state"];
+                Postcode = (string)jUser["postcode"];
+                Country = (string)jUser["country"];
+                CountryCode = (string)jUser["country_code"];
+            }
+
+            public string Road { get; set; }
+            public string Neighbourhood { get; set; }
+            public string Suburb { get; set; }
+            public string Village { get; set; }
+            public string County { get; set; }
+            public string State { get; set; }
+            public string Postcode { get; set; }
+            public string Country { get; set; }
+            public string CountryCode { get; set; }
+
+        }
+
+  
         //private bool EditValidation(string output)
         //{
         //    return (output != null && blogEditTextBox1.Text != "" && blogEditTextBox2.Text != "");
@@ -280,4 +380,5 @@ namespace MSFProperty.Admin
         //}
         //}
     }
+
 }

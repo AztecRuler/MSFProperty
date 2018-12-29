@@ -20,7 +20,9 @@
             <asp:UpdatePanel ID="UpdatePanel2" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                 <Triggers>
                     <asp:PostBackTrigger ControlID="SaveButton" />
+                    <asp:PostBackTrigger ControlID="PostCodeLookUp" />
 
+                    
                 </Triggers>
                 <ContentTemplate>
                     <div class="propertyPanel">
@@ -60,6 +62,7 @@
                                     <td>
                                         <asp:Label runat="server">PostCode</asp:Label>
                                         <asp:TextBox runat="server" ID="PropertyPostCode"></asp:TextBox>
+                                        <asp:Button ID="PostCodeLookUp" runat="server" Text="Get Address From Postcode" OnClick="PostCodeLookUp_Click" />
                                     </td>
                                 </tr>
                                 <tr>
