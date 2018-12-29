@@ -4,6 +4,8 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+
     <asp:ScriptManagerProxy ID="ScriptManagerProxy1" runat="server">
         <Scripts>
             <asp:ScriptReference Path="../Javascript/adminJavaScript.js"></asp:ScriptReference>
@@ -22,7 +24,7 @@
                     <asp:PostBackTrigger ControlID="SaveButton" />
                     <asp:PostBackTrigger ControlID="PostCodeLookUp" />
 
-                    
+
                 </Triggers>
                 <ContentTemplate>
                     <div class="propertyPanel">
@@ -33,6 +35,8 @@
                                         <asp:Label runat="server">Number</asp:Label>
                                         <asp:TextBox runat="server" ID="PropertyHouseNumber"></asp:TextBox>
                                     </td>
+                                  
+                                  
                                 </tr>
                                 <tr>
                                     <td>
@@ -99,6 +103,8 @@
 
                                 </tr>
                             </table>
+                            <iframe src="" width="1000" runat="server"  frameborder="0" id="mapForPostcode" style="border: 0"></iframe>
+
                         </asp:Panel>
                         <asp:Panel ID="Panel3" runat="server" GroupingText="Property Details">
 

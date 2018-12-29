@@ -306,6 +306,7 @@ namespace MSFProperty.Admin
                     PropertyLocation.Text = address.Neighbourhood;
                     PropertyLocationX.Text = resultPC.Latitude.ToString();
                     PropertyY.Text = resultPC.Longitude.ToString();
+                    mapForPostcode.Attributes["src"] = "http://maps.google.com/maps?q=" + resultPC.Latitude.ToString() +"," + resultPC.Longitude.ToString() + "&z=16&output=embed";
                 }
             }
         }

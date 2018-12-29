@@ -363,7 +363,8 @@ table#streetTable {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     border-spacing: 0;
-    width: 200px;
+    width: 50%;
+    float: left;
 }
 
 #streetTable tr {
@@ -378,7 +379,12 @@ table#streetTable {
     padding: 8px;
     width: 50%;
 }
-
+iframe#mapForPostcode {
+    float: left;
+    width: 50%;
+   height: 474px;
+    ;
+}
 
 /* Fade in tabs */
 @-webkit-keyframes fadeEffect {
