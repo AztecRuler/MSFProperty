@@ -21,34 +21,26 @@ namespace MSFProperty.Admin.EF
         [StringLength(100)]
         public string BathType { get; set; }
 
-        [Required]
         [StringLength(100)]
         public string Location { get; set; }
 
-        [StringLength(10)]
-        public string LocationX { get; set; }
+        public double? LocationX { get; set; }
 
-        [StringLength(10)]
-        public string LocationY { get; set; }
+        public double? LocationY { get; set; }
 
         public bool? Pets { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime? AvailableFrom { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime? AvaiableTo { get; set; }
-
-        [Required]
-        [StringLength(10)]
-        public string RentPrice { get; set; }
-
-        [Required]
-        [StringLength(10)]
-        public string Deposit { get; set; }
+        [StringLength(100)]
+        public string AvailableFrom { get; set; }
 
         [StringLength(100)]
-        public string AddressNumber { get; set; }
+        public string AvaiableTo { get; set; }
+
+        public int RentPrice { get; set; }
+
+        public int Deposit { get; set; }
+
+        public int? AddressNumber { get; set; }
 
         [StringLength(100)]
         public string Area { get; set; }

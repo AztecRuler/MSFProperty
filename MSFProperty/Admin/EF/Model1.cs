@@ -73,26 +73,6 @@ namespace MSFProperty.Admin.EF
                 .IsFixedLength();
 
             modelBuilder.Entity<Property>()
-                .Property(e => e.LocationX)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Property>()
-                .Property(e => e.LocationY)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Property>()
-                .Property(e => e.RentPrice)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Property>()
-                .Property(e => e.Deposit)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Property>()
-                .Property(e => e.AddressNumber)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Property>()
                 .Property(e => e.Area)
                 .IsFixedLength();
 

@@ -27,7 +27,7 @@
                         <ul id="menu-main-menu" class="wpg-bar-main-menu wpg-mobile-menu" style="">
                             <li id="menu-item-19" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-5 current_page_item"><a href="Default.aspx">Home</a></li>
                             <li id="menu-item-18" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="services.aspx">Services</a></li>
-                            <li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="accommodation.aspx">Propertiess</a></li>
+                            <li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="acommodationsPage.aspx">Propertiess</a></li>
                             <li id="menu-item-27" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="about-us.aspx">About us</a></li>
                             <li id="menu-item-16" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="BlogMainPage.aspx">Journal</a></li>
                             <li id="menu-item-15" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="contact-us.aspx">Contact Us</a></li>
@@ -52,7 +52,7 @@
                                 <div id="footerDIV_4">
                                     <ul id="footerUL_5">
                                         <li id="footerLI_6">
-                                            <a href="accommodation.aspx" id="footerA_7">Our Properties</a>
+                                            <a href="accommodationsPage.aspx" id="footerA_7">Our Properties</a>
                                         </li>
                                         <li id="footerLI_8">
                                             <a href="#" id="footerA_9">Amenities</a>

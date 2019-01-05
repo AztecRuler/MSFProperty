@@ -89,10 +89,15 @@
             <div class="wpg-list-villas wpg-bg-white">
                 <div class="container">
                     <p class="text-align-right wpg-list-villas-pager">
-                        View	<strong>10</strong>
-                        <a data-limit="20" href="#">20</a>
-                        <a data-limit="30" href="#">30</a>
-                        <a data-limit="99999" href="#">All</a>
+                        View
+                        <asp:DropDownList ID="PagerProp" runat="server">
+                            <asp:ListItem>6</asp:ListItem>
+                            <asp:ListItem>4</asp:ListItem>
+                            <asp:ListItem>10</asp:ListItem>
+                            <asp:ListItem>20</asp:ListItem>
+                            <asp:ListItem>30</asp:ListItem>
+                            <asp:ListItem Value="9999">All</asp:ListItem>
+                        </asp:DropDownList>
                     </p>
                     <ul class="wpg-list-villas-inset clear-both-fix property_ul">
                         <li class="wpg-list-villas-inset-item clear-both-fix">

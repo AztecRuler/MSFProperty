@@ -31,6 +31,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -105,7 +106,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="accommodation.aspx" />
+    <Content Include="acommodationsPage.aspx" />
     <Content Include="Admin\Admin.aspx" />
     <Content Include="Admin\AdminBlogPage.aspx" />
     <Content Include="Admin\EditImages.aspx" />
@@ -127,12 +128,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="accommodation.aspx.cs">
-      <DependentUpon>accommodation.aspx</DependentUpon>
+    <Compile Include="acommodationsPage.aspx.cs">
+      <DependentUpon>acommodationsPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="accommodation.aspx.designer.cs">
-      <DependentUpon>accommodation.aspx</DependentUpon>
+    <Compile Include="acommodationsPage.aspx.designer.cs">
+      <DependentUpon>acommodationsPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Admin.aspx.cs">
       <DependentUpon>Admin.aspx</DependentUpon>

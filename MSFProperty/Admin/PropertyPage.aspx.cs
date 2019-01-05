@@ -1,18 +1,14 @@
 ﻿using MarkEmbling.PostcodesIO;
 using MSFProperty.Admin.EF;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
-using RestSharp.Deserializers;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
+using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Text.RegularExpressions;
-using System.Web;
-using System.Web.Script.Serialization;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace MSFProperty.Admin
@@ -22,13 +18,12 @@ namespace MSFProperty.Admin
         protected void SaveNewProperty(object sender, EventArgs e)
         {
             var todaysDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
-        
+
 
             if (Validation())
             {
                 using (var db = new Model1())
                 {
-                    int ID;
                     String mainImage = GetMainImage();
                     int bedrooms = GetRooms();
                     IList<String> amenities = GetAmenities();
@@ -42,14 +37,38 @@ namespace MSFProperty.Admin
                     Boolean featured = GetFeatured();
                     DateTime created = todaysDate;
                     List<String> images = GetImages();
-                    String propertyName = PropertyName;
+                    Address FullAdress = GetAddress();
 
-                    GetAddress();
-              
-                    //    Property property = new Property { Address = address, Amenities= amenities, Area= area, AvaiableTo= avaiableTo, AvailableFrom= availableFrom, BathType= bathType, Bedrooms= bedrooms, Blurb= blurb, Deposit = deposit, Location= location, LocationX= locationX, LocationY= locationY, MainImage= mainImage, Pets= pets, RentPrice= rentPrice };
-                    //    db.Properties.Add(property);
-                    // db.SaveChanges();
-                    //emptyAll();
+                    Property property = new Property
+                    {
+                        MainImage = mainImage,
+                        Bedrooms = bedrooms,
+                        Amenities = CreateCommaSeperatedList(amenities),
+                        BathType = bathType,
+                        Pets = pets,
+                        AvailableFrom = availableFrom,
+                        AvaiableTo = avaiableTo,
+                        RentPrice = rentPrice,
+                        Deposit = deposit,
+                        Blurb = blurb,
+                        Featured = featured,
+                        Created = created,
+                        Images = CreateCommaSeperatedList(images),
+                        //PropertyName = 
+                        Street = FullAdress.Street,
+                        Street2 = FullAdress.Street2,
+                        County = FullAdress.County,
+                        Country = FullAdress.Country,
+                        PostCode = FullAdress.Postcode,
+                        Location = FullAdress.Location,
+                        LocationX = FullAdress.LocationX,
+                        LocationY = FullAdress.LocationY,
+                        AddressNumber = FullAdress.AddressNumber,
+                        Area = FullAdress.Area
+                    };
+                    db.Properties.Add(property);
+                   safeSave(db);
+                   emptyAll();
                 }
             }
             else
@@ -59,28 +78,80 @@ namespace MSFProperty.Admin
             }
         }
 
-        private void GetAddress()
+        private void safeSave(Model1 context)
         {
-            //Address address = new Address();
-            //address.Road = PropertyStreet.Text;
-            //address.Neighbourhood = PropertyLocation.Text;
-            //address.Suburb = (string)jUser["suburb"];
-            //address.Village = PropertyStreet2.Text;
-            //address.County = PropertyCounty.Text;
-            //address.State = PropertyCountry.Text;
-            //address.Postcode = PropertyPostCode.Text;
-            //address.Country = (string)jUser["country"];
-            //address.CountryCode = (string)jUser["country_code"];
+            //this is for error checking
+            try
+            {  context.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw;
+            }
+        }
 
+        private DateTime? convertToSystDateTime(string availableFrom)
+        {
+            string input = availableFrom;
+            DateTime date = new DateTime();
+         //   input = "12-30-1899 07:50:00";
+            if (input != string.Empty)
+            {
+                date = DateTime.ParseExact(input, "MM-dd-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+            }
+            return date;
+        }
 
-            //PropertyHouseNumber.Text = houseNumber;
+        private string CreateCommaSeperatedList(IList<string> amenities)
+        {
+            string seperatedList = "";
 
+            foreach (var item in amenities)
+            {
+                seperatedList += item + ",";
+            }
 
-            //     = address.State != null ? address.State : resultPC.Country;
-            //     = PropertyPostCode.Text == address.Postcode ? address.Postcode : resultPC.Postcode;
-            //    = address.Neighbourhood != null ? address.Neighbourhood : resultPC.AdminDistrict;
-            //PropertyLocationX.Text = resultPC.Latitude.ToString();
-            //PropertyY.Text = resultPC.Longitude.ToString();
+                return seperatedList; 
+         }
+
+        private Address GetAddress()
+        {
+            Address address = new Address();
+            int ParsepropertyHouseNumber;
+            Int32.TryParse(PropertyHouseNumber.Text, out ParsepropertyHouseNumber);
+            address.AddressNumber = ParsepropertyHouseNumber;
+            address.Location = PropertyLocation.Text;
+            address.LocationX = convertToFloat(PropertyLocationX.Text);
+            address.LocationY = convertToFloat(PropertyY.Text);
+            address.Area = "";
+            address.Street = PropertyStreet.Text;
+            address.Street2 = PropertyStreet2.Text;
+            address.County = PropertyCounty.Text;
+            address.Country = PropertyCountry.Text;
+            address.Postcode = PropertyPostCode.Text;
+
+            return address;
+        }
+
+        private float convertToFloat(string text)
+        {
+            float num1;
+             
+            if (text != String.Empty) //Added if statement to see if the textBox is empty
+                num1 = (float)Convert.ToDouble(text);
+            else
+                num1 = 0; //If textBox is empty, set num1 to 0
+            return num1;
         }
 
         private string PropertyName => propertyName.Text;
@@ -93,10 +164,10 @@ namespace MSFProperty.Admin
             {
                 if (IsImage(propertyImage.FileContent))
                 {
-                
+
                     realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + propertyImage.FileName);
                     propertyImage.SaveAs(realPhysicalPath);
-                   return "MSF-" + propertyImage.FileName;
+                    return "MSF-" + propertyImage.FileName;
                 }
             }
 
@@ -108,13 +179,14 @@ namespace MSFProperty.Admin
             string realPhysicalPath = "";
             List<String> listOfFiles = new List<String>();
 
-            if (PropertyImages.HasFile) {
+            if (PropertyImages.HasFile)
+            {
                 foreach (var uploadedFile in PropertyImages.PostedFiles)
                 {
                     if (IsImage(uploadedFile.InputStream))
                     {
                         realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + uploadedFile.FileName);
-                        uploadedFile.SaveAs("");
+                        uploadedFile.SaveAs(realPhysicalPath);
                         listOfFiles.Add("MSF-" + uploadedFile.FileName);
                     }
                 }
@@ -155,8 +227,8 @@ namespace MSFProperty.Admin
                 }
             }
 
-            return items;            
-                
+            return items;
+
         }
 
         private IList<string> GetAmenities() => PropertyAmenities.Text.Split(',').Reverse().ToList();
@@ -165,7 +237,7 @@ namespace MSFProperty.Admin
         {
             Int32.TryParse(propertyBedrooms.SelectedValue, out int retVal);
             return retVal;
-          
+
         }
 
         protected void Page_Load(Object Src, EventArgs E)
@@ -270,11 +342,11 @@ namespace MSFProperty.Admin
         private bool IsImage(Stream stream)
         {
             stream.Seek(0, SeekOrigin.Begin);
-            List<string> jpg = new List<string> { "FF", "D8" };
-            List<string> bmp = new List<string> { "42", "4D" };
-            List<string> gif = new List<string> { "47", "49", "46" };
-            List<string> png = new List<string> { "89", "50", "4E", "47", "0D", "0A", "1A", "0A" };
-            List<List<string>> imgTypes = new List<List<string>> { jpg, bmp, gif, png };
+            List<string> jpg = new List<string> {"FF","D8"};
+            List<string> bmp = new List<string> {"42","4D"};
+            List<string> gif = new List<string> {"47","49","46"};
+            List<string> png = new List<string> {"89","50","4E","47","0D","0A","1A","0A"};
+            List<List<string>> imgTypes = new List<List<string>> {jpg,bmp,gif,png};
             List<string> bytesIterated = new List<string>();
             for (int i = 0; i < 8; i++)
             {
@@ -290,8 +362,8 @@ namespace MSFProperty.Admin
         }
         private bool Validation()
         {
-            return true; 
-           // return (PropertyLocation.Text != "" && PropertyRentPrice.Text != "" && PropertyDeposit.Text != "");
+            return true;
+             //return (PropertyLocation.Text != "" && PropertyRentPrice.Text != "" && PropertyDeposit.Text != "");
         }
 
         protected void PostCodeLookUp_Click(object sender, EventArgs e)
@@ -335,12 +407,13 @@ namespace MSFProperty.Admin
         private string ValidatePostcode(string text)
         {
             var regex = "^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?)|(([a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW])|" +
-                "([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]))) {0,}[0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2}))$";
+             "([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]))) {0,}[0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2}))$";
 
 
-                var match = Regex.Match(text, regex, RegexOptions.IgnoreCase);
+            var match = Regex.Match(text, regex, RegexOptions.IgnoreCase);
 
-            if (match.Success) { 
+            if (match.Success)
+            {
 
                 return text;
             }
@@ -351,7 +424,7 @@ namespace MSFProperty.Admin
         private void emptyTextBoxesForAdress()
         {
             String empty = "";
-         
+
             PropertyHouseNumber.Text = empty;
             PropertyPostCode.Text = empty;
             PropertyStreet.Text = empty;
@@ -367,7 +440,7 @@ namespace MSFProperty.Admin
         {
             public Address()
             {
-              
+
             }
 
             public Address(string json)
@@ -385,15 +458,87 @@ namespace MSFProperty.Admin
                 CountryCode = (string)jUser["country_code"];
             }
 
-            public string Road { get; set; }
-            public string Neighbourhood { get; set; }
-            public string Suburb { get; set; }
-            public string Village { get; set; }
-            public string County { get; set; }
-            public string State { get; set; }
-            public string Postcode { get; set; }
-            public string Country { get; set; }
-            public string CountryCode { get; set; }
+            public string Road
+            {
+                get;
+                set;
+            }
+            public string Neighbourhood
+            {
+                get;
+                set;
+            }
+            public string Suburb
+            {
+                get;
+                set;
+            }
+            public string Village
+            {
+                get;
+                set;
+            }
+            public string County
+            {
+                get;
+                set;
+            }
+            public string State
+            {
+                get;
+                set;
+            }
+            public string Postcode
+            {
+                get;
+                set;
+            }
+            public string Country
+            {
+                get;
+                set;
+            }
+            public string CountryCode
+            {
+                get;
+                set;
+            }
+
+            public string Location
+            {
+                get;
+                set;
+            }
+            public float LocationX
+            {
+                get;
+                set;
+            }
+            public float LocationY
+            {
+                get;
+                set;
+            }
+            public int AddressNumber
+            {
+                get;
+                set;
+            }
+            public string Area
+            {
+                get;
+                set;
+            }
+            public string Street
+            {
+                get;
+                set;
+            }
+            public string Street2
+            {
+                get;
+                set;
+            }
 
         }
 
@@ -407,13 +552,13 @@ namespace MSFProperty.Admin
         //{
         //    return (output != null && blogEditTextBox1.Text != "" && blogEditTextBox2.Text != "");
         //}
-        //private void emptyAll()
-        //{
-        //    blogTitle.Text = "";
-        //    blogName.Text = "";
-        //    FreeTextBox1.Text = "";
-        //}
-        //}
+
+        private void emptyAll()
+        {
+            emptyTextBoxesForAdress();
+
+        }
+        
     }
 
 }

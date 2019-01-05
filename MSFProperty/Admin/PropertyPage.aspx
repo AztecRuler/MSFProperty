@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminMasterPage.Master" AutoEventWireup="true" CodeBehind="PropertyPage.aspx.cs" Inherits="MSFProperty.Admin.PropertyPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminMasterPage.Master" AutoEventWireup="true" CodeBehind="PropertyPage.aspx.cs" Inherits="MSFProperty.Admin.PropertyPage" ValidateRequest="false" %>
 
 <%@ Register TagPrefix="FTB" Namespace="FreeTextBoxControls" Assembly="FreeTextBox" %>
 
@@ -24,7 +24,6 @@
                     <asp:PostBackTrigger ControlID="SaveButton" />
                     <asp:PostBackTrigger ControlID="PostCodeLookUp" />
                     <asp:PostBackTrigger ControlID="ClearTextBoxes" />
-
 
                 </Triggers>
                 <ContentTemplate>
@@ -230,7 +229,7 @@
                                     <td>
                                         <p>
                                             Date:
-                                        <input type="text" id="datepicker1" readonly>
+                                        <input type="text" id="datepicker1" readonly >
                                         </p>
                                         <asp:HiddenField ID="datepicker1Value" runat="server" />
                                     </td>
@@ -273,11 +272,6 @@
                                         <asp:TextBox runat="server" ID="PropertyDeposit"></asp:TextBox>
                                     </td>
 
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server">Enter the Address of the property here </asp:Label>
-                                    </td>
                                 </tr>
                                 <tr>
                                     <td>
