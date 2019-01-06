@@ -15,19 +15,25 @@ namespace MSFProperty
         {
             if (!Page.IsPostBack)
             {
-                string selectedNumber = PagerProp.SelectedValue;
-                int.TryParse(selectedNumber, out int number);
-
-                using (var db = new Model1())
-                {
-                    PropertyRepeater.DataSource = db.Properties.ToList().Take(number);
-
-                    PropertyRepeater.DataBind();
-
-                }
+                SetNumberOfProperty(); 
 
             }
         }
+
+        protected void SetNumberOfProperty()
+        {
+            string selectedNumber = PagerProp.SelectedValue;
+            int.TryParse(selectedNumber, out int number);
+
+            using (var db = new Model1())
+            {
+                PropertyRepeater.DataSource = db.Properties.ToList().Take(number);
+
+                PropertyRepeater.DataBind();
+
+            }
+        }
+
         public string getContents(int id)
         {
             using (var db = new Model1())
@@ -75,6 +81,10 @@ namespace MSFProperty
             return text;
         }
 
+        public void RefreshCount(object sender, EventArgs e)
+        {
+            SetNumberOfProperty();
+        }
         //public struct Property
         //{
         //    public int Bedrooms;
