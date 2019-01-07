@@ -297,7 +297,10 @@ namespace MSFProperty.Admin
                 var houseNumber = "";
                 if (resultPC != null)
                 {
-                   var content = getReponseBack("https://nominatim.openstreetmap.org/", "reverse?format=json&lat=" +
+                    houseNumber = validateHouseNumber(PropertyHouseNumber.Text);
+                    emptyTextBoxesForAdress();
+
+                    var content = getReponseBack("https://nominatim.openstreetmap.org/", "reverse?format=json&lat=" +
                        resultPC.Latitude + "&lon=" + resultPC.Longitude);
 
                     Address address = new Address(content);
@@ -478,75 +481,26 @@ namespace MSFProperty.Admin
 
     internal class PostcodeResult
     {
-        private string resultconent;
+        private readonly string resultconent;
 
         public PostcodeResult(string resultconent)
         {
             JObject jObject = JObject.Parse(resultconent);
             JToken jUser = jObject["result"];
 
-            test = (string)jUser.SelectToken("admin_ward");
             AdminWard = (string)jObject["admin_ward"];
-            AdminCounty = (string)jUser["admin_county"];
-            Parish = (string)jUser["parish"];
             AdminDistrict = (string)jUser["admin_district"];
-            OutCode = (string)jUser["outcode"];
-            InCode = (string)jUser["incode"];
-            NUTS = (string)jUser["nuts"];
-            MSOA = (string)jUser["msoa"];
-            LSOA = (string)jUser["lsoa"];
-            Region = (string)jUser["region"];
-            PrimaryCareTrust = (string)jUser["primary_ncare_trust"];
-            EuropeanElectoralRegion = (string)jUser["europea_electoral_region"];
-            ParliamentaryConstituency = (string)jUser["parliamentary_constituency"];
             Latitude = (double)jUser["latitude"];
             Longitude = (double)jUser["longitude"];
-            NHSHealthAuthority = (string)jUser["nhs_ha"];
-        Northings = (int) jUser["northings"];
-        Eastings = (int) jUser["eastings"];
-        Quality = (int) jUser["quality"];
-        Postcode = (string) jUser["postcode"];
-        CCG = (string) jUser["ccg"];
-            //Codes = jUser["Codes"]; 
-      
-
-
-    }
-        public string test { get; set; }
-        public string AdminWard { get; set; }
-        public string AdminCounty { get; set; }
-        public string Parish { get; set; }
-        public string AdminDistrict { get; set; }
-        public string OutCode { get; set; }
-        public string InCode { get; set; }
-        public string NUTS { get; set; }
-        public string MSOA { get; set; }
-        public string LSOA { get; set; }
-        public string Region { get; set; }
-        public string Country { get; set; }
-        public string PrimaryCareTrust { get; set; }
-        public string EuropeanElectoralRegion { get; set; }
-        public string ParliamentaryConstituency { get; set; }
+            Postcode = (string) jUser["postcode"];
+            Country = (string)jUser["country"];
+        }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
-        [DeserializeAs(Name = "nhs_ha")]
-        public string NHSHealthAuthority { get; set; }
-        public int Northings { get; set; }
-        public int Eastings { get; set; }
-        public int Quality { get; set; }
-        public string Postcode { get; set; }
-        public string CCG { get; set; }
-        public Codes Codes { get; set; }
-    }
-
-    public class Codes
-    {
-      
-        public string AdminDistrict { get; set; }
-        public string AdminCounty { get; set; }
         public string AdminWard { get; set; }
-        public string Parish { get; set; }
-        public string CCG { get; set; }
-
+        public string AdminDistrict { get; set; }
+        public string Country { get; set; }
+        public string Postcode { get; set; }
     }
+
 }
