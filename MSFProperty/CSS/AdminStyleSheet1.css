@@ -218,10 +218,10 @@ body {
     padding: 0;
     overflow: hidden;
     background-color: #000;
-    right: 8px;
+    right: -24px;
     position: relative;
     top: -8px;
-    width: 101%;
+    width: 102%;
 }
 
     #navBar li {

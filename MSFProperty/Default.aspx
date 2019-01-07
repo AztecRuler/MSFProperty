@@ -1,12 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MSFMaster.Master" CodeFile="Default.aspx.cs" Inherits="MSFProperty.Default" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MSFMaster.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="MSFProperty.Default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>MSF Property Management</title>
     <link href="CSS/Design1Css.css" rel="stylesheet" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainBody" runat="server">
-
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div id="bgimg-1" class="bgimg-1 editable" style="background-image: url('../Images/<%=GetImage(1)%>')">
         <div class="caption">
             <div class="container" style="margin-top: -300px;">
@@ -91,7 +90,7 @@
                         <ContentTemplate>
                             <p class="text-align-right wpg-list-villas-pager">
                                 View
-                        <asp:DropDownList ID="PagerProp" runat="server" AutoPostBack="true" OnSelectedIndexChanged="RefreshCount">
+                        <asp:DropDownList ID="PagerPropHome" runat="server" AutoPostBack="true" OnSelectedIndexChanged="RefreshCount">
                             <asp:ListItem>4</asp:ListItem>
                             <asp:ListItem>6</asp:ListItem>
                             <asp:ListItem>10</asp:ListItem>
@@ -166,3 +165,5 @@
       
     </div>
 </asp:Content>
+
+

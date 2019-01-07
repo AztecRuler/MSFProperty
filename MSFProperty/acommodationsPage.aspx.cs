@@ -85,31 +85,7 @@ namespace MSFProperty
         {
             SetNumberOfProperty();
         }
-        //public struct Property
-        //{
-        //    public int Bedrooms;
-        //    public string amenities;
-        //    public string bath;
-        //    public string name;
-        //    public string mainImage;
-        //    public bool featured;
-        //    public bool pets;
-        //    public string dateTo;
-        //    public string dateFrom;
-        //    public int rentPrice;
-        //    public int deposit;
-        //    public string propertyImages;
-        //    public string propertyBlurb;
-        //    public string address;
-        //    public string postcode;
-
-        //    public int GetBedrooms()
-        //    {
-        //        Bedrooms 
-        //        return Bedrooms;
-        //    }
-
-        //    }
+       
 
     }
 }

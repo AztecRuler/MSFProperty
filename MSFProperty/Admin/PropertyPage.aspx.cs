@@ -1,7 +1,7 @@
-﻿using MarkEmbling.PostcodesIO;
-using MSFProperty.Admin.EF;
+﻿using MSFProperty.Admin.EF;
 using Newtonsoft.Json.Linq;
 using RestSharp;
+using RestSharp.Deserializers;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
@@ -248,97 +248,6 @@ namespace MSFProperty.Admin
             }
         }
 
-        //private void fillRepeaterData()
-        //{
-        //    List<string> pageList = new List<string>();
-        //    using (var db = new Model1())
-        //    {
-        //        EditBlogRepeaterItems.DataSource = db.Blogs.ToList();
-        //        Repeater1.DataSource = db.Blogs.ToList();
-        //        EditBlogRepeaterItems.DataBind();
-        //        Repeater1.DataBind();
-        //    }
-        //}
-        //public string getContents(int id)
-        //{
-        //    using (var db = new Model1())
-        //    {
-        //        foreach (var item in db.Blogs)
-        //        {
-        //            if (item.ID == id)
-        //                return Regex.Replace(item.Contents, "<.*?>", string.Empty);
-        //        }
-        //    }
-        //    return "";
-        //}
-        //protected void EditBlogDeleteButton_Click(object sender, EventArgs e)
-        //{
-        //    using (var db = new Model1())
-        //    {
-        //        int blogEditId = 0;
-        //        Int32.TryParse(delteHiddenField1.Value, out blogEditId);
-        //        Blog result = db.Blogs.SingleOrDefault(b => b.ID == blogEditId);
-        //        if (result != null)
-        //        {
-        //            db.Blogs.Remove(result);
-        //            db.SaveChanges();
-        //            fillRepeaterData();
-        //        }
-        //    }
-        //}
-        //protected void EditBlogSaveButton_Click(object sender, EventArgs e)
-        //{
-        //    var Output = blogEditFreeTextBox2.Text;
-        //    var todaysDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
-        //    string realPhysicalPath = "";
-        //    if (EditValidation(Output))
-        //    {
-        //        using (var db = new Model1())
-        //        {
-        //            String Filename = "";
-        //            Boolean popular = blogEditCheckBox1.Checked;
-        //            int blogEditId = 0;
-        //            Int32.TryParse(editBlogId.Value, out blogEditId);
-        //            Blog result = db.Blogs.SingleOrDefault(b => b.ID == blogEditId);
-        //            Blog oldResults = new Blog
-        //            {
-        //                Contents = result.Contents,
-        //                Title = result.Title,
-        //                Name = result.Name,
-        //                Date = result.Date,
-        //                ImageUrl = result.ImageUrl,
-        //                Popular = result.Popular
-        //            };
-        //            if (IsImage(this.blogEditFileUpload1.FileContent))
-        //            {
-        //                if (this.blogEditFileUpload1.HasFile)
-        //                {
-        //                    realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + this.blogEditFileUpload1.FileName);
-        //                    this.blogEditFileUpload1.SaveAs(realPhysicalPath);
-        //                    Filename = "MSF-" + this.blogEditFileUpload1.FileName;
-        //                }
-        //                else
-        //                {
-        //                    Filename = oldResults.ImageUrl;
-        //                }
-        //            }
-        //            result.Contents = Output == "" ? oldResults.Contents : Output;
-        //            result.Title = blogEditTextBox2.Text == "" ? oldResults.Title : blogEditTextBox2.Text;
-        //            result.Name = blogEditTextBox1.Text == "" ? oldResults.Contents : blogEditTextBox1.Text;
-        //            result.ImageUrl = Filename == "" ? oldResults.ImageUrl : Filename;
-        //            result.Date = todaysDate;
-        //            result.Popular = popular;
-        //            db.SaveChanges();
-        //            fillRepeaterData();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        errorText.Visible = true;
-        //        errorText.Text = "Please fill in all values";
-        //    }
-        //    UpdatePanel3.Update();
-        //}
         private bool IsImage(Stream stream)
         {
             stream.Seek(0, SeekOrigin.Begin);
@@ -366,28 +275,34 @@ namespace MSFProperty.Admin
              //return (PropertyLocation.Text != "" && PropertyRentPrice.Text != "" && PropertyDeposit.Text != "");
         }
 
+        private string getReponseBack(string client,string  request)
+        {
+            var resultClient = new RestClient(client);
+            var resultRequest = new RestRequest(request, Method.GET);
+
+            var resultResponse = resultClient.Execute(resultRequest);
+            var resultconent = resultResponse.Content;
+            return resultconent;
+
+        }
         protected void PostCodeLookUp_Click(object sender, EventArgs e)
         {
 
             String postcodeResult = ValidatePostcode(PropertyPostCode.Text);
             if (postcodeResult != "")
             {
-                var clientPC = new PostcodesIOClient();
-                var resultPC = clientPC.Lookup(postcodeResult);
+                var resultconent = getReponseBack("https://api.postcodes.io/postcodes/", postcodeResult);
+                PostcodeResult resultPC = new PostcodeResult(resultconent);
+
                 var houseNumber = "";
                 if (resultPC != null)
                 {
-                    houseNumber = validateHouseNumber(PropertyHouseNumber.Text);
-                    emptyTextBoxesForAdress();
-                    var client = new RestClient("https://nominatim.openstreetmap.org/");
+                   var content = getReponseBack("https://nominatim.openstreetmap.org/", "reverse?format=json&lat=" +
+                       resultPC.Latitude + "&lon=" + resultPC.Longitude);
 
-                    var request = new RestRequest("reverse?format=json&lat=" + resultPC.Latitude + "&lon=" + resultPC.Longitude, Method.GET);
-
-                    var response = client.Execute(request);
-                    var content = response.Content;
                     Address address = new Address(content);
 
-                    PropertyHouseNumber.Text = houseNumber;
+                   PropertyHouseNumber.Text = houseNumber;
                     PropertyStreet.Text = address.Road;
                     PropertyStreet2.Text = address.Village != null ? address.Village : resultPC.AdminWard;
                     PropertyCounty.Text = address.County != null ? address.County : resultPC.AdminDistrict;
@@ -561,4 +476,77 @@ namespace MSFProperty.Admin
         
     }
 
+    internal class PostcodeResult
+    {
+        private string resultconent;
+
+        public PostcodeResult(string resultconent)
+        {
+            JObject jObject = JObject.Parse(resultconent);
+            JToken jUser = jObject["result"];
+
+            test = (string)jUser.SelectToken("admin_ward");
+            AdminWard = (string)jObject["admin_ward"];
+            AdminCounty = (string)jUser["admin_county"];
+            Parish = (string)jUser["parish"];
+            AdminDistrict = (string)jUser["admin_district"];
+            OutCode = (string)jUser["outcode"];
+            InCode = (string)jUser["incode"];
+            NUTS = (string)jUser["nuts"];
+            MSOA = (string)jUser["msoa"];
+            LSOA = (string)jUser["lsoa"];
+            Region = (string)jUser["region"];
+            PrimaryCareTrust = (string)jUser["primary_ncare_trust"];
+            EuropeanElectoralRegion = (string)jUser["europea_electoral_region"];
+            ParliamentaryConstituency = (string)jUser["parliamentary_constituency"];
+            Latitude = (double)jUser["latitude"];
+            Longitude = (double)jUser["longitude"];
+            NHSHealthAuthority = (string)jUser["nhs_ha"];
+        Northings = (int) jUser["northings"];
+        Eastings = (int) jUser["eastings"];
+        Quality = (int) jUser["quality"];
+        Postcode = (string) jUser["postcode"];
+        CCG = (string) jUser["ccg"];
+            //Codes = jUser["Codes"]; 
+      
+
+
+    }
+        public string test { get; set; }
+        public string AdminWard { get; set; }
+        public string AdminCounty { get; set; }
+        public string Parish { get; set; }
+        public string AdminDistrict { get; set; }
+        public string OutCode { get; set; }
+        public string InCode { get; set; }
+        public string NUTS { get; set; }
+        public string MSOA { get; set; }
+        public string LSOA { get; set; }
+        public string Region { get; set; }
+        public string Country { get; set; }
+        public string PrimaryCareTrust { get; set; }
+        public string EuropeanElectoralRegion { get; set; }
+        public string ParliamentaryConstituency { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+        [DeserializeAs(Name = "nhs_ha")]
+        public string NHSHealthAuthority { get; set; }
+        public int Northings { get; set; }
+        public int Eastings { get; set; }
+        public int Quality { get; set; }
+        public string Postcode { get; set; }
+        public string CCG { get; set; }
+        public Codes Codes { get; set; }
+    }
+
+    public class Codes
+    {
+      
+        public string AdminDistrict { get; set; }
+        public string AdminCounty { get; set; }
+        public string AdminWard { get; set; }
+        public string Parish { get; set; }
+        public string CCG { get; set; }
+
+    }
 }

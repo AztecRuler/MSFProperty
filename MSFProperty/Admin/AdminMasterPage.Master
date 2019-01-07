@@ -60,10 +60,10 @@
                         </ul>
                     </div>
                     <ul id="navBar">
-                        <li><a class="active" href="#home">Home</a></li>
+                       <%-- <li><a class="active" href="#home">Home</a></li>
                         <li><a href="#news">News</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li style="float: right"><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>--%>
+                        <li style="float: right"><a href="../Default.aspx">View Live Web Site</a></li>
                     </ul>
                     <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
 
