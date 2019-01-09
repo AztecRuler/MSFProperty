@@ -133,6 +133,7 @@
     <Compile Include="acommodationsPage.aspx.designer.cs">
       <DependentUpon>acommodationsPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AddressResults.cs" />
     <Compile Include="Admin\Admin.aspx.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -154,6 +155,7 @@
     <Compile Include="Admin\AdminMasterPage.Master.designer.cs">
       <DependentUpon>AdminMasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="Admin\PostcodeResult.cs" />
     <Compile Include="Admin\EditImages.aspx.cs">
       <DependentUpon>EditImages.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -212,6 +214,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LogFile.cs" />
     <Compile Include="MSFMaster.Master.cs">
       <DependentUpon>MSFMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -262,6 +265,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\" />
+    <Folder Include="Logs\" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="WinHttp">
