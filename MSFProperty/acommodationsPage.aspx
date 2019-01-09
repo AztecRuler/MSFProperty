@@ -67,7 +67,7 @@
                                             <div class="wpg-lvi-sub-box">
                                                 <h3><a href="properties.aspx/"><%# Eval("PropertyName") %></a></h3>
                                                 <p></p>
-                                                <p style="width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><%# getContents(Convert.ToInt32(Eval("ID"))) %> </p>
+                                                <p style="width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><%# GetContents(Convert.ToInt32(Eval("ID"))) %> </p>
                                                 <a style="z-index: 1; color: gray; font-weight: bold; position: relative; bottom: 1px;" href="properties.aspx/">more</a>
 
                                                 <a class="wpg-more-button" href="properties.aspx/">More Information</a>

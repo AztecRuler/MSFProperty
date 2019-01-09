@@ -13,34 +13,12 @@ namespace MSFProperty
 
         public string GetText(int id)
         {
-            string text = "";
-
-            using (var db = new Model1())
-            {
-                foreach (var item in db.TextContents)
-                {
-                    if (item.ID == id)
-                        text = item.ElementText;
-
-                }
-            }
-            return text;
+           return DataCalls.GetText(id);
         }
 
         public string GetImage(int id)
         {
-            string text = "";
-
-            using (var db = new Model1())
-            {
-                foreach (var item in db.PageImages)
-                {
-                    if (item.ID == id)
-                        text = item.ImageUrl;
-
-                }
-            }
-            return text;
+           return DataCalls.GetImage(id);
         }
     }
 }

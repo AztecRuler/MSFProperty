@@ -57,6 +57,7 @@ namespace MSFProperty.Admin
                         Featured = featured,
                         Created = created,
                         Images = CreateCommaSeperatedList(images),
+                        //Todo: add property value 
                         //PropertyName = 
                         Street = FullAdress.Street,
                         Street2 = FullAdress.Street2,
@@ -70,8 +71,8 @@ namespace MSFProperty.Admin
                         Area = FullAdress.Area
                     };
                     db.Properties.Add(property);
-                   safeSave(db);
-                   emptyAll();
+                   SafeSave(db);
+                   EmptyAll();
                 }
             }
             else
@@ -81,7 +82,7 @@ namespace MSFProperty.Admin
             }
         }
 
-        private void safeSave(Model1 context)
+        private void SafeSave(Model1 context)
         {
             //this is for error checking
             try
@@ -103,7 +104,7 @@ namespace MSFProperty.Admin
             }
         }
 
-        private DateTime? convertToSystDateTime(string availableFrom)
+        private DateTime? ConvertToSystDateTime(string availableFrom)
         {
             string input = availableFrom;
             DateTime date = new DateTime();
@@ -130,12 +131,11 @@ namespace MSFProperty.Admin
         private ModelAddress GetAddress()
         {
             ModelAddress address = new ModelAddress();
-            int ParsepropertyHouseNumber;
-            Int32.TryParse(PropertyHouseNumber.Text, out ParsepropertyHouseNumber);
+            Int32.TryParse(PropertyHouseNumber.Text, out int ParsepropertyHouseNumber);
             address.AddressNumber = ParsepropertyHouseNumber;
             address.Location = PropertyLocation.Text;
-            address.LocationX = convertToFloat(PropertyLocationX.Text);
-            address.LocationY = convertToFloat(PropertyY.Text);
+            address.LocationX = ConvertToFloat(PropertyLocationX.Text);
+            address.LocationY = ConvertToFloat(PropertyY.Text);
             //TODO: add area
             address.Area = "";
             address.Street = PropertyStreet.Text;
@@ -147,7 +147,7 @@ namespace MSFProperty.Admin
             return address;
         }
 
-        private float convertToFloat(string text)
+        private float ConvertToFloat(string text)
         {
             float num1;
              
@@ -279,7 +279,7 @@ namespace MSFProperty.Admin
              //return (PropertyLocation.Text != "" && PropertyRentPrice.Text != "" && PropertyDeposit.Text != "");
         }
 
-        private string getReponseBack(string client,string  request)
+        private string GetReponseBack(string client,string  request)
         {
             Log("entered");
             var resultClient = new RestClient(client);
@@ -319,8 +319,8 @@ namespace MSFProperty.Admin
                 var houseNumber = "";
                 if (PostCodeRestResult.Result != null)
                 {
-                    houseNumber = validateHouseNumber(PropertyHouseNumber.Text);
-                    emptyTextBoxesForAdress();
+                    houseNumber = ValidateHouseNumber(PropertyHouseNumber.Text);
+                    EmptyTextBoxesForAdress();
 
                     var content = "";
                     using (WebClient wc = new WebClient())
@@ -342,11 +342,11 @@ namespace MSFProperty.Admin
                     {
                         PropertyHouseNumber.Text = houseNumber;
                         PropertyStreet.Text = address.Road;
-                        PropertyStreet2.Text = address.Village != null ? address.Village : PostCodeRestResult.Result.AdminWard;
-                        PropertyCounty.Text = address.County != null ? address.County : PostCodeRestResult.Result.AdminDistrict;
-                        PropertyCountry.Text = address.State != null ? address.State : PostCodeRestResult.Result.Country;
+                        PropertyStreet2.Text = address.Village ?? PostCodeRestResult.Result.AdminWard;
+                        PropertyCounty.Text = address.County ?? PostCodeRestResult.Result.AdminDistrict;
+                        PropertyCountry.Text = address.State ?? PostCodeRestResult.Result.Country;
                         PropertyPostCode.Text = PropertyPostCode.Text == address.Postcode ? address.Postcode : PostCodeRestResult.Result.Postcode;
-                        PropertyLocation.Text = address.Neighbourhood != null ? address.Neighbourhood : PostCodeRestResult.Result.AdminDistrict;
+                        PropertyLocation.Text = address.Neighbourhood ?? PostCodeRestResult.Result.AdminDistrict;
                         PropertyLocationX.Text = PostCodeRestResult.Result.Latitude.ToString();
                         PropertyY.Text = PostCodeRestResult.Result.Longitude.ToString();
 
@@ -356,13 +356,13 @@ namespace MSFProperty.Admin
                 else
                 {
                     //TODO: display error message 
-                    emptyTextBoxesForAdress();
+                    EmptyTextBoxesForAdress();
                 }
             }
          
         }
 
-        private string validateHouseNumber(string text) => Regex.Replace(text, "[^-.//0-9]", "");
+        private string ValidateHouseNumber(string text) => Regex.Replace(text, "[^-.//0-9]", "");
 
         private string ValidatePostcode(string text)
         {
@@ -381,7 +381,7 @@ namespace MSFProperty.Admin
 
         }
 
-        private void emptyTextBoxesForAdress()
+        private void EmptyTextBoxesForAdress()
         {
             String empty = "";
 
@@ -491,18 +491,18 @@ namespace MSFProperty.Admin
 
         protected void ClearTextBoxes_Click(object sender, EventArgs e)
         {
-            emptyTextBoxesForAdress();
+            EmptyTextBoxesForAdress();
         }
 
-
+        //TODO: reset this valuator
         //private bool EditValidation(string output)
         //{
         //    return (output != null && blogEditTextBox1.Text != "" && blogEditTextBox2.Text != "");
         //}
 
-        private void emptyAll()
+        private void EmptyAll()
         {
-            emptyTextBoxesForAdress();
+            EmptyTextBoxesForAdress();
 
         }
         

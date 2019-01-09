@@ -25,23 +25,13 @@ namespace MSFProperty
             }
         }
 
-        public string getContents(int id)
+        public string GetContents(int id)
         {
-           using (var db = new Model1())
-            {
-                foreach (var item in db.Blogs)
-                {
-                    if (item.ID == id)
-                        return  Regex.Replace(item.Contents, "<.*?>", string.Empty);
-
-                }
-            }
-
-            return "";
+            return DataCalls.GetContents(id);
         }
 
 
-        public string getPopularBlogs(int id)
+        public string GetPopularBlogs(int id)
         {
             using (var db = new Model1())
             {
@@ -61,34 +51,12 @@ namespace MSFProperty
 
         public string GetText(int id)
         {
-            string text = "";
-
-            using (var db = new Model1())
-            {
-                foreach (var item in db.TextContents)
-                {
-                    if (item.ID == id)
-                        text = item.ElementText;
-
-                }
-            }
-            return text;
+          return DataCalls.GetText(id);
         }
 
         public string GetImage(int id)
         {
-            string text = "";
-
-            using (var db = new Model1())
-            {
-                foreach (var item in db.PageImages)
-                {
-                    if (item.ID == id)
-                        text = item.ImageUrl;
-
-                }
-            }
-            return text;
+            return DataCalls.GetImage(id);
         }
     }
 }

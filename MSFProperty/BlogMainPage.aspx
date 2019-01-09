@@ -42,7 +42,7 @@
                                     <image src="../Images/<%# Eval("ImageUrl") %>"></image>
                                 </div>
                                 <div class="smallBlogBlurb">
-                                    <%# getContents(Convert.ToInt32(Eval("ID"))) %>
+                                    <%# GetContents(Convert.ToInt32(Eval("ID"))) %>
                                 </div>
 
                             </div>
@@ -56,7 +56,7 @@
                     <h3>Popular Post</h3>
                     <asp:Repeater ID="BlogRepeaterPopular" runat="server">
                         <ItemTemplate>
-                            <div class='popularBlogposts  <%# getPopularBlogs(Convert.ToInt32(Eval("ID"))) %>'><a href="BlogPageView.aspx?id=<%# Eval("ID") %> ">
+                            <div class='popularBlogposts  <%# GetPopularBlogs(Convert.ToInt32(Eval("ID"))) %>'><a href="BlogPageView.aspx?id=<%# Eval("ID") %> ">
                                 <h2 class='blogTitle'><%# Eval("Title") %></h2>
                             </a></div>
                            

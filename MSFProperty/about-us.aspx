@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true"  MasterPageFile="~/MSFMaster.Master" CodeFile="about-us.aspx.cs" Inherits="MSFProperty.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true"  MasterPageFile="~/MSFMaster.Master" CodeFile="about-us.aspx.cs" Inherits="MSFProperty.about_us" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>About-us</title>

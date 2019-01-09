@@ -35,17 +35,7 @@ namespace MSFProperty
 
         public string getContents(int id)
         {
-            using (var db = new Model1())
-            {
-                foreach (var item in db.Properties)
-                {
-                    if (item.ID == id)
-                        return Regex.Replace(item.Blurb, "<.*?>", string.Empty);
-
-                }
-            }
-
-            return "";
+            return DataCalls.GetContents(id);
         }
 
         private void PopulateTextContents()
@@ -66,34 +56,13 @@ namespace MSFProperty
         }
         public string GetText(int id)
         {
-            string text = "";
-
-            using (var db = new Model1())
-            {
-                foreach (var item in db.TextContents)
-                {
-                    if (item.ID == id)
-                        text = item.ElementText;
-
-                }
-            }
-            return text;
+            return DataCalls.GetText(id); ;
         }
 
         public string GetImage(int id)
         {
-            string text = "";
+            return DataCalls.GetImage(id);
 
-            using (var db = new Model1())
-            {
-                foreach (var item in db.PageImages)
-                {
-                    if (item.ID == id)
-                        text = item.ImageUrl;
-
-                }
-            }
-            return text;
         }
     }
 }
