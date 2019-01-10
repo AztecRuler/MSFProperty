@@ -12,7 +12,6 @@ namespace MSFProperty
         protected void Page_Load(object sender, EventArgs e)
         {
   
-            //TODO:  With the front page, could we possibly remove the ‘Scroll Down’ box and move the property search box up so that it is visible on the front page section with a ‘scroll down for more info’ type thing underneath the property search box.Really love everything else on the Home Page!
             //TODO:     On the services page could we possibly have the current Title and text box replicated so that we can essentially have 3 sections of text with a title for each? This just means that we can advertise a few different services etc.
             //TODO:  I really love the Properties page.Am I right in thinking that it will simply show the properties currently posted by us ? We can then remove them etc ?
             //TODO: On the About Us, could we change the layout slightly so that we have space for a portrait photo each with a body of text next to it and then a main body of text below it all ? I have pasted a rough example of what I mean on another website: http://www.bellevuelettings.co.uk/about-us/

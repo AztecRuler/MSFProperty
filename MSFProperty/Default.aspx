@@ -84,6 +84,9 @@
     <div class="bgimg-2 editable"  style="background-image: url('../Images/<%=GetImage(2)%>')">
         <div class="caption">
             <span class="border"><a href="acommodationsPage.aspx" class="border editable"><%=GetText(13)%></a></span>
+
+  <a href="#" id="followFadeAnchor"><span class="followFade"></span><span class="followFade"></span><span class="followFade"></span></a>
+
         </div>
     </div>
 

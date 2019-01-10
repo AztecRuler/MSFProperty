@@ -60,8 +60,7 @@ h3 {
 
 .bgimg-3 {
     min-height: 800px;
-    background-repeat: repeat;
-    background-size: auto;
+    background-repeat: no-repeat;
 }
 
 .caption {
@@ -75,6 +74,7 @@ h3 {
 
     .caption a {
         color: #fff;
+        text-decoration: none;
     }
 
 .foregroundDiv {
@@ -110,11 +110,11 @@ h3 {
 
 .caption span.border {
     background-color: #111;
-    color: #fff;
-    padding: 18px;
-    font-size: 25px;
-    letter-spacing: 10px;
-    opacity: 0.5;
+    padding: 6px;
+    font-size: 26px;
+    letter-spacing: 7px;
+    opacity: 0.8;
+    text-decoration: none;
 }
 
 .play {
@@ -3620,7 +3620,6 @@ div#footerDIV_1 li {
     left: 50%;
     width: 24px;
     height: 24px;
-    margin-left: -12px;
     border-left: 1px solid #fff;
     border-bottom: 1px solid #fff;
     -webkit-transform: rotateZ(-45deg);
@@ -3629,6 +3628,74 @@ div#footerDIV_1 li {
     animation: spinFade 1.5s infinite;
     box-sizing: border-box;
 }
+
+.followFade {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    margin-left: -12px;
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-animation: sdb07 2s infinite;
+    animation: FFade 2s infinite;
+    opacity: 0;
+    box-sizing: border-box;
+}
+
+    .followFade:nth-of-type(1) {
+        -webkit-animation-delay: 0s;
+        animation-delay: 0s;
+        top: 50px;
+    }
+
+    .followFade:nth-of-type(2) {
+        top: 16px;
+        -webkit-animation-delay: .15s;
+        animation-delay: .15s;
+        top: 75px;
+    }
+
+    .followFade:nth-of-type(3) {
+        top: 32px;
+        -webkit-animation-delay: .3s;
+        animation-delay: .3s;
+        top: 100px;
+    }
+
+@-webkit-keyframes FFade {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes FFade {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+
 #spinner1 {
     top: 25px;
 }
@@ -3636,6 +3703,9 @@ div#footerDIV_1 li {
 #spinner3 {
     top: 75px;
 }
+
+
+
 
 @keyframes spinFade {
     0% {
