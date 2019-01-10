@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MSFMaster.Master" AutoEventWireup="true" CodeBehind="properties.aspx.cs" Inherits="MSFProperty.properties" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>About-us</title>
-    <link href="CSS/Design1Css.css" rel="stylesheet" />
+     <link rel="canonical" href="" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainBody" runat="server">
 
@@ -40,17 +40,17 @@ setInterval(function() {
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }</style>
-<%--<div class="wpg-info-panel">
+<%--<div class="msf-info-panel">
 	<div class="container">
 		<div class="span-table">
 			<div class="span-table-cell vertical-align-middle text-align-left">
-				<a class="wpg-arrow-tringle" href="http://northernlights.websites.365villas.com/?back=1">Back</a>
+				<a class="msf-arrow-tringle" href="http://northernlights.websites.365villas.com/?back=1">Back</a>
 			</div>
-			<div class="span-table-cell vertical-align-middle text-align-right wpg-breadcrumb">
+			<div class="span-table-cell vertical-align-middle text-align-right msf-breadcrumb">
 				<a href="http://northernlights.websites.365villas.com">Home</a> / <a href="http://northernlights.websites.365villas.com/accommodation/">Properties</a> / <a href="#"> French Retreat</a>
 			</div>
 		</div>
-		<hr class="wpg-simple-border-bottom">
+		<hr class="msf-simple-border-bottom">
 		
 					<script>
 			$(document).ready(function($)
@@ -65,17 +65,17 @@ setInterval(function() {
             <div class="social-media text-align-right">
 				<div class="social-btns" style="display: none;">
 					<a href="https://plus.google.com/share?url==http%3A%2F%2Fnorthernlights.websites.365villas.com%2Fproperties%2Fsunny-condo-2-9%2F">
-						<div class="social-btn alignright wpg-ico-googlep">
+						<div class="social-btn alignright msf-ico-googlep">
 
 						</div>
 					</a>
 					<a href="https://twitter.com/share?http%3A%2F%2Fnorthernlights.websites.365villas.com%2Fproperties%2Fsunny-condo-2-9%2F&amp;text=French+Retreat&amp;" target="_blank">
-						<div class="social-btn alignright wpg-ico-twitter">
+						<div class="social-btn alignright msf-ico-twitter">
 
 						</div>
 					</a>
 					<a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fnorthernlights.websites.365villas.com%2Fproperties%2Fsunny-condo-2-9%2F" target="_blank">
-						<div class="social-btn alignright wpg-ico-facebook">
+						<div class="social-btn alignright msf-ico-facebook">
 
 						</div>
 					</a>
@@ -84,7 +84,7 @@ setInterval(function() {
 					<div class="share-property alignright">
 						Share Property					</div>
 				</div>
-				<div class="wpg-bar-black-book showBooknow" style="text-align: right">
+				<div class="msf-nav-bar-black-book showBooknow" style="text-align: right">
 					<a style="text-decoration: none" href="#">Book Now</a>
 
 				</div>
@@ -94,7 +94,7 @@ setInterval(function() {
 </div>--%>
 
 <!--
-<div class="wpg-smth-text wpg-bg-white">
+<div class="msf-smth-text msf-bg-white">
 
 		<div class="container clear-both-fix contentOfHomePage">
 		<h1>French Retreat</h1>
@@ -108,24 +108,24 @@ setInterval(function() {
 </div>
 -->
 
-<%--<div class="wpg-tabs-simple wpg-bg-white">
+<%--<div class="msf-tabs-simple msf-bg-white">
 <div class="container">
 <div class="span-table">
-<div class="span-table-cell vertical-align-top wpg-tabs-simple-col-one">
+<div class="span-table-cell vertical-align-top msf-tabs-simple-col-one">
 <div class="span-table">
-	<div class="span-table-cell vertical-align-top span-17"><div class="wpg-tabs-simple-pger"><a href="#">General</a><a href="#">Overview</a><a href="#">Amenities</a><a href="#">Reviews</a><a href="#">Location</a><a href="#" class="cycle-pager-active">Pricing &amp; Availability</a></div></div>
-	<div class="span-table-cell vertical-align-top span-7 wpg-right-header-tabs-outset"><div class="span-table wpg-right-header-tabs"><h3></h3></div></div>
+	<div class="span-table-cell vertical-align-top span-17"><div class="msf-tabs-simple-pger"><a href="#">General</a><a href="#">Overview</a><a href="#">Amenities</a><a href="#">Reviews</a><a href="#">Location</a><a href="#" class="cycle-pager-active">Pricing &amp; Availability</a></div></div>
+	<div class="span-table-cell vertical-align-top span-7 msf-right-header-tabs-outset"><div class="span-table msf-right-header-tabs"><h3></h3></div></div>
 </div>--%>
 <!--
-<div class="cycle-slideshow wpg-tabs-simple-main-content"
+<div class="cycle-slideshow msf-tabs-simple-main-content"
 	data-cycle-fx="scrollHorz"
 	data-cycle-timeout=0
-	data-cycle-pager=".wpg-tabs-simple-pger"
+	data-cycle-pager=".msf-tabs-simple-pger"
 	data-cycle-auto-height="container"
 	data-cycle-slides="> div"
 >
 -->
-<%--<div class="wpg-tabs-simple-main-content" style="position: relative; height: 1264px;">
+<%--<div class="msf-tabs-simple-main-content" style="position: relative; height: 1264px;">
 
 
 
@@ -137,17 +137,17 @@ setInterval(function() {
 
 
 <div data-cycle-hash="general" data-cycle-pager-template="<a href=#>General</a>" class="cycle-slide" style="position: absolute; top: 0px; left: 0px; z-index: 99; visibility: hidden;">
-	<div class="wpg-smth-text">
+	<div class="msf-smth-text">
 		<h1>French Retreat</h1>
 		<p>Charming apartment in the heart of the ancient city, with magnificent altana where to dream and a fabulous terrace, both with an extraordinary view over the city.</p>
 <p>Elegant apartment in the heart of the medieval city between Piazza Maggiore and the Two Towers. The accommodation is located on the fifth floor of a beautiful historic building, with the characteristic red color typical of Bologna. The apartment is completely renovated, it has two rooms, elegant and functional: a living area with kitchenette, table, sofa bed, bathroom with large shower and beautiful terrace. A sleeping area, composed of a wonderful panoramic roof terrace with French bed, with windows on all four sides, with breathtaking views of the city. To gain access to the roof-there is a wooden ladder with side loops (only entrance, see photo). The finishes are of high standard and include air conditioning, heating, and anti-noise windows. In addition, the house is complete with all the amenities: washing machine, industrially sanitized towels and sheets, dishwasher, microwave, Nespresso machine, 40-inch TV, air conditioning, electric shutters, led lights, wi-fi.</p>
 	</div>
-</div><div data-cycle-hash="overview" data-cycle-pager-template="<a href=#>Overview</a>" data-wpg-right-header-tabs="Property Details" class="cycle-slide" style="position: absolute; top: 0px; left: 0px; z-index: 97; visibility: hidden;">
+</div><div data-cycle-hash="overview" data-cycle-pager-template="<a href=#>Overview</a>" data-msf-right-header-tabs="Property Details" class="cycle-slide" style="position: absolute; top: 0px; left: 0px; z-index: 97; visibility: hidden;">
 	<div class="span-table">
-		<div class="span-table-cell vertical-align-top span-17 wpg-tsmc-left">
+		<div class="span-table-cell vertical-align-top span-17 msf-tsmc-left">
 
 			
-			<div class="wpg-content-1-col">
+			<div class="msf-content-1-col">
 				<div>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies malesuada diam quis pretium. Pellentesque ac lorem id nunc accumsan pellentesque. Donec interdum, urna vel luctus consectetur, justo mi laoreet leo, a dictum nulla ante vel urna.</p>
 <p><a href="http://themeone.websites.365villas.com/wp-content/uploads/sites/105/2015/07/Template1-BurgundyBanner10.jpg" rel="attachment wp-att-421"><img class="aligncenter size-large wp-image-421" src="http://themeone.websites.365villas.com/wp-content/uploads/sites/105/2015/07/Template1-BurgundyBanner10-1024x384.jpg" alt="Template1-BurgundyBanner10" width="1024" height="384"></a></p>
@@ -156,7 +156,7 @@ setInterval(function() {
 			</div>
 		</div>
 
-		<div class="span-table-cell vertical-align-top span-7 wpg-tsmc-right">
+		<div class="span-table-cell vertical-align-top span-7 msf-tsmc-right">
 			<p>The apartment is completely renovated, it has two rooms, elegant and functional: a living area with kitchenette, table, sofa bed, bathroom with large shower and beautiful terrace.</p>
 <p>&nbsp;</p>
 <p>A sleeping area, composed of a wonderful panoramic roof terrace with French bed, with windows on all four sides, with breathtaking views of the city. To gain access to the roof-there is a wooden ladder with side loops (only entrance, see photo).</p>
@@ -169,21 +169,21 @@ setInterval(function() {
 		</div>
 	</div>
 
-</div><div data-cycle-hash="amenities" data-cycle-pager-template="<a href=#>Amenities</a>" data-wpg-right-header-tabs="Property Details" class="cycle-slide" style="position: absolute; top: 0px; left: 0px; z-index: 96; visibility: hidden;">
+</div><div data-cycle-hash="amenities" data-cycle-pager-template="<a href=#>Amenities</a>" data-msf-right-header-tabs="Property Details" class="cycle-slide" style="position: absolute; top: 0px; left: 0px; z-index: 96; visibility: hidden;">
 	<div class="span-table">
-		<div class="span-table-cell span-17 vertical-align-top wpg-tsmc-left ammenity_left">
+		<div class="span-table-cell span-17 vertical-align-top msf-tsmc-left ammenity_left">
 
-			<div class="wpg-content-1-col">
+			<div class="msf-content-1-col">
 				<div>
 					
 									</div>
 			</div>
-						<div class="span-table wpg-tabs-box-inset-tabs">
-				<div class="span-table-cell span-9 vertical-align-top span-table wpg-tabs-box-inset-tabs-left">
-					<div class="wpg-tabs-box-inset-tabs-content-pager"><a href="#" onclick="$(window).trigger('resize');" class="cycle-pager-active"> General</a><a href="#" onclick="$(window).trigger('resize');">Bedrooms</a><a href="#" onclick="$(window).trigger('resize');">Bathrooms</a><a href="#" onclick="$(window).trigger('resize');">Kitchen</a><a href="#" onclick="$(window).trigger('resize');">Dining</a><a href="#" onclick="$(window).trigger('resize');">Living Area</a><a href="#" onclick="$(window).trigger('resize');">Miscellaneous</a><a href="#" onclick="$(window).trigger('resize');">Surrounding Area</a></div>
+						<div class="span-table msf-tabs-box-inset-tabs">
+				<div class="span-table-cell span-9 vertical-align-top span-table msf-tabs-box-inset-tabs-left">
+					<div class="msf-tabs-box-inset-tabs-content-pager"><a href="#" onclick="$(window).trigger('resize');" class="cycle-pager-active"> General</a><a href="#" onclick="$(window).trigger('resize');">Bedrooms</a><a href="#" onclick="$(window).trigger('resize');">Bathrooms</a><a href="#" onclick="$(window).trigger('resize');">Kitchen</a><a href="#" onclick="$(window).trigger('resize');">Dining</a><a href="#" onclick="$(window).trigger('resize');">Living Area</a><a href="#" onclick="$(window).trigger('resize');">Miscellaneous</a><a href="#" onclick="$(window).trigger('resize');">Surrounding Area</a></div>
 				</div>
-				<div class="span-table-cell span-15 vertical-align-top span-table wpg-tabs-box-inset-tabs-right">
-					<div class="cycle-slideshow wpg-tabs-box-inset-tabs-content" data-cycle-fx="scrollHorz" data-cycle-timeout="0" data-cycle-pager=".wpg-tabs-box-inset-tabs-content-pager" data-cycle-auto-height="container" data-cycle-slides="> div" style="position: relative; height: 176px;">
+				<div class="span-table-cell span-15 vertical-align-top span-table msf-tabs-box-inset-tabs-right">
+					<div class="cycle-slideshow msf-tabs-box-inset-tabs-content" data-cycle-fx="scrollHorz" data-cycle-timeout="0" data-cycle-pager=".msf-tabs-box-inset-tabs-content-pager" data-cycle-auto-height="container" data-cycle-slides="> div" style="position: relative; height: 176px;">
 						
 																					
 															
@@ -194,122 +194,122 @@ setInterval(function() {
 															
 															
 																		<div data-cycle-pager-template="<a href=# onclick=$(window).trigger('resize');> General</a>" class="cycle-slide cycle-slide-active" style="position: absolute; top: 0px; left: 0px; z-index: 100; opacity: 1; display: block; visibility: visible;">
-									<ul class="wpg-options-list-icons">
+									<ul class="msf-options-list-icons">
 																														
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -0px"></span>Ocean View </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -0px"></span>Ocean View </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -120px"></span>Dedicated Parking Space x 3 </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -120px"></span>Dedicated Parking Space x 3 </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -40px"></span>Child Friendly </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -40px"></span>Child Friendly </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -160px"></span>Air Conditioned </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -160px"></span>Air Conditioned </li>
 																																							</ul>
 								</div><div data-cycle-pager-template="<a href=# onclick=$(window).trigger('resize');>Bedrooms</a>" class="cycle-slide" style="position: absolute; top: 0px; left: 0px; z-index: 99; visibility: hidden;">
-									<ul class="wpg-options-list-icons">
+									<ul class="msf-options-list-icons">
 																														
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -640px"></span>En-suite </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -640px"></span>En-suite </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -680px"></span>King </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -680px"></span>King </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -280px"></span>Linen inc. </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -280px"></span>Linen inc. </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -3720px"></span>Double </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -3720px"></span>Double </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -3800px"></span>Single Bed </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -3800px"></span>Single Bed </li>
 																																							</ul>
 								</div><div data-cycle-pager-template="<a href=# onclick=$(window).trigger('resize');>Bathrooms</a>" class="cycle-slide" style="position: absolute; top: 0px; left: 0px; z-index: 97; visibility: hidden;">
-									<ul class="wpg-options-list-icons">
+									<ul class="msf-options-list-icons">
 																														
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -840px"></span>Bath/Shower </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -840px"></span>Bath/Shower </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -960px"></span>Towels inc. </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -960px"></span>Towels inc. </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -1000px"></span>Hair Dryer </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -1000px"></span>Hair Dryer </li>
 																																							</ul>
 								</div><div data-cycle-pager-template="<a href=# onclick=$(window).trigger('resize');>Kitchen</a>" class="cycle-slide" style="position: absolute; top: 0px; left: 0px; z-index: 96; visibility: hidden;">
-									<ul class="wpg-options-list-icons">
+									<ul class="msf-options-list-icons">
 																														
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -1160px"></span>Refrigerator </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -1160px"></span>Refrigerator </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -1200px"></span>Freezer </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -1200px"></span>Freezer </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -1280px"></span>Oven </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -1280px"></span>Oven </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -1320px"></span>Microwave </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -1320px"></span>Microwave </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -1360px"></span>Dishwasher </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -1360px"></span>Dishwasher </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -1440px"></span>Dishes &amp; Utensils </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -1440px"></span>Dishes &amp; Utensils </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -1480px"></span>Cooking Utensils </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -1480px"></span>Cooking Utensils </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -1560px"></span>Full Modernized </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -1560px"></span>Full Modernized </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -1400px"></span>Coffee Maker </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -1400px"></span>Coffee Maker </li>
 																																							</ul>
 								</div><div data-cycle-pager-template="<a href=# onclick=$(window).trigger('resize');>Dining</a>" class="cycle-slide" style="position: absolute; top: 0px; left: 0px; z-index: 95; visibility: hidden;">
-									<ul class="wpg-options-list-icons">
+									<ul class="msf-options-list-icons">
 																														
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -1040px"></span>Seats </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -1040px"></span>Seats </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -1080px"></span>Seats indoors </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -1080px"></span>Seats indoors </li>
 																																							</ul>
 								</div><div data-cycle-pager-template="<a href=# onclick=$(window).trigger('resize');>Living Area</a>" class="cycle-slide" style="position: absolute; top: 0px; left: 0px; z-index: 94; visibility: hidden;">
-									<ul class="wpg-options-list-icons">
+									<ul class="msf-options-list-icons">
 																														
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -80px"></span>Spacious </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -80px"></span>Spacious </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -1600px"></span>Sofa </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -1600px"></span>Sofa </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -1640px"></span>Chair </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -1640px"></span>Chair </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -3840px"></span>Balcony </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -3840px"></span>Balcony </li>
 																																							</ul>
 								</div><div data-cycle-pager-template="<a href=# onclick=$(window).trigger('resize');>Miscellaneous</a>" class="cycle-slide" style="position: absolute; top: 0px; left: 0px; z-index: 93; visibility: hidden;">
-									<ul class="wpg-options-list-icons">
+									<ul class="msf-options-list-icons">
 																														
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -1840px"></span>TV </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -1840px"></span>TV </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -1880px"></span>Cable </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -1880px"></span>Cable </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -1920px"></span>VCR </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -1920px"></span>VCR </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -2080px"></span>Broadband </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -2080px"></span>Broadband </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -2120px"></span>Wi-Fi </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -2120px"></span>Wi-Fi </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -2520px"></span>Washer </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -2520px"></span>Washer </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -2560px"></span>Dryer </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -2560px"></span>Dryer </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -2640px"></span>Iron Board </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -2640px"></span>Iron Board </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -2680px"></span>Books </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -2680px"></span>Books </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -2800px"></span>Radio </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -2800px"></span>Radio </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -3680px"></span>Safe Box </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -3680px"></span>Safe Box </li>
 																																							</ul>
 								</div><div data-cycle-pager-template="<a href=# onclick=$(window).trigger('resize');>Surrounding Area</a>" class="cycle-slide" style="position: absolute; top: 0px; left: 0px; z-index: 92; visibility: hidden;">
-									<ul class="wpg-options-list-icons">
+									<ul class="msf-options-list-icons">
 																														
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -2280px"></span>Tennis </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -2280px"></span>Tennis </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -2960px"></span>Golf </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -2960px"></span>Golf </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -3520px"></span>Post Office </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -3520px"></span>Post Office </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -3560px"></span>Cinema </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -3560px"></span>Cinema </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -3600px"></span>Mall </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -3600px"></span>Mall </li>
 																																
-																							<li class="wpg-ico-air-conditioned"><span class="icon" style="background-position: 0px -3640px"></span>Nature </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -3640px"></span>Nature </li>
 																																							</ul>
 								</div></div>
 				</div>
 			</div>
 					</div>
-		<div class="span-table-cell span-7 vertical-align-top wpg-tsmc-right">
+		<div class="span-table-cell span-7 vertical-align-top msf-tsmc-right">
 			<div class="more_amenites" style="overflow: hidden;">
 				<p>The apartment is completely renovated, it has two rooms, elegant and functional: a living area with kitchenette, table, sofa bed, bathroom with large shower and beautiful terrace.</p>
 				<a href="#" class="more_button" style="display: none; position:absolute; margin:0; bottom:0">more</a>
@@ -319,15 +319,15 @@ setInterval(function() {
 	</div>
 
 
-</div><div data-cycle-hash="reviews" data-cycle-pager-template="<a href=#>Reviews</a>" data-wpg-right-header-tabs="Property Details" class="cycle-slide" style="position: absolute; top: 0px; left: 0px; z-index: 95; visibility: hidden;">
+</div><div data-cycle-hash="reviews" data-cycle-pager-template="<a href=#>Reviews</a>" data-msf-right-header-tabs="Property Details" class="cycle-slide" style="position: absolute; top: 0px; left: 0px; z-index: 95; visibility: hidden;">
 	<div class="span-table" style="min-height: 100px;">
-		<div class="span-table-cell vertical-align-top span-17 wpg-tsmc-left">
-			<div class="wpg-rev">
-				<a class="wpg-button-review" href="#">Write a Review</a>
+		<div class="span-table-cell vertical-align-top span-17 msf-tsmc-left">
+			<div class="msf-rev">
+				<a class="msf-button-review" href="#">Write a Review</a>
 				
 			</div>
 		</div>
-		<div class="span-table-cell vertical-align-top span-7 wpg-tsmc-right">
+		<div class="span-table-cell vertical-align-top span-7 msf-tsmc-right">
 			<div class="more">
 				<p>The apartment is completely renovated, it has two rooms, elegant and functional: a living area with kitchenette, table, sofa bed, bathroom with large shower and beautiful terrace.</p>
 <p>&nbsp;</p>
@@ -345,9 +345,9 @@ setInterval(function() {
 	</div>
 </div><div data-cycle-hash="location" data-cycle-pager-template="<a href=#>Location</a>" class="cycle-slide" style="position: absolute; top: 0px; left: 0px; z-index: 94; visibility: hidden;">
 	<div class="span-table">
-		<div class="span-table-cell vertical-align-top span-17 wpg-tsmc-left">
-			<div class="wpg-tabs-simple-google-maps">
-				<div class="wpg-tabs-simple-google-maps-inset clear-both-fix">
+		<div class="span-table-cell vertical-align-top span-17 msf-tsmc-left">
+			<div class="msf-tabs-simple-google-maps">
+				<div class="msf-tabs-simple-google-maps-inset clear-both-fix">
 											<span id="codeaddress" data-action="true"></span>
 						<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDO50OJOXC8__QCdgydTRxEux3Y2kb44ys&callback=initMap"></script> -->
 						<span id="location_address" style="display:none">FR, Bologna, Route d'Agen, 24100, </span>
@@ -446,34 +446,34 @@ setInterval(function() {
 				<!-- <p>*Please note that the location of the property is approximate to protect the owners privacy</p> -->
 			</div>
 		</div>
-		<div class="span-table-cell vertical-align-top span-7 wpg-tsmc-right">
+		<div class="span-table-cell vertical-align-top span-7 msf-tsmc-right">
 			
 		</div>
 	</div>
 </div><div data-cycle-hash="pricing-availability" data-cycle-pager-template="<a href=#>Pricing &amp; Availability</a>" class="cycle-slide cycle-slide-active" style="position: absolute; top: 0px; left: 0px; z-index: 100; opacity: 1; display: block; visibility: visible;">
-	<div class="wpg-pricing-availability">
+	<div class="msf-pricing-availability">
 
-		<div class="wpg-three-steps clear-both-fix">
-			<div class="wpg-1-step wpg-step-active">
+		<div class="msf-three-steps clear-both-fix">
+			<div class="msf-1-step msf-step-active">
 				<p><strong><span>1</span></strong></p>
 				<h4>Availabilty</h4>
 			</div>
-			<div class="wpg-2-step">
+			<div class="msf-2-step">
 				<p><strong><span>2</span></strong></p>
 				<h4>Pricing &amp; Reserve</h4>
 			</div>
-			<div class="wpg-3-step">
+			<div class="msf-3-step">
 				<p><strong><span>3</span></strong></p>
 				<h4>Confirm</h4>
 			</div>
 		</div>
 
-		<div class="wpg-three-steps-main">
-			<div class="wpg-bar-black-book booknow" style="text-align: right">
+		<div class="msf-three-steps-main">
+			<div class="msf-nav-bar-black-book booknow" style="text-align: right">
 												<a href="#" class="bok bok2"> Book Now </a>
 
 			</div>
-			<div class="wpg-bar-black-book booknow" style="text-align: right">
+			<div class="msf-nav-bar-black-book booknow" style="text-align: right">
 
 			</div>
 			<div class="calendar" style="display: block">
@@ -481,7 +481,7 @@ setInterval(function() {
 			</div>
 
 
-			<div class="wpg-bar-black-book booknow" style="text-align: left;">
+			<div class="msf-nav-bar-black-book booknow" style="text-align: left;">
 				<a href="#" class="bok_back bok" style="display: none"> Back </a>
 			</div>
 
@@ -524,61 +524,61 @@ setInterval(function() {
 </div>
 </div>--%>
 
-<div style="display: none;" class="wpg-popup-bg">
+<div style="display: none;" class="msf-popup-bg">
 	<form class="add_property_comments">
-		<div class="wpg-popup wpg-popup-x21 wpg-smth-text-inset">
-			<a class="wpg-popup-close" href="#">×</a>
+		<div class="msf-popup msf-popup-x21 msf-smth-text-inset">
+			<a class="msf-popup-close" href="#">×</a>
 			<h3>Write a Review</h3>
 				<span class="review-inset">
 					<input type="hidden" value="384 " name="property_id">
-					<input type="hidden" id="name_ajax_review" name="name_ajax_review" value="7b53ff45dc"><input type="hidden" name="_wp_http_referer" value="/properties/sunny-condo-2-9/">					<div class="wpg-input-default"><input type="text" name="wpg-name" placeholder="Name"></div>
-					<div class="wpg-input-default"><input type="text" name="wpg-review-title" placeholder="Review Title"></div>
-					<div class="wpg-input-default"><textarea name="wpg-your-review" placeholder="Your Review..."></textarea></div>
+					<input type="hidden" id="name_ajax_review" name="name_ajax_review" value="7b53ff45dc"><input type="hidden" name="_wp_http_referer" value="/properties/sunny-condo-2-9/">					<div class="msf-input-default"><input type="text" name="msf-name" placeholder="Name"></div>
+					<div class="msf-input-default"><input type="text" name="msf-review-title" placeholder="Review Title"></div>
+					<div class="msf-input-default"><textarea name="msf-your-review" placeholder="Your Review..."></textarea></div>
 
 					<p>Choose your star rating</p>
-					<!--<div class="wpg-stars" style="background-image: url(http://northernlights.websites.365villas.com/wp-content/themes/villas/img/stars-empty-grey.png);"><div class="wpg-stars-inset" style="width: 0;"></div></div>-->
+					<!--<div class="msf-stars" style="background-image: url(http://northernlights.websites.365villas.com/wp-content/themes/villas/img/stars-empty-grey.png);"><div class="msf-stars-inset" style="width: 0;"></div></div>-->
 					<div style="text-align:  center; margin-bottom: 10px;">        <div class="rateit" data-rateit-backingfld=".rating-field"><button id="rateit-reset-2" class="rateit-reset" aria-label="reset rating" aria-controls="rateit-range-2"></button><div id="rateit-range-2" class="rateit-range" tabindex="0" role="slider" aria-label="rating" aria-owns="rateit-reset-2" aria-valuemin="0" aria-valuemax="5" aria-valuenow="" aria-readonly="false" style="width: 80px; height: 16px;"><div class="rateit-selected" style="height: 16px; width: 0px;"></div><div class="rateit-hover" style="height:16px"></div></div></div>
         <input type="hidden" name="rating" class="rating-field" style="display: none;">
       </div>
-					<div><input type="submit" name="wpg-submit" value="Submit Review"></div>
+					<div><input type="submit" name="msf-submit" value="Submit Review"></div>
 					<img class="ajax-loader-review" src="http://northernlights.websites.365villas.com/wp-content/themes/villas/ajax-loader.gif" alt="Sending ..." style="display: none">
 				</span>
 		</div>
 	</form>
 </div>
 
-<%--<div class="wpg-footer wpg-bg-grey" id="wpg-footer">
+<%--<div class="msf-footer msf-bg-grey" id="msf-footer">
 	<div class="container clear-both-fix">
-		<div class="span-table wpg-footer-inset">
+		<div class="span-table msf-footer-inset">
 			<div class="span-table-cell vertical-align-top">
-				<ul id="menu-first-menu-on-footer" class="wpg-footer-normal-links"><li id="menu-item-84" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-84"><a href="/accommodation">Our Properties</a></li>
+				<ul id="menu-first-menu-on-footer" class="msf-footer-normal-links"><li id="menu-item-84" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-84"><a href="/accommodation">Our Properties</a></li>
 <li id="menu-item-86" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-86"><a href="#">Amenities</a></li>
 <li id="menu-item-87" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-87"><a href="#">Location</a></li>
 </ul>							</div>
 			<div class="span-table-cell vertical-align-top">
-				<ul id="menu-second-menu-on-footer" class="wpg-footer-normal-links"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-88"><a href="#">Availability</a></li>
+				<ul id="menu-second-menu-on-footer" class="msf-footer-normal-links"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-88"><a href="#">Availability</a></li>
 <li id="menu-item-89" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-89"><a href="#">Book Now</a></li>
 <li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-90"><a href="#">Reviews</a></li>
-</ul>				                                <ul class="wpg-footer-normal-links">
+</ul>				                                <ul class="msf-footer-normal-links">
                                     <li><a href="/login/">Owner Login</a></li>
 				</ul>
                                 			</div>
 			<div class="span-table-cell vertical-align-top">
-				<ul id="menu-third-menu-on-footer" class="wpg-footer-normal-links"><li id="menu-item-93" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-93"><a href="http://northernlights.websites.365villas.com/about-us/">About us</a></li>
+				<ul id="menu-third-menu-on-footer" class="msf-footer-normal-links"><li id="menu-item-93" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-93"><a href="http://northernlights.websites.365villas.com/about-us/">About us</a></li>
 <li id="menu-item-92" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-92"><a href="http://northernlights.websites.365villas.com/blog/">Journal</a></li>
 <li id="menu-item-417" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-417"><a href="http://northernlights.websites.365villas.com/contact-us/">Contact Us</a></li>
 </ul>							</div>
 			<div class="span-table-cell vertical-align-middle">
 
-				<ul class="wpg-footer-social-icons-horizonatl clear-both-fix">
+				<ul class="msf-footer-social-icons-horizonatl clear-both-fix">
 					
-											<li class="wpg-ico-twitter"><a target="_blank" href="#"><span>Twitter</span></a></li>
-																					<li class="wpg-ico-googlep"><a target="_blank" href="#"><span>Google Plus</span></a></li>
-																<li class="wpg-ico-printerest" style="line-height: 80%;"><a target="_blank" href="#"><span>Printerest</span></a></li>
-																<li class="wpg-ico-linkedin" style="line-height: 80%;"><a target="_blank" href="#"><span>Linkedin</span></a></li>
+											<li class="msf-ico-twitter"><a target="_blank" href="#"><span>Twitter</span></a></li>
+																					<li class="msf-ico-googlep"><a target="_blank" href="#"><span>Google Plus</span></a></li>
+																<li class="msf-ico-printerest" style="line-height: 80%;"><a target="_blank" href="#"><span>Printerest</span></a></li>
+																<li class="msf-ico-linkedin" style="line-height: 80%;"><a target="_blank" href="#"><span>Linkedin</span></a></li>
 																			</ul>
 
-				<p class="wpg-copy"><a href="https://365villas.com">Powered by 365villas</a></p>
+				<p class="msf-copy"><a href="https://365villas.com">Powered by 365villas</a></p>
 			</div>
 		</div>
 	</div>

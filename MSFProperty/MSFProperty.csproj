@@ -112,18 +112,21 @@
     <Content Include="BlogMainPage.aspx" />
     <Content Include="BlogPageView.aspx" />
     <Content Include="contact-us.aspx" />
-    <Content Include="CSS\Design1Css.css" />
+    <Content Include="CSS\MSF_StyleSheet.css" />
     <Content Include="CSS\AdminStyleSheet1.css" />
     <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="about-us.aspx" />
     <Content Include="Icons\font-awesome.css" />
     <Content Include="Icons\ionicons.css" />
     <Content Include="ajax-loader.gif" />
     <Content Include="Javascript\adminJavaScript.js" />
+    <Content Include="Javascript\msfJavascript.js" />
     <Content Include="Logs\log.txt" />
     <Content Include="properties.aspx" />
     <Content Include="services.aspx" />
+    <Content Include="TodoList.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -246,6 +249,13 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataCalls.cs" />
+    <Compile Include="TodoList.aspx.cs">
+      <DependentUpon>TodoList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TodoList.aspx.designer.cs">
+      <DependentUpon>TodoList.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Fonts\Roboto-Regular.ttf" />

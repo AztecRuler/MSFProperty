@@ -2,12 +2,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>services</title>
-    <link href="CSS/Design1Css.css" rel="stylesheet" />
+     <link rel="canonical" href="" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainBody" runat="server">
 
-        <div class="wpg-main-bg-header bgimg editable" style="background-image: url('../Images/<%=GetImage(4)%>')" >
+        <div class="msf-main-bg-header bgimg editable" style="background-image: url('../Images/<%=GetImage(4)%>')" >
 		<div class="span-table">
 			<div class="span-table-cell vertical-align-middle text-align-center">
 				<div class="container">
@@ -17,12 +17,12 @@
 			</div>
 		</div>
 	</div>
-        <div class="wpg-buttons-info wpg-bg-grey">
+        <div class="msf-buttons-info msf-bg-grey">
 		<div class="container clear-both-fix text-align-center">
 			<ul>
-				<li class="wpg-button-info-book"><a href="Default.aspx"  class="editable"><%=GetText(19)%></a></li>
-									<li class="wpg-button-info-phone"><a href="tel:07709 649 292 "  class="editable"><%=GetText(20)%></a></li>
-																	<li class="wpg-button-info-contact"><a href="contact-us.aspx"  class="editable"><%=GetText(21)%></a></li>
+				<li class="msf-button-info-book"><a href="Default.aspx"  class="editable"><%=GetText(19)%></a></li>
+									<li class="msf-button-info-phone"><a href="tel:07709 649 292 "  class="editable"><%=GetText(20)%></a></li>
+																	<li class="msf-button-info-contact"><a href="contact-us.aspx"  class="editable"><%=GetText(21)%></a></li>
 						</ul>
 		</div>
 	</div>

@@ -2,12 +2,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>About-us</title>
-    <link href="CSS/Design1Css.css" rel="stylesheet" />
+     <link rel="canonical" href="" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainBody" runat="server">
 
-<div class="wpg-main-bg-header bgimg editable" style="background-image: url('../Images/<%=GetImage(6)%>')" >	
+<div class="msf-main-bg-header bgimg editable" style="background-image: url('../Images/<%=GetImage(6)%>')" >	
     <div class="span-table">
 			<div class="span-table-cell vertical-align-middle text-align-center">
 				<div class="container">

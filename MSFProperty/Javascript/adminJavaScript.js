@@ -40,7 +40,7 @@
 
         $('iframe').load(function () {
             $('iframe').contents().find("head")
-                .append($("<style type='text/css'>  #footer,#wpg-bar{display:none;} .editable{ box-shadow: none;} .editable:hover {box-shadow: 0 0 25px red;  inset 0 0 10px white;}  div[class*='bgimg'] {width: 99%; margin: auto;}</style>"));
+                .append($("<style type='text/css'>  #footer,#msf-nav-bar{display:none;} .editable{ box-shadow: none;} .editable:hover {box-shadow: 0 0 25px red;  inset 0 0 10px white;}  div[class*='bgimg'] {width: 99%; margin: auto;}</style>"));
             var allTextElements = $(this).contents().find(".editable").not('div[class*="bgimg"]');
             var allImageElements = $(this).contents().find('div[class*="bgimg"]');
 
