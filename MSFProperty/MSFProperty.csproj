@@ -127,6 +127,7 @@
     <Content Include="properties.aspx" />
     <Content Include="services.aspx" />
     <Content Include="TodoList.aspx" />
+    <Content Include="UserControls\AboutUsInfo.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +160,14 @@
     <Compile Include="Admin\AdminMasterPage.Master.designer.cs">
       <DependentUpon>AdminMasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EF\AboutUsInfo.cs" />
+    <Compile Include="Admin\EF\Blog.cs" />
+    <Compile Include="Admin\EF\ContentImage.cs" />
+    <Compile Include="Admin\EF\Model1.cs" />
+    <Compile Include="Admin\EF\Page.cs" />
+    <Compile Include="Admin\EF\PageImage.cs" />
+    <Compile Include="Admin\EF\Property.cs" />
+    <Compile Include="Admin\EF\TextContent.cs" />
     <Compile Include="Admin\PostcodeResult.cs" />
     <Compile Include="Admin\EditImages.aspx.cs">
       <DependentUpon>EditImages.aspx</DependentUpon>
@@ -174,12 +183,6 @@
     <Compile Include="Admin\EditPage.aspx.designer.cs">
       <DependentUpon>EditPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\EF\Blog.cs" />
-    <Compile Include="Admin\EF\Model1.cs" />
-    <Compile Include="Admin\EF\Page.cs" />
-    <Compile Include="Admin\EF\PageImage.cs" />
-    <Compile Include="Admin\EF\Property.cs" />
-    <Compile Include="Admin\EF\TextContent.cs" />
     <Compile Include="Admin\PropertyPage.aspx.cs">
       <DependentUpon>PropertyPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -255,6 +258,13 @@
     </Compile>
     <Compile Include="TodoList.aspx.designer.cs">
       <DependentUpon>TodoList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AboutUsInfo.ascx.cs">
+      <DependentUpon>AboutUsInfo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\AboutUsInfo.ascx.designer.cs">
+      <DependentUpon>AboutUsInfo.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -3550,6 +3550,35 @@ p {
 div#footerDIV_1 li {
     margin-bottom: 2px;
 }
+
+
+/*about-us*/
+
+.about-us-info-section {
+    margin: 0 auto;
+}
+
+div#msf-about-us-Image {
+    float: left;
+}
+div#msf-about-us-text {
+    float: left;
+    width: 815px;
+    font: normal normal 400 normal 14px / 23.8px Arial, Helvetica, sans-serif;
+    margin: 0px 20px 40px;
+}
+
+h3#msf-about-us-title {
+    font: normal normal 300 normal 20px / 26px proxima-nova;
+}
+
+p#msf-about-us-P {
+    color: rgb(51, 51, 51);
+    font: normal normal 400 normal 14px / 23.8px Arial, Helvetica, sans-serif;
+    margin: 0px 0px 20px;
+}
+
+
 /*blog*/
 
 

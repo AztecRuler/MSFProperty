@@ -52,7 +52,7 @@
             <asp:ContentPlaceHolder ID="footerMaster" runat="server">
 
 
-                                <div id="footer" class="footer">
+<%--                                <div id="footer" class="footer">
                     <div id="footerDIV_1">
                         <div id="footerDIV_2">
                             <div id="footerDIV_3">
@@ -117,7 +117,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--%>
             </asp:ContentPlaceHolder>
 
         </div>

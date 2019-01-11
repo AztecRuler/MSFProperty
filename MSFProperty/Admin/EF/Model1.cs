@@ -12,7 +12,9 @@ namespace MSFProperty.Admin.EF
         {
         }
 
+        public virtual DbSet<AboutUsInfo> AboutUsInfoes { get; set; }
         public virtual DbSet<Blog> Blogs { get; set; }
+        public virtual DbSet<ContentImage> ContentImages { get; set; }
         public virtual DbSet<PageImage> PageImages { get; set; }
         public virtual DbSet<Page> Pages { get; set; }
         public virtual DbSet<Property> Properties { get; set; }
@@ -20,6 +22,22 @@ namespace MSFProperty.Admin.EF
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<AboutUsInfo>()
+                .Property(e => e.Title)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<AboutUsInfo>()
+                .Property(e => e.Chat)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<AboutUsInfo>()
+                .Property(e => e.Quote)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<AboutUsInfo>()
+                .Property(e => e.ImageUrl)
+                .IsUnicode(false);
+
             modelBuilder.Entity<Blog>()
                 .Property(e => e.Name)
                 .IsFixedLength();
@@ -34,6 +52,22 @@ namespace MSFProperty.Admin.EF
 
             modelBuilder.Entity<Blog>()
                 .Property(e => e.ImageUrl)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ContentImage>()
+                .Property(e => e.ImageUrl)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ContentImage>()
+                .Property(e => e.OnPage)
+                .IsFixedLength();
+
+            modelBuilder.Entity<ContentImage>()
+                .Property(e => e.ImageUse)
+                .IsFixedLength();
+
+            modelBuilder.Entity<ContentImage>()
+                .Property(e => e.ImageName)
                 .IsUnicode(false);
 
             modelBuilder.Entity<PageImage>()
@@ -71,6 +105,14 @@ namespace MSFProperty.Admin.EF
             modelBuilder.Entity<Property>()
                 .Property(e => e.Location)
                 .IsFixedLength();
+
+            modelBuilder.Entity<Property>()
+                .Property(e => e.AvailableFrom)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Property>()
+                .Property(e => e.AvaiableTo)
+                .IsUnicode(false);
 
             modelBuilder.Entity<Property>()
                 .Property(e => e.Area)

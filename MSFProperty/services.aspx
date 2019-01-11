@@ -30,23 +30,15 @@
         <h3 style="text-align: center;" class="editable"><%=GetText(22)%></h3>
         <p class="editable"><%=GetText(23)%></p>
 
-<%--     TODO:add blog 
-    <span style="text-align: center; margin: 0 auto;" class="top_front_div editable"><%=GetText(24)%></span>--%>
-
     </div>
-
-        <div class="foregroundDiv">
+    <div class="foregroundDiv">
         <h3 style="text-align: center;" class="editable"><%=GetText(22)%></h3>
         <p class="editable"><%=GetText(39)%></p>
 
-        <span style="text-align: center; margin: 0 auto;" class="top_front_div editable"><%=GetText(24)%></span>
-
     </div>
-        <div class="foregroundDiv">
+    <div class="foregroundDiv">
         <h3 style="text-align: center;" class="editable"><%=GetText(22)%></h3>
         <p class="editable"><%=GetText(40)%></p>
-
-     <%--   <span style="text-align: center; margin: 0 auto;" class="top_front_div editable"><%=GetText(24)%></span>--%>
 
     </div>
 </asp:Content>

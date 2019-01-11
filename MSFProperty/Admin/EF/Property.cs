@@ -30,10 +30,10 @@ namespace MSFProperty.Admin.EF
 
         public bool? Pets { get; set; }
 
-        [StringLength(100)]
+        [StringLength(50)]
         public string AvailableFrom { get; set; }
 
-        [StringLength(100)]
+        [StringLength(50)]
         public string AvaiableTo { get; set; }
 
         public int RentPrice { get; set; }
