@@ -35,7 +35,7 @@
                             <li id="menu-item-1" class="current-menu-item"><a href="Default.aspx">Home</a></li>
                             <li id="menu-item-2" class=""><a href="services.aspx">Services</a></li>
                             <li id="menu-item-3" class=""><a href="acommodationsPage.aspx">Propertiess</a></li>
-                            <li id="menu-item-4" class=""><a href="about-us.aspx">About us</a></li>
+                            <li id="menu-item-4" class=""><a href="About_Us.aspx">About us</a></li>
                             <li id="menu-item-5" class=""><a href="BlogMainPage.aspx">Blog</a></li>
                             <li id="menu-item-6" class=""><a href="contact-us.aspx">Contact Us</a></li>
                         </ul>
@@ -85,7 +85,7 @@
                                 <div id="footerDIV_20">
                                     <ul id="footerUL_21">
                                         <li id="footerLI_22">
-                                            <a href="about-us.aspx" id="footerA_23">About us</a>
+                                            <a href="About_Us.aspx" id="footerA_23">About us</a>
                                         </li>
                                         <li id="footerLI_24">
                                             <a href="blog.aspx" id="footerA_25">Journal</a>

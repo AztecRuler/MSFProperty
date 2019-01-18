@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MSFMaster.Master" CodeFile="about-us.aspx.cs" Inherits="MSFProperty.about_us" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MSFMaster.Master" AutoEventWireup="true" CodeBehind="About_Us.aspx.cs" Inherits="MSFProperty.About_Us" %>
 <%@ Register Src="~/UserControls/AboutUsInfo.ascx" TagPrefix="uc1" TagName="AboutUsInfo" %>
 
 
@@ -28,10 +27,11 @@
         </span>
 
     </div>
-    <asp:Repeater ID="Repeater1" runat="server" ItemType="GetAboutUsInfo">
+    <div class="container ">
+    <asp:Repeater ID="Repeater1" runat="server">
         <ItemTemplate>
-            <uc1:AboutUsInfo runat="server" ID="AboutUsInfo" Title="<%#TitleText %>" Quote="<%#Quote %>" ImageUrl="<%#ImageUrl %>" Chat="<%#Chat %>" />
+            <uc1:AboutUsInfo runat="server" ID="AboutUsInfo" Title=<%# Eval("TitleText") %> Quote=<%#Eval("Quote") %> ImageUrl=<%#Eval("ImageUrl") %> Chat=<%#Eval("Chat") %>/>
         </ItemTemplate>
     </asp:Repeater>
-
+    </div>
 </asp:Content>

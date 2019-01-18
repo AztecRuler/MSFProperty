@@ -564,7 +564,7 @@ setInterval(function() {
 				</ul>
                                 			</div>
 			<div class="span-table-cell vertical-align-top">
-				<ul id="menu-third-menu-on-footer" class="msf-footer-normal-links"><li id="menu-item-93" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-93"><a href="http://northernlights.websites.365villas.com/about-us/">About us</a></li>
+				<ul id="menu-third-menu-on-footer" class="msf-footer-normal-links"><li id="menu-item-93" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-93"><a href="http://northernlights.websites.365villas.com/About_Us/">About us</a></li>
 <li id="menu-item-92" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-92"><a href="http://northernlights.websites.365villas.com/blog/">Journal</a></li>
 <li id="menu-item-417" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-417"><a href="http://northernlights.websites.365villas.com/contact-us/">Contact Us</a></li>
 </ul>							</div>
