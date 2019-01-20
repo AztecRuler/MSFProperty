@@ -1,12 +1,9 @@
-﻿namespace MSFProperty.Admin
+﻿using System;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
+namespace MSFProperty.Admin
 {
-    using System;
-    using System.Collections.Generic;
-
-    using System.Globalization;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-
     public partial class AddressResults
     {
         [JsonProperty("place_id")]
@@ -39,7 +36,7 @@
         public List<string> Boundingbox { get; set; }
     }
 
-    public partial class Address
+    public class Address
     {
         [JsonProperty("road")]
         public string Road { get; set; }
@@ -98,7 +95,6 @@
             }
             var value = (long)untypedValue;
             serializer.Serialize(writer, value.ToString());
-            return;
         }
 
         public static readonly ParseStringConverter Singleton = new ParseStringConverter();

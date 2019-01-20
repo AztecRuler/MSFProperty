@@ -1,16 +1,14 @@
-﻿using MSFProperty.Admin.EF;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Web.Script.Serialization;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using MSFProperty.Admin.EF;
+using Page = System.Web.UI.Page;
 
 namespace MSFProperty.Admin
 {
-    public partial class AdminBlogPage : System.Web.UI.Page
+    public partial class AdminBlogPage : Page
     {
         protected void Page_Load(Object Src, EventArgs E)
         {
@@ -90,15 +88,15 @@ namespace MSFProperty.Admin
                     };
 
 
-                    if (IsImage(this.blogEditFileUpload1.FileContent))
+                    if (IsImage(blogEditFileUpload1.FileContent))
                     {
 
 
-                        if (this.blogEditFileUpload1.HasFile)
+                        if (blogEditFileUpload1.HasFile)
                         {
-                            realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + this.blogEditFileUpload1.FileName);
-                            this.blogEditFileUpload1.SaveAs(realPhysicalPath);
-                            Filename = "MSF-" + this.blogEditFileUpload1.FileName;
+                            realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + blogEditFileUpload1.FileName);
+                            blogEditFileUpload1.SaveAs(realPhysicalPath);
+                            Filename = "MSF-" + blogEditFileUpload1.FileName;
                         }
                         else
                         {
@@ -146,15 +144,15 @@ namespace MSFProperty.Admin
                     String Filename = "";
                     Boolean popular = popularCheck.Checked;
 
-                    if (IsImage(this.blogImage.FileContent))
+                    if (IsImage(blogImage.FileContent))
                     {
 
 
-                        if (this.blogImage.HasFile)
+                        if (blogImage.HasFile)
                         {
-                            realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + this.blogImage.FileName);
-                            this.blogImage.SaveAs(realPhysicalPath);
-                            Filename = "MSF-" + this.blogImage.FileName;
+                            realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + blogImage.FileName);
+                            blogImage.SaveAs(realPhysicalPath);
+                            Filename = "MSF-" + blogImage.FileName;
                         }
 
 

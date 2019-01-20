@@ -1,12 +1,8 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace MSFProperty.Admin.EF
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
-    public partial class PageImage
+    public class PageImage
     {
         public int ID { get; set; }
 

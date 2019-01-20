@@ -9,10 +9,11 @@ namespace MSFProperty.UserControls
 {
     public partial class AboutUsInfo : System.Web.UI.UserControl
     {
-        public string Title { get; set; }
+        public string TitleText { get; set; }
         public string Quote { get; set; }
         public string Chat { get; set; }
         public string ImageUrl { get; set; }
+        public int DataId { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {

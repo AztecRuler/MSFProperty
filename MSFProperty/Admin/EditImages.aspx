@@ -23,22 +23,16 @@
 
                         <table>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server" ID="Label1">Image Preview</asp:Label>
-
-                                    </td>
-                                    <td>
-                                        <asp:Image ID="imagePreview" class="editImagePreview" runat="server" />
-                                    </td>
-                                </tr>
-                                <tr>
+                            <tr>
                                     <td>
                                         <asp:Label runat="server" ID="Label2">File Upload</asp:Label>
 
                                     </td>
                                     <td>
-                                        <asp:FileUpload ID="FileUpload1" runat="server" accept=".png,.jpg,.jpeg,.gif" />
+                                        <asp:Label runat="server" ID="Label1">Image Preview</asp:Label>
+                                        <asp:Image ID="imagePreview" class="editImagePreview" runat="server" />
+
+                                        <asp:FileUpload  class="uploaders" ID="FileUpload1" runat="server" accept=".png,.jpg,.jpeg,.gif" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -112,7 +106,7 @@
 
                                         <asp:Repeater ID="ImageRepeater" runat="server">
                                             <ItemTemplate>
-                                                <asp:ImageButton CssClass="imageButtonUpload" runat="server" ImageUrl='<%# string.Format("../images/{0}", Container.DataItem.ToString() )%>' />
+                                                <asp:ImageButton CssClass="imageButtonUpload" runat="server" ImageUrl='<%# string.Format("../images/{0}", Container.DataItem )%>' />
                                             </ItemTemplate>
                                         </asp:Repeater>
                                         <asp:TextBox ID="uploadedImageUrl" runat="server"></asp:TextBox>

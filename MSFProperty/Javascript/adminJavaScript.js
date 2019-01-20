@@ -4,20 +4,19 @@
 
         setBlogEditClick();
         SetForDeleteBlog();
-        var prm = Sys.WebForms.PageRequestManager.getInstance();
-        prm.add_endRequest(function (s, e) {
-            FixTabs();
-        });
+
+        setAboutUsEditClick();
+
+        //var prm = Sys.WebForms.PageRequestManager.getInstance();
+        //prm.add_endRequest(function (s, e) {
+        //    FixTabs();
+        //});
         $(function () {
             $("#datepicker2").datepicker();
             $("#datepicker1").datepicker();
 
         });
 
-        //$('#datepicker1').on('input propertychange paste', function () {
-        //    alert(1);
-        //    $('#datepicker1Value').val($("#datepicker1").val);
-        //});
         $("#datepicker1").datepicker({
             onSelect: function (dateText, inst) {
                 $('#datepicker1Value').val(dateText);
@@ -68,24 +67,24 @@
         });
 
         setAccordians();
-        function readURL(input) {
+        function readUrl(input,preview) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
 
                 reader.onload = function (e) {
-                    $('#imagePreview').attr('src', e.target.result);
+                   $(preview).attr('src', e.target.result);
                 };
 
                 reader.readAsDataURL(input.files[0]);
             }
         }
 
-        $("#FileUpload1").change(function () {
-            readURL(this);
+        $(".uploaders").change(function () {
+            readUrl(this, this.previousElementSibling);
 
         });
-
-
+      
+      
     });
 }
 
@@ -106,15 +105,41 @@ function FixTabs() {
         t3.setAttribute('class', 'active');
 }
 
+function setAboutUsEditClick() {
+
+    $(".aboutUsInfoSection").on('click',
+        function(event) {
+            var arrayCapture = $(this).map(function() {
+                return [
+                    $.map($(this).data(),
+                        function(v) {
+                            return v;
+                        })
+                ];
+            }).get();
+            var blogArray = arrayCapture[0];
+            $("#About_UsEditTextBox1").attr("readonly", false).val(blogArray[3]);
+            $("#About_UsEditTextBox2").attr("readonly", false).val(blogArray[2]);
+            $("#About_UsEditTextBox3").attr("readonly", false).val(blogArray[1]);
+
+            $("#imagePreview").attr("readonly", false).css("background-image", "url(../images/" + blogArray[0] + ")");
+       
+            $(".About_UsEditSelect, .About_UsEditPanel").toggleClass("hidden");
+
+            $("#editAbout_UsId").val(blogArray[4]);
+            console.log($("#editBlogId").val());
+
+        });
+}
+
 function setBlogEditClick() {
-
-
     $(".blogEditSelect .blogCard").on('click', function (event) {
         var arrayCapture = $(this).map(function () {
             return [$.map($(this).data(), function (v) {
                 return v;
             })];
         }).get();
+
         //0: "True"
         //1: "MSF-rent-3.jpg"
         //2: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque egestas congue quisque egestas diam in. Nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur. Id aliquet risus feugiat in ante. Velit euismod in pellentesque massa placerat duis ultricies. Nec feugiat nisl pretium fusce id velit. Vulputate ut pharetra sit amet aliquam id diam. Lorem mollis aliquam ut porttitor leo. Et ligula ullamcorper malesuada proin libero nunc consequat. Eget aliquet nibh praesent tristique magna sit amet purus gravida.↵↵Id neque aliquam vestibulum morbi blandit. Hac habitasse platea dictumst quisque sagittis purus sit amet volutpat. Convallis posuere morbi leo urna. Accumsan tortor posuere ac ut consequat semper. Leo vel orci porta non pulvinar. At urna condimentum mattis pellentesque id nibh. Egestas diam in arcu cursus euismod quis viverra. Ornare lectus sit amet est placerat in egestas. Gravida quis blandit turpis cursus. Eleifend mi in nulla posuere sollicitudin aliquam ultrices. Eget aliquet nibh praesent tristique magna sit.↵↵Condimentum lacinia quis vel eros donec ac odio. Tortor id aliquet lectus proin nibh nisl condimentum. Et magnis dis parturient montes nascetur ridiculus mus mauris. Quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus. Nunc pulvinar sapien et ligula ullamcorper malesuada. Urna nec tincidunt praesent semper feugiat nibh sed pulvinar. Lobortis feugiat vivamus at augue eget arcu dictum varius. Tincidunt augue interdum velit euismod in pellentesque massa. Dui nunc mattis enim ut tellus elementum. Integer vitae justo eget magna fermentum.↵↵Iaculis urna id volutpat lacus laoreet non. Tortor dignissim convallis aenean et tortor at risus. Nisl tincidunt eget nullam non nisi est. Fringilla phasellus faucibus scelerisque eleifend. Risus in hendrerit gravida rutrum quisque non tellus. Sed viverra tellus in hac. Sed blandit libero volutpat sed cras ornare. Amet consectetur adipiscing elit ut aliquam purus sit amet luctus. Ipsum a arcu cursus vitae congue mauris rhoncus. Ac tortor dignissim convallis aenean et tortor at risus viverra. Quam viverra orci sagittis eu volutpat odio facilisis. Sit amet consectetur adipiscing elit duis tristique sollicitudin. Sit amet mauris commodo quis imperdiet massa tincidunt.↵↵Ultrices neque ornare aenean euismod elementum nisi. Nunc eget lorem dolor sed viverra ipsum nunc aliquet bibendum. Fringilla urna porttitor rhoncus dolor purus non enim praesent elementum. Velit sed ullamcorper morbi tincidunt. Sed faucibus turpis in eu mi bibendum. Mattis rhoncus urna neque viverra justo nec. Integer quis auctor elit sed vulputate mi. Morbi quis commodo odio aenean sed adipiscing. Eget aliquet nibh praesent tristique magna sit. Vitae semper quis lectus nulla at volutpat diam. Sed egestas egestas fringilla phasellus faucibus. Consequat semper viverra nam libero. Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Proin libero nunc consequat interdum. Mollis nunc sed id semper risus in hendrerit gravida. Senectus et netus et malesuada fames ac turpis egestas. Eu consequat ac felis donec et odio pellentesque. Elementum tempus egestas sed sed risus pretium. Et pharetra pharetra massa massa."
@@ -130,11 +155,9 @@ function setBlogEditClick() {
         $("#textBoxPrevious").text(blogArray[2]);
         $("#blogEditFreeTextBox2").val(blogArray[2]);
         $(".blogEditSelect, .blogEditPanel").toggleClass("hidden");
+
         $("#editBlogId").val(blogArray[6]);
-
     });
-
-
 
 }
 
@@ -287,16 +310,16 @@ function setAccordians() {
 
 }
 
-function removeAllActive(Aval) {
-    var acc = document.getElementsByClassName(Aval[0]);
+function removeAllActive(aval) {
+    var acc = document.getElementsByClassName(aval[0]);
     for (var i = 0; i < acc.length; i++) {
         acc[i].classList.remove("active");
     }
 }
 
-function closeRelatedAccordians(Aval) {
+function closeRelatedAccordians(aval) {
 
-    var acc = document.getElementsByClassName(Aval[0]);
+    var acc = document.getElementsByClassName(aval[0]);
     for (var i = 0; i < acc.length; i++) {
        
         var panel = acc[i].nextElementSibling;
@@ -307,7 +330,7 @@ function closeRelatedAccordians(Aval) {
 
 //tabs 
 
-function OpenBlogTab(evt, tabName, tabId) {
+function OpenAdminTab(evt, tabName, tabId) {
     evt.preventDefault();
     evt.stopPropagation();
     if (!$(".blogEditPanel").hasClass("hidden")) {
@@ -325,5 +348,5 @@ function OpenBlogTab(evt, tabName, tabId) {
     }
     document.getElementById(tabName).style.display = "table";
     evt.currentTarget.className += " active";
-    document.getElementById('<%=hdnTab.ClientID %>').value = tabId;
+    //document.getElementById('<%=hdnTab.ClientID %>').value = tabId;
 }

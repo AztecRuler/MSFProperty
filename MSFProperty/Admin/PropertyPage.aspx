@@ -13,9 +13,9 @@
     </asp:ScriptManagerProxy>
     <asp:Panel ID="Panel1" runat="server" GroupingText="Property">
         <div class="tab">
-            <button class="tablinks active" id="createNewBlog" onclick="OpenBlogTab(event, 'createBlog', 1)">Create A New Property Listing</button>
-            <button class="tablinks" id="editBlog" onclick="OpenBlogTab(event, 'existingBlog', 2)">Edit An Existing Property Listing</button>
-            <button class="tablinks" id="organizeBlog" onclick="OpenBlogTab(event, 'organiseExistingBlogs', 3)">Organise Existing Property Listing</button>
+            <button class="tablinks active" id="createNewBlog" onclick="OpenAdminTab(event, 'createBlog', 1)">Create A New Property Listing</button>
+            <button class="tablinks" id="editBlog" onclick="OpenAdminTab(event, 'existingBlog', 2)">Edit An Existing Property Listing</button>
+            <button class="tablinks" id="organizeBlog" onclick="OpenAdminTab(event, 'organiseExistingBlogs', 3)">Organise Existing Property Listing</button>
         </div>
 
         <div id="createBlog" class="tabcontent" style="display: table;">
@@ -165,7 +165,9 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:FileUpload runat="server" ID="propertyImage"></asp:FileUpload>
+                                        <asp:Image ID="imagePreview" runat="server" />
+                                        <asp:FileUpload class="uploaders" ID="propertyImage"  runat="server" accept=".png,.jpg,.jpeg,.gif" />
+
                                     </td>
                                 </tr>
                                 <tr>

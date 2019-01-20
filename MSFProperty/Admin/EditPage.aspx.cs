@@ -1,15 +1,14 @@
-﻿using MSFProperty.Admin.EF;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web.UI.WebControls;
-using System.Web.UI;
 using System.IO;
-using System.Web;
+using System.Linq;
+using System.Web.UI;
+using MSFProperty.Admin.EF;
+using Page = System.Web.UI.Page;
 
 namespace MSFProperty.Admin
 {
-    public partial class EditPage : System.Web.UI.Page
+    public partial class EditPage : Page
     {
         private int? elementPageId;
 
@@ -22,7 +21,7 @@ namespace MSFProperty.Admin
                 {
                     foreach (var item in db.Pages)
                     {
-                        pageList.Add(item.PageName.ToString().Replace(" ", string.Empty));
+                        pageList.Add(item.PageName.Replace(" ", string.Empty));
 
                     }
 
@@ -43,7 +42,7 @@ namespace MSFProperty.Admin
 
             foreach (var item in filenames)
             {
-                imageList.Add(item.ToString().Replace(" ", string.Empty).Split('\\').Last());
+                imageList.Add(item.Replace(" ", string.Empty).Split('\\').Last());
 
             }
 
@@ -68,7 +67,7 @@ namespace MSFProperty.Admin
             }
             if (!Page.ClientScript.IsStartupScriptRegistered("reload"))
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "reload", "<script>clearIframe(" + elementPageId + ");</script>", false);
+                ScriptManager.RegisterStartupScript(this, GetType(), "reload", "<script>clearIframe(" + elementPageId + ");</script>", false);
             }
 
         }
@@ -77,18 +76,18 @@ namespace MSFProperty.Admin
             string realPhysicalPath = "";
             elementPageId = Convert.ToInt32(hdnfldVariable.Value);
 
-            if (IsImage(this.FileUpload1.FileContent) || uploadedImageUrl.Text !="")
+            if (IsImage(FileUpload1.FileContent) || uploadedImageUrl.Text !="")
             {
                 using (var db = new Model1())
                 {
                     PageImage result = db.PageImages.SingleOrDefault(b => b.ImageID == ImageID.Text && b.PageId == elementPageId);
                     String Filename = "";
 
-                    if (this.FileUpload1.HasFile)
+                    if (FileUpload1.HasFile)
                     {
-                        realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + this.FileUpload1.FileName);
-                        this.FileUpload1.SaveAs(realPhysicalPath);
-                        Filename = "MSF-" + this.FileUpload1.FileName;
+                        realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + FileUpload1.FileName);
+                        FileUpload1.SaveAs(realPhysicalPath);
+                        Filename = "MSF-" + FileUpload1.FileName;
                     }
                     else if (uploadedImageUrl.Text != "")
                     {
@@ -113,7 +112,7 @@ namespace MSFProperty.Admin
                 GetImagesFromFolder();
                 if (!Page.ClientScript.IsStartupScriptRegistered("reload"))
                 {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "reload", "<script>clearIframe();</script>", false);
+                    ScriptManager.RegisterStartupScript(this, GetType(), "reload", "<script>clearIframe();</script>", false);
                 }
             }
         }

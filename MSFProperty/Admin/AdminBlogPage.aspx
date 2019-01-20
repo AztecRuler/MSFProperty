@@ -3,23 +3,11 @@
 <%@ Register TagPrefix="FTB" Namespace="FreeTextBoxControls" Assembly="FreeTextBox" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:ScriptManagerProxy ID="ScriptManagerProxy1" runat="server">
-        <Scripts>
-            <asp:ScriptReference Path="../Javascript/adminJavaScript.js"></asp:ScriptReference>
-        </Scripts>
-    </asp:ScriptManagerProxy>
-<%--        <asp:UpdatePanel ID="UpdatePanel1" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
-        <Triggers>
-            <asp:PostBackTrigger ControlID="SaveButton" />
-                    <asp:PostBackTrigger ControlID="SaveEditBlog" />
-
-        </Triggers>
-        <ContentTemplate>--%>
     <asp:Panel ID="Panel1" runat="server" GroupingText="Blog">
         <div class="tab">
-            <button class="tablinks active" id="createNewBlog" onclick="OpenBlogTab(event, 'createBlog', 1)">Create A New Blog</button>
-            <button class="tablinks" id="editBlog" onclick="OpenBlogTab(event, 'existingBlog', 2)">Edit An Existing Blog</button>
-            <button class="tablinks"  id="organizeBlog" onclick="OpenBlogTab(event, 'organiseExistingBlogs', 3)">Organise Existing Blogs</button>
+            <button class="tablinks active" id="createNewBlog" onclick="OpenAdminTab(event, 'createBlog', 1)">Create A New Blog</button>
+            <button class="tablinks" id="editBlog" onclick="OpenAdminTab(event, 'existingBlog', 2)">Edit An Existing Blog</button>
+            <button class="tablinks"  id="organizeBlog" onclick="OpenAdminTab(event, 'organiseExistingBlogs', 3)">Organise Existing Blogs</button>
         </div>
 
         <div id="createBlog" class="tabcontent" style="display: table;">
@@ -29,7 +17,7 @@
 
                 </Triggers>
                 <ContentTemplate>
-                    <div class="blogPanel">
+                    <div class="adminPanel">
                         <table>
                             <tr>
                                 <td>
@@ -60,7 +48,8 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:FileUpload runat="server" ID="blogImage"></asp:FileUpload>
+                                    <asp:Image ID="blogImagePreview" runat="server" />
+                                    <asp:FileUpload class="uploaders" ID="blogImage"  runat="server" accept=".png,.jpg,.jpeg,.gif" />
                                 </td>
                             </tr>
                             <tr>
@@ -155,8 +144,8 @@
                                 </td>
 
                                 <td>
-                                    <div id="imagePreview" style="background-image: url(&quot;http://localhost:41121/Images/MSF-edinburghView.jpg&quot;);">
-                                        <asp:FileUpload runat="server" ID="blogEditFileUpload1"></asp:FileUpload>
+                                    <asp:Image ID="imagePreview" runat="server" />
+                                        <asp:FileUpload class="uploaders" runat="server" ID="blogEditFileUpload1"></asp:FileUpload>
                                 </td>
 
                             </tr>
@@ -248,8 +237,6 @@
         </div>
     </asp:Panel>
 
-<%--           </ContentTemplate>
-    </asp:UpdatePanel>--%>
 </asp:Content>
 
 

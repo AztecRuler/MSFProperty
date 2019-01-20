@@ -20,6 +20,7 @@
                 <asp:ScriptReference Path="https://code.jquery.com/jquery-2.2.4.min.js"></asp:ScriptReference>
 
                 <asp:ScriptReference Path="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></asp:ScriptReference>
+                <asp:ScriptReference Path="../Javascript/adminJavaScript.js"></asp:ScriptReference>
 
             </Scripts>
         </asp:ScriptManager>
@@ -48,13 +49,16 @@
                                 <a href="#">Analytics</a>
                             </li>
                             <li>
-                                <a href="AdminBlogPage.aspx">Blog</a>
+                                <a href="AdminBlogPage.aspx">Edit Blog</a>
                             </li>
                             <li>
-                                <a href="#">Email</a>
+                                <a href="AdminAboutUs.aspx">Edit About Us</a>
                             </li>
                             <li>
-                                <a href="#">Contact</a>
+                                <a href="#">Edit Email</a>
+                            </li>
+                            <li>
+                                <a href="#">Edit Contact</a>
                             </li>
                         </ul>
                     </div>

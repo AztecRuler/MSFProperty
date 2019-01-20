@@ -4,6 +4,7 @@
     using System.IO;
     using System.Reflection;
 
+    //TODO add log into a database 
 
     public class LogWriter
     {

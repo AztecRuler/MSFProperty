@@ -1,9 +1,9 @@
-﻿namespace MSFProperty.Admin
-{
-    using System.Globalization;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
+﻿using System.Globalization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
+namespace MSFProperty.Admin
+{
     public partial class PostcodeResult
     {
         [JsonProperty("status")]
@@ -13,7 +13,7 @@
         public Result Result { get; set; }
     }
 
-    public partial class Result
+    public class Result
     {
         [JsonProperty("postcode")]
         public string Postcode { get; set; }
@@ -88,7 +88,7 @@
         public Codes Codes { get; set; }
     }
 
-    public partial class Codes
+    public class Codes
     {
         [JsonProperty("admin_district")]
         public string AdminDistrict { get; set; }
@@ -134,7 +134,7 @@
             Converters =
             {
                 new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
-            },
+            }
         };
     }
 }

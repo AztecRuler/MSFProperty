@@ -1,9 +1,4 @@
-﻿using MSFProperty.Admin.EF;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using RestSharp;
-using RestSharp.Deserializers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Globalization;
@@ -12,11 +7,13 @@ using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Web.UI.WebControls;
-
+using MSFProperty.Admin.EF;
+using RestSharp;
+using Page = System.Web.UI.Page;
 
 namespace MSFProperty.Admin
 {
-    public partial class PropertyPage : System.Web.UI.Page
+    public partial class PropertyPage : Page
     {
         protected void SaveNewProperty(object sender, EventArgs e)
         {
@@ -225,7 +222,7 @@ namespace MSFProperty.Admin
             string items = string.Empty;
             foreach (ListItem i in BathTypeCheckBox.Items)
             {
-                if (i.Selected == true)
+                if (i.Selected)
                 {
                     items += i.Text + ",";
                 }
@@ -283,15 +280,15 @@ namespace MSFProperty.Admin
         {
             Log("entered");
             var resultClient = new RestClient(client);
-            Log(resultClient.ToString() + " resultClient");
+            Log(resultClient + " resultClient");
             var resultRequest = new RestRequest(request, Method.GET);
-            Log(resultRequest.ToString() + " resultRequest");
+            Log(resultRequest + " resultRequest");
             var resultResponse = resultClient.Execute(resultRequest);
-            Log(resultRequest.ToString() + " resultRequest");
+            Log(resultRequest + " resultRequest");
             var resultconent = resultResponse.Content;
-            Log(resultRequest.ToString() + " resultRequest");
+            Log(resultRequest + " resultRequest");
             Log("exiting");
-            Log(resultconent.ToString() + " resultconent");
+            Log(resultconent + " resultconent");
             return resultconent;
 
         }
@@ -350,7 +347,7 @@ namespace MSFProperty.Admin
                         PropertyLocationX.Text = PostCodeRestResult.Result.Latitude.ToString();
                         PropertyY.Text = PostCodeRestResult.Result.Longitude.ToString();
 
-                        mapForPostcode.Attributes["src"] = "http://maps.google.com/maps?q=" + PropertyHouseNumber.Text.ToString() + " " + address.Road.ToString() + " " + address.County + "&z=16&output=embed";
+                        mapForPostcode.Attributes["src"] = "http://maps.google.com/maps?q=" + PropertyHouseNumber.Text + " " + address.Road + " " + address.County + "&z=16&output=embed";
                     }
                 }
                 else
@@ -398,12 +395,6 @@ namespace MSFProperty.Admin
 
         public class ModelAddress
         {
-            public ModelAddress()
-            {
-
-            }
-
-           
             public bool Ready{get; set;}
             public string Road
             {

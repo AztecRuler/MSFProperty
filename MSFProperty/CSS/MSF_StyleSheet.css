@@ -148,7 +148,13 @@ h3 {
     font-size: 14px;
     position: relative;
 }
+hr.fancyBreak {
+    height: 6px;
+    background: url(http://ibrahimjabbari.com/english/images/hr-12.png) repeat-x 0 0;
+    border: 0;
+}
 
+}
 @media only screen and (max-device-width: 1024px) {
     .bgimg-1, .bgimg-2, .bgimg-3 {
         background-attachment: scroll;
@@ -3553,7 +3559,7 @@ div#footerDIV_1 li {
 
 /*About_Us*/
 
-.About_Us-info-section {
+.aboutUsInfoSection {
     margin: 33px auto;
     display: inline-block;
 }

@@ -1,14 +1,12 @@
-﻿using MSFProperty.Admin.EF;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web.UI.WebControls;
-using System.Web.UI;
 using System.IO;
+using System.Linq;
+using System.Web.UI;
 
 namespace MSFProperty.Admin
 {
-    public partial class EditImages : System.Web.UI.Page
+    public partial class EditImages : Page
     {
 
         private int? elementPageId;
@@ -29,7 +27,7 @@ namespace MSFProperty.Admin
 
             foreach (var item in filenames)
             {
-                imageList.Add(item.ToString().Replace(" ", string.Empty).Split('\\').Last());
+                imageList.Add(item.Replace(" ", string.Empty).Split('\\').Last());
 
             }
             ImageRepeater.DataSource = imageList.ToList();
@@ -60,7 +58,7 @@ namespace MSFProperty.Admin
 
                     if (FileUpload1.HasFile)
                     {
-                        realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + this.FileUpload1.FileName);
+                        realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + FileUpload1.FileName);
                     FileUpload1.SaveAs(realPhysicalPath);
                         Filename = "MSF-" + FileUpload1.FileName;
                     }

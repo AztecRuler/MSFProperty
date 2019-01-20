@@ -109,6 +109,7 @@
     <Content Include="About_Us.aspx" />
     <Content Include="acommodationsPage.aspx" />
     <Content Include="Admin\Admin.aspx" />
+    <Content Include="Admin\AdminAboutUs.aspx" />
     <Content Include="Admin\AdminBlogPage.aspx" />
     <Content Include="Admin\EditImages.aspx" />
     <Content Include="Admin\EditPage.aspx" />
@@ -119,11 +120,13 @@
     <Content Include="CSS\MSF_StyleSheet.css" />
     <Content Include="CSS\AdminStyleSheet1.css" />
     <Content Include="Default.aspx" />
+    <Content Include="fancyLine.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Icons\font-awesome.css" />
     <Content Include="Icons\ionicons.css" />
     <Content Include="ajax-loader.gif" />
+    <Content Include="Images\AboutUsPictures\About_usImagePlaceholder.png" />
     <Content Include="Javascript\adminJavaScript.js" />
     <Content Include="Javascript\msfJavascript.js" />
     <Content Include="Logs\log.txt" />
@@ -134,8 +137,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutUsInfoObject.cs" />
     <Compile Include="About_Us.aspx.cs">
       <DependentUpon>About_Us.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="About_Us.aspx.designer.cs">
       <DependentUpon>About_Us.aspx</DependentUpon>
@@ -154,6 +159,13 @@
     </Compile>
     <Compile Include="Admin\Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminAboutUs.aspx.cs">
+      <DependentUpon>AdminAboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminAboutUs.aspx.designer.cs">
+      <DependentUpon>AdminAboutUs.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\AdminBlogPage.aspx.cs">
       <DependentUpon>AdminBlogPage.aspx</DependentUpon>
@@ -297,7 +309,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="WinHttp">

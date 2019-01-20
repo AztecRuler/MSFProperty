@@ -8,14 +8,6 @@ using System.Web.UI.WebControls;
 
 namespace MSFProperty
 {
-    public class AboutUsInfoObject
-    {
-        public string TitleText { get; set; }
-        public string Quote { get; set; }
-        public string Chat { get; set; }
-        public string ImageUrl { get; set; }
-
-    }
 
     public partial class About_Us : System.Web.UI.Page
     {
