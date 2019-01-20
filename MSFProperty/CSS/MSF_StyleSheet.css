@@ -1,5 +1,4 @@
 ﻿* {
-    box-sizing: border-box;
     padding: 0;
     outline: none;
     border: none;
@@ -7,12 +6,13 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html {
     height: 100%;
     margin: 0;
-    color: #CDECFF;
+    color: #5b5b5b;
     font-size: 77.5%;
 }
 
@@ -20,7 +20,7 @@ h3 {
     letter-spacing: 5px;
     text-transform: uppercase;
     font: 20px "Lato", sans-serif;
-    color: #111;
+    color: #5b5b5b;
 }
 
 .bgimg-1 h2 {
@@ -42,14 +42,19 @@ h3 {
 
 .bgimg-1, .bgimg-2, .bgimg-3 {
     position: relative;
+    -ms-background-attachment: fixed;
     background-attachment: fixed;
-    background-position: center 0px;
+    -ms-background-position: center 0;
+    background-position: center 0;
+    -ms-background-repeat: no-repeat;
     background-repeat: no-repeat;
+    -ms-background-size: cover;
     background-size: cover;
 }
 
 .bgimg-1 {
     min-height: 100%;
+    -ms-opacity: 0.85;
     opacity: 0.85;
     height: 1200px;
 }
@@ -60,6 +65,7 @@ h3 {
 
 .bgimg-3 {
     min-height: 800px;
+    -ms-background-repeat: no-repeat;
     background-repeat: no-repeat;
 }
 
@@ -80,7 +86,7 @@ h3 {
 .foregroundDiv {
     color: #777;
     background-color: white;
-    padding: 70px 140px;
+    padding: 3% 14%;
     text-align: justify;
 }
 
@@ -90,14 +96,24 @@ h3 {
         color: #5b5b5b;
         font-weight: 700;
         letter-spacing: 1px;
-        margin-bottom: 21px;
+        margin-bottom: 14px;
         text-align: center;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        text-align: center;
+        font-family: Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
 
-    .foregroundDiv span {
-        font-size: 12px;
+    .foregroundDiv span, .foregroundDiv p {
+        font-size: 16px;
+        font-size: 1.6rem;
         line-height: 180%;
         color: #6c6f70;
+        margin-bottom: 24px;
+        padding-top: 40px;
+        padding-bottom: 0;
+        text-align: center;
+        font-family: Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
 
 .foregroundDiv_dark {
@@ -113,6 +129,7 @@ h3 {
     padding: 6px;
     font-size: 26px;
     letter-spacing: 7px;
+    -ms-opacity: 0.8;
     opacity: 0.8;
     text-decoration: none;
 }
@@ -131,6 +148,7 @@ h3 {
 .thumb {
     position: relative;
     min-height: 253px;
+    -ms-background-size: cover;
     background-size: cover;
     background-position: top;
 }
@@ -148,15 +166,25 @@ h3 {
     font-size: 14px;
     position: relative;
 }
-hr.fancyBreak {
-    height: 6px;
-    background: url(http://ibrahimjabbari.com/english/images/hr-12.png) repeat-x 0 0;
-    border: 0;
+
+.fancyBreak.container {
+    width: 100%;
+    height: 20px;
+    border-bottom: 1px solid black;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-}
+    .fancyBreak.container span {
+        font-size: 40px;
+        background-color: #F3F5F6;
+        padding: 0 10px;
+        color: #5b5b5b;
+    }
+
 @media only screen and (max-device-width: 1024px) {
     .bgimg-1, .bgimg-2, .bgimg-3 {
+        -ms-background-attachment: scroll;
         background-attachment: scroll;
     }
 }
@@ -192,10 +220,12 @@ input {
 }
 
 input {
+    -ms-border-radius: 0;
     border-radius: 0;
 }
 
 #msf-nav-bar {
+    box-shadow: 0 0 2px #000000;
     box-shadow: 0 0 2px rgba(0,0,0,.1);
 }
 
@@ -373,6 +403,7 @@ input {
         width: 100%;
         max-width: 100%;
         text-align: right;
+        background: #000000;
         background: rgba(0,0,0,.2);
         display: none;
     }
@@ -388,6 +419,7 @@ input {
             }
 
     .msf-nav-bar-black-inset li a:hover, .msf-nav-bar-main-menu li a:hover {
+        background: #ffffff;
         background: rgba(255,255,255,.2);
     }
 
@@ -507,7 +539,7 @@ input {
     }
 }
 
-}
+
 
 .msf-nav-bar-main-menu > li.current-menu-item, .msf-nav-bar-main-menu > li.current-menu-item:hover {
     border-bottom: 4px solid #0daa95;
@@ -540,17 +572,19 @@ input {
 
 #DIV_1 {
     position: absolute;
-    margin: -195px 0px 0px;
+    margin: -195px 0 0;
     top: 80%;
     width: 100%;
 }
 
     #DIV_1:after {
+        -moz-box-sizing: border-box;
         box-sizing: border-box;
         font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
 
     #DIV_1:before {
+        -moz-box-sizing: border-box;
         box-sizing: border-box;
         font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
@@ -574,52 +608,56 @@ input {
     height: 52px;
     letter-spacing: 1px;
     text-align: center;
-    margin: 0px;
-    outline: rgb(255, 255, 255) none 0px;
+    margin: 0;
+    outline: rgb(255, 255, 255) none 0;
 }
 
     #H3_3:after {
+        -moz-box-sizing: border-box;
         box-sizing: border-box;
         color: rgb(255, 255, 255);
         letter-spacing: 1px;
         text-align: center;
         text-decoration: none solid rgb(255, 255, 255);
+        -ms-column-rule-color: rgb(255, 255, 255);
+        -webkit-column-rule-color: rgb(255, 255, 255);
         column-rule-color: rgb(255, 255, 255);
-        caret-color: rgb(255, 255, 255);
-        border: 0px none rgb(255, 255, 255);
+        border: 0 none rgb(255, 255, 255);
         font: normal normal 400 normal 24px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(255, 255, 255) none 0px;
+        outline: rgb(255, 255, 255) none 0;
     }
 
     #H3_3:before {
         bottom: -1px;
+        -moz-box-sizing: border-box;
         box-sizing: border-box;
         color: rgb(255, 255, 255);
         content: '""';
         display: inline-block;
         height: 20px;
-        left: 0px;
+        left: 0;
         letter-spacing: 1px;
         position: relative;
-        right: 0px;
+        right: 0;
         text-align: center;
         text-decoration: none solid rgb(255, 255, 255);
         top: 1px;
         width: 25px;
+        -ms-column-rule-color: rgb(255, 255, 255);
+        -webkit-column-rule-color: rgb(255, 255, 255);
         column-rule-color: rgb(255, 255, 255);
         perspective-origin: 12.5px 10px;
         transform-origin: 12.5px 10px;
-        caret-color: rgb(255, 255, 255);
         background: rgba(0, 0, 0, 0) url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAUCAMAAABPqWaPAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAC6UExURQAAAP////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////IcJMEAAAA9dFJOUwACxvJg+/6wgDDzCDnTQb4FeBmqy5bx2bUdag/wDVAc0kOuyOORLuJOaNot54IqhPrB5pTgUfkO2wc29jfYRJbVAAAAyElEQVQoz+XRVxaCUAwE0AF8PAV77yjYFSxgd/a/LQOyC/M1yT0nPwPI1BtOq4nfNFtWo55nlCsku0NDojHsSq6Us/uoY7PGtsVghVVAqy2b3RkB1wN71RKLnk+lFX2vyFK1x8MV6ha6EAE2a643gAie4U2BWj5mggIL+Amg+WfymnG8NTIxtmPOPrncY5t9h+ZeZG/S6dOO76k8LtzNMdBUJk1FPcB8x8tDhKejm/Y0XUhni2ka3eOJRHKO8mony/dykufonHwBL7MnO0AY/0AAAAAASUVORK5CYII=") no-repeat scroll 0% 0% / contain padding-box border-box;
-        border: 0px none rgb(255, 255, 255);
+        border: 0 none rgb(255, 255, 255);
         font: normal normal 400 normal 24px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        margin: 0px 11px 0px 0px;
-        outline: rgb(255, 255, 255) none 0px;
+        margin: 0 11px 0 0;
+        outline: rgb(255, 255, 255) none 0;
     }
 
 #FORM_4 {
     width: 1126px;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 
     #FORM_4:after {
@@ -677,7 +715,7 @@ input {
     transform-origin: 110.5px 15px;
     font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
-    padding: 0px 11px;
+    padding: 0 11px;
 }
 
     #DIV_7:after {
@@ -695,15 +733,15 @@ input {
     }
 
 #LABEL_8 {
-    bottom: 0px;
+    bottom: 0;
     box-sizing: border-box;
     display: block;
     height: 30px;
-    left: 0px;
+    left: 0;
     position: relative;
-    right: 0px;
+    right: 0;
     text-align: left;
-    top: 0px;
+    top: 0;
     width: 199px;
     perspective-origin: 99.5px 15px;
     transform-origin: 99.5px 15px;
@@ -737,13 +775,12 @@ input {
     column-rule-color: rgb(162, 165, 164);
     perspective-origin: 99.5px 15px;
     transform-origin: 99.5px 15px;
-    caret-color: rgb(162, 165, 164);
-    border: 0px none rgb(162, 165, 164);
+    border: 0 none rgb(162, 165, 164);
     font: normal normal 400 normal 18px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
-    outline: rgb(162, 165, 164) none 0px;
+    outline: rgb(162, 165, 164) none 0;
     overflow: hidden;
-    padding: 0px;
+    padding: 0;
 }
 
     #INPUT_9:after {
@@ -752,11 +789,10 @@ input {
         text-decoration: none solid rgb(162, 165, 164);
         white-space: nowrap;
         column-rule-color: rgb(162, 165, 164);
-        caret-color: rgb(162, 165, 164);
-        border: 0px none rgb(162, 165, 164);
+        border: 0 none rgb(162, 165, 164);
         font: normal normal 400 normal 18px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(162, 165, 164) none 0px;
+        outline: rgb(162, 165, 164) none 0;
     }
 
     #INPUT_9:before {
@@ -765,11 +801,10 @@ input {
         text-decoration: none solid rgb(162, 165, 164);
         white-space: nowrap;
         column-rule-color: rgb(162, 165, 164);
-        caret-color: rgb(162, 165, 164);
-        border: 0px none rgb(162, 165, 164);
+        border: 0 none rgb(162, 165, 164);
         font: normal normal 400 normal 18px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(162, 165, 164) none 0px;
+        outline: rgb(162, 165, 164) none 0;
     }
 
 #LI_128 {
@@ -811,13 +846,12 @@ input {
     perspective-origin: 98.5px 25px;
     transform-origin: 98.5px 25px;
     user-select: none;
-    caret-color: rgb(255, 255, 255);
     background: rgb(13, 170, 149) none repeat scroll 0% 0% / auto padding-box border-box;
-    border: 0px none rgb(255, 255, 255);
+    border: 0 none rgb(255, 255, 255);
     font: normal normal 300 normal 18px / 50px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
-    outline: rgb(255, 255, 255) none 0px;
-    padding: 0px 60px;
+    outline: rgb(255, 255, 255) none 0;
+    padding: 0 60px;
 }
 
     #INPUT_129:after {
@@ -829,11 +863,10 @@ input {
         white-space: pre;
         column-rule-color: rgb(255, 255, 255);
         user-select: none;
-        caret-color: rgb(255, 255, 255);
-        border: 0px none rgb(255, 255, 255);
+        border: 0 none rgb(255, 255, 255);
         font: normal normal 300 normal 18px / 50px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(255, 255, 255) none 0px;
+        outline: rgb(255, 255, 255) none 0;
     }
 
     #INPUT_129:before {
@@ -845,11 +878,10 @@ input {
         white-space: pre;
         column-rule-color: rgb(255, 255, 255);
         user-select: none;
-        caret-color: rgb(255, 255, 255);
-        border: 0px none rgb(255, 255, 255);
+        border: 0 none rgb(255, 255, 255);
         font: normal normal 300 normal 18px / 50px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(255, 255, 255) none 0px;
+        outline: rgb(255, 255, 255) none 0;
     }
 
 #DIV_130 {
@@ -874,8 +906,8 @@ input {
     color: rgb(255, 255, 255);
     display: inline-block;
     font: normal normal 400 normal 16px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    margin: 0px;
-    outline: rgb(255, 255, 255) none 0px;
+    margin: 0;
+    outline: rgb(255, 255, 255) none 0;
 }
 
     #H4_131:after {
@@ -884,10 +916,9 @@ input {
         text-align: center;
         text-decoration: none solid rgb(255, 255, 255);
         column-rule-color: rgb(255, 255, 255);
-        caret-color: rgb(255, 255, 255);
-        border: 0px none rgb(255, 255, 255);
+        border: 0 none rgb(255, 255, 255);
         font: normal normal 400 normal 16px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(255, 255, 255) none 0px;
+        outline: rgb(255, 255, 255) none 0;
     }
 
     #H4_131:before {
@@ -896,17 +927,15 @@ input {
         text-align: center;
         text-decoration: none solid rgb(255, 255, 255);
         column-rule-color: rgb(255, 255, 255);
-        caret-color: rgb(255, 255, 255);
-        border: 0px none rgb(255, 255, 255);
+        border: 0 none rgb(255, 255, 255);
         font: normal normal 400 normal 16px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(255, 255, 255) none 0px;
+        outline: rgb(255, 255, 255) none 0;
     }
 
 #INPUT_132, #INPUT_134, #INPUT_136 {
     transform-origin: 6.5px 6.5px;
-    caret-color: rgb(255, 255, 255);
-    border: 0px none rgb(255, 255, 255);
-    margin: 0px 0px 0px 15px;
+    border: 0 none rgb(255, 255, 255);
+    margin: 0 0 0 15px;
 }
 
     #INPUT_132:after, #INPUT_134:after, #INPUT_136:after {
@@ -915,10 +944,9 @@ input {
         cursor: default;
         text-decoration: none solid rgb(255, 255, 255);
         column-rule-color: rgb(255, 255, 255);
-        caret-color: rgb(255, 255, 255);
-        border: 0px none rgb(255, 255, 255);
+        border: 0 none rgb(255, 255, 255);
         font: normal normal 400 normal 13.3333px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(255, 255, 255) none 0px;
+        outline: rgb(255, 255, 255) none 0;
     }
 
     #INPUT_132:before, #INPUT_134:before, #INPUT_136:before {
@@ -927,10 +955,9 @@ input {
         cursor: default;
         text-decoration: none solid rgb(255, 255, 255);
         column-rule-color: rgb(255, 255, 255);
-        caret-color: rgb(255, 255, 255);
-        border: 0px none rgb(255, 255, 255);
+        border: 0 none rgb(255, 255, 255);
         font: normal normal 400 normal 13.3333px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(255, 255, 255) none 0px;
+        outline: rgb(255, 255, 255) none 0;
     }
 
 #LABEL_133 {
@@ -945,10 +972,9 @@ input {
         text-align: center;
         text-decoration: none solid rgb(255, 255, 255);
         column-rule-color: rgb(255, 255, 255);
-        caret-color: rgb(255, 255, 255);
-        border: 0px none rgb(255, 255, 255);
+        border: 0 none rgb(255, 255, 255);
         font: normal normal 400 normal 16px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(255, 255, 255) none 0px;
+        outline: rgb(255, 255, 255) none 0;
     }
 
     #LABEL_133:before {
@@ -957,10 +983,9 @@ input {
         text-align: center;
         text-decoration: none solid rgb(255, 255, 255);
         column-rule-color: rgb(255, 255, 255);
-        caret-color: rgb(255, 255, 255);
-        border: 0px none rgb(255, 255, 255);
+        border: 0 none rgb(255, 255, 255);
         font: normal normal 400 normal 16px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(255, 255, 255) none 0px;
+        outline: rgb(255, 255, 255) none 0;
     }
 
 #LABEL_135 {
@@ -975,10 +1000,9 @@ input {
         text-align: center;
         text-decoration: none solid rgb(255, 255, 255);
         column-rule-color: rgb(255, 255, 255);
-        caret-color: rgb(255, 255, 255);
-        border: 0px none rgb(255, 255, 255);
+        border: 0 none rgb(255, 255, 255);
         font: normal normal 400 normal 16px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(255, 255, 255) none 0px;
+        outline: rgb(255, 255, 255) none 0;
     }
 
     #LABEL_135:before {
@@ -987,10 +1011,9 @@ input {
         text-align: center;
         text-decoration: none solid rgb(255, 255, 255);
         column-rule-color: rgb(255, 255, 255);
-        caret-color: rgb(255, 255, 255);
-        border: 0px none rgb(255, 255, 255);
+        border: 0 none rgb(255, 255, 255);
         font: normal normal 400 normal 16px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(255, 255, 255) none 0px;
+        outline: rgb(255, 255, 255) none 0;
     }
 
 #LABEL_137 {
@@ -1005,10 +1028,9 @@ input {
         text-align: center;
         text-decoration: none solid rgb(255, 255, 255);
         column-rule-color: rgb(255, 255, 255);
-        caret-color: rgb(255, 255, 255);
-        border: 0px none rgb(255, 255, 255);
+        border: 0 none rgb(255, 255, 255);
         font: normal normal 400 normal 16px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(255, 255, 255) none 0px;
+        outline: rgb(255, 255, 255) none 0;
     }
 
     #LABEL_137:before {
@@ -1017,10 +1039,9 @@ input {
         text-align: center;
         text-decoration: none solid rgb(255, 255, 255);
         column-rule-color: rgb(255, 255, 255);
-        caret-color: rgb(255, 255, 255);
-        border: 0px none rgb(255, 255, 255);
+        border: 0 none rgb(255, 255, 255);
         font: normal normal 400 normal 16px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(255, 255, 255) none 0px;
+        outline: rgb(255, 255, 255) none 0;
     }
 
 .text-align-center {
@@ -1563,11 +1584,11 @@ input {
 }
 
 p, li {
-    color: #000000;
-    font-size: 16px;
-    line-height: 180%;
+    line-height: 120%;
     color: #6c6f70;
     margin-bottom: 24px;
+    font-size: 16px;
+    font-size: 1.6rem;
 }
 
 .msf-lvi-box-side > ul > li {
@@ -1632,7 +1653,7 @@ p, li {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
-    src: local('Roboto'), local('Roboto-Regular'),src: url('../Fonts/KFOmCnqEu92Fr1Mu4mxK.woff2') format('woff2');
+    src: local('Roboto'), local('Roboto-Regular'), url('../Fonts/KFOmCnqEu92Fr1Mu4mxK.woff2') format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -1698,9 +1719,10 @@ p, li {
 
 
 .container {
-    margin: 0px auto;
+    margin: 0 auto;
     max-width: 1196px;
     min-width: 260px;
+    text-align: center;
 }
 
 .span-table {
@@ -1785,9 +1807,6 @@ p, li {
     }
 }
 
-p {
-    color: #000000;
-}
 
 .msf-main-bg-header h2, .msf-main-bg-header p {
     font-family: Roboto, proxima-nova, Arial, Helvetica, sans-serif;
@@ -1961,7 +1980,7 @@ p {
     perspective-origin: 257px 305.5px;
     transform-origin: 257px 305.5px;
     font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    margin: 0px;
+    margin: 0;
 }
     /*#cuFORM_1*/
 
@@ -2005,9 +2024,9 @@ p {
     cursor: default;
     display: none;
     background: rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box;
-    border: 0px none rgb(0, 0, 0);
+    border: 0 none rgb(0, 0, 0);
     font: normal normal 400 normal 13.3333px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    padding: 0px;
+    padding: 0;
 }
     /*#cuINPUT_3, #cuINPUT_4, #cuINPUT_6*/
 
@@ -2029,9 +2048,9 @@ p {
     cursor: default;
     display: none;
     background: rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box;
-    border: 0px none rgb(0, 0, 0);
+    border: 0 none rgb(0, 0, 0);
     font: normal normal 400 normal 13.3333px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    padding: 0px;
+    padding: 0;
 }
     /*#cuINPUT_5, #cuINPUT_7*/
 
@@ -2076,15 +2095,15 @@ p {
 /*#cuDIV_8:before, #cuDIV_11:before, #cuDIV_14:before, #cuDIV_17:before*/
 
 #cuSPAN_9, #cuSPAN_12, #cuSPAN_15, #cuSPAN_18, #cuSPAN_21 {
-    bottom: 0px;
+    bottom: 0;
     box-sizing: border-box;
-    left: 0px;
+    left: 0;
     position: relative;
-    right: 0px;
+    right: 0;
     text-align: left;
-    top: 0px;
-    perspective-origin: 0px 0px;
-    transform-origin: 0px 0px;
+    top: 0;
+    perspective-origin: 0 0;
+    transform-origin: 0 0;
     font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
 }
     /*#cuSPAN_9, #cuSPAN_12, #cuSPAN_15, #cuSPAN_18, #cuSPAN_21*/
@@ -2228,17 +2247,17 @@ p {
 /*#cuDIV_23:before*/
 
 #cuSPAN_24 {
-    bottom: 0px;
+    bottom: 0;
     box-sizing: border-box;
-    left: 0px;
+    left: 0;
     position: relative;
-    right: 0px;
+    right: 0;
     text-align: left;
-    top: 0px;
-    perspective-origin: 0px 0px;
-    transform-origin: 0px 0px;
+    top: 0;
+    perspective-origin: 0 0;
+    transform-origin: 0 0;
     font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    padding: 0px 5px 0px 0px;
+    padding: 0 5px 0 0;
 }
     /*#cuSPAN_24*/
 
@@ -2265,9 +2284,9 @@ p {
     perspective-origin: 6.5px 6.5px;
     transform-origin: 6.5px 6.5px;
     background: rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box;
-    border: 0px none rgb(0, 0, 0);
+    border: 0 none rgb(0, 0, 0);
     font: normal normal 400 normal 13.3333px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    padding: 0px;
+    padding: 0;
 }
     /*#cuINPUT_25*/
 
@@ -2288,8 +2307,8 @@ p {
 #cuSPAN_26 {
     box-sizing: border-box;
     text-align: left;
-    perspective-origin: 0px 0px;
-    transform-origin: 0px 0px;
+    perspective-origin: 0 0;
+    transform-origin: 0 0;
     font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
 }
     /*#cuSPAN_26*/
@@ -2314,12 +2333,11 @@ p {
     text-align: left;
     text-decoration: underline solid rgb(0, 0, 0);
     column-rule-color: rgb(0, 0, 0);
-    perspective-origin: 0px 0px;
-    transform-origin: 0px 0px;
-    caret-color: rgb(0, 0, 0);
-    border: 0px none rgb(0, 0, 0);
+    perspective-origin: 0 0;
+    transform-origin: 0 0;
+    border: 0 none rgb(0, 0, 0);
     font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    outline: rgb(0, 0, 0) none 0px;
+    outline: rgb(0, 0, 0) none 0;
 }
     /*#cuA_27*/
 
@@ -2329,10 +2347,9 @@ p {
         text-align: left;
         text-decoration: none solid rgb(0, 0, 0);
         column-rule-color: rgb(0, 0, 0);
-        caret-color: rgb(0, 0, 0);
-        border: 0px none rgb(0, 0, 0);
+        border: 0 none rgb(0, 0, 0);
         font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(0, 0, 0) none 0px;
+        outline: rgb(0, 0, 0) none 0;
     }
     /*#cuA_27:after*/
 
@@ -2342,10 +2359,9 @@ p {
         text-align: left;
         text-decoration: none solid rgb(0, 0, 0);
         column-rule-color: rgb(0, 0, 0);
-        caret-color: rgb(0, 0, 0);
-        border: 0px none rgb(0, 0, 0);
+        border: 0 none rgb(0, 0, 0);
         font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(0, 0, 0) none 0px;
+        outline: rgb(0, 0, 0) none 0;
     }
 /*#cuA_27:before*/
 .Cu {
@@ -2393,11 +2409,10 @@ p {
     perspective-origin: 250px 23px;
     transform-origin: 250px 23px;
     user-select: none;
-    caret-color: rgb(255, 255, 255);
     background: rgb(13, 170, 149) none repeat scroll 0% 0% / auto padding-box border-box;
     border: 2px solid rgb(13, 170, 149);
     font: normal normal 400 normal 18px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    outline: rgb(255, 255, 255) none 0px;
+    outline: rgb(255, 255, 255) none 0;
     padding: 10px 14px;
 }
     /*#cuINPUT_29*/
@@ -2411,10 +2426,9 @@ p {
         white-space: pre;
         column-rule-color: rgb(255, 255, 255);
         user-select: none;
-        caret-color: rgb(255, 255, 255);
-        border: 0px none rgb(255, 255, 255);
+        border: 0 none rgb(255, 255, 255);
         font: normal normal 400 normal 18px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(255, 255, 255) none 0px;
+        outline: rgb(255, 255, 255) none 0;
     }
     /*#cuINPUT_29:after*/
 
@@ -2427,10 +2441,9 @@ p {
         white-space: pre;
         column-rule-color: rgb(255, 255, 255);
         user-select: none;
-        caret-color: rgb(255, 255, 255);
-        border: 0px none rgb(255, 255, 255);
+        border: 0 none rgb(255, 255, 255);
         font: normal normal 400 normal 18px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(255, 255, 255) none 0px;
+        outline: rgb(255, 255, 255) none 0;
     }
 /*#cuINPUT_29:before*/
 
@@ -2446,7 +2459,7 @@ p {
     perspective-origin: 8px 8px;
     transform-origin: 8px 8px;
     font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    margin: 7px 242px 0px;
+    margin: 7px 242px 0;
 }
     /*#cuIMG_30*/
 
@@ -2499,7 +2512,7 @@ p {
     transform-origin: 707.5px 88px;
     background: rgb(247, 247, 247) none repeat scroll 0% 0% / auto padding-box border-box;
     font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    padding: 46px 0px;
+    padding: 46px 0;
 }
     /*#footerDIV_1*/
 
@@ -2524,7 +2537,7 @@ p {
     perspective-origin: 540px 42px;
     transform-origin: 540px 42px;
     font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    margin: 0px 167.5px;
+    margin: 0 167.5px;
 }
     /*#footerDIV_2*/
 
@@ -2533,11 +2546,11 @@ p {
         clear: both;
         content: '""';
         display: block;
-        height: 0px;
+        height: 0;
         visibility: hidden;
         width: 1080px;
-        perspective-origin: 540px 0px;
-        transform-origin: 540px 0px;
+        perspective-origin: 540px 0;
+        transform-origin: 540px 0;
         font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         overflow: hidden;
     }
@@ -2604,8 +2617,8 @@ p {
     transform-origin: 140px 42px;
     font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
-    margin: 0px;
-    padding: 0px 40px;
+    margin: 0;
+    padding: 0 40px;
 }
     /*#footerUL_5*/
 
@@ -2632,11 +2645,10 @@ p {
     column-rule-color: rgb(108, 111, 112);
     perspective-origin: 100px 14px;
     transform-origin: 100px 14px;
-    caret-color: rgb(108, 111, 112);
-    border: 0px none rgb(108, 111, 112);
+    border: 0 none rgb(108, 111, 112);
     font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
-    outline: rgb(108, 111, 112) none 0px;
+    outline: rgb(108, 111, 112) none 0;
 }
     /*#footerLI_6, #footerLI_8, #footerLI_10*/
 
@@ -2645,11 +2657,10 @@ p {
         color: rgb(108, 111, 112);
         text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        caret-color: rgb(108, 111, 112);
-        border: 0px none rgb(108, 111, 112);
+        border: 0 none rgb(108, 111, 112);
         font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(108, 111, 112) none 0px;
+        outline: rgb(108, 111, 112) none 0;
     }
     /*#footerLI_6:after, #footerLI_8:after, #footerLI_10:after*/
 
@@ -2658,11 +2669,10 @@ p {
         color: rgb(108, 111, 112);
         text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        caret-color: rgb(108, 111, 112);
-        border: 0px none rgb(108, 111, 112);
+        border: 0 none rgb(108, 111, 112);
         font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(108, 111, 112) none 0px;
+        outline: rgb(108, 111, 112) none 0;
     }
 /*#footerLI_6:before, #footerLI_8:before, #footerLI_10:before*/
 
@@ -2672,13 +2682,12 @@ p {
     text-align: left;
     text-decoration: none solid rgb(108, 111, 112);
     column-rule-color: rgb(108, 111, 112);
-    perspective-origin: 0px 0px;
-    transform-origin: 0px 0px;
-    caret-color: rgb(108, 111, 112);
-    border: 0px none rgb(108, 111, 112);
+    perspective-origin: 0 0;
+    transform-origin: 0 0;
+    border: 0 none rgb(108, 111, 112);
     font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
-    outline: rgb(108, 111, 112) none 0px;
+    outline: rgb(108, 111, 112) none 0;
 }
     /*#footerA_7, #footerA_9, #footerA_15, #footerA_17, #footerA_19, #footerA_23, #footerA_25, #footerA_27*/
 
@@ -2688,11 +2697,10 @@ p {
         text-align: left;
         text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        caret-color: rgb(108, 111, 112);
-        border: 0px none rgb(108, 111, 112);
+        border: 0 none rgb(108, 111, 112);
         font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(108, 111, 112) none 0px;
+        outline: rgb(108, 111, 112) none 0;
     }
     /*#footerA_7:after, #footerA_9:after, #footerA_15:after, #footerA_17:after, #footerA_19:after, #footerA_23:after, #footerA_25:after, #footerA_27:after*/
 
@@ -2702,11 +2710,10 @@ p {
         text-align: left;
         text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        caret-color: rgb(108, 111, 112);
-        border: 0px none rgb(108, 111, 112);
+        border: 0 none rgb(108, 111, 112);
         font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(108, 111, 112) none 0px;
+        outline: rgb(108, 111, 112) none 0;
     }
 /*#footerA_7:before, #footerA_9:before, #footerA_15:before, #footerA_17:before, #footerA_19:before, #footerA_23:before, #footerA_25:before, #footerA_27:before*/
 
@@ -2716,13 +2723,12 @@ p {
     text-align: left;
     text-decoration: none solid rgb(108, 111, 112);
     column-rule-color: rgb(108, 111, 112);
-    perspective-origin: 0px 0px;
-    transform-origin: 0px 0px;
-    caret-color: rgb(108, 111, 112);
-    border: 0px none rgb(108, 111, 112);
+    perspective-origin: 0 0;
+    transform-origin: 0 0;
+    border: 0 none rgb(108, 111, 112);
     font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
-    outline: rgb(108, 111, 112) none 0px;
+    outline: rgb(108, 111, 112) none 0;
 }
     /*#footerA_11*/
 
@@ -2732,11 +2738,10 @@ p {
         text-align: left;
         text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        caret-color: rgb(108, 111, 112);
-        border: 0px none rgb(108, 111, 112);
+        border: 0 none rgb(108, 111, 112);
         font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(108, 111, 112) none 0px;
+        outline: rgb(108, 111, 112) none 0;
     }
     /*#footerA_11:after*/
 
@@ -2746,11 +2751,10 @@ p {
         text-align: left;
         text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        caret-color: rgb(108, 111, 112);
-        border: 0px none rgb(108, 111, 112);
+        border: 0 none rgb(108, 111, 112);
         font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(108, 111, 112) none 0px;
+        outline: rgb(108, 111, 112) none 0;
     }
 /*#footerA_11:before*/
 
@@ -2787,8 +2791,8 @@ p {
     transform-origin: 121.5px 42px;
     font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
-    margin: 0px;
-    padding: 0px 40px;
+    margin: 0;
+    padding: 0 40px;
 }
     /*#footerUL_13*/
 
@@ -2815,11 +2819,10 @@ p {
     column-rule-color: rgb(108, 111, 112);
     perspective-origin: 81.5px 14px;
     transform-origin: 81.5px 14px;
-    caret-color: rgb(108, 111, 112);
-    border: 0px none rgb(108, 111, 112);
+    border: 0 none rgb(108, 111, 112);
     font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
-    outline: rgb(108, 111, 112) none 0px;
+    outline: rgb(108, 111, 112) none 0;
 }
     /*#footerLI_14, #footerLI_16*/
 
@@ -2828,11 +2831,10 @@ p {
         color: rgb(108, 111, 112);
         text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        caret-color: rgb(108, 111, 112);
-        border: 0px none rgb(108, 111, 112);
+        border: 0 none rgb(108, 111, 112);
         font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(108, 111, 112) none 0px;
+        outline: rgb(108, 111, 112) none 0;
     }
     /*#footerLI_14:after, #footerLI_16:after*/
 
@@ -2841,11 +2843,10 @@ p {
         color: rgb(108, 111, 112);
         text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        caret-color: rgb(108, 111, 112);
-        border: 0px none rgb(108, 111, 112);
+        border: 0 none rgb(108, 111, 112);
         font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(108, 111, 112) none 0px;
+        outline: rgb(108, 111, 112) none 0;
     }
 /*#footerLI_14:before, #footerLI_16:before*/
 
@@ -2858,11 +2859,10 @@ p {
     column-rule-color: rgb(108, 111, 112);
     perspective-origin: 81.5px 14px;
     transform-origin: 81.5px 14px;
-    caret-color: rgb(108, 111, 112);
-    border: 0px none rgb(108, 111, 112);
+    border: 0 none rgb(108, 111, 112);
     font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
-    outline: rgb(108, 111, 112) none 0px;
+    outline: rgb(108, 111, 112) none 0;
 }
     /*#footerLI_18*/
 
@@ -2871,11 +2871,10 @@ p {
         color: rgb(108, 111, 112);
         text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        caret-color: rgb(108, 111, 112);
-        border: 0px none rgb(108, 111, 112);
+        border: 0 none rgb(108, 111, 112);
         font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(108, 111, 112) none 0px;
+        outline: rgb(108, 111, 112) none 0;
     }
     /*#footerLI_18:after*/
 
@@ -2884,11 +2883,10 @@ p {
         color: rgb(108, 111, 112);
         text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        caret-color: rgb(108, 111, 112);
-        border: 0px none rgb(108, 111, 112);
+        border: 0 none rgb(108, 111, 112);
         font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(108, 111, 112) none 0px;
+        outline: rgb(108, 111, 112) none 0;
     }
 /*#footerLI_18:before*/
 
@@ -2925,8 +2923,8 @@ p {
     transform-origin: 123.5px 42px;
     font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
-    margin: 0px;
-    padding: 0px 40px;
+    margin: 0;
+    padding: 0 40px;
 }
     /*#footerUL_21*/
 
@@ -2953,11 +2951,10 @@ p {
     column-rule-color: rgb(108, 111, 112);
     perspective-origin: 83.5px 14px;
     transform-origin: 83.5px 14px;
-    caret-color: rgb(108, 111, 112);
-    border: 0px none rgb(108, 111, 112);
+    border: 0 none rgb(108, 111, 112);
     font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
-    outline: rgb(108, 111, 112) none 0px;
+    outline: rgb(108, 111, 112) none 0;
 }
     /*#footerLI_22, #footerLI_24*/
 
@@ -2966,11 +2963,10 @@ p {
         color: rgb(108, 111, 112);
         text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        caret-color: rgb(108, 111, 112);
-        border: 0px none rgb(108, 111, 112);
+        border: 0 none rgb(108, 111, 112);
         font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(108, 111, 112) none 0px;
+        outline: rgb(108, 111, 112) none 0;
     }
     /*#footerLI_22:after, #footerLI_24:after*/
 
@@ -2979,11 +2975,10 @@ p {
         color: rgb(108, 111, 112);
         text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        caret-color: rgb(108, 111, 112);
-        border: 0px none rgb(108, 111, 112);
+        border: 0 none rgb(108, 111, 112);
         font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(108, 111, 112) none 0px;
+        outline: rgb(108, 111, 112) none 0;
     }
 /*#footerLI_22:before, #footerLI_24:before*/
 
@@ -2996,11 +2991,10 @@ p {
     column-rule-color: rgb(108, 111, 112);
     perspective-origin: 83.5px 14px;
     transform-origin: 83.5px 14px;
-    caret-color: rgb(108, 111, 112);
-    border: 0px none rgb(108, 111, 112);
+    border: 0 none rgb(108, 111, 112);
     font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
-    outline: rgb(108, 111, 112) none 0px;
+    outline: rgb(108, 111, 112) none 0;
 }
     /*#footerLI_26*/
 
@@ -3009,11 +3003,10 @@ p {
         color: rgb(108, 111, 112);
         text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        caret-color: rgb(108, 111, 112);
-        border: 0px none rgb(108, 111, 112);
+        border: 0 none rgb(108, 111, 112);
         font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(108, 111, 112) none 0px;
+        outline: rgb(108, 111, 112) none 0;
     }
     /*#footerLI_26:after*/
 
@@ -3022,11 +3015,10 @@ p {
         color: rgb(108, 111, 112);
         text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        caret-color: rgb(108, 111, 112);
-        border: 0px none rgb(108, 111, 112);
+        border: 0 none rgb(108, 111, 112);
         font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(108, 111, 112) none 0px;
+        outline: rgb(108, 111, 112) none 0;
     }
 /*#footerLI_26:before*/
 
@@ -3065,8 +3057,8 @@ p {
     border-bottom: 1px solid rgb(196, 196, 196);
     font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
-    margin: 0px 14px 35px 0px;
-    padding: 0px 0px 10px;
+    margin: 0 14px 35px 0;
+    padding: 0 0 10px;
 }
     /*#footerUL_29*/
 
@@ -3075,12 +3067,12 @@ p {
         clear: both;
         content: '""';
         display: block;
-        height: 0px;
+        height: 0;
         text-align: center;
         visibility: hidden;
         width: 293px;
-        perspective-origin: 146.5px 0px;
-        transform-origin: 146.5px 0px;
+        perspective-origin: 146.5px 0;
+        transform-origin: 146.5px 0;
         font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         overflow: hidden;
@@ -3106,7 +3098,7 @@ p {
     transform-origin: 10px 12.5px;
     font: normal normal 400 normal 20px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
-    margin: 0px 12px;
+    margin: 0 12px;
 }
     /*#footerLI_30, #footerLI_33*/
 
@@ -3132,13 +3124,12 @@ p {
     text-align: center;
     text-decoration: none solid rgb(160, 157, 157);
     column-rule-color: rgb(160, 157, 157);
-    perspective-origin: 0px 0px;
-    transform-origin: 0px 0px;
-    caret-color: rgb(160, 157, 157);
-    border: 0px none rgb(160, 157, 157);
+    perspective-origin: 0 0;
+    transform-origin: 0 0;
+    border: 0 none rgb(160, 157, 157);
     font: normal normal 400 normal 20px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
-    outline: rgb(160, 157, 157) none 0px;
+    outline: rgb(160, 157, 157) none 0;
 }
     /*#footerA_31*/
 
@@ -3148,11 +3139,10 @@ p {
         text-align: center;
         text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        caret-color: rgb(160, 157, 157);
-        border: 0px none rgb(160, 157, 157);
+        border: 0 none rgb(160, 157, 157);
         font: normal normal 400 normal 20px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(160, 157, 157) none 0px;
+        outline: rgb(160, 157, 157) none 0;
     }
     /*#footerA_31:after*/
 
@@ -3163,13 +3153,12 @@ p {
         text-align: center;
         text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        perspective-origin: 0px 0px;
-        transform-origin: 0px 0px;
-        caret-color: rgb(160, 157, 157);
-        border: 0px none rgb(160, 157, 157);
+        perspective-origin: 0 0;
+        transform-origin: 0 0;
+        border: 0 none rgb(160, 157, 157);
         font: normal normal 400 normal 20px / normal dashicons;
         list-style: none outside none;
-        outline: rgb(160, 157, 157) none 0px;
+        outline: rgb(160, 157, 157) none 0;
     }
 /*#footerA_31:before*/
 
@@ -3181,11 +3170,10 @@ p {
     text-align: center;
     text-decoration: none solid rgb(160, 157, 157);
     column-rule-color: rgb(160, 157, 157);
-    caret-color: rgb(160, 157, 157);
-    border: 0px none rgb(160, 157, 157);
+    border: 0 none rgb(160, 157, 157);
     font: normal normal 400 normal 20px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
-    outline: rgb(160, 157, 157) none 0px;
+    outline: rgb(160, 157, 157) none 0;
 }
     /*#footerSPAN_32, #footerSPAN_35*/
 
@@ -3196,11 +3184,10 @@ p {
         text-align: center;
         text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        caret-color: rgb(160, 157, 157);
-        border: 0px none rgb(160, 157, 157);
+        border: 0 none rgb(160, 157, 157);
         font: normal normal 400 normal 20px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(160, 157, 157) none 0px;
+        outline: rgb(160, 157, 157) none 0;
     }
     /*#footerSPAN_32:after, #footerSPAN_35:after*/
 
@@ -3211,11 +3198,10 @@ p {
         text-align: center;
         text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        caret-color: rgb(160, 157, 157);
-        border: 0px none rgb(160, 157, 157);
+        border: 0 none rgb(160, 157, 157);
         font: normal normal 400 normal 20px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(160, 157, 157) none 0px;
+        outline: rgb(160, 157, 157) none 0;
     }
 /*#footerSPAN_32:before, #footerSPAN_35:before*/
 
@@ -3225,13 +3211,12 @@ p {
     text-align: center;
     text-decoration: none solid rgb(160, 157, 157);
     column-rule-color: rgb(160, 157, 157);
-    perspective-origin: 0px 0px;
-    transform-origin: 0px 0px;
-    caret-color: rgb(160, 157, 157);
-    border: 0px none rgb(160, 157, 157);
+    perspective-origin: 0 0;
+    transform-origin: 0 0;
+    border: 0 none rgb(160, 157, 157);
     font: normal normal 400 normal 20px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
-    outline: rgb(160, 157, 157) none 0px;
+    outline: rgb(160, 157, 157) none 0;
 }
     /*#footerA_34*/
 
@@ -3241,11 +3226,10 @@ p {
         text-align: center;
         text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        caret-color: rgb(160, 157, 157);
-        border: 0px none rgb(160, 157, 157);
+        border: 0 none rgb(160, 157, 157);
         font: normal normal 400 normal 20px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(160, 157, 157) none 0px;
+        outline: rgb(160, 157, 157) none 0;
     }
     /*#footerA_34:after*/
 
@@ -3256,13 +3240,12 @@ p {
         text-align: center;
         text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        perspective-origin: 0px 0px;
-        transform-origin: 0px 0px;
-        caret-color: rgb(160, 157, 157);
-        border: 0px none rgb(160, 157, 157);
+        perspective-origin: 0 0;
+        transform-origin: 0 0;
+        border: 0 none rgb(160, 157, 157);
         font: normal normal 400 normal 20px / normal dashicons;
         list-style: none outside none;
-        outline: rgb(160, 157, 157) none 0px;
+        outline: rgb(160, 157, 157) none 0;
     }
 /*#footerA_34:before*/
 
@@ -3277,7 +3260,7 @@ p {
     transform-origin: 5.60938px 8px;
     font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
-    margin: 0px 12px;
+    margin: 0 12px;
 }
     /*#footerLI_36*/
 
@@ -3303,13 +3286,12 @@ p {
     text-align: center;
     text-decoration: none solid rgb(160, 157, 157);
     column-rule-color: rgb(160, 157, 157);
-    perspective-origin: 0px 0px;
-    transform-origin: 0px 0px;
-    caret-color: rgb(160, 157, 157);
-    border: 0px none rgb(160, 157, 157);
+    perspective-origin: 0 0;
+    transform-origin: 0 0;
+    border: 0 none rgb(160, 157, 157);
     font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
-    outline: rgb(160, 157, 157) none 0px;
+    outline: rgb(160, 157, 157) none 0;
 }
     /*#footerA_37*/
 
@@ -3319,11 +3301,10 @@ p {
         text-align: center;
         text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        caret-color: rgb(160, 157, 157);
-        border: 0px none rgb(160, 157, 157);
+        border: 0 none rgb(160, 157, 157);
         font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(160, 157, 157) none 0px;
+        outline: rgb(160, 157, 157) none 0;
     }
     /*#footerA_37:after*/
 
@@ -3334,13 +3315,12 @@ p {
         text-align: center;
         text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        perspective-origin: 0px 0px;
-        transform-origin: 0px 0px;
-        caret-color: rgb(160, 157, 157);
-        border: 0px none rgb(160, 157, 157);
+        perspective-origin: 0 0;
+        transform-origin: 0 0;
+        border: 0 none rgb(160, 157, 157);
         font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(160, 157, 157) none 0px;
+        outline: rgb(160, 157, 157) none 0;
     }
 /*#footerA_37:before*/
 
@@ -3352,11 +3332,10 @@ p {
     text-align: center;
     text-decoration: none solid rgb(160, 157, 157);
     column-rule-color: rgb(160, 157, 157);
-    caret-color: rgb(160, 157, 157);
-    border: 0px none rgb(160, 157, 157);
+    border: 0 none rgb(160, 157, 157);
     font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
-    outline: rgb(160, 157, 157) none 0px;
+    outline: rgb(160, 157, 157) none 0;
 }
     /*#footerSPAN_38, #footerSPAN_41*/
 
@@ -3367,11 +3346,10 @@ p {
         text-align: center;
         text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        caret-color: rgb(160, 157, 157);
-        border: 0px none rgb(160, 157, 157);
+        border: 0 none rgb(160, 157, 157);
         font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(160, 157, 157) none 0px;
+        outline: rgb(160, 157, 157) none 0;
     }
     /*#footerSPAN_38:after, #footerSPAN_41:after*/
 
@@ -3382,11 +3360,10 @@ p {
         text-align: center;
         text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        caret-color: rgb(160, 157, 157);
-        border: 0px none rgb(160, 157, 157);
+        border: 0 none rgb(160, 157, 157);
         font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(160, 157, 157) none 0px;
+        outline: rgb(160, 157, 157) none 0;
     }
 /*#footerSPAN_38:before, #footerSPAN_41:before*/
 
@@ -3401,7 +3378,7 @@ p {
     transform-origin: 7.9375px 8px;
     font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
-    margin: 0px 12px;
+    margin: 0 12px;
 }
     /*#footerLI_39*/
 
@@ -3427,13 +3404,12 @@ p {
     text-align: center;
     text-decoration: none solid rgb(160, 157, 157);
     column-rule-color: rgb(160, 157, 157);
-    perspective-origin: 0px 0px;
-    transform-origin: 0px 0px;
-    caret-color: rgb(160, 157, 157);
-    border: 0px none rgb(160, 157, 157);
+    perspective-origin: 0 0;
+    transform-origin: 0 0;
+    border: 0 none rgb(160, 157, 157);
     font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
-    outline: rgb(160, 157, 157) none 0px;
+    outline: rgb(160, 157, 157) none 0;
 }
     /*#footerA_40*/
 
@@ -3443,11 +3419,10 @@ p {
         text-align: center;
         text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        caret-color: rgb(160, 157, 157);
-        border: 0px none rgb(160, 157, 157);
+        border: 0 none rgb(160, 157, 157);
         font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(160, 157, 157) none 0px;
+        outline: rgb(160, 157, 157) none 0;
     }
     /*#footerA_40:after*/
 
@@ -3458,13 +3433,12 @@ p {
         text-align: center;
         text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        perspective-origin: 0px 0px;
-        transform-origin: 0px 0px;
-        caret-color: rgb(160, 157, 157);
-        border: 0px none rgb(160, 157, 157);
+        perspective-origin: 0 0;
+        transform-origin: 0 0;
+        border: 0 none rgb(160, 157, 157);
         font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
-        outline: rgb(160, 157, 157) none 0px;
+        outline: rgb(160, 157, 157) none 0;
     }
 /*#footerA_40:before*/
 
@@ -3478,11 +3452,10 @@ p {
     column-rule-color: rgb(160, 157, 157);
     perspective-origin: 153.5px 8.5px;
     transform-origin: 153.5px 8.5px;
-    caret-color: rgb(160, 157, 157);
-    border: 0px none rgb(160, 157, 157);
+    border: 0 none rgb(160, 157, 157);
     font: normal normal 400 normal 14px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    margin: -20px 0px 0px;
-    outline: rgb(160, 157, 157) none 0px;
+    margin: -20px 0 0;
+    outline: rgb(160, 157, 157) none 0;
 }
     /*#footerP_42*/
 
@@ -3492,10 +3465,9 @@ p {
         text-align: center;
         text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        caret-color: rgb(160, 157, 157);
-        border: 0px none rgb(160, 157, 157);
+        border: 0 none rgb(160, 157, 157);
         font: normal normal 400 normal 14px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(160, 157, 157) none 0px;
+        outline: rgb(160, 157, 157) none 0;
     }
     /*#footerP_42:after*/
 
@@ -3505,10 +3477,9 @@ p {
         text-align: center;
         text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        caret-color: rgb(160, 157, 157);
-        border: 0px none rgb(160, 157, 157);
+        border: 0 none rgb(160, 157, 157);
         font: normal normal 400 normal 14px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(160, 157, 157) none 0px;
+        outline: rgb(160, 157, 157) none 0;
     }
 /*#footerP_42:before*/
 
@@ -3518,12 +3489,11 @@ p {
     text-align: center;
     text-decoration: none solid rgb(160, 157, 157);
     column-rule-color: rgb(160, 157, 157);
-    perspective-origin: 0px 0px;
-    transform-origin: 0px 0px;
-    caret-color: rgb(160, 157, 157);
-    border: 0px none rgb(160, 157, 157);
+    perspective-origin: 0 0;
+    transform-origin: 0 0;
+    border: 0 none rgb(160, 157, 157);
     font: normal normal 400 normal 14px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    outline: rgb(160, 157, 157) none 0px;
+    outline: rgb(160, 157, 157) none 0;
 }
     /*#footerA_43*/
 
@@ -3533,10 +3503,9 @@ p {
         text-align: center;
         text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        caret-color: rgb(160, 157, 157);
-        border: 0px none rgb(160, 157, 157);
+        border: 0 none rgb(160, 157, 157);
         font: normal normal 400 normal 14px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(160, 157, 157) none 0px;
+        outline: rgb(160, 157, 157) none 0;
     }
     /*#footerA_43:after*/
 
@@ -3546,10 +3515,9 @@ p {
         text-align: center;
         text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        caret-color: rgb(160, 157, 157);
-        border: 0px none rgb(160, 157, 157);
+        border: 0 none rgb(160, 157, 157);
         font: normal normal 400 normal 14px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(160, 157, 157) none 0px;
+        outline: rgb(160, 157, 157) none 0;
     }
 /*#footerA_43:before*/
 div#footerDIV_1 li {
@@ -3559,9 +3527,22 @@ div#footerDIV_1 li {
 
 /*About_Us*/
 
+#msf-About_Us-Image img {
+    -webkit-box-shadow: 20px 28px 40px -5px rgba(181,174,181,1);
+    -moz-box-shadow: 20px 28px 40px -5px rgba(181,174,181,1);
+    box-shadow: 20px 28px 40px -5px rgba(181,174,181,1);
+}
+
 .aboutUsInfoSection {
     margin: 33px auto;
+    width: 100%;
     display: inline-block;
+    -webkit-box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
+    -moz-box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
+    box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
+    -webkit-box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
+    -moz-box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
+    box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
 }
 
 div#msf-About_Us-Image {
@@ -3570,18 +3551,21 @@ div#msf-About_Us-Image {
 
 div#msf-About_Us-text {
     float: left;
-    width: 815px;
-    margin: 0px 20px 40px;
+    width: 68%;
+    margin: 0 20px 40px;
+    word-wrap: break-word;
 }
 
 h3#msf-About_Us-title {
-    font: normal normal 300 normal 20px / 26px proxima-nova;
+    padding: 21px;
+    font-size: 22px;
+    font-size: 2.2rem;
 }
 
 p#msf-About_Us-P {
     color: rgb(51, 51, 51);
     font: normal normal 400 normal 14px / 23.8px Arial, Helvetica, sans-serif;
-    margin: 0px 0px 20px;
+    margin: 0 0 20px;
 }
 
 
@@ -3658,9 +3642,12 @@ p#msf-About_Us-P {
     border-left: 1px solid #fff;
     border-bottom: 1px solid #fff;
     -webkit-transform: rotateZ(-45deg);
+    -ms-transform: rotateZ(-45deg);
     transform: rotateZ(-45deg);
     -webkit-animation: spinFade 1.5s infinite;
+    -ms-animation: spinFade 1.5s infinite;
     animation: spinFade 1.5s infinite;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -3674,6 +3661,7 @@ p#msf-About_Us-P {
     border-left: 1px solid #fff;
     border-bottom: 1px solid #fff;
     -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
     -webkit-animation: sdb07 2s infinite;
     animation: FFade 2s infinite;

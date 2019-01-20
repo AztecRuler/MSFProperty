@@ -28,7 +28,12 @@
 
     </div>
     
-    <hr class="fancyBreak container">
+    <div class="fancyBreak container">
+        <span class="editable">
+            <%=GetText(41)%>
+        </span>
+    </div>
+    
 
     <div class="container ">
     <asp:Repeater ID="Repeater1" runat="server">
