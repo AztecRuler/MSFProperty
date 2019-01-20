@@ -126,6 +126,7 @@
     <Content Include="Icons\font-awesome.css" />
     <Content Include="Icons\ionicons.css" />
     <Content Include="ajax-loader.gif" />
+    <Content Include="Icons\wpg-ico-75x60.png" />
     <Content Include="Images\AboutUsPictures\About_usImagePlaceholder.png" />
     <Content Include="Javascript\adminJavaScript.js" />
     <Content Include="Javascript\msfJavascript.js" />

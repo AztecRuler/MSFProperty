@@ -1173,10 +1173,6 @@ input {
     text-align: right;
 }
 
-.text-align-center {
-    text-align: center;
-}
-
 .msf-bg-white {
     background-color: #fff;
 }
@@ -1187,46 +1183,34 @@ input {
 
     .msf-list-villas-inset > li {
         float: left;
-        width: 50%;
+        width: 46%;
         padding: 0 11px;
         position: relative;
         margin-bottom: 22px;
+        margin: 1%;
+        -webkit-box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
+        -moz-box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
+        box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
+        -webkit-box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
+        -moz-box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
+        box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
     }
 
         .msf-list-villas-inset > li .msf-lvi-sub-box {
             position: relative;
-            padding-bottom: 60px;
             overflow: hidden;
             height: 205px;
         }
 
-            .msf-list-villas-inset > li .msf-lvi-sub-box:after {
-                content: '';
-                display: block;
-                position: absolute;
-                bottom: 60px;
-                height: 28px;
-                left: 11px;
-                right: 11px;
-            }
-
 .msf-more-button {
-    height: 60px;
-    text-align: center;
     line-height: 60px;
-    display: block;
     border: 1px solid #b7b7b7;
     font-size: 18px;
     font-size: 1.8rem;
     text-decoration: none;
     font-weight: 700;
     color: #b7b7b7;
-    padding: 0 17px;
     letter-spacing: 1px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    background: #fff;
     position: absolute;
     left: 0;
     right: 0;
@@ -1243,14 +1227,6 @@ input {
         color: #fff;
     }
 
-.msf-lvi-box {
-    height: 243px;
-    table-layout: auto;
-    width: 100%;
-    overflow: visible;
-    margin-bottom: 18px;
-}
-
 .msf-lvi-box-main {
     background-color: black;
     background-position: 50% 50%;
@@ -1262,127 +1238,119 @@ input {
     width: 151px;
 }
 
-    .msf-lvi-box-side > ul {
-        width: 100%;
+    .msf-lvi-box-side > ul > li strong {
+        display: none;
     }
 
-        .msf-lvi-box-side > ul > li strong {
-            display: none;
-        }
+    .msf-lvi-box-side > ul > li span {
+        position: relative;
+        right: 5px;
+    }
 
-        .msf-lvi-box-side > ul > li span {
-            position: relative;
-            right: 4px;
-        }
+    .msf-lvi-box-side > ul > li {
+        height: 60px;
+        width: 50%;
+        float: left;
+        line-height: 60px;
+        color: #fff;
+        margin-bottom: 1px;
+        border-left: 1px solid #fff;
+        font-family: Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        font-size: 1.4rem;
+        position: relative;
+    }
 
-        .msf-lvi-box-side > ul > li {
+        .msf-lvi-box-side > ul > li:before {
+            content: '';
+            position: absolute;
+            width: 75px;
             height: 60px;
-            width: 50%;
-            float: left;
-            line-height: 60px;
-            color: #fff;
-            margin-bottom: 1px;
-            border-left: 1px solid #fff;
-            font-family: proxima-nova, Arial, Helvetica, sans-serif;
-            font-size: 17px;
-            font-size: 1.7rem;
-            position: relative;
+            left: 50%;
+            margin-left: -37px;
+            background-image: url('../Icons/wpg-ico-75x60.png');
+            background-repeat: no-repeat;
         }
 
-            .msf-lvi-box-side > ul > li:before {
-                content: '';
-                display: block;
-                position: absolute;
-                width: 75px;
-                height: 60px;
-                left: 50%;
-                top: 0;
-                margin-left: -37px;
-                background-image: url(http://northernlights.websites.365villas.com/wp-content/themes/villas/img/msf-ico-75x60.png);
-                background-repeat: no-repeat;
-                z-index: 0;
+        .msf-lvi-box-side > ul > li a {
+            display: block;
+            text-align: left;
+            text-indent: -100000px;
+            height: 100%;
+            width: 100%;
+            text-decoration: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .msf-lvi-box-side > ul > li.msf-ico-bed {
+            background-color: #191c1f;
+            text-align: right;
+        }
+
+            .msf-lvi-box-side > ul > li.msf-ico-bed:before {
+                background-position: 0 0;
             }
 
-            .msf-lvi-box-side > ul > li a {
-                display: block;
-                text-align: left;
-                text-indent: -100000px;
-                height: 100%;
-                width: 100%;
-                text-decoration: none;
-                position: relative;
-                z-index: 1;
+        .msf-lvi-box-side > ul > li.msf-ico-computer {
+            background-color: #575a5d;
+        }
+
+            .msf-lvi-box-side > ul > li.msf-ico-computer:before {
+                background-position: -225px 0;
             }
 
-            .msf-lvi-box-side > ul > li.msf-ico-bed {
-                background-color: #191c1f;
-                text-align: right;
+        .msf-lvi-box-side > ul > li.msf-ico-bath {
+            background-color: #a2a5a4;
+            text-align: right;
+        }
+
+            .msf-lvi-box-side > ul > li.msf-ico-bath:before {
+                background-position: -75px 0;
             }
 
-                .msf-lvi-box-side > ul > li.msf-ico-bed:before {
-                    background-position: 0 0;
-                }
-
-            .msf-lvi-box-side > ul > li.msf-ico-computer {
-                background-color: #575a5d;
+            .msf-lvi-box-side > ul > li.msf-ico-bath span {
+                right: 12px;
             }
 
-                .msf-lvi-box-side > ul > li.msf-ico-computer:before {
-                    background-position: -225px 0;
-                }
+        .msf-lvi-box-side > ul > li.msf-ico-location {
+            background-color: #818382;
+        }
 
-            .msf-lvi-box-side > ul > li.msf-ico-bath {
-                background-color: #a2a5a4;
-                text-align: right;
+            .msf-lvi-box-side > ul > li.msf-ico-location:before {
+                background-position: -300px 0;
             }
 
-                .msf-lvi-box-side > ul > li.msf-ico-bath:before {
-                    background-position: -75px 0;
-                }
+        .msf-lvi-box-side > ul > li.msf-ico-pet {
+            background-color: #b7b7b7;
+            text-align: right;
+        }
 
-                .msf-lvi-box-side > ul > li.msf-ico-bath span {
-                    right: 12px;
-                }
-
-            .msf-lvi-box-side > ul > li.msf-ico-location {
-                background-color: #818382;
+            .msf-lvi-box-side > ul > li.msf-ico-pet:before {
+                background-position: -150px 0;
             }
 
-                .msf-lvi-box-side > ul > li.msf-ico-location:before {
-                    background-position: -300px 0;
-                }
+        .msf-lvi-box-side > ul > li.msf-ico-email {
+            background-color: #a2a5a4;
+        }
 
-            .msf-lvi-box-side > ul > li.msf-ico-pet {
-                background-color: #b7b7b7;
-                text-align: right;
+            .msf-lvi-box-side > ul > li.msf-ico-email:before {
+                background-position: 21px;
+                background-image: url(http://northernlights.websites.365villas.com/wp-content/themes/villas/img/pricing.png);
             }
 
-                .msf-lvi-box-side > ul > li.msf-ico-pet:before {
-                    background-position: -150px 0;
-                }
+        .msf-lvi-box-side > ul > li.msf-ico-cost {
+            width: 100%;
+            margin-bottom: 0;
+            background-color: #f26522;
+        }
 
-            .msf-lvi-box-side > ul > li.msf-ico-email {
-                background-color: #a2a5a4;
+            .msf-lvi-box-side > ul > li.msf-ico-cost:before {
+                background-image: none;
             }
-
-                .msf-lvi-box-side > ul > li.msf-ico-email:before {
-                    background-position: 21px;
-                    background-image: url(http://northernlights.websites.365villas.com/wp-content/themes/villas/img/pricing.png);
-                }
-
-            .msf-lvi-box-side > ul > li.msf-ico-cost {
-                width: 100%;
-                margin-bottom: 0;
-                background-color: #f26522;
-            }
-
-                .msf-lvi-box-side > ul > li.msf-ico-cost:before {
-                    background-image: none;
-                }
 
 .msf-lvi-sub-box {
     padding: 0 7px;
-    text-align: center;
 }
 
     .msf-lvi-sub-box h3 {
@@ -1392,9 +1360,6 @@ input {
         color: #616265;
     }
 
-        .msf-lvi-sub-box h3 a {
-            text-decoration: none;
-        }
 
     .msf-lvi-sub-box p {
         font-size: 14px;
@@ -1404,18 +1369,11 @@ input {
         color: #888b8c;
     }
 
-    .msf-lvi-sub-box h3 + p {
-        font-size: 12px;
-        font-size: 1.2rem;
-    }
-
 .msf-list-villas-pager {
     padding: 28px 14px;
     font-size: 14px;
     font-size: 1.4rem;
-    color: #a5acb0;
-    font-weight: 500;
-    word-spacing: 4px;
+    color: black;
 }
 
     .msf-list-villas-pager strong {
@@ -1515,12 +1473,8 @@ input {
 .msf-list-villas-inset .property_line {
     content: '';
     display: block;
-    width: 45%;
-    border-bottom: 1px solid #b7b7b7;
     width: 100%;
-    margin: 0 auto;
     padding-top: 20px;
-    clear: both;
 }
 
 .msf-lvi-box-side li small {
@@ -1589,10 +1543,6 @@ p, li {
     margin-bottom: 24px;
     font-size: 16px;
     font-size: 1.6rem;
-}
-
-.msf-lvi-box-side > ul > li {
-    font-family: Roboto, proxima-nova, Arial, Helvetica, sans-serif;
 }
 
 @font-face {
@@ -1724,25 +1674,6 @@ p, li {
     min-width: 260px;
     text-align: center;
 }
-
-.span-table {
-    display: table;
-    table-layout: fixed;
-    width: 100%;
-}
-
-.span-table-cell {
-    display: table-cell;
-}
-
-.vertical-align-middle {
-    vertical-align: middle;
-}
-
-.text-align-center {
-    text-align: center;
-}
-
 
 .msf-main-bg-header {
     position: relative;
@@ -3736,9 +3667,6 @@ p#msf-About_Us-P {
 #spinner3 {
     top: 75px;
 }
-
-
-
 
 @keyframes spinFade {
     0% {

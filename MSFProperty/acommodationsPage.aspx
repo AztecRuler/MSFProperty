@@ -22,12 +22,11 @@
         <div class="foregroundDiv_dark">
             <p>View latest rental properties</p>
 
-            <div class="msf-list-villas msf-bg-white">
+            <div class="msf-bg-white">
                 <div class="container">
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
-                            <p class="text-align-right msf-list-villas-pager">
-                                View
+                            <p class="text-align-right msf-list-villas-pager">Select Amount Of Properties To Display 
                         <asp:DropDownList ID="PagerProp" runat="server" AutoPostBack="true" OnSelectedIndexChanged="RefreshCount">
                             <asp:ListItem>4</asp:ListItem>
                             <asp:ListItem>6</asp:ListItem>
@@ -43,13 +42,13 @@
 
                                     <ItemTemplate>
                                         <li class="msf-list-villas-inset-item clear-both-fix">
-                                            <div class="msf-lvi-box span-table">
+                                            <div class="span-table">
 
                                                 <div class="span-table-cell msf-lvi-box-main" style="background-image: url(Images/<%# Eval("MainImage") %>);">
                                                     <a href="properties.aspx/" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;"></a>
 
                                                 </div>
-                                                <div class="span-table-cell vertical-align-middle text-align-center msf-lvi-box-side">
+                                                <div class="span-table-cell  msf-lvi-box-side">
                                                     <ul class="clear-both-fix">
                                                         <li class="msf-ico-bed msf-ico"><strong>Bed</strong> <span><%# Eval("Bedrooms") %></span> <small><%# Eval("Bedrooms") %><br>
                                                             Bedrooms</small></li>
