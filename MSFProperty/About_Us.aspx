@@ -33,7 +33,7 @@
     <div class="container ">
     <asp:Repeater ID="Repeater1" runat="server">
         <ItemTemplate>
-            <uc1:AboutUsInfo runat="server" ID="AboutUsInfo" TitleText=<%# Eval("Title") %> Quote=<%#Eval("Quote") %> ImageUrl=<%#Eval("ImageUrl") %> Chat=<%#Eval("Chat") %> DataId=<%#Eval("ID") %>/>
+            <uc1:AboutUsInfo runat="server" ID="AboutUsInfo" TitleText=<%# Eval("TitleText") %> Quote=<%#Eval("Quote") %> ImageUrl=<%#Eval("ImageUrl") %> Chat=<%#Eval("Chat") %> DataId=<%#Eval("ID") %>/>
         </ItemTemplate>
     </asp:Repeater>
     </div>

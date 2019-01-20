@@ -35,7 +35,7 @@ namespace MSFProperty.Admin
 
                     }
 
-                    var s = filename != "" ? "../Images/AboutUsPictures" + filename : "../Images/AboutUsPictures//About_usImagePlaceholder.png";
+                    var s = filename != "" ? "../Images/AboutUsPictures/" + filename : "../Images/AboutUsPictures//About_usImagePlaceholder.png";
                     var aboutUsModel = new AboutUsInfo
                     {
                         Title = About_Title.Text,
@@ -147,9 +147,10 @@ namespace MSFProperty.Admin
                             if (IsImage(FileUpload1.FileContent))
 
                             {
-                                realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + FileUpload1.FileName);
+
+                                realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\AboutUsPictures\\"), "MSF-" + FileUpload1.FileName);
                                 FileUpload1.SaveAs(realPhysicalPath);
-                                Filename = "MSF-" + FileUpload1.FileName;
+                                Filename = "../Images/AboutUsPictures/MSF-" + FileUpload1.FileName;
                             }
                             else
                             {
@@ -162,7 +163,7 @@ namespace MSFProperty.Admin
                         result.Title = About_UsEditTextBox1.Text == "" ? oldResults.Title : About_UsEditTextBox1.Text;
                         result.Chat = About_UsEditTextBox2.Text == "" ? oldResults.Chat : About_UsEditTextBox2.Text;
                         result.Quote = About_UsEditTextBox2.Text == "" ? oldResults.Quote : About_UsEditTextBox3.Text;
-                        result.ImageUrl = Filename == "" ? oldResults.ImageUrl : Filename;
+                        result.ImageUrl = Filename == "" ? "../Images/AboutUsPictures//About_usImagePlaceholder.png" :  Filename;
                     }
 
                     db.SaveChanges();
