@@ -55,7 +55,7 @@ namespace MSFProperty.Admin
                 errorText.Text = "Please Enter a title !! "; 
                 errorText.Visible = true;
             }
-
+            FillRepeaterData();
         }
 
         private bool Validation()
@@ -152,12 +152,13 @@ namespace MSFProperty.Admin
                                 FileUpload1.SaveAs(realPhysicalPath);
                                 Filename = "../Images/AboutUsPictures/MSF-" + FileUpload1.FileName;
                             }
-                            else
-                            {
-                                Filename = oldResults.ImageUrl;
-                            }
 
 
+
+                        }
+                        else
+                        {
+                            Filename = oldResults.ImageUrl;
                         }
 
                         result.Title = About_UsEditTextBox1.Text == "" ? oldResults.Title : About_UsEditTextBox1.Text;
