@@ -3512,6 +3512,24 @@ p#msf-About_Us-P {
 
 /*blog*/
 
+h1.blogTitle {
+    font-size: 21px;
+    font-size: 2.1rem;
+    color: #5b5b5b;
+    margin: 14px;
+    font-family: Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    min-height: 128px;
+}
+
+.blogCard a {
+    text-decoration: none;
+}
+
+span.BlogNameAndDate {
+    font-size: 14px;
+    line-height: 20px;
+}
 
 .blogLeftcolumn {
     float: left;
@@ -3522,24 +3540,23 @@ p#msf-About_Us-P {
     float: left;
     width: 25%;
     padding: 20px;
-    height: 885px;
+    /* height: 885px; */
     background: #f2f2f2;
-    margin: 14px 0;
+    margin: 11px 0;
 }
 
 .blogImg {
-    width: 100%;
     padding: 20px;
 }
 
 .blogCard {
     background-color: #f2f2f2;
-    padding: 17px 50px;
+    padding: 1%;
     float: left;
-    margin: 14px 14px;
-    height: 442px;
-    width: 569px;
-    text-align: center;
+    margin: 2%;
+    width: 46%;
+    min-height: 532px;
+    word-wrap: break-word;
 }
 
 .row:after {
@@ -3555,7 +3572,8 @@ p#msf-About_Us-P {
     text-overflow: ellipsis;
     margin: auto;
     height: 30px;
-    font-size: 25px;
+    font-size: 21px;
+    color: #5b5b5b;
 }
 
 .popularBlogposts {
@@ -3563,7 +3581,14 @@ p#msf-About_Us-P {
     padding: 5px;
     border: lightgrey 1px solid;
     margin-bottom: 14px;
+    min-height: 100px;
+    padding: 10px;
 }
+
+    .popularBlogposts a {
+        color: #5b5b5b;
+        text-decoration: none;
+    }
 
 .blogImg img {
     width: 100%;
