@@ -124,6 +124,11 @@ h3 {
     overflow: hidden;
 }
 
+.foregroundDiv .card h3 {
+    font-size: 20px;
+    font-size: 2rem;
+}
+
 .caption span.border {
     background-color: #111;
     padding: 6px;
@@ -324,10 +329,6 @@ input {
         .msf-nav-bar-main-menu li:first-child a {
             border-left: none;
         }
-
-    .msf-nav-bar-main-menu > li:hover {
-        border-bottom: 4px solid #ffcec3;
-    }
 
     .msf-nav-bar-main-menu > li.current-menu-item, .msf-nav-bar-main-menu > li.current-menu-item:hover {
         border-bottom: 4px solid #0daa95;
@@ -3511,7 +3512,33 @@ p#msf-About_Us-P {
 
 
 /*blog*/
+.mainBlogContents {
+    -webkit-box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
+    -moz-box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
+    box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
+    -webkit-box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
+    -moz-box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
+    box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
+}
+    .mainBlogContents h2 {
+        font-size: 37px;
+    }
+    .mainBlogContents p {
+        text-align: justify;
+        padding: 0 70px;
+    }
 
+    .mainBlogContents > p {
+        padding-top: 34px;
+    }
+.mainBlogContents a {
+    font-size: 25px;
+}
+
+.container.blogLink a {
+    font-size: 21px;
+    margin-bottom: 22px;
+}
 h1.blogTitle {
     font-size: 21px;
     font-size: 2.1rem;
@@ -3533,16 +3560,29 @@ span.BlogNameAndDate {
 
 .blogLeftcolumn {
     float: left;
-    width: 75%;
+    width: 70%;
+    -webkit-box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
+    -moz-box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
+    box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
+    -webkit-box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
+    -moz-box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
+    box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
 }
 
 .blogRightcolumn {
     float: left;
-    width: 25%;
-    padding: 20px;
-    /* height: 885px; */
+    width: 28%;
+    position: relative;
+    left: 4%;
+    padding: 14px;
     background: #f2f2f2;
-    margin: 11px 0;
+    margin: 0px 8px;
+    -webkit-box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
+    -moz-box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
+    box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
+    -webkit-box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
+    -moz-box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
+    box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
 }
 
 .blogImg {
@@ -3576,14 +3616,20 @@ span.BlogNameAndDate {
     color: #5b5b5b;
 }
 
-.popularBlogposts {
+.popularBlogposts, .blogCard {
     text-align: center;
     padding: 5px;
     border: lightgrey 1px solid;
     margin-bottom: 14px;
     min-height: 100px;
     padding: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
+
+    .popularBlogposts:hover, .blogCard:hover {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
 
     .popularBlogposts a {
         color: #5b5b5b;
@@ -3683,6 +3729,16 @@ span.BlogNameAndDate {
     }
 }
 
+.card img {
+    -webkit-animation-name: spin;
+    animation-name: spin;
+    -webkit-animation-duration: 5000ms;
+    animation-duration: 5000ms;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
 
 
 #spinner1 {
@@ -3695,20 +3751,40 @@ span.BlogNameAndDate {
 
 @keyframes spinFade {
     0% {
+        -ms-transform: rotateY(0) rotateZ(-45deg) translate(0, 0);
+        -webkit-transform: rotateY(0) rotateZ(-45deg) translate(0, 0);
         transform: rotateY(0) rotateZ(-45deg) translate(0, 0);
+        -ms-opacity: 0;
         opacity: 0;
     }
 
     50% {
+        -ms-opacity: 1;
         opacity: 1;
     }
 
     100% {
+        -ms-transform: rotateY(720deg) rotateZ(-45deg) translate(-20px, 20px);
+        -webkit-transform: rotateY(720deg) rotateZ(-45deg) translate(-20px, 20px);
         transform: rotateY(720deg) rotateZ(-45deg) translate(-20px, 20px);
+        -ms-opacity: 0;
         opacity: 0;
     }
 }
 
+@keyframes spin {
+    from {
+        -ms-transform: rotateY(0deg);
+        -webkit-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+
+    to {
+        -ms-transform: rotateY(360deg);
+        -webkit-transform: rotateY(360deg);
+        transform: rotateY(360deg);
+    }
+}
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {

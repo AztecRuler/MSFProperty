@@ -19,12 +19,14 @@
     <div class="msf-buttons-info msf-bg-grey">
         <div class="container clear-both-fix text-align-center">
            
-             <div><%=GetName() %> </div>
+             <div class="foregroundDiv_light"><p><%=GetName() %> </p></div>
  
         </div>
     </div>
     <div class="foregroundDiv">
 <div class="mainBlogContents"><%= GetContent() %></div>
     </div>
+    
+    <div class="container blogLink"> <a href="BlogMainPage.aspx">Return to blogs ></a> </div>
 </asp:Content>
 

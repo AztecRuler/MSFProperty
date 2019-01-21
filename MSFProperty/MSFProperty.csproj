@@ -133,6 +133,7 @@
     <Content Include="Logs\log.txt" />
     <Content Include="properties.aspx" />
     <Content Include="services.aspx" />
+    <Content Include="star.png" />
     <Content Include="TodoList.aspx" />
     <Content Include="UserControls\AboutUsInfo.ascx" />
     <Content Include="Web.config" />

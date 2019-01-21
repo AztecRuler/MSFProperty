@@ -54,7 +54,7 @@
 
             <div class="blogRightcolumn">
                 <div class="card">
-                    <h3>Popular Post</h3>
+                    <h3>Popular Posts<img src="star.png" width="40" height="40"/></h3>
                     <asp:Repeater ID="BlogRepeaterPopular" runat="server">
                         <ItemTemplate>
                             <div class='popularBlogposts  <%# GetPopularBlogs(Convert.ToInt32(Eval("ID"))) %>'><a href="BlogPageView.aspx?id=<%# Eval("ID") %> ">

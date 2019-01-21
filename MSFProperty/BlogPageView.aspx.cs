@@ -1,49 +1,50 @@
-﻿using MSFProperty.Admin.EF;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using MSFProperty.Admin.EF;
+using static System.Int32;
+using Page = System.Web.UI.Page;
 
 namespace MSFProperty
 {
-    public partial class BlogPageView : System.Web.UI.Page
+    public partial class BlogPageView : Page
     {
-        Blog result;
+        private Blog _result;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var id = 1;
-                 Int32.TryParse( Request.QueryString["id"], out id);
-          
-            id= (id > 0) ? id :  1; 
+            TryParse(Request.QueryString["id"], out var id);
+
+            id = id > 0 ? id : 1;
 
             using (var db = new Model1())
-                {
-                    result = db.Blogs.SingleOrDefault(b => b.ID == id);
-                }
+            {
+                _result = db.Blogs.SingleOrDefault(b => b.ID == id);
+            }
         }
 
         public string GetImage()
         {
-            return result.ImageUrl;
+            return _result.ImageUrl;
         }
 
         public string GetTitle()
         {
-            return result.Title;
+            return _result.Title;
         }
+
         public string GetDate()
         {
-            return result.Date.ToString();
+            return _result.Date.ToString();
         }
+
         public string GetName()
         {
-            return result.Name;
+            return _result.Name;
         }
+
         public string GetContent()
         {
-            return result.Contents;
+            return _result.Contents;
         }
     }
 }

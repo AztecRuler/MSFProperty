@@ -1,8 +1,6 @@
 ﻿using MSFProperty.Admin.EF;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 
 namespace MSFProperty
 {
@@ -10,18 +8,14 @@ namespace MSFProperty
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            if (Page.IsPostBack) return;
+            using (var db = new Model1())
             {
-                List<string> pageList = new List<string>();
-                using (var db = new Model1())
-                {
-                    BlogRepeaterItems.DataSource = db.Blogs.ToList();
-                    BlogRepeaterPopular.DataSource = db.Blogs.ToList();
+                BlogRepeaterItems.DataSource = db.Blogs.ToList();
+                BlogRepeaterPopular.DataSource = db.Blogs.ToList();
 
-                    BlogRepeaterPopular.DataBind();
-                    BlogRepeaterItems.DataBind();
-                }
-
+                BlogRepeaterPopular.DataBind();
+                BlogRepeaterItems.DataBind();
             }
         }
 
