@@ -131,6 +131,7 @@
     <Content Include="Javascript\adminJavaScript.js" />
     <Content Include="Javascript\msfJavascript.js" />
     <Content Include="Logs\log.txt" />
+    <Content Include="Privacy.aspx" />
     <Content Include="properties.aspx" />
     <Content Include="services.aspx" />
     <Content Include="star.png" />
@@ -251,6 +252,13 @@
     </Compile>
     <Compile Include="MSFMaster.Master.designer.cs">
       <DependentUpon>MSFMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Privacy.aspx.cs">
+      <DependentUpon>Privacy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Privacy.aspx.designer.cs">
+      <DependentUpon>Privacy.aspx</DependentUpon>
     </Compile>
     <Compile Include="properties.aspx.cs">
       <DependentUpon>properties.aspx</DependentUpon>

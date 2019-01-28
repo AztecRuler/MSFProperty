@@ -1,62 +1,62 @@
 ﻿* {
-    padding: 0;
-    outline: none;
-    border: none;
-    margin: 0;
-    -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: none;
     box-sizing: border-box;
     box-sizing: border-box;
+    margin: 0;
+    outline: none;
+    padding: 0;
 }
 
 html {
-    height: 100%;
-    margin: 0;
     color: #5b5b5b;
     font-size: 77.5%;
+    height: 100%;
+    margin: 0;
 }
 
 h3 {
+    color: #5b5b5b;
+    font: 20px "Lato", sans-serif;
     letter-spacing: 5px;
     text-transform: uppercase;
-    font: 20px "Lato", sans-serif;
-    color: #5b5b5b;
 }
 
 .bgimg-1 h2 {
+    color: #fff;
+    font-family: proxima-nova, Montserrat, proxima-nova, Arial, Helvetica, sans-serif;
     font-size: 44px;
     font-size: 4.4rem;
     font-weight: 700;
     margin-bottom: 14px;
-    font-family: proxima-nova, Montserrat, proxima-nova, Arial, Helvetica, sans-serif;
-    color: #fff;
 }
 
 .bgimg-1 p {
+    color: #fff;
+    font-family: proxima-nova, Montserrat, proxima-nova, Arial, Helvetica, sans-serif;
     font-size: 16px;
     font-size: 1.6rem;
     font-weight: 700;
-    font-family: proxima-nova, Montserrat, proxima-nova, Arial, Helvetica, sans-serif;
-    color: #fff;
 }
 
 .bgimg-1, .bgimg-2, .bgimg-3 {
-    position: relative;
     -ms-background-attachment: fixed;
-    background-attachment: fixed;
     -ms-background-position: center 0;
-    background-position: center 0;
     -ms-background-repeat: no-repeat;
-    background-repeat: no-repeat;
     -ms-background-size: cover;
+    background-attachment: fixed;
+    background-position: center 0;
+    background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
 }
 
 .bgimg-1 {
-    min-height: 100%;
     -ms-opacity: 0.85;
-    opacity: 0.85;
     height: 1200px;
+    min-height: 100%;
+    opacity: 0.85;
 }
 
 .bgimg-2 {
@@ -64,18 +64,18 @@ h3 {
 }
 
 .bgimg-3 {
-    min-height: 800px;
     -ms-background-repeat: no-repeat;
     background-repeat: no-repeat;
+    min-height: 800px;
 }
 
 .caption {
-    position: absolute;
+    color: #000;
     left: 0;
+    position: absolute;
+    text-align: center;
     top: 50%;
     width: 100%;
-    text-align: center;
-    color: #000;
 }
 
     .caption a {
@@ -84,44 +84,44 @@ h3 {
     }
 
 .foregroundDiv {
-    color: #777;
     background-color: white;
+    color: #777;
     padding: 3% 14%;
     text-align: center;
 }
 
     .foregroundDiv h3 {
+        color: #5b5b5b;
+        font-family: Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         font-size: 30px;
         font-size: 3.0rem;
-        color: #5b5b5b;
         font-weight: 700;
         letter-spacing: 1px;
         margin-bottom: 14px;
-        text-align: center;
-        padding-top: 3px;
         padding-bottom: 3px;
+        padding-top: 3px;
         text-align: center;
-        font-family: Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        text-align: center;
     }
 
     .foregroundDiv span, .foregroundDiv p {
+        color: #6c6f70;
+        font-family: Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         font-size: 16px;
         font-size: 1.6rem;
         line-height: 180%;
-        color: #6c6f70;
         margin-bottom: 24px;
-        padding-top: 40px;
         padding-bottom: 0;
+        padding-top: 40px;
         text-align: center;
-        font-family: Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
 
 .foregroundDiv_dark {
-    color: #ddd;
     background-color: #282E34;
-    text-align: center;
-    padding: 14px 80px;
+    color: #ddd;
     overflow: hidden;
+    padding: 14px 80px;
+    text-align: center;
 }
 
 .foregroundDiv .card h3 {
@@ -130,61 +130,62 @@ h3 {
 }
 
 .caption span.border {
+    -ms-opacity: 0.8;
     background-color: #111;
-    padding: 6px;
     font-size: 26px;
     letter-spacing: 7px;
-    -ms-opacity: 0.8;
     opacity: 0.8;
+    padding: 6px;
     text-decoration: none;
 }
 
 .play {
-    position: absolute;
-    width: 75px;
+    background: url('http://localhost:50996/Images/HomePage/Video/play.png') 0 0 no-repeat;
+    display: block;
     height: 75px;
     left: 50%;
-    top: 50%;
-    display: block;
-    background: url('http://localhost:50996/Images/HomePage/Video/play.png') 0 0 no-repeat;
     margin: -37.5px 0 0 -37.5px;
+    position: absolute;
+    top: 50%;
+    width: 75px;
 }
 
 .thumb {
-    position: relative;
-    min-height: 253px;
     -ms-background-size: cover;
-    background-size: cover;
     background-position: top;
+    background-size: cover;
+    min-height: 253px;
+    position: relative;
 }
 
 .item {
     display: inline-block;
+    margin-bottom: 30px;
     margin-right: 1%;
     vertical-align: top;
-    margin-bottom: 30px;
     width: 32%;
 }
 
 #footer {
-    text-align: center;
     font-size: 14px;
     position: relative;
+    text-align: center;
+    width: 100%;
 }
 
 .fancyBreak.container {
-    width: 100%;
-    height: 20px;
     border-bottom: 1px solid black;
-    text-align: center;
+    height: 20px;
     margin-bottom: 30px;
+    text-align: center;
+    width: 100%;
 }
 
     .fancyBreak.container span {
-        font-size: 40px;
         background-color: #F3F5F6;
-        padding: 0 10px;
         color: #5b5b5b;
+        font-size: 40px;
+        padding: 0 10px;
     }
 
 @media only screen and (max-device-width: 1024px) {
@@ -204,12 +205,12 @@ input {
 }
 
 .clear-both-fix:after {
+    clear: both;
+    content: '';
     display: block;
     height: 0;
-    clear: both;
-    visibility: hidden;
     overflow: hidden;
-    content: '';
+    visibility: hidden;
 }
 
 
@@ -231,34 +232,34 @@ input {
 
 #msf-nav-bar {
     box-shadow: 0 0 2px #000000;
-    box-shadow: 0 0 2px rgba(0,0,0,.1);
+    box-shadow: 0 0 2px rgba(0, 0, 0, .1);
 }
 
 .msfLogo {
+    background: #fff;
     display: table;
     float: left;
-    text-align: center;
     font-size: 24px;
-    background: #fff;
+    font-weight: 500;
     height: 100px;
     line-height: .8;
-    font-weight: 500;
+    text-align: center;
 }
 
     .msfLogo a {
-        text-decoration: none;
         color: #231f20;
         display: table-cell;
+        text-decoration: none;
         vertical-align: middle;
     }
 
         .msfLogo a span {
-            padding: 1px 8px;
             border-top: 1px solid #ededed;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
             color: #a09d9d;
+            font-size: 12px;
+            letter-spacing: 3px;
+            padding: 1px 8px;
+            text-transform: uppercase;
         }
 
 .msf-nav-bar-mobile-menu {
@@ -268,17 +269,17 @@ input {
 .msf-nav-bar-black-book a {
     background: #f26522;
     color: #fff;
-    padding: 2px 8px;
     font-family: Montserrat, proxima-nova, Arial, Helvetica, sans-serif;
+    padding: 2px 8px;
 }
 
 
 #msf-nav-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     background: #fff;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
     z-index: 999;
 }
 
@@ -294,36 +295,36 @@ input {
 
 .msf-nav-bar-main-menu {
     display: table;
-    table-layout: fixed;
     float: right;
+    table-layout: fixed;
 }
 
     .msf-nav-bar-main-menu li {
         display: table-cell;
-        vertical-align: middle;
         font-size: 15px;
         font-size: 1.2rem;
         height: 100px;
+        vertical-align: middle;
     }
 
         .msf-nav-bar-main-menu li a {
-            display: block;
             border-left: 1px solid #ededed;
+            color: #6c6f70;
+            display: block;
+            letter-spacing: 1px;
+            line-height: 160%;
             padding: 3px 20px;
             text-decoration: none;
-            line-height: 160%;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #6c6f70;
         }
 
             .msf-nav-bar-main-menu li a span {
                 color: #a09d9d;
-                text-transform: none;
+                font-family: Georgia, "Times New Roman", Times, serif;
                 font-style: italic;
                 font-weight: 400;
-                font-family: Georgia, "Times New Roman", Times, serif;
                 letter-spacing: 0;
+                text-transform: none;
             }
 
         .msf-nav-bar-main-menu li:first-child a {
@@ -341,32 +342,32 @@ input {
 .msf-nav-bar-black {
     background: #1c1c1c;
     height: 36px;
-    position: fixed;
-    top: 0;
     left: 0;
+    position: fixed;
     right: 0;
+    top: 0;
 }
 
 .msf-nav-bar-black-inset {
-    float: right;
     display: table;
-    table-layout: fixed;
+    float: right;
     height: 36px;
     margin-right: 10px;
+    table-layout: fixed;
 }
 
     .msf-nav-bar-black-inset > li {
+        display: table-cell;
         font-family: Georgia, "Times New Roman", Times, serif;
         font-size: 13px;
         font-size: 1.3rem;
-        display: table-cell;
-        vertical-align: middle;
         padding: 0 10px;
+        vertical-align: middle;
     }
 
         .msf-nav-bar-black-inset > li a {
-            text-decoration: none;
             position: relative;
+            text-decoration: none;
         }
 
 .msf-nav-bar-black-tel a, .msf-nav-bar-black-email a {
@@ -374,14 +375,14 @@ input {
 }
 
 .msf-nav-bar-black-inset > li a:before {
-    font-family: dashicons;
     display: inline-block;
+    font-family: dashicons;
+    font-size: 15px;
+    font-size: 1.5rem;
+    left: 0;
     margin-right: 6px;
     position: absolute;
     top: 0;
-    left: 0;
-    font-size: 15px;
-    font-size: 1.5rem;
 }
 
 .msf-nav-bar-black-tel a:before {
@@ -399,14 +400,14 @@ input {
     }
 
     .msf-mobile-menu {
+        background: #000000;
+        background: rgba(0, 0, 0, .2);
         clear: both;
+        display: none;
         float: right;
-        width: 100%;
         max-width: 100%;
         text-align: right;
-        background: #000000;
-        background: rgba(0,0,0,.2);
-        display: none;
+        width: 100%;
     }
 
         .msf-mobile-menu li {
@@ -414,14 +415,14 @@ input {
         }
 
             .msf-mobile-menu li a {
-                text-decoration: none;
                 display: block;
                 padding: 10px 20px;
+                text-decoration: none;
             }
 
     .msf-nav-bar-black-inset li a:hover, .msf-nav-bar-main-menu li a:hover {
         background: #ffffff;
-        background: rgba(255,255,255,.2);
+        background: rgba(255, 255, 255, .2);
     }
 
     .msf-nav-bar-main-menu li a span {
@@ -437,9 +438,9 @@ input {
     }
 
         .msf-nav-bar-mobile-menu li {
-            float: left;
-            color: #b7b7b7;
             border-left: 1px solid #b7b7b7;
+            color: #b7b7b7;
+            float: left;
         }
 
             .msf-nav-bar-mobile-menu li:first-child {
@@ -448,13 +449,13 @@ input {
 
             .msf-nav-bar-mobile-menu li a {
                 display: block;
-                width: 85px;
-                height: 80px;
-                overflow: hidden;
-                text-decoration: none;
-                text-align: center;
-                line-height: 80px;
                 font-size: 60px;
+                height: 80px;
+                line-height: 80px;
+                overflow: hidden;
+                text-align: center;
+                text-decoration: none;
+                width: 85px;
             }
 
                 .msf-nav-bar-mobile-menu li a span {
@@ -490,9 +491,9 @@ input {
 
 @media screen and (max-width: 560px) {
     .msfLogo {
-        height: 80px;
         font-size: 18px;
         font-size: 1.8rem;
+        height: 80px;
         padding-left: 14px;
         padding-right: 0;
     }
@@ -520,9 +521,9 @@ input {
         }
 
         .msf-nav-bar-mobile-menu li a {
-            width: 57px;
             height: 52px;
             line-height: 52px;
+            width: 57px;
         }
 
     .msf-mobile-menu {
@@ -572,8 +573,8 @@ input {
 }
 
 #DIV_1 {
-    position: absolute;
     margin: -195px 0 0;
+    position: absolute;
     top: 80%;
     width: 100%;
 }
@@ -581,13 +582,13 @@ input {
     #DIV_1:after {
         -moz-box-sizing: border-box;
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
 
     #DIV_1:before {
         -moz-box-sizing: border-box;
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
 
 #DIV_2 {
@@ -596,97 +597,97 @@ input {
 
     #DIV_2:after {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
 
     #DIV_2:before {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
 
 #H3_3 {
     color: rgb(255, 255, 255);
     height: 52px;
     letter-spacing: 1px;
-    text-align: center;
     margin: 0;
     outline: rgb(255, 255, 255) none 0;
+    text-align: center;
 }
 
     #H3_3:after {
         -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        color: rgb(255, 255, 255);
-        letter-spacing: 1px;
-        text-align: center;
-        text-decoration: none solid rgb(255, 255, 255);
         -ms-column-rule-color: rgb(255, 255, 255);
         -webkit-column-rule-color: rgb(255, 255, 255);
-        column-rule-color: rgb(255, 255, 255);
         border: 0 none rgb(255, 255, 255);
-        font: normal normal 400 normal 24px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+        color: rgb(255, 255, 255);
+        column-rule-color: rgb(255, 255, 255);
+        font: normal normal 400 normal 24px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        letter-spacing: 1px;
         outline: rgb(255, 255, 255) none 0;
+        text-align: center;
+        text-decoration: none solid rgb(255, 255, 255);
     }
 
     #H3_3:before {
-        bottom: -1px;
         -moz-box-sizing: border-box;
+        -ms-column-rule-color: rgb(255, 255, 255);
+        -webkit-column-rule-color: rgb(255, 255, 255);
+        background: rgba(0, 0, 0, 0) url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAUCAMAAABPqWaPAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAC6UExURQAAAP////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////IcJMEAAAA9dFJOUwACxvJg+/6wgDDzCDnTQb4FeBmqy5bx2bUdag/wDVAc0kOuyOORLuJOaNot54IqhPrB5pTgUfkO2wc29jfYRJbVAAAAyElEQVQoz+XRVxaCUAwE0AF8PAV77yjYFSxgd/a/LQOyC/M1yT0nPwPI1BtOq4nfNFtWo55nlCsku0NDojHsSq6Us/uoY7PGtsVghVVAqy2b3RkB1wN71RKLnk+lFX2vyFK1x8MV6ha6EAE2a643gAie4U2BWj5mggIL+Amg+WfymnG8NTIxtmPOPrncY5t9h+ZeZG/S6dOO76k8LtzNMdBUJk1FPcB8x8tDhKejm/Y0XUhni2ka3eOJRHKO8mony/dykufonHwBL7MnO0AY/0AAAAAASUVORK5CYII=") no-repeat scroll 0% 0%/contain padding-box border-box;
+        border: 0 none rgb(255, 255, 255);
+        bottom: -1px;
         box-sizing: border-box;
         color: rgb(255, 255, 255);
+        column-rule-color: rgb(255, 255, 255);
         content: '""';
         display: inline-block;
+        font: normal normal 400 normal 24px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         height: 20px;
         left: 0;
         letter-spacing: 1px;
+        margin: 0 11px 0 0;
+        outline: rgb(255, 255, 255) none 0;
+        perspective-origin: 12.5px 10px;
         position: relative;
         right: 0;
         text-align: center;
         text-decoration: none solid rgb(255, 255, 255);
         top: 1px;
-        width: 25px;
-        -ms-column-rule-color: rgb(255, 255, 255);
-        -webkit-column-rule-color: rgb(255, 255, 255);
-        column-rule-color: rgb(255, 255, 255);
-        perspective-origin: 12.5px 10px;
         transform-origin: 12.5px 10px;
-        background: rgba(0, 0, 0, 0) url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAUCAMAAABPqWaPAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAC6UExURQAAAP////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////IcJMEAAAA9dFJOUwACxvJg+/6wgDDzCDnTQb4FeBmqy5bx2bUdag/wDVAc0kOuyOORLuJOaNot54IqhPrB5pTgUfkO2wc29jfYRJbVAAAAyElEQVQoz+XRVxaCUAwE0AF8PAV77yjYFSxgd/a/LQOyC/M1yT0nPwPI1BtOq4nfNFtWo55nlCsku0NDojHsSq6Us/uoY7PGtsVghVVAqy2b3RkB1wN71RKLnk+lFX2vyFK1x8MV6ha6EAE2a643gAie4U2BWj5mggIL+Amg+WfymnG8NTIxtmPOPrncY5t9h+ZeZG/S6dOO76k8LtzNMdBUJk1FPcB8x8tDhKejm/Y0XUhni2ka3eOJRHKO8mony/dykufonHwBL7MnO0AY/0AAAAAASUVORK5CYII=") no-repeat scroll 0% 0% / contain padding-box border-box;
-        border: 0 none rgb(255, 255, 255);
-        font: normal normal 400 normal 24px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        margin: 0 11px 0 0;
-        outline: rgb(255, 255, 255) none 0;
+        width: 25px;
     }
 
 #FORM_4 {
-    width: 1126px;
     margin: 0 auto;
+    width: 1126px;
 }
 
     #FORM_4:after {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
 
     #FORM_4:before {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
 
 #UL_5 {
+    background: rgb(255, 255, 255) none repeat scroll 0% 0%/auto padding-box border-box;
     display: table;
-    width: 1126px;
-    background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box;
     margin: auto;
+    width: 1126px;
 }
 
     #UL_5:after {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
     }
 
     #UL_5:before {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
     }
 
@@ -697,198 +698,198 @@ input {
 
     #LI_6:after {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
     }
 
     #LI_6:before {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
     }
 
 #DIV_7 {
     box-sizing: border-box;
+    font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     height: 30px;
-    text-align: left;
-    width: 221px;
-    perspective-origin: 110.5px 15px;
-    transform-origin: 110.5px 15px;
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
     padding: 0 11px;
+    perspective-origin: 110.5px 15px;
+    text-align: left;
+    transform-origin: 110.5px 15px;
+    width: 221px;
 }
 
     #DIV_7:after {
         box-sizing: border-box;
-        text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
+        text-align: left;
     }
 
     #DIV_7:before {
         box-sizing: border-box;
-        text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
+        text-align: left;
     }
 
 #LABEL_8 {
     bottom: 0;
     box-sizing: border-box;
     display: block;
+    font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     height: 30px;
     left: 0;
+    list-style: none outside none;
+    perspective-origin: 99.5px 15px;
     position: relative;
     right: 0;
     text-align: left;
     top: 0;
-    width: 199px;
-    perspective-origin: 99.5px 15px;
     transform-origin: 99.5px 15px;
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    list-style: none outside none;
+    width: 199px;
 }
 
     #LABEL_8:after {
         box-sizing: border-box;
-        text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
+        text-align: left;
     }
 
     #LABEL_8:before {
         box-sizing: border-box;
-        text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
+        text-align: left;
     }
 
 #INPUT_9 {
-    color: rgb(162, 165, 164);
-    display: block;
-    height: 30px;
-    text-decoration: none solid rgb(162, 165, 164);
-    text-overflow: ellipsis;
-    vertical-align: middle;
-    white-space: nowrap;
-    width: 199px;
-    column-rule-color: rgb(162, 165, 164);
-    perspective-origin: 99.5px 15px;
-    transform-origin: 99.5px 15px;
     border: 0 none rgb(162, 165, 164);
-    font: normal normal 400 normal 18px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    color: rgb(162, 165, 164);
+    column-rule-color: rgb(162, 165, 164);
+    display: block;
+    font: normal normal 400 normal 18px/30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    height: 30px;
     list-style: none outside none;
     outline: rgb(162, 165, 164) none 0;
     overflow: hidden;
     padding: 0;
+    perspective-origin: 99.5px 15px;
+    text-decoration: none solid rgb(162, 165, 164);
+    text-overflow: ellipsis;
+    transform-origin: 99.5px 15px;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 199px;
 }
 
     #INPUT_9:after {
+        border: 0 none rgb(162, 165, 164);
         box-sizing: border-box;
         color: rgb(162, 165, 164);
-        text-decoration: none solid rgb(162, 165, 164);
-        white-space: nowrap;
         column-rule-color: rgb(162, 165, 164);
-        border: 0 none rgb(162, 165, 164);
-        font: normal normal 400 normal 18px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 18px/30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(162, 165, 164) none 0;
+        text-decoration: none solid rgb(162, 165, 164);
+        white-space: nowrap;
     }
 
     #INPUT_9:before {
+        border: 0 none rgb(162, 165, 164);
         box-sizing: border-box;
         color: rgb(162, 165, 164);
-        text-decoration: none solid rgb(162, 165, 164);
-        white-space: nowrap;
         column-rule-color: rgb(162, 165, 164);
-        border: 0 none rgb(162, 165, 164);
-        font: normal normal 400 normal 18px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 18px/30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(162, 165, 164) none 0;
+        text-decoration: none solid rgb(162, 165, 164);
+        white-space: nowrap;
     }
 
 #LI_128 {
     box-sizing: border-box;
     display: table-cell;
+    font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     height: 50px;
+    list-style: none outside none;
     max-width: 200px;
     min-width: 75px;
-    vertical-align: middle;
-    width: 197px;
     perspective-origin: 98.5px 25px;
     transform-origin: 98.5px 25px;
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    list-style: none outside none;
+    vertical-align: middle;
+    width: 197px;
 }
 
     #LI_128:after {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
     }
 
     #LI_128:before {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
     }
 
 #INPUT_129 {
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    height: 50px;
-    text-align: center;
-    text-decoration: none solid rgb(255, 255, 255);
-    white-space: pre;
-    width: 197px;
-    column-rule-color: rgb(255, 255, 255);
     align-items: flex-start;
-    perspective-origin: 98.5px 25px;
-    transform-origin: 98.5px 25px;
-    user-select: none;
-    background: rgb(13, 170, 149) none repeat scroll 0% 0% / auto padding-box border-box;
+    background: rgb(13, 170, 149) none repeat scroll 0% 0%/auto padding-box border-box;
     border: 0 none rgb(255, 255, 255);
-    font: normal normal 300 normal 18px / 50px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    color: rgb(255, 255, 255);
+    column-rule-color: rgb(255, 255, 255);
+    cursor: pointer;
+    font: normal normal 300 normal 18px/50px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    height: 50px;
     list-style: none outside none;
     outline: rgb(255, 255, 255) none 0;
     padding: 0 60px;
+    perspective-origin: 98.5px 25px;
+    text-align: center;
+    text-decoration: none solid rgb(255, 255, 255);
+    transform-origin: 98.5px 25px;
+    user-select: none;
+    white-space: pre;
+    width: 197px;
 }
 
     #INPUT_129:after {
+        border: 0 none rgb(255, 255, 255);
         box-sizing: border-box;
         color: rgb(255, 255, 255);
-        cursor: pointer;
-        text-align: center;
-        text-decoration: none solid rgb(255, 255, 255);
-        white-space: pre;
         column-rule-color: rgb(255, 255, 255);
-        user-select: none;
-        border: 0 none rgb(255, 255, 255);
-        font: normal normal 300 normal 18px / 50px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        cursor: pointer;
+        font: normal normal 300 normal 18px/50px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(255, 255, 255) none 0;
+        text-align: center;
+        text-decoration: none solid rgb(255, 255, 255);
+        user-select: none;
+        white-space: pre;
     }
 
     #INPUT_129:before {
+        border: 0 none rgb(255, 255, 255);
         box-sizing: border-box;
         color: rgb(255, 255, 255);
-        cursor: pointer;
-        text-align: center;
-        text-decoration: none solid rgb(255, 255, 255);
-        white-space: pre;
         column-rule-color: rgb(255, 255, 255);
-        user-select: none;
-        border: 0 none rgb(255, 255, 255);
-        font: normal normal 300 normal 18px / 50px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        cursor: pointer;
+        font: normal normal 300 normal 18px/50px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(255, 255, 255) none 0;
+        text-align: center;
+        text-decoration: none solid rgb(255, 255, 255);
+        user-select: none;
+        white-space: pre;
     }
 
 #DIV_130 {
+    font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     text-align: center;
     transform-origin: 563px 28px;
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
 }
 
     #DIV_130:after {
@@ -899,150 +900,150 @@ input {
 
     #DIV_130:before {
         box-sizing: border-box;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: center;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
 
 #H4_131 {
     color: rgb(255, 255, 255);
     display: inline-block;
-    font: normal normal 400 normal 16px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 16px/30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     margin: 0;
     outline: rgb(255, 255, 255) none 0;
 }
 
     #H4_131:after {
+        border: 0 none rgb(255, 255, 255);
         box-sizing: border-box;
         color: rgb(255, 255, 255);
+        column-rule-color: rgb(255, 255, 255);
+        font: normal normal 400 normal 16px/30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        outline: rgb(255, 255, 255) none 0;
         text-align: center;
         text-decoration: none solid rgb(255, 255, 255);
-        column-rule-color: rgb(255, 255, 255);
-        border: 0 none rgb(255, 255, 255);
-        font: normal normal 400 normal 16px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(255, 255, 255) none 0;
     }
 
     #H4_131:before {
+        border: 0 none rgb(255, 255, 255);
         box-sizing: border-box;
         color: rgb(255, 255, 255);
+        column-rule-color: rgb(255, 255, 255);
+        font: normal normal 400 normal 16px/30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        outline: rgb(255, 255, 255) none 0;
         text-align: center;
         text-decoration: none solid rgb(255, 255, 255);
-        column-rule-color: rgb(255, 255, 255);
-        border: 0 none rgb(255, 255, 255);
-        font: normal normal 400 normal 16px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(255, 255, 255) none 0;
     }
 
 #INPUT_132, #INPUT_134, #INPUT_136 {
-    transform-origin: 6.5px 6.5px;
     border: 0 none rgb(255, 255, 255);
     margin: 0 0 0 15px;
+    transform-origin: 6.5px 6.5px;
 }
 
     #INPUT_132:after, #INPUT_134:after, #INPUT_136:after {
+        border: 0 none rgb(255, 255, 255);
         box-sizing: border-box;
         color: rgb(255, 255, 255);
-        cursor: default;
-        text-decoration: none solid rgb(255, 255, 255);
         column-rule-color: rgb(255, 255, 255);
-        border: 0 none rgb(255, 255, 255);
-        font: normal normal 400 normal 13.3333px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        cursor: default;
+        font: normal normal 400 normal 13.3333px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         outline: rgb(255, 255, 255) none 0;
+        text-decoration: none solid rgb(255, 255, 255);
     }
 
     #INPUT_132:before, #INPUT_134:before, #INPUT_136:before {
+        border: 0 none rgb(255, 255, 255);
         box-sizing: border-box;
         color: rgb(255, 255, 255);
-        cursor: default;
-        text-decoration: none solid rgb(255, 255, 255);
         column-rule-color: rgb(255, 255, 255);
-        border: 0 none rgb(255, 255, 255);
-        font: normal normal 400 normal 13.3333px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        cursor: default;
+        font: normal normal 400 normal 13.3333px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         outline: rgb(255, 255, 255) none 0;
+        text-decoration: none solid rgb(255, 255, 255);
     }
 
 #LABEL_133 {
     color: rgb(255, 255, 255);
     display: inline-block;
-    font: normal normal 400 normal 16px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 16px/30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
 }
 
     #LABEL_133:after {
+        border: 0 none rgb(255, 255, 255);
         box-sizing: border-box;
         color: rgb(255, 255, 255);
+        column-rule-color: rgb(255, 255, 255);
+        font: normal normal 400 normal 16px/30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        outline: rgb(255, 255, 255) none 0;
         text-align: center;
         text-decoration: none solid rgb(255, 255, 255);
-        column-rule-color: rgb(255, 255, 255);
-        border: 0 none rgb(255, 255, 255);
-        font: normal normal 400 normal 16px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(255, 255, 255) none 0;
     }
 
     #LABEL_133:before {
+        border: 0 none rgb(255, 255, 255);
         box-sizing: border-box;
         color: rgb(255, 255, 255);
+        column-rule-color: rgb(255, 255, 255);
+        font: normal normal 400 normal 16px/30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        outline: rgb(255, 255, 255) none 0;
         text-align: center;
         text-decoration: none solid rgb(255, 255, 255);
-        column-rule-color: rgb(255, 255, 255);
-        border: 0 none rgb(255, 255, 255);
-        font: normal normal 400 normal 16px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(255, 255, 255) none 0;
     }
 
 #LABEL_135 {
     color: rgb(255, 255, 255);
     display: inline-block;
-    font: normal normal 400 normal 16px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 16px/30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
 }
 
     #LABEL_135:after {
+        border: 0 none rgb(255, 255, 255);
         box-sizing: border-box;
         color: rgb(255, 255, 255);
+        column-rule-color: rgb(255, 255, 255);
+        font: normal normal 400 normal 16px/30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        outline: rgb(255, 255, 255) none 0;
         text-align: center;
         text-decoration: none solid rgb(255, 255, 255);
-        column-rule-color: rgb(255, 255, 255);
-        border: 0 none rgb(255, 255, 255);
-        font: normal normal 400 normal 16px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(255, 255, 255) none 0;
     }
 
     #LABEL_135:before {
+        border: 0 none rgb(255, 255, 255);
         box-sizing: border-box;
         color: rgb(255, 255, 255);
+        column-rule-color: rgb(255, 255, 255);
+        font: normal normal 400 normal 16px/30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        outline: rgb(255, 255, 255) none 0;
         text-align: center;
         text-decoration: none solid rgb(255, 255, 255);
-        column-rule-color: rgb(255, 255, 255);
-        border: 0 none rgb(255, 255, 255);
-        font: normal normal 400 normal 16px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(255, 255, 255) none 0;
     }
 
 #LABEL_137 {
     color: rgb(255, 255, 255);
     display: inline-block;
-    font: normal normal 400 normal 16px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 16px/30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
 }
 
     #LABEL_137:after {
+        border: 0 none rgb(255, 255, 255);
         box-sizing: border-box;
         color: rgb(255, 255, 255);
+        column-rule-color: rgb(255, 255, 255);
+        font: normal normal 400 normal 16px/30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        outline: rgb(255, 255, 255) none 0;
         text-align: center;
         text-decoration: none solid rgb(255, 255, 255);
-        column-rule-color: rgb(255, 255, 255);
-        border: 0 none rgb(255, 255, 255);
-        font: normal normal 400 normal 16px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(255, 255, 255) none 0;
     }
 
     #LABEL_137:before {
+        border: 0 none rgb(255, 255, 255);
         box-sizing: border-box;
         color: rgb(255, 255, 255);
+        column-rule-color: rgb(255, 255, 255);
+        font: normal normal 400 normal 16px/30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        outline: rgb(255, 255, 255) none 0;
         text-align: center;
         text-decoration: none solid rgb(255, 255, 255);
-        column-rule-color: rgb(255, 255, 255);
-        border: 0 none rgb(255, 255, 255);
-        font: normal normal 400 normal 16px / 30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(255, 255, 255) none 0;
     }
 
 .text-align-center {
@@ -1054,56 +1055,56 @@ input {
 }
 
 .msf-buttons-info {
-    padding-top: 43px;
     padding-bottom: 43px;
+    padding-top: 43px;
 }
 
     .msf-buttons-info li {
         display: inline-block;
-        padding: 7px;
-        margin-left: 3px;
-        margin-right: 3px;
         font-size: 14px;
         font-size: 1.4rem;
+        margin-left: 3px;
+        margin-right: 3px;
+        padding: 7px;
     }
 
         .msf-buttons-info li a {
+            background: #fff;
+            border: 1px solid #b7b7b7;
+            color: #b7b7b7;
             display: block;
             height: 58px;
             line-height: 58px;
+            max-width: 100%;
+            overflow: hidden;
             padding-left: 80px;
             padding-right: 25px;
-            background: #fff;
-            color: #b7b7b7;
-            border: 1px solid #b7b7b7;
             position: relative;
             text-decoration: none;
-            white-space: nowrap;
-            overflow: hidden;
             text-overflow: ellipsis;
-            max-width: 100%;
+            white-space: nowrap;
         }
 
             .msf-buttons-info li a:before {
+                background-color: #fff;
+                border-right: 1px solid #b7b7b7;
+                bottom: 0;
                 content: "\f145";
                 display: block;
-                position: absolute;
-                border-right: 1px solid #b7b7b7;
-                width: 57px;
-                height: 100%;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                background-color: #fff;
                 font-family: Dashicons;
                 font-size: 20px;
                 font-size: 2.0rem;
+                height: 100%;
+                left: 0;
+                position: absolute;
+                top: 0;
+                width: 57px;
             }
 
         .msf-buttons-info li.msf-button-info-book a:before {
-            content: "\f145";
-            border-color: #fff;
             background-color: #ff5a00;
+            border-color: #fff;
+            content: "\f145";
         }
 
         .msf-buttons-info li.msf-button-info-phone a:before {
@@ -1115,9 +1116,9 @@ input {
         }
 
         .msf-buttons-info li.msf-button-info-book a {
-            color: #fff;
-            border-color: #fff;
             background-color: #ff5a00;
+            border-color: #fff;
+            color: #fff;
         }
 
 @media screen and (max-width: 1000px) {
@@ -1139,10 +1140,10 @@ input {
 
 @media screen and (max-width: 460px) {
     .msf-buttons-info li a {
-        overflow: hidden;
         font-size: 11px !important;
-        text-overflow: clip;
+        overflow: hidden;
         text-align: center;
+        text-overflow: clip;
     }
 }
 
@@ -1152,8 +1153,8 @@ input {
 
 .msf-buttons-info {
     background-color: #f2f2f2;
-    top: 85%;
     position: relative;
+    top: 85%;
 }
 
 .span-table {
@@ -1183,43 +1184,43 @@ input {
 }
 
     .msf-list-villas-inset > li {
+        -moz-box-shadow: 27px 16px 114px -48px rgba(181, 174, 181, 1);
+        -moz-box-shadow: -1px 9px 200px -16px rgba(181, 174, 181, 1);
+        -webkit-box-shadow: 27px 16px 114px -48px rgba(181, 174, 181, 1);
+        -webkit-box-shadow: -1px 9px 200px -16px rgba(181, 174, 181, 1);
+        box-shadow: 27px 16px 114px -48px rgba(181, 174, 181, 1);
+        box-shadow: -1px 9px 200px -16px rgba(181, 174, 181, 1);
         float: left;
-        width: 46%;
+        margin: 1%;
+        margin-bottom: 22px;
         padding: 0 11px;
         position: relative;
-        margin-bottom: 22px;
-        margin: 1%;
-        -webkit-box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
-        -moz-box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
-        box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
-        -webkit-box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
-        -moz-box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
-        box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
+        width: 46%;
     }
 
         .msf-list-villas-inset > li .msf-lvi-sub-box {
-            position: relative;
-            overflow: hidden;
             height: 205px;
+            overflow: hidden;
+            position: relative;
         }
 
 .msf-more-button {
-    line-height: 60px;
-    border: 1px solid #b7b7b7;
-    font-size: 18px;
-    font-size: 1.8rem;
-    text-decoration: none;
-    font-weight: 700;
-    color: #b7b7b7;
-    letter-spacing: 1px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    -webkit-transition: all 200ms ease-in-out;
     -moz-transition: all 200ms ease-in-out;
     -ms-transition: all 200ms ease-in-out;
     -o-transition: all 200ms ease-in-out;
+    -webkit-transition: all 200ms ease-in-out;
+    border: 1px solid #b7b7b7;
+    bottom: 0;
+    color: #b7b7b7;
+    font-size: 18px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 1px;
+    line-height: 60px;
+    position: absolute;
+    right: 0;
+    text-decoration: none;
     transition: all 200ms ease-in-out;
 }
 
@@ -1249,38 +1250,38 @@ input {
     }
 
     .msf-lvi-box-side > ul > li {
-        height: 60px;
-        width: 50%;
-        float: left;
-        line-height: 60px;
-        color: #fff;
-        margin-bottom: 1px;
         border-left: 1px solid #fff;
+        color: #fff;
+        float: left;
         font-family: Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         font-size: 14px;
         font-size: 1.4rem;
+        height: 60px;
+        line-height: 60px;
+        margin-bottom: 1px;
         position: relative;
+        width: 50%;
     }
 
         .msf-lvi-box-side > ul > li:before {
+            background-image: url('../Icons/wpg-ico-75x60.png');
+            background-repeat: no-repeat;
             content: '';
-            position: absolute;
-            width: 75px;
             height: 60px;
             left: 50%;
             margin-left: -37px;
-            background-image: url('../Icons/wpg-ico-75x60.png');
-            background-repeat: no-repeat;
+            position: absolute;
+            width: 75px;
         }
 
         .msf-lvi-box-side > ul > li a {
             display: block;
-            text-align: left;
-            text-indent: -100000px;
             height: 100%;
-            width: 100%;
-            text-decoration: none;
             position: relative;
+            text-align: left;
+            text-decoration: none;
+            text-indent: -100000px;
+            width: 100%;
             z-index: 1;
         }
 
@@ -1336,14 +1337,14 @@ input {
         }
 
             .msf-lvi-box-side > ul > li.msf-ico-email:before {
-                background-position: 21px;
                 background-image: url(http://northernlights.websites.365villas.com/wp-content/themes/villas/img/pricing.png);
+                background-position: 21px;
             }
 
         .msf-lvi-box-side > ul > li.msf-ico-cost {
-            width: 100%;
-            margin-bottom: 0;
             background-color: #f26522;
+            margin-bottom: 0;
+            width: 100%;
         }
 
             .msf-lvi-box-side > ul > li.msf-ico-cost:before {
@@ -1355,26 +1356,26 @@ input {
 }
 
     .msf-lvi-sub-box h3 {
+        color: #616265;
         font-size: 24px;
         font-size: 2.4rem;
         margin-bottom: 15px;
-        color: #616265;
     }
 
 
     .msf-lvi-sub-box p {
+        color: #888b8c;
         font-size: 14px;
         font-size: 1.4rem;
-        margin-bottom: 15px;
         line-height: 145%;
-        color: #888b8c;
+        margin-bottom: 15px;
     }
 
 .msf-list-villas-pager {
-    padding: 28px 14px;
+    color: black;
     font-size: 14px;
     font-size: 1.4rem;
-    color: black;
+    padding: 28px 14px;
 }
 
     .msf-list-villas-pager strong {
@@ -1394,24 +1395,24 @@ input {
 
 @media screen and (max-width: 768px) {
     .msf-list-villas-inset > li {
-        width: 100%;
         float: none;
+        margin-bottom: 14px;
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 14px;
+        width: 100%;
     }
 
         .msf-list-villas-inset > li .msf-lvi-box, .msf-list-villas-inset > li .msf-lvi-sub-box {
-            width: 50%;
             float: left;
             height: 366px;
             margin-bottom: 0;
             overflow: hidden;
+            width: 50%;
         }
 
         .msf-list-villas-inset > li .msf-lvi-sub-box {
-            position: relative;
             padding: 0 0 0 14px;
+            position: relative;
             text-align: left;
         }
 
@@ -1430,8 +1431,8 @@ input {
         }
 
         .msf-list-villas-inset > li .msf-lvi-box-side {
-            height: 120px;
             border-top: 1px solid #fff;
+            height: 120px;
         }
 
             .msf-list-villas-inset > li .msf-lvi-box-side > ul > li {
@@ -1474,30 +1475,30 @@ input {
 .msf-list-villas-inset .property_line {
     content: '';
     display: block;
-    width: 100%;
     padding-top: 20px;
+    width: 100%;
 }
 
 .msf-lvi-box-side li small {
-    z-index: 2;
-    display: none;
-    position: absolute;
     background: #f26522;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .4);
     color: #fff;
-    width: 100%;
+    display: none;
     height: 60px;
-    top: -61px;
-    padding: 4px;
     line-height: 120% !important;
+    padding: 4px;
+    position: absolute;
     text-align: center !important;
-    box-shadow: 0 0 5px rgba(0,0,0,.4);
+    top: -61px;
+    width: 100%;
+    z-index: 2;
 }
 
     .msf-lvi-box-side li small span {
-        vertical-align: middle;
         display: table-cell;
-        text-align: center;
         position: static;
+        text-align: center;
+        vertical-align: middle;
     }
 
 .msf-lvi-box-side li:hover small {
@@ -1505,17 +1506,17 @@ input {
 }
 
 .msf-lvi-box-side li small:before {
-    position: absolute;
-    content: '';
-    display: block;
-    bottom: -10px;
-    left: 50%;
-    margin-left: -10px;
-    width: 0;
-    height: 0;
+    border-color: #f26422 transparent transparent transparent;
     border-style: solid;
     border-width: 10px 10px 0 10px;
-    border-color: #f26422 transparent transparent transparent;
+    bottom: -10px;
+    content: '';
+    display: block;
+    height: 0;
+    left: 50%;
+    margin-left: -10px;
+    position: absolute;
+    width: 0;
 }
 
 .msf-lvi-box-side > ul > li.msf-ico-cost {
@@ -1539,11 +1540,11 @@ input {
 }
 
 p, li {
-    line-height: 120%;
     color: #6c6f70;
-    margin-bottom: 24px;
     font-size: 16px;
     font-size: 1.6rem;
+    line-height: 120%;
+    margin-bottom: 24px;
 }
 
 @font-face {
@@ -1677,10 +1678,10 @@ p, li {
 }
 
 .msf-main-bg-header {
-    position: relative;
+    background-color: #fff;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: #fff;
+    position: relative;
 }
 
     .msf-main-bg-header > .span-table {
@@ -1690,13 +1691,13 @@ p, li {
     }
 
     .msf-main-bg-header .container {
-        padding: 14px;
         max-width: 748px;
+        padding: 14px;
     }
 
     .msf-main-bg-header h2, .msf-main-bg-header p {
-        font-family: proxima-nova, Montserrat, proxima-nova, Arial, Helvetica, sans-serif;
         color: #fff;
+        font-family: proxima-nova, Montserrat, proxima-nova, Arial, Helvetica, sans-serif;
     }
 
     .msf-main-bg-header h2 {
@@ -1743,7 +1744,9 @@ p, li {
 .msf-main-bg-header h2, .msf-main-bg-header p {
     font-family: Roboto, proxima-nova, Arial, Helvetica, sans-serif;
 }
+
 /*! CSS Used fontfaces */
+
 @font-face {
     font-family: 'proxima-nova';
     src: url('http://northernlights.websites.365villas.com/wp-content/themes/villas/fonts/ProximaNova-Regular.eot');
@@ -1906,571 +1909,496 @@ p, li {
 
 #cuFORM_1 {
     box-sizing: border-box;
+    font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     height: 611px;
-    text-align: left;
-    width: 514px;
-    perspective-origin: 257px 305.5px;
-    transform-origin: 257px 305.5px;
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     margin: 0;
+    perspective-origin: 257px 305.5px;
+    text-align: left;
+    transform-origin: 257px 305.5px;
+    width: 514px;
 }
+
     /*#cuFORM_1*/
 
     #cuFORM_1:after {
         box-sizing: border-box;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
     /*#cuFORM_1:after*/
 
     #cuFORM_1:before {
         box-sizing: border-box;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
 /*#cuFORM_1:before*/
 
 #cuDIV_2 {
     box-sizing: border-box;
     display: none;
+    font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     text-align: left;
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
 }
+
     /*#cuDIV_2*/
 
     #cuDIV_2:after {
         box-sizing: border-box;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
     /*#cuDIV_2:after*/
 
     #cuDIV_2:before {
         box-sizing: border-box;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
 /*#cuDIV_2:before*/
 
 #cuINPUT_3, #cuINPUT_4, #cuINPUT_6 {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%/auto padding-box border-box;
+    border: 0 none rgb(0, 0, 0);
     cursor: default;
     display: none;
-    background: rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box;
-    border: 0 none rgb(0, 0, 0);
-    font: normal normal 400 normal 13.3333px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 13.3333px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     padding: 0;
 }
+
     /*#cuINPUT_3, #cuINPUT_4, #cuINPUT_6*/
 
     #cuINPUT_3:after, #cuINPUT_4:after, #cuINPUT_6:after {
         box-sizing: border-box;
         cursor: default;
-        font: normal normal 400 normal 13.3333px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 13.3333px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
     /*#cuINPUT_3:after, #cuINPUT_4:after, #cuINPUT_6:after*/
 
     #cuINPUT_3:before, #cuINPUT_4:before, #cuINPUT_6:before {
         box-sizing: border-box;
         cursor: default;
-        font: normal normal 400 normal 13.3333px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 13.3333px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
 /*#cuINPUT_3:before, #cuINPUT_4:before, #cuINPUT_6:before*/
 
 #cuINPUT_5, #cuINPUT_7 {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%/auto padding-box border-box;
+    border: 0 none rgb(0, 0, 0);
     cursor: default;
     display: none;
-    background: rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box;
-    border: 0 none rgb(0, 0, 0);
-    font: normal normal 400 normal 13.3333px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 13.3333px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     padding: 0;
 }
+
     /*#cuINPUT_5, #cuINPUT_7*/
 
     #cuINPUT_5:after, #cuINPUT_7:after {
         box-sizing: border-box;
         cursor: default;
-        font: normal normal 400 normal 13.3333px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 13.3333px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
     /*#cuINPUT_5:after, #cuINPUT_7:after*/
 
     #cuINPUT_5:before, #cuINPUT_7:before {
         box-sizing: border-box;
         cursor: default;
-        font: normal normal 400 normal 13.3333px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 13.3333px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
 /*#cuINPUT_5:before, #cuINPUT_7:before*/
 
 #cuDIV_8, #cuDIV_11, #cuDIV_14, #cuDIV_17 {
     box-sizing: border-box;
+    font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     height: 60px;
-    text-align: left;
-    width: 514px;
-    perspective-origin: 257px 30px;
-    transform-origin: 257px 30px;
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     padding: 7px;
+    width: 100%;
 }
+
     /*#cuDIV_8, #cuDIV_11, #cuDIV_14, #cuDIV_17*/
 
     #cuDIV_8:after, #cuDIV_11:after, #cuDIV_14:after, #cuDIV_17:after {
         box-sizing: border-box;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
     /*#cuDIV_8:after, #cuDIV_11:after, #cuDIV_14:after, #cuDIV_17:after*/
 
     #cuDIV_8:before, #cuDIV_11:before, #cuDIV_14:before, #cuDIV_17:before {
         box-sizing: border-box;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
-/*#cuDIV_8:before, #cuDIV_11:before, #cuDIV_14:before, #cuDIV_17:before*/
 
-#cuSPAN_9, #cuSPAN_12, #cuSPAN_15, #cuSPAN_18, #cuSPAN_21 {
-    bottom: 0;
+#cuSPAN_9:after, #cuSPAN_12:after, #cuSPAN_15:after, #cuSPAN_18:after, #cuSPAN_21:after {
     box-sizing: border-box;
-    left: 0;
-    position: relative;
-    right: 0;
+    font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     text-align: left;
-    top: 0;
-    perspective-origin: 0 0;
-    transform-origin: 0 0;
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
 }
-    /*#cuSPAN_9, #cuSPAN_12, #cuSPAN_15, #cuSPAN_18, #cuSPAN_21*/
 
-    #cuSPAN_9:after, #cuSPAN_12:after, #cuSPAN_15:after, #cuSPAN_18:after, #cuSPAN_21:after {
-        box-sizing: border-box;
-        text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    }
-    /*#cuSPAN_9:after, #cuSPAN_12:after, #cuSPAN_15:after, #cuSPAN_18:after, #cuSPAN_21:after*/
+#cuSPAN_9:before, #cuSPAN_12:before, #cuSPAN_15:before, #cuSPAN_18:before, #cuSPAN_21:before {
+    box-sizing: border-box;
+    font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    text-align: left;
+}
 
-    #cuSPAN_9:before, #cuSPAN_12:before, #cuSPAN_15:before, #cuSPAN_18:before, #cuSPAN_21:before {
-        box-sizing: border-box;
-        text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    }
-/*#cuSPAN_9:before, #cuSPAN_12:before, #cuSPAN_15:before, #cuSPAN_18:before, #cuSPAN_21:before*/
-
-#cuINPUT_10, #cuINPUT_13, #cuINPUT_19 {
-    display: block;
-    height: 46px;
-    width: 500px;
-    perspective-origin: 250px 23px;
-    transform-origin: 250px 23px;
+.Cu input {
     border: 2px solid rgb(172, 172, 172);
-    font: normal normal 400 normal 18px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 18px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     padding: 10px 14px;
+    width: 100%;
 }
-    /*#cuINPUT_10, #cuINPUT_13, #cuINPUT_19*/
 
-    #cuINPUT_10:after, #cuINPUT_13:after, #cuINPUT_19:after {
-        box-sizing: border-box;
-        font: normal normal 400 normal 18px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    }
-    /*#cuINPUT_10:after, #cuINPUT_13:after, #cuINPUT_19:after*/
-
-    #cuINPUT_10:before, #cuINPUT_13:before, #cuINPUT_19:before {
-        box-sizing: border-box;
-        font: normal normal 400 normal 18px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    }
-/*#cuINPUT_10:before, #cuINPUT_13:before, #cuINPUT_19:before*/
-
-#cuINPUT_16 {
-    display: block;
-    height: 46px;
-    width: 500px;
-    perspective-origin: 250px 23px;
-    transform-origin: 250px 23px;
-    border: 2px solid rgb(172, 172, 172);
-    font: normal normal 400 normal 18px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    padding: 10px 14px;
+#cuINPUT_10:after, #cuINPUT_13:after, #cuINPUT_19:after {
+    box-sizing: border-box;
+    font: normal normal 400 normal 18px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
 }
-    /*#cuINPUT_16*/
 
-    #cuINPUT_16:after {
-        box-sizing: border-box;
-        font: normal normal 400 normal 18px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    }
-    /*#cuINPUT_16:after*/
+/*#cuINPUT_10:after, #cuINPUT_13:after, #cuINPUT_19:after*/
 
-    #cuINPUT_16:before {
-        box-sizing: border-box;
-        font: normal normal 400 normal 18px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    }
+#cuINPUT_10:before, #cuINPUT_13:before, #cuINPUT_19:before {
+    box-sizing: border-box;
+    font: normal normal 400 normal 18px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+}
+
+#cuINPUT_16:after {
+    box-sizing: border-box;
+    font: normal normal 400 normal 18px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+}
+
+/*#cuINPUT_16:after*/
+
+#cuINPUT_16:before {
+    box-sizing: border-box;
+    font: normal normal 400 normal 18px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+}
+
 /*#cuINPUT_16:before*/
 
 #cuDIV_20 {
     box-sizing: border-box;
-    height: 258px;
-    text-align: left;
-    width: 514px;
-    perspective-origin: 257px 129px;
-    transform-origin: 257px 129px;
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     padding: 7px;
 }
+
     /*#cuDIV_20*/
 
     #cuDIV_20:after {
         box-sizing: border-box;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
     /*#cuDIV_20:after*/
 
     #cuDIV_20:before {
         box-sizing: border-box;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
 /*#cuDIV_20:before*/
 
 #cuTEXTAREA_22 {
-    display: block;
-    height: 244px;
-    width: 500px;
-    perspective-origin: 250px 122px;
-    transform-origin: 250px 122px;
     border: 2px solid rgb(172, 172, 172);
-    font: normal normal 400 normal 18px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    display: block;
+    font: normal normal 400 normal 18px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     padding: 10px 14px;
+    width: 100%;
 }
+
     /*#cuTEXTAREA_22*/
 
     #cuTEXTAREA_22:after {
         box-sizing: border-box;
-        font: normal normal 400 normal 18px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 18px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
     /*#cuTEXTAREA_22:after*/
 
     #cuTEXTAREA_22:before {
         box-sizing: border-box;
-        font: normal normal 400 normal 18px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 18px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
 /*#cuTEXTAREA_22:before*/
 
 #cuDIV_23 {
-    box-sizing: border-box;
-    height: 30px;
-    text-align: left;
-    width: 514px;
-    perspective-origin: 257px 15px;
-    transform-origin: 257px 15px;
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     padding: 7px;
 }
+
     /*#cuDIV_23*/
 
     #cuDIV_23:after {
         box-sizing: border-box;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
     /*#cuDIV_23:after*/
 
     #cuDIV_23:before {
         box-sizing: border-box;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
-/*#cuDIV_23:before*/
+
 
 #cuSPAN_24 {
-    bottom: 0;
-    box-sizing: border-box;
-    left: 0;
-    position: relative;
-    right: 0;
-    text-align: left;
-    top: 0;
-    perspective-origin: 0 0;
-    transform-origin: 0 0;
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    /* font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif; */
     padding: 0 5px 0 0;
 }
+
     /*#cuSPAN_24*/
 
     #cuSPAN_24:after {
         box-sizing: border-box;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
     /*#cuSPAN_24:after*/
 
     #cuSPAN_24:before {
         box-sizing: border-box;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
-/*#cuSPAN_24:before*/
 
-#cuINPUT_25 {
-    cursor: default;
-    height: 13px;
-    min-height: 13px;
-    min-width: 13px;
+
+#privacyCheck {
     width: 13px;
-    perspective-origin: 6.5px 6.5px;
-    transform-origin: 6.5px 6.5px;
-    background: rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box;
-    border: 0 none rgb(0, 0, 0);
-    font: normal normal 400 normal 13.3333px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    padding: 0;
 }
-    /*#cuINPUT_25*/
 
-    #cuINPUT_25:after {
+    /*#privacyCheck*/
+
+    #privacyCheck:after {
         box-sizing: border-box;
         cursor: default;
-        font: normal normal 400 normal 13.3333px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 13.3333px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
-    /*#cuINPUT_25:after*/
 
-    #cuINPUT_25:before {
+    /*#privacyCheck:after*/
+
+    #privacyCheck:before {
         box-sizing: border-box;
         cursor: default;
-        font: normal normal 400 normal 13.3333px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 13.3333px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
-/*#cuINPUT_25:before*/
 
-#cuSPAN_26 {
+#cuSPAN_26:after {
     box-sizing: border-box;
+    font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     text-align: left;
-    perspective-origin: 0 0;
-    transform-origin: 0 0;
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
 }
-    /*#cuSPAN_26*/
 
-    #cuSPAN_26:after {
-        box-sizing: border-box;
-        text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    }
-    /*#cuSPAN_26:after*/
+/*#cuSPAN_26:after*/
 
-    #cuSPAN_26:before {
-        box-sizing: border-box;
-        text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    }
+#cuSPAN_26:before {
+    box-sizing: border-box;
+    font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    text-align: left;
+}
+
 /*#cuSPAN_26:before*/
 
 #cuA_27 {
+    border: 0 none rgb(0, 0, 0);
     box-sizing: border-box;
     color: rgb(0, 0, 0);
+    column-rule-color: rgb(0, 0, 0);
+    font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    outline: rgb(0, 0, 0) none 0;
+    perspective-origin: 0 0;
     text-align: left;
     text-decoration: underline solid rgb(0, 0, 0);
-    column-rule-color: rgb(0, 0, 0);
-    perspective-origin: 0 0;
     transform-origin: 0 0;
-    border: 0 none rgb(0, 0, 0);
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    outline: rgb(0, 0, 0) none 0;
 }
+
     /*#cuA_27*/
 
     #cuA_27:after {
+        border: 0 none rgb(0, 0, 0);
         box-sizing: border-box;
         color: rgb(0, 0, 0);
+        column-rule-color: rgb(0, 0, 0);
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        outline: rgb(0, 0, 0) none 0;
         text-align: left;
         text-decoration: none solid rgb(0, 0, 0);
-        column-rule-color: rgb(0, 0, 0);
-        border: 0 none rgb(0, 0, 0);
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(0, 0, 0) none 0;
     }
+
     /*#cuA_27:after*/
 
     #cuA_27:before {
+        border: 0 none rgb(0, 0, 0);
         box-sizing: border-box;
         color: rgb(0, 0, 0);
+        column-rule-color: rgb(0, 0, 0);
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        outline: rgb(0, 0, 0) none 0;
         text-align: left;
         text-decoration: none solid rgb(0, 0, 0);
-        column-rule-color: rgb(0, 0, 0);
-        border: 0 none rgb(0, 0, 0);
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(0, 0, 0) none 0;
     }
+
 /*#cuA_27:before*/
+
 .Cu {
     margin: 66px auto;
-    width: 37%;
+    width: 50%;
 }
 
 #cuDIV_28 {
-    box-sizing: border-box;
-    height: 83px;
-    text-align: left;
-    width: 514px;
-    perspective-origin: 257px 41.5px;
-    transform-origin: 257px 41.5px;
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     padding: 7px;
 }
+
     /*#cuDIV_28*/
 
     #cuDIV_28:after {
         box-sizing: border-box;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
     /*#cuDIV_28:after*/
 
     #cuDIV_28:before {
         box-sizing: border-box;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
 /*#cuDIV_28:before*/
 
 #cuINPUT_29 {
-    color: rgb(255, 255, 255);
-    cursor: default;
-    display: block;
-    height: 46px;
-    text-align: center;
-    text-decoration: none solid rgb(255, 255, 255);
-    white-space: pre;
-    width: 500px;
-    column-rule-color: rgb(255, 255, 255);
-    align-items: flex-start;
-    perspective-origin: 250px 23px;
-    transform-origin: 250px 23px;
-    user-select: none;
-    background: rgb(13, 170, 149) none repeat scroll 0% 0% / auto padding-box border-box;
+    background: rgb(13, 170, 149) none repeat scroll 0% 0%/auto padding-box border-box;
     border: 2px solid rgb(13, 170, 149);
-    font: normal normal 400 normal 18px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    outline: rgb(255, 255, 255) none 0;
-    padding: 10px 14px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
 }
+
     /*#cuINPUT_29*/
 
     #cuINPUT_29:after {
+        border: 0 none rgb(255, 255, 255);
         box-sizing: border-box;
         color: rgb(255, 255, 255);
+        column-rule-color: rgb(255, 255, 255);
         cursor: default;
+        font: normal normal 400 normal 18px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        outline: rgb(255, 255, 255) none 0;
         text-align: center;
         text-decoration: none solid rgb(255, 255, 255);
-        white-space: pre;
-        column-rule-color: rgb(255, 255, 255);
         user-select: none;
-        border: 0 none rgb(255, 255, 255);
-        font: normal normal 400 normal 18px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(255, 255, 255) none 0;
+        white-space: pre;
     }
+
     /*#cuINPUT_29:after*/
 
     #cuINPUT_29:before {
+        border: 0 none rgb(255, 255, 255);
         box-sizing: border-box;
         color: rgb(255, 255, 255);
+        column-rule-color: rgb(255, 255, 255);
         cursor: default;
+        font: normal normal 400 normal 18px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        outline: rgb(255, 255, 255) none 0;
         text-align: center;
         text-decoration: none solid rgb(255, 255, 255);
-        white-space: pre;
-        column-rule-color: rgb(255, 255, 255);
         user-select: none;
-        border: 0 none rgb(255, 255, 255);
-        font: normal normal 400 normal 18px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(255, 255, 255) none 0;
+        white-space: pre;
     }
+
 /*#cuINPUT_29:before*/
 
 #cuIMG_30 {
-    box-sizing: border-box;
-    display: block;
-    height: 16px;
-    max-width: 100%;
-    text-align: left;
-    vertical-align: middle;
     visibility: hidden;
-    width: 16px;
-    perspective-origin: 8px 8px;
-    transform-origin: 8px 8px;
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    margin: 7px 242px 0;
 }
+
     /*#cuIMG_30*/
 
     #cuIMG_30:after {
         box-sizing: border-box;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
         visibility: hidden;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
     /*#cuIMG_30:after*/
 
     #cuIMG_30:before {
         box-sizing: border-box;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
         visibility: hidden;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
 /*#cuIMG_30:before*/
 
 #cuDIV_31 {
     box-sizing: border-box;
     display: none;
-    text-align: left;
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     margin: 20px 5px 10px;
     padding: 2px 10px;
+    text-align: left;
 }
+
     /*#cuDIV_31*/
 
     #cuDIV_31:after {
         box-sizing: border-box;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
     /*#cuDIV_31:after*/
 
     #cuDIV_31:before {
         box-sizing: border-box;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
 /*#cuDIV_31:before*/
 
 /*footer*/
+
 #footerDIV_1 {
-    box-sizing: border-box;
-    height: 176px;
-    width: 1415px;
-    perspective-origin: 707.5px 88px;
-    transform-origin: 707.5px 88px;
-    background: rgb(247, 247, 247) none repeat scroll 0% 0% / auto padding-box border-box;
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    background: #282E34;
     padding: 46px 0;
+    width: 100%;
 }
+
     /*#footerDIV_1*/
 
     #footerDIV_1:after {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
     /*#footerDIV_1:after*/
 
     #footerDIV_1:before {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
 /*#footerDIV_1:before*/
 
 #footerDIV_2 {
-    box-sizing: border-box;
-    height: 84px;
-    max-width: 1080px;
-    min-width: 260px;
-    width: 1080px;
-    perspective-origin: 540px 42px;
-    transform-origin: 540px 42px;
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    margin: 0 167.5px;
 }
+
     /*#footerDIV_2*/
 
     #footerDIV_2:after {
@@ -2478,520 +2406,540 @@ p, li {
         clear: both;
         content: '""';
         display: block;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         height: 0;
-        visibility: hidden;
-        width: 1080px;
+        overflow: hidden;
         perspective-origin: 540px 0;
         transform-origin: 540px 0;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        overflow: hidden;
+        visibility: hidden;
+        width: 1080px;
     }
+
     /*#footerDIV_2:after*/
 
     #footerDIV_2:before {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
 /*#footerDIV_2:before*/
 
 #footerDIV_3 {
     box-sizing: border-box;
     display: table;
+    font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     height: 84px;
-    width: 1080px;
     perspective-origin: 540px 42px;
     transform-origin: 540px 42px;
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    width: 1080px;
 }
+
     /*#footerDIV_3*/
 
     #footerDIV_3:after {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
     /*#footerDIV_3:after*/
 
     #footerDIV_3:before {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
 /*#footerDIV_3:before*/
 
 #footerDIV_4 {
-    box-sizing: border-box;
     display: table-cell;
-    height: 84px;
-    vertical-align: top;
-    width: 280px;
-    perspective-origin: 140px 42px;
-    transform-origin: 140px 42px;
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
 }
+
     /*#footerDIV_4*/
 
     #footerDIV_4:after {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
     /*#footerDIV_4:after*/
 
     #footerDIV_4:before {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
 /*#footerDIV_4:before*/
 
 #footerUL_5 {
     box-sizing: border-box;
+    font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     height: 84px;
-    width: 280px;
-    perspective-origin: 140px 42px;
-    transform-origin: 140px 42px;
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
     margin: 0;
     padding: 0 40px;
+    perspective-origin: 140px 42px;
+    transform-origin: 140px 42px;
+    width: 280px;
 }
+
     /*#footerUL_5*/
 
     #footerUL_5:after {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
     }
+
     /*#footerUL_5:after*/
 
     #footerUL_5:before {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
     }
+
 /*#footerUL_5:before*/
 
 #footerLI_6, #footerLI_8, #footerLI_10 {
+    border: 0 none rgb(108, 111, 112);
     box-sizing: border-box;
     color: rgb(108, 111, 112);
-    height: 28px;
-    text-decoration: none solid rgb(108, 111, 112);
-    width: 200px;
     column-rule-color: rgb(108, 111, 112);
-    perspective-origin: 100px 14px;
-    transform-origin: 100px 14px;
-    border: 0 none rgb(108, 111, 112);
-    font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 14px/28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    height: 28px;
     list-style: none outside none;
     outline: rgb(108, 111, 112) none 0;
+    perspective-origin: 100px 14px;
+    text-decoration: none solid rgb(108, 111, 112);
+    transform-origin: 100px 14px;
+    width: 200px;
 }
+
     /*#footerLI_6, #footerLI_8, #footerLI_10*/
 
     #footerLI_6:after, #footerLI_8:after, #footerLI_10:after {
+        border: 0 none rgb(108, 111, 112);
         box-sizing: border-box;
         color: rgb(108, 111, 112);
-        text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        border: 0 none rgb(108, 111, 112);
-        font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 14px/28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(108, 111, 112) none 0;
+        text-decoration: none solid rgb(108, 111, 112);
     }
+
     /*#footerLI_6:after, #footerLI_8:after, #footerLI_10:after*/
 
     #footerLI_6:before, #footerLI_8:before, #footerLI_10:before {
+        border: 0 none rgb(108, 111, 112);
         box-sizing: border-box;
         color: rgb(108, 111, 112);
-        text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        border: 0 none rgb(108, 111, 112);
-        font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 14px/28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(108, 111, 112) none 0;
+        text-decoration: none solid rgb(108, 111, 112);
     }
+
 /*#footerLI_6:before, #footerLI_8:before, #footerLI_10:before*/
 
 #footerA_7, #footerA_9, #footerA_15, #footerA_17, #footerA_19, #footerA_23, #footerA_25, #footerA_27 {
+    border: 0 none rgb(108, 111, 112);
     box-sizing: border-box;
     color: rgb(108, 111, 112);
-    text-align: left;
-    text-decoration: none solid rgb(108, 111, 112);
     column-rule-color: rgb(108, 111, 112);
-    perspective-origin: 0 0;
-    transform-origin: 0 0;
-    border: 0 none rgb(108, 111, 112);
-    font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 14px/28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
     outline: rgb(108, 111, 112) none 0;
+    perspective-origin: 0 0;
+    text-align: left;
+    text-decoration: none solid rgb(108, 111, 112);
+    transform-origin: 0 0;
 }
+
     /*#footerA_7, #footerA_9, #footerA_15, #footerA_17, #footerA_19, #footerA_23, #footerA_25, #footerA_27*/
 
     #footerA_7:after, #footerA_9:after, #footerA_15:after, #footerA_17:after, #footerA_19:after, #footerA_23:after, #footerA_25:after, #footerA_27:after {
+        border: 0 none rgb(108, 111, 112);
         box-sizing: border-box;
         color: rgb(108, 111, 112);
-        text-align: left;
-        text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        border: 0 none rgb(108, 111, 112);
-        font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 14px/28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(108, 111, 112) none 0;
+        text-align: left;
+        text-decoration: none solid rgb(108, 111, 112);
     }
+
     /*#footerA_7:after, #footerA_9:after, #footerA_15:after, #footerA_17:after, #footerA_19:after, #footerA_23:after, #footerA_25:after, #footerA_27:after*/
 
     #footerA_7:before, #footerA_9:before, #footerA_15:before, #footerA_17:before, #footerA_19:before, #footerA_23:before, #footerA_25:before, #footerA_27:before {
+        border: 0 none rgb(108, 111, 112);
         box-sizing: border-box;
         color: rgb(108, 111, 112);
-        text-align: left;
-        text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        border: 0 none rgb(108, 111, 112);
-        font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 14px/28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(108, 111, 112) none 0;
+        text-align: left;
+        text-decoration: none solid rgb(108, 111, 112);
     }
+
 /*#footerA_7:before, #footerA_9:before, #footerA_15:before, #footerA_17:before, #footerA_19:before, #footerA_23:before, #footerA_25:before, #footerA_27:before*/
 
 #footerA_11 {
+    border: 0 none rgb(108, 111, 112);
     box-sizing: border-box;
     color: rgb(108, 111, 112);
-    text-align: left;
-    text-decoration: none solid rgb(108, 111, 112);
     column-rule-color: rgb(108, 111, 112);
-    perspective-origin: 0 0;
-    transform-origin: 0 0;
-    border: 0 none rgb(108, 111, 112);
-    font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 14px/28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
     outline: rgb(108, 111, 112) none 0;
+    perspective-origin: 0 0;
+    text-align: left;
+    text-decoration: none solid rgb(108, 111, 112);
+    transform-origin: 0 0;
 }
+
     /*#footerA_11*/
 
     #footerA_11:after {
+        border: 0 none rgb(108, 111, 112);
         box-sizing: border-box;
         color: rgb(108, 111, 112);
-        text-align: left;
-        text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        border: 0 none rgb(108, 111, 112);
-        font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 14px/28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(108, 111, 112) none 0;
+        text-align: left;
+        text-decoration: none solid rgb(108, 111, 112);
     }
+
     /*#footerA_11:after*/
 
     #footerA_11:before {
+        border: 0 none rgb(108, 111, 112);
         box-sizing: border-box;
         color: rgb(108, 111, 112);
-        text-align: left;
-        text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        border: 0 none rgb(108, 111, 112);
-        font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 14px/28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(108, 111, 112) none 0;
+        text-align: left;
+        text-decoration: none solid rgb(108, 111, 112);
     }
+
 /*#footerA_11:before*/
 
 #footerDIV_12 {
-    box-sizing: border-box;
-    display: table-cell;
-    height: 84px;
-    vertical-align: top;
-    width: 244px;
-    perspective-origin: 122px 42px;
-    transform-origin: 122px 42px;
     border-left: 1px solid rgb(196, 196, 196);
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    display: table-cell;
 }
+
     /*#footerDIV_12*/
 
     #footerDIV_12:after {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
     /*#footerDIV_12:after*/
 
     #footerDIV_12:before {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
 /*#footerDIV_12:before*/
 
 #footerUL_13 {
     box-sizing: border-box;
+    font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     height: 84px;
-    width: 243px;
-    perspective-origin: 121.5px 42px;
-    transform-origin: 121.5px 42px;
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
     margin: 0;
     padding: 0 40px;
+    perspective-origin: 121.5px 42px;
+    transform-origin: 121.5px 42px;
+    width: 243px;
 }
+
     /*#footerUL_13*/
 
     #footerUL_13:after {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
     }
+
     /*#footerUL_13:after*/
 
     #footerUL_13:before {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
     }
+
 /*#footerUL_13:before*/
 
 #footerLI_14, #footerLI_16 {
+    border: 0 none rgb(108, 111, 112);
     box-sizing: border-box;
     color: rgb(108, 111, 112);
-    height: 28px;
-    text-decoration: none solid rgb(108, 111, 112);
-    width: 163px;
     column-rule-color: rgb(108, 111, 112);
-    perspective-origin: 81.5px 14px;
-    transform-origin: 81.5px 14px;
-    border: 0 none rgb(108, 111, 112);
-    font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 14px/28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    height: 28px;
     list-style: none outside none;
     outline: rgb(108, 111, 112) none 0;
+    perspective-origin: 81.5px 14px;
+    text-decoration: none solid rgb(108, 111, 112);
+    transform-origin: 81.5px 14px;
+    width: 163px;
 }
+
     /*#footerLI_14, #footerLI_16*/
 
     #footerLI_14:after, #footerLI_16:after {
+        border: 0 none rgb(108, 111, 112);
         box-sizing: border-box;
         color: rgb(108, 111, 112);
-        text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        border: 0 none rgb(108, 111, 112);
-        font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 14px/28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(108, 111, 112) none 0;
+        text-decoration: none solid rgb(108, 111, 112);
     }
+
     /*#footerLI_14:after, #footerLI_16:after*/
 
     #footerLI_14:before, #footerLI_16:before {
+        border: 0 none rgb(108, 111, 112);
         box-sizing: border-box;
         color: rgb(108, 111, 112);
-        text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        border: 0 none rgb(108, 111, 112);
-        font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 14px/28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(108, 111, 112) none 0;
+        text-decoration: none solid rgb(108, 111, 112);
     }
+
 /*#footerLI_14:before, #footerLI_16:before*/
 
 #footerLI_18 {
+    border: 0 none rgb(108, 111, 112);
     box-sizing: border-box;
     color: rgb(108, 111, 112);
-    height: 28px;
-    text-decoration: none solid rgb(108, 111, 112);
-    width: 163px;
     column-rule-color: rgb(108, 111, 112);
-    perspective-origin: 81.5px 14px;
-    transform-origin: 81.5px 14px;
-    border: 0 none rgb(108, 111, 112);
-    font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 14px/28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    height: 28px;
     list-style: none outside none;
     outline: rgb(108, 111, 112) none 0;
+    perspective-origin: 81.5px 14px;
+    text-decoration: none solid rgb(108, 111, 112);
+    transform-origin: 81.5px 14px;
+    width: 163px;
 }
+
     /*#footerLI_18*/
 
     #footerLI_18:after {
+        border: 0 none rgb(108, 111, 112);
         box-sizing: border-box;
         color: rgb(108, 111, 112);
-        text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        border: 0 none rgb(108, 111, 112);
-        font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 14px/28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(108, 111, 112) none 0;
+        text-decoration: none solid rgb(108, 111, 112);
     }
+
     /*#footerLI_18:after*/
 
     #footerLI_18:before {
+        border: 0 none rgb(108, 111, 112);
         box-sizing: border-box;
         color: rgb(108, 111, 112);
-        text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        border: 0 none rgb(108, 111, 112);
-        font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 14px/28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(108, 111, 112) none 0;
+        text-decoration: none solid rgb(108, 111, 112);
     }
+
 /*#footerLI_18:before*/
 
 #footerDIV_20 {
-    box-sizing: border-box;
-    display: table-cell;
-    height: 84px;
-    vertical-align: top;
-    width: 248px;
-    perspective-origin: 124px 42px;
-    transform-origin: 124px 42px;
     border-left: 1px solid rgb(196, 196, 196);
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    display: table-cell;
 }
+
     /*#footerDIV_20*/
 
     #footerDIV_20:after {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
     /*#footerDIV_20:after*/
 
     #footerDIV_20:before {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
 /*#footerDIV_20:before*/
 
 #footerUL_21 {
     box-sizing: border-box;
+    font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     height: 84px;
-    width: 247px;
-    perspective-origin: 123.5px 42px;
-    transform-origin: 123.5px 42px;
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
     margin: 0;
     padding: 0 40px;
+    perspective-origin: 123.5px 42px;
+    transform-origin: 123.5px 42px;
+    width: 247px;
 }
+
     /*#footerUL_21*/
 
     #footerUL_21:after {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
     }
+
     /*#footerUL_21:after*/
 
     #footerUL_21:before {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
     }
+
 /*#footerUL_21:before*/
 
 #footerLI_22, #footerLI_24 {
+    border: 0 none rgb(108, 111, 112);
     box-sizing: border-box;
     color: rgb(108, 111, 112);
-    height: 28px;
-    text-decoration: none solid rgb(108, 111, 112);
-    width: 167px;
     column-rule-color: rgb(108, 111, 112);
-    perspective-origin: 83.5px 14px;
-    transform-origin: 83.5px 14px;
-    border: 0 none rgb(108, 111, 112);
-    font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 14px/28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    height: 28px;
     list-style: none outside none;
     outline: rgb(108, 111, 112) none 0;
+    perspective-origin: 83.5px 14px;
+    text-decoration: none solid rgb(108, 111, 112);
+    transform-origin: 83.5px 14px;
+    width: 167px;
 }
+
     /*#footerLI_22, #footerLI_24*/
 
     #footerLI_22:after, #footerLI_24:after {
+        border: 0 none rgb(108, 111, 112);
         box-sizing: border-box;
         color: rgb(108, 111, 112);
-        text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        border: 0 none rgb(108, 111, 112);
-        font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 14px/28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(108, 111, 112) none 0;
+        text-decoration: none solid rgb(108, 111, 112);
     }
+
     /*#footerLI_22:after, #footerLI_24:after*/
 
     #footerLI_22:before, #footerLI_24:before {
+        border: 0 none rgb(108, 111, 112);
         box-sizing: border-box;
         color: rgb(108, 111, 112);
-        text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        border: 0 none rgb(108, 111, 112);
-        font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 14px/28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(108, 111, 112) none 0;
+        text-decoration: none solid rgb(108, 111, 112);
     }
+
 /*#footerLI_22:before, #footerLI_24:before*/
 
 #footerLI_26 {
+    border: 0 none rgb(108, 111, 112);
     box-sizing: border-box;
     color: rgb(108, 111, 112);
-    height: 28px;
-    text-decoration: none solid rgb(108, 111, 112);
-    width: 167px;
     column-rule-color: rgb(108, 111, 112);
-    perspective-origin: 83.5px 14px;
-    transform-origin: 83.5px 14px;
-    border: 0 none rgb(108, 111, 112);
-    font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 14px/28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    height: 28px;
     list-style: none outside none;
     outline: rgb(108, 111, 112) none 0;
+    perspective-origin: 83.5px 14px;
+    text-decoration: none solid rgb(108, 111, 112);
+    transform-origin: 83.5px 14px;
+    width: 167px;
 }
+
     /*#footerLI_26*/
 
     #footerLI_26:after {
+        border: 0 none rgb(108, 111, 112);
         box-sizing: border-box;
         color: rgb(108, 111, 112);
-        text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        border: 0 none rgb(108, 111, 112);
-        font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 14px/28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(108, 111, 112) none 0;
+        text-decoration: none solid rgb(108, 111, 112);
     }
+
     /*#footerLI_26:after*/
 
     #footerLI_26:before {
+        border: 0 none rgb(108, 111, 112);
         box-sizing: border-box;
         color: rgb(108, 111, 112);
-        text-decoration: none solid rgb(108, 111, 112);
         column-rule-color: rgb(108, 111, 112);
-        border: 0 none rgb(108, 111, 112);
-        font: normal normal 400 normal 14px / 28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 14px/28px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(108, 111, 112) none 0;
+        text-decoration: none solid rgb(108, 111, 112);
     }
+
 /*#footerLI_26:before*/
 
 #footerDIV_28 {
-    box-sizing: border-box;
-    display: table-cell;
-    height: 84px;
-    vertical-align: middle;
-    width: 308px;
-    perspective-origin: 154px 42px;
-    transform-origin: 154px 42px;
     border-left: 1px solid rgb(196, 196, 196);
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    display: table-cell;
 }
+
     /*#footerDIV_28*/
 
     #footerDIV_28:after {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
     /*#footerDIV_28:after*/
 
     #footerDIV_28:before {
         box-sizing: border-box;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
+
 /*#footerDIV_28:before*/
 
 #footerUL_29 {
-    box-sizing: border-box;
-    height: 36px;
-    text-align: center;
-    width: 293px;
-    perspective-origin: 146.5px 18px;
-    transform-origin: 146.5px 18px;
     border-bottom: 1px solid rgb(196, 196, 196);
-    font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    height: 36px;
     list-style: none outside none;
     margin: 0 14px 35px 0;
     padding: 0 0 10px;
+    perspective-origin: 146.5px 18px;
+    text-align: center;
+    transform-origin: 146.5px 18px;
+    width: 293px;
 }
+
     /*#footerUL_29*/
 
     #footerUL_29:after {
@@ -2999,459 +2947,495 @@ p, li {
         clear: both;
         content: '""';
         display: block;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         height: 0;
-        text-align: center;
-        visibility: hidden;
-        width: 293px;
-        perspective-origin: 146.5px 0;
-        transform-origin: 146.5px 0;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         overflow: hidden;
+        perspective-origin: 146.5px 0;
+        text-align: center;
+        transform-origin: 146.5px 0;
+        visibility: hidden;
+        width: 293px;
     }
+
     /*#footerUL_29:after*/
 
     #footerUL_29:before {
         box-sizing: border-box;
-        text-align: center;
-        font: normal normal 400 normal 10px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
+        text-align: center;
     }
+
 /*#footerUL_29:before*/
 
 #footerLI_30, #footerLI_33 {
     box-sizing: border-box;
     display: inline-block;
+    font: normal normal 400 normal 20px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     height: 25px;
-    text-align: center;
-    vertical-align: top;
-    width: 20px;
-    perspective-origin: 10px 12.5px;
-    transform-origin: 10px 12.5px;
-    font: normal normal 400 normal 20px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
     margin: 0 12px;
+    perspective-origin: 10px 12.5px;
+    text-align: center;
+    transform-origin: 10px 12.5px;
+    vertical-align: top;
+    width: 20px;
 }
+
     /*#footerLI_30, #footerLI_33*/
 
     #footerLI_30:after, #footerLI_33:after {
         box-sizing: border-box;
-        text-align: center;
-        font: normal normal 400 normal 20px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 20px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
+        text-align: center;
     }
+
     /*#footerLI_30:after, #footerLI_33:after*/
 
     #footerLI_30:before, #footerLI_33:before {
         box-sizing: border-box;
-        text-align: center;
-        font: normal normal 400 normal 20px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 20px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
+        text-align: center;
     }
+
 /*#footerLI_30:before, #footerLI_33:before*/
 
 #footerA_31 {
+    border: 0 none rgb(160, 157, 157);
     box-sizing: border-box;
     color: rgb(160, 157, 157);
-    text-align: center;
-    text-decoration: none solid rgb(160, 157, 157);
     column-rule-color: rgb(160, 157, 157);
-    perspective-origin: 0 0;
-    transform-origin: 0 0;
-    border: 0 none rgb(160, 157, 157);
-    font: normal normal 400 normal 20px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 20px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
     outline: rgb(160, 157, 157) none 0;
+    perspective-origin: 0 0;
+    text-align: center;
+    text-decoration: none solid rgb(160, 157, 157);
+    transform-origin: 0 0;
 }
+
     /*#footerA_31*/
 
     #footerA_31:after {
+        border: 0 none rgb(160, 157, 157);
         box-sizing: border-box;
         color: rgb(160, 157, 157);
-        text-align: center;
-        text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        border: 0 none rgb(160, 157, 157);
-        font: normal normal 400 normal 20px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 20px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(160, 157, 157) none 0;
+        text-align: center;
+        text-decoration: none solid rgb(160, 157, 157);
     }
+
     /*#footerA_31:after*/
 
     #footerA_31:before {
+        border: 0 none rgb(160, 157, 157);
         box-sizing: border-box;
         color: rgb(160, 157, 157);
-        content: '""';
-        text-align: center;
-        text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        perspective-origin: 0 0;
-        transform-origin: 0 0;
-        border: 0 none rgb(160, 157, 157);
-        font: normal normal 400 normal 20px / normal dashicons;
+        content: '""';
+        font: normal normal 400 normal 20px/normal dashicons;
         list-style: none outside none;
         outline: rgb(160, 157, 157) none 0;
+        perspective-origin: 0 0;
+        text-align: center;
+        text-decoration: none solid rgb(160, 157, 157);
+        transform-origin: 0 0;
     }
+
 /*#footerA_31:before*/
 
 #footerSPAN_32, #footerSPAN_35 {
+    border: 0 none rgb(160, 157, 157);
     box-sizing: border-box;
     color: rgb(160, 157, 157);
+    column-rule-color: rgb(160, 157, 157);
     cursor: pointer;
     display: none;
-    text-align: center;
-    text-decoration: none solid rgb(160, 157, 157);
-    column-rule-color: rgb(160, 157, 157);
-    border: 0 none rgb(160, 157, 157);
-    font: normal normal 400 normal 20px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 20px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
     outline: rgb(160, 157, 157) none 0;
+    text-align: center;
+    text-decoration: none solid rgb(160, 157, 157);
 }
+
     /*#footerSPAN_32, #footerSPAN_35*/
 
     #footerSPAN_32:after, #footerSPAN_35:after {
+        border: 0 none rgb(160, 157, 157);
         box-sizing: border-box;
         color: rgb(160, 157, 157);
-        cursor: pointer;
-        text-align: center;
-        text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        border: 0 none rgb(160, 157, 157);
-        font: normal normal 400 normal 20px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        cursor: pointer;
+        font: normal normal 400 normal 20px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(160, 157, 157) none 0;
+        text-align: center;
+        text-decoration: none solid rgb(160, 157, 157);
     }
+
     /*#footerSPAN_32:after, #footerSPAN_35:after*/
 
     #footerSPAN_32:before, #footerSPAN_35:before {
+        border: 0 none rgb(160, 157, 157);
         box-sizing: border-box;
         color: rgb(160, 157, 157);
-        cursor: pointer;
-        text-align: center;
-        text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        border: 0 none rgb(160, 157, 157);
-        font: normal normal 400 normal 20px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        cursor: pointer;
+        font: normal normal 400 normal 20px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(160, 157, 157) none 0;
+        text-align: center;
+        text-decoration: none solid rgb(160, 157, 157);
     }
+
 /*#footerSPAN_32:before, #footerSPAN_35:before*/
 
 #footerA_34 {
+    border: 0 none rgb(160, 157, 157);
     box-sizing: border-box;
     color: rgb(160, 157, 157);
-    text-align: center;
-    text-decoration: none solid rgb(160, 157, 157);
     column-rule-color: rgb(160, 157, 157);
-    perspective-origin: 0 0;
-    transform-origin: 0 0;
-    border: 0 none rgb(160, 157, 157);
-    font: normal normal 400 normal 20px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 20px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
     outline: rgb(160, 157, 157) none 0;
+    perspective-origin: 0 0;
+    text-align: center;
+    text-decoration: none solid rgb(160, 157, 157);
+    transform-origin: 0 0;
 }
+
     /*#footerA_34*/
 
     #footerA_34:after {
+        border: 0 none rgb(160, 157, 157);
         box-sizing: border-box;
         color: rgb(160, 157, 157);
-        text-align: center;
-        text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        border: 0 none rgb(160, 157, 157);
-        font: normal normal 400 normal 20px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 20px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(160, 157, 157) none 0;
+        text-align: center;
+        text-decoration: none solid rgb(160, 157, 157);
     }
+
     /*#footerA_34:after*/
 
     #footerA_34:before {
+        border: 0 none rgb(160, 157, 157);
         box-sizing: border-box;
         color: rgb(160, 157, 157);
-        content: '""';
-        text-align: center;
-        text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        perspective-origin: 0 0;
-        transform-origin: 0 0;
-        border: 0 none rgb(160, 157, 157);
-        font: normal normal 400 normal 20px / normal dashicons;
+        content: '""';
+        font: normal normal 400 normal 20px/normal dashicons;
         list-style: none outside none;
         outline: rgb(160, 157, 157) none 0;
+        perspective-origin: 0 0;
+        text-align: center;
+        text-decoration: none solid rgb(160, 157, 157);
+        transform-origin: 0 0;
     }
+
 /*#footerA_34:before*/
 
 #footerLI_36 {
     box-sizing: border-box;
     display: inline-block;
+    font: normal normal 400 normal 20px/16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     height: 16px;
-    text-align: center;
-    vertical-align: top;
-    width: 11.2344px;
-    perspective-origin: 5.60938px 8px;
-    transform-origin: 5.60938px 8px;
-    font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
     margin: 0 12px;
+    perspective-origin: 5.60938px 8px;
+    text-align: center;
+    transform-origin: 5.60938px 8px;
+    vertical-align: top;
+    width: 11.2344px;
 }
+
     /*#footerLI_36*/
 
     #footerLI_36:after {
         box-sizing: border-box;
-        text-align: center;
-        font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 20px/16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
+        text-align: center;
     }
+
     /*#footerLI_36:after*/
 
     #footerLI_36:before {
         box-sizing: border-box;
-        text-align: center;
-        font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 20px/16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
+        text-align: center;
     }
+
 /*#footerLI_36:before*/
 
 #footerA_37 {
+    border: 0 none rgb(160, 157, 157);
     box-sizing: border-box;
     color: rgb(160, 157, 157);
-    text-align: center;
-    text-decoration: none solid rgb(160, 157, 157);
     column-rule-color: rgb(160, 157, 157);
-    perspective-origin: 0 0;
-    transform-origin: 0 0;
-    border: 0 none rgb(160, 157, 157);
-    font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 20px/16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
     outline: rgb(160, 157, 157) none 0;
+    perspective-origin: 0 0;
+    text-align: center;
+    text-decoration: none solid rgb(160, 157, 157);
+    transform-origin: 0 0;
 }
+
     /*#footerA_37*/
 
     #footerA_37:after {
+        border: 0 none rgb(160, 157, 157);
         box-sizing: border-box;
         color: rgb(160, 157, 157);
-        text-align: center;
-        text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        border: 0 none rgb(160, 157, 157);
-        font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 20px/16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(160, 157, 157) none 0;
+        text-align: center;
+        text-decoration: none solid rgb(160, 157, 157);
     }
+
     /*#footerA_37:after*/
 
     #footerA_37:before {
+        border: 0 none rgb(160, 157, 157);
         box-sizing: border-box;
         color: rgb(160, 157, 157);
-        content: '"p"';
-        text-align: center;
-        text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        perspective-origin: 0 0;
-        transform-origin: 0 0;
-        border: 0 none rgb(160, 157, 157);
-        font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        content: '"p"';
+        font: normal normal 400 normal 20px/16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(160, 157, 157) none 0;
+        perspective-origin: 0 0;
+        text-align: center;
+        text-decoration: none solid rgb(160, 157, 157);
+        transform-origin: 0 0;
     }
+
 /*#footerA_37:before*/
 
 #footerSPAN_38, #footerSPAN_41 {
+    border: 0 none rgb(160, 157, 157);
     box-sizing: border-box;
     color: rgb(160, 157, 157);
+    column-rule-color: rgb(160, 157, 157);
     cursor: pointer;
     display: none;
-    text-align: center;
-    text-decoration: none solid rgb(160, 157, 157);
-    column-rule-color: rgb(160, 157, 157);
-    border: 0 none rgb(160, 157, 157);
-    font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 20px/16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
     outline: rgb(160, 157, 157) none 0;
+    text-align: center;
+    text-decoration: none solid rgb(160, 157, 157);
 }
+
     /*#footerSPAN_38, #footerSPAN_41*/
 
     #footerSPAN_38:after, #footerSPAN_41:after {
+        border: 0 none rgb(160, 157, 157);
         box-sizing: border-box;
         color: rgb(160, 157, 157);
-        cursor: pointer;
-        text-align: center;
-        text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        border: 0 none rgb(160, 157, 157);
-        font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        cursor: pointer;
+        font: normal normal 400 normal 20px/16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(160, 157, 157) none 0;
+        text-align: center;
+        text-decoration: none solid rgb(160, 157, 157);
     }
+
     /*#footerSPAN_38:after, #footerSPAN_41:after*/
 
     #footerSPAN_38:before, #footerSPAN_41:before {
+        border: 0 none rgb(160, 157, 157);
         box-sizing: border-box;
         color: rgb(160, 157, 157);
-        cursor: pointer;
-        text-align: center;
-        text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        border: 0 none rgb(160, 157, 157);
-        font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        cursor: pointer;
+        font: normal normal 400 normal 20px/16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(160, 157, 157) none 0;
+        text-align: center;
+        text-decoration: none solid rgb(160, 157, 157);
     }
+
 /*#footerSPAN_38:before, #footerSPAN_41:before*/
 
 #footerLI_39 {
     box-sizing: border-box;
     display: inline-block;
+    font: normal normal 400 normal 20px/16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     height: 16px;
-    text-align: center;
-    vertical-align: top;
-    width: 15.8906px;
-    perspective-origin: 7.9375px 8px;
-    transform-origin: 7.9375px 8px;
-    font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
     margin: 0 12px;
+    perspective-origin: 7.9375px 8px;
+    text-align: center;
+    transform-origin: 7.9375px 8px;
+    vertical-align: top;
+    width: 15.8906px;
 }
+
     /*#footerLI_39*/
 
     #footerLI_39:after {
         box-sizing: border-box;
-        text-align: center;
-        font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 20px/16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
+        text-align: center;
     }
+
     /*#footerLI_39:after*/
 
     #footerLI_39:before {
         box-sizing: border-box;
-        text-align: center;
-        font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 20px/16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
+        text-align: center;
     }
+
 /*#footerLI_39:before*/
 
 #footerA_40 {
+    border: 0 none rgb(160, 157, 157);
     box-sizing: border-box;
     color: rgb(160, 157, 157);
-    text-align: center;
-    text-decoration: none solid rgb(160, 157, 157);
     column-rule-color: rgb(160, 157, 157);
-    perspective-origin: 0 0;
-    transform-origin: 0 0;
-    border: 0 none rgb(160, 157, 157);
-    font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 20px/16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     list-style: none outside none;
     outline: rgb(160, 157, 157) none 0;
+    perspective-origin: 0 0;
+    text-align: center;
+    text-decoration: none solid rgb(160, 157, 157);
+    transform-origin: 0 0;
 }
+
     /*#footerA_40*/
 
     #footerA_40:after {
+        border: 0 none rgb(160, 157, 157);
         box-sizing: border-box;
         color: rgb(160, 157, 157);
-        text-align: center;
-        text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        border: 0 none rgb(160, 157, 157);
-        font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        font: normal normal 400 normal 20px/16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(160, 157, 157) none 0;
+        text-align: center;
+        text-decoration: none solid rgb(160, 157, 157);
     }
+
     /*#footerA_40:after*/
 
     #footerA_40:before {
+        border: 0 none rgb(160, 157, 157);
         box-sizing: border-box;
         color: rgb(160, 157, 157);
-        content: '"in"';
-        text-align: center;
-        text-decoration: none solid rgb(160, 157, 157);
         column-rule-color: rgb(160, 157, 157);
-        perspective-origin: 0 0;
-        transform-origin: 0 0;
-        border: 0 none rgb(160, 157, 157);
-        font: normal normal 400 normal 20px / 16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        content: '"in"';
+        font: normal normal 400 normal 20px/16px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         list-style: none outside none;
         outline: rgb(160, 157, 157) none 0;
+        perspective-origin: 0 0;
+        text-align: center;
+        text-decoration: none solid rgb(160, 157, 157);
+        transform-origin: 0 0;
     }
+
 /*#footerA_40:before*/
 
 #footerP_42 {
+    border: 0 none rgb(160, 157, 157);
     box-sizing: border-box;
     color: rgb(160, 157, 157);
-    height: 17px;
-    text-align: center;
-    text-decoration: none solid rgb(160, 157, 157);
-    width: 307px;
     column-rule-color: rgb(160, 157, 157);
-    perspective-origin: 153.5px 8.5px;
-    transform-origin: 153.5px 8.5px;
-    border: 0 none rgb(160, 157, 157);
-    font: normal normal 400 normal 14px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 14px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    height: 17px;
     margin: -20px 0 0;
     outline: rgb(160, 157, 157) none 0;
+    perspective-origin: 153.5px 8.5px;
+    text-align: center;
+    text-decoration: none solid rgb(160, 157, 157);
+    transform-origin: 153.5px 8.5px;
+    width: 307px;
 }
+
     /*#footerP_42*/
 
     #footerP_42:after {
+        border: 0 none rgb(160, 157, 157);
         box-sizing: border-box;
         color: rgb(160, 157, 157);
+        column-rule-color: rgb(160, 157, 157);
+        font: normal normal 400 normal 14px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        outline: rgb(160, 157, 157) none 0;
         text-align: center;
         text-decoration: none solid rgb(160, 157, 157);
-        column-rule-color: rgb(160, 157, 157);
-        border: 0 none rgb(160, 157, 157);
-        font: normal normal 400 normal 14px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(160, 157, 157) none 0;
     }
+
     /*#footerP_42:after*/
 
     #footerP_42:before {
+        border: 0 none rgb(160, 157, 157);
         box-sizing: border-box;
         color: rgb(160, 157, 157);
+        column-rule-color: rgb(160, 157, 157);
+        font: normal normal 400 normal 14px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        outline: rgb(160, 157, 157) none 0;
         text-align: center;
         text-decoration: none solid rgb(160, 157, 157);
-        column-rule-color: rgb(160, 157, 157);
-        border: 0 none rgb(160, 157, 157);
-        font: normal normal 400 normal 14px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(160, 157, 157) none 0;
     }
+
 /*#footerP_42:before*/
 
 #footerA_43 {
+    border: 0 none rgb(160, 157, 157);
     box-sizing: border-box;
     color: rgb(160, 157, 157);
+    column-rule-color: rgb(160, 157, 157);
+    font: normal normal 400 normal 14px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    outline: rgb(160, 157, 157) none 0;
+    perspective-origin: 0 0;
     text-align: center;
     text-decoration: none solid rgb(160, 157, 157);
-    column-rule-color: rgb(160, 157, 157);
-    perspective-origin: 0 0;
     transform-origin: 0 0;
-    border: 0 none rgb(160, 157, 157);
-    font: normal normal 400 normal 14px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    outline: rgb(160, 157, 157) none 0;
 }
+
     /*#footerA_43*/
 
     #footerA_43:after {
+        border: 0 none rgb(160, 157, 157);
         box-sizing: border-box;
         color: rgb(160, 157, 157);
+        column-rule-color: rgb(160, 157, 157);
+        font: normal normal 400 normal 14px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        outline: rgb(160, 157, 157) none 0;
         text-align: center;
         text-decoration: none solid rgb(160, 157, 157);
-        column-rule-color: rgb(160, 157, 157);
-        border: 0 none rgb(160, 157, 157);
-        font: normal normal 400 normal 14px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(160, 157, 157) none 0;
     }
+
     /*#footerA_43:after*/
 
     #footerA_43:before {
+        border: 0 none rgb(160, 157, 157);
         box-sizing: border-box;
         color: rgb(160, 157, 157);
+        column-rule-color: rgb(160, 157, 157);
+        font: normal normal 400 normal 14px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+        outline: rgb(160, 157, 157) none 0;
         text-align: center;
         text-decoration: none solid rgb(160, 157, 157);
-        column-rule-color: rgb(160, 157, 157);
-        border: 0 none rgb(160, 157, 157);
-        font: normal normal 400 normal 14px / normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        outline: rgb(160, 157, 157) none 0;
     }
+
 /*#footerA_43:before*/
+
 div#footerDIV_1 li {
     margin-bottom: 2px;
 }
@@ -3460,30 +3444,30 @@ div#footerDIV_1 li {
 /*About_Us*/
 
 #msf-About_Us-Image img {
-    -webkit-box-shadow: 20px 28px 40px -5px rgba(181,174,181,1);
-    -moz-box-shadow: 20px 28px 40px -5px rgba(181,174,181,1);
-    box-shadow: 20px 28px 40px -5px rgba(181,174,181,1);
-    border-radius: 105px 105px 105px 105px;
     -moz-border-radius: 105px 105px 105px 105px;
+    -moz-box-shadow: 20px 28px 40px -5px rgba(181, 174, 181, 1);
     -webkit-border-radius: 105px 105px 105px 105px;
-    border: 2px solid rgba(181,174,181,1);
+    -webkit-box-shadow: 20px 28px 40px -5px rgba(181, 174, 181, 1);
+    border: 2px solid rgba(181, 174, 181, 1);
+    border-radius: 105px 105px 105px 105px;
+    box-shadow: 20px 28px 40px -5px rgba(181, 174, 181, 1);
     height: 100%;
 }
 
 .aboutUsInfoSection {
+    -moz-border-radius: 105px 105px 105px 105px;
+    -moz-box-shadow: 27px 16px 114px -48px rgba(181, 174, 181, 1);
+    -moz-box-shadow: -1px 9px 200px -16px rgba(181, 174, 181, 1);
+    -webkit-border-radius: 105px 105px 105px 105px;
+    -webkit-box-shadow: 27px 16px 114px -48px rgba(181, 174, 181, 1);
+    -webkit-box-shadow: -1px 9px 200px -16px rgba(181, 174, 181, 1);
+    border: 2px solid rgba(181, 174, 181, 1);
+    border-radius: 105px 105px 105px 105px;
+    box-shadow: 27px 16px 114px -48px rgba(181, 174, 181, 1);
+    box-shadow: -1px 9px 200px -16px rgba(181, 174, 181, 1);
+    display: inline-block;
     margin: 33px auto;
     width: 100%;
-    display: inline-block;
-    -webkit-box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
-    -moz-box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
-    box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
-    -webkit-box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
-    -moz-box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
-    box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
-    border-radius: 105px 105px 105px 105px;
-    -moz-border-radius: 105px 105px 105px 105px;
-    -webkit-border-radius: 105px 105px 105px 105px;
-    border: 2px solid rgba(181,174,181,1);
 }
 
 div#msf-About_Us-Image {
@@ -3492,61 +3476,66 @@ div#msf-About_Us-Image {
 }
 
 div#msf-About_Us-text {
-    width: 80%;
     margin: 0 auto;
+    width: 80%;
     word-wrap: break-word;
 }
 
 h3#msf-About_Us-title {
-    padding: 21px;
     font-size: 22px;
     font-size: 2.2rem;
     margin-top: 8px;
+    padding: 21px;
 }
 
 p#msf-About_Us-P {
     color: rgb(51, 51, 51);
-    font: normal normal 400 normal 14px / 23.8px Arial, Helvetica, sans-serif;
+    font: normal normal 400 normal 14px/23.8px Arial, Helvetica, sans-serif;
     margin: 0 0 20px;
 }
 
 
 /*blog*/
+
 .mainBlogContents {
-    -webkit-box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
-    -moz-box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
-    box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
-    -webkit-box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
-    -moz-box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
-    box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
+    -moz-box-shadow: 27px 16px 114px -48px rgba(181, 174, 181, 1);
+    -moz-box-shadow: -1px 9px 200px -16px rgba(181, 174, 181, 1);
+    -webkit-box-shadow: 27px 16px 114px -48px rgba(181, 174, 181, 1);
+    -webkit-box-shadow: -1px 9px 200px -16px rgba(181, 174, 181, 1);
+    box-shadow: 27px 16px 114px -48px rgba(181, 174, 181, 1);
+    box-shadow: -1px 9px 200px -16px rgba(181, 174, 181, 1);
 }
+
     .mainBlogContents h2 {
         font-size: 37px;
     }
+
     .mainBlogContents p {
-        text-align: justify;
         padding: 0 70px;
+        text-align: justify;
     }
 
     .mainBlogContents > p {
         padding-top: 34px;
     }
-.mainBlogContents a {
-    font-size: 25px;
-}
+
+    .mainBlogContents a {
+        font-size: 25px;
+    }
 
 .container.blogLink a {
     font-size: 21px;
     margin-bottom: 22px;
 }
+
 h1.blogTitle {
+    color: #5b5b5b;
+    font-family: Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     font-size: 21px;
     font-size: 2.1rem;
-    color: #5b5b5b;
     margin: 14px;
-    font-family: Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    text-decoration: none;
     min-height: 128px;
+    text-decoration: none;
 }
 
 .blogCard a {
@@ -3559,30 +3548,30 @@ span.BlogNameAndDate {
 }
 
 .blogLeftcolumn {
+    -moz-box-shadow: 27px 16px 114px -48px rgba(181, 174, 181, 1);
+    -moz-box-shadow: -1px 9px 200px -16px rgba(181, 174, 181, 1);
+    -webkit-box-shadow: 27px 16px 114px -48px rgba(181, 174, 181, 1);
+    -webkit-box-shadow: -1px 9px 200px -16px rgba(181, 174, 181, 1);
+    box-shadow: 27px 16px 114px -48px rgba(181, 174, 181, 1);
+    box-shadow: -1px 9px 200px -16px rgba(181, 174, 181, 1);
     float: left;
     width: 70%;
-    -webkit-box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
-    -moz-box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
-    box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
-    -webkit-box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
-    -moz-box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
-    box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
 }
 
 .blogRightcolumn {
-    float: left;
-    width: 28%;
-    position: relative;
-    left: 4%;
-    padding: 14px;
+    -moz-box-shadow: 27px 16px 114px -48px rgba(181, 174, 181, 1);
+    -moz-box-shadow: -1px 9px 200px -16px rgba(181, 174, 181, 1);
+    -webkit-box-shadow: 27px 16px 114px -48px rgba(181, 174, 181, 1);
+    -webkit-box-shadow: -1px 9px 200px -16px rgba(181, 174, 181, 1);
     background: #f2f2f2;
+    box-shadow: 27px 16px 114px -48px rgba(181, 174, 181, 1);
+    box-shadow: -1px 9px 200px -16px rgba(181, 174, 181, 1);
+    float: left;
+    left: 4%;
     margin: 0px 8px;
-    -webkit-box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
-    -moz-box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
-    box-shadow: 27px 16px 114px -48px rgba(181,174,181,1);
-    -webkit-box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
-    -moz-box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
-    box-shadow: -1px 9px 200px -16px rgba(181,174,181,1);
+    padding: 14px;
+    position: relative;
+    width: 28%;
 }
 
 .blogImg {
@@ -3591,44 +3580,44 @@ span.BlogNameAndDate {
 
 .blogCard {
     background-color: #f2f2f2;
-    padding: 1%;
     float: left;
     margin: 2%;
-    width: 46%;
     min-height: 532px;
+    padding: 1%;
+    width: 46%;
     word-wrap: break-word;
 }
 
 .row:after {
+    clear: both;
     content: "";
     display: table;
-    clear: both;
 }
 
 .smallBlogBlurb {
-    width: 250px;
-    white-space: nowrap;
+    color: #5b5b5b;
+    font-size: 21px;
+    height: 30px;
+    margin: auto;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin: auto;
-    height: 30px;
-    font-size: 21px;
-    color: #5b5b5b;
+    white-space: nowrap;
+    width: 250px;
 }
 
 .popularBlogposts, .blogCard {
-    text-align: center;
-    padding: 5px;
     border: lightgrey 1px solid;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     margin-bottom: 14px;
     min-height: 100px;
+    padding: 5px;
     padding: 10px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    text-align: center;
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
     .popularBlogposts:hover, .blogCard:hover {
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     }
 
     .popularBlogposts a {
@@ -3637,8 +3626,8 @@ span.BlogNameAndDate {
     }
 
 .blogImg img {
-    width: 100%;
     height: 243px;
+    width: 100%;
 }
 
 .hidden {
@@ -3646,39 +3635,39 @@ span.BlogNameAndDate {
 }
 
 .spinner_fade {
+    -moz-box-sizing: border-box;
+    -ms-animation: spinFade 1.5s infinite;
+    -ms-transform: rotateZ(-45deg);
+    -webkit-animation: spinFade 1.5s infinite;
+    -webkit-transform: rotateZ(-45deg);
+    animation: spinFade 1.5s infinite;
+    border-bottom: 1px solid #fff;
+    border-left: 1px solid #fff;
+    box-sizing: border-box;
+    height: 24px;
+    left: 50%;
     position: absolute;
     top: 50px;
-    left: 50%;
-    width: 24px;
-    height: 24px;
-    border-left: 1px solid #fff;
-    border-bottom: 1px solid #fff;
-    -webkit-transform: rotateZ(-45deg);
-    -ms-transform: rotateZ(-45deg);
     transform: rotateZ(-45deg);
-    -webkit-animation: spinFade 1.5s infinite;
-    -ms-animation: spinFade 1.5s infinite;
-    animation: spinFade 1.5s infinite;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    width: 24px;
 }
 
 .followFade {
+    -ms-transform: rotate(-45deg);
+    -webkit-animation: sdb07 2s infinite;
+    -webkit-transform: rotate(-45deg);
+    animation: FFade 2s infinite;
+    border-bottom: 1px solid #fff;
+    border-left: 1px solid #fff;
+    box-sizing: border-box;
+    height: 24px;
+    left: 50%;
+    margin-left: -12px;
+    opacity: 0;
     position: absolute;
     top: 0;
-    left: 50%;
-    width: 24px;
-    height: 24px;
-    margin-left: -12px;
-    border-left: 1px solid #fff;
-    border-bottom: 1px solid #fff;
-    -webkit-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
-    -webkit-animation: sdb07 2s infinite;
-    animation: FFade 2s infinite;
-    opacity: 0;
-    box-sizing: border-box;
+    width: 24px;
 }
 
     .followFade:nth-of-type(1) {
@@ -3688,16 +3677,16 @@ span.BlogNameAndDate {
     }
 
     .followFade:nth-of-type(2) {
-        top: 16px;
         -webkit-animation-delay: .15s;
         animation-delay: .15s;
+        top: 16px;
         top: 75px;
     }
 
     .followFade:nth-of-type(3) {
-        top: 32px;
         -webkit-animation-delay: .3s;
         animation-delay: .3s;
+        top: 32px;
         top: 100px;
     }
 
@@ -3730,13 +3719,13 @@ span.BlogNameAndDate {
 }
 
 .card img {
-    -webkit-animation-name: spin;
-    animation-name: spin;
     -webkit-animation-duration: 5000ms;
-    animation-duration: 5000ms;
     -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
+    -webkit-animation-name: spin;
     -webkit-animation-timing-function: linear;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-name: spin;
     animation-timing-function: linear;
 }
 
@@ -3751,11 +3740,11 @@ span.BlogNameAndDate {
 
 @keyframes spinFade {
     0% {
+        -ms-opacity: 0;
         -ms-transform: rotateY(0) rotateZ(-45deg) translate(0, 0);
         -webkit-transform: rotateY(0) rotateZ(-45deg) translate(0, 0);
-        transform: rotateY(0) rotateZ(-45deg) translate(0, 0);
-        -ms-opacity: 0;
         opacity: 0;
+        transform: rotateY(0) rotateZ(-45deg) translate(0, 0);
     }
 
     50% {
@@ -3764,11 +3753,11 @@ span.BlogNameAndDate {
     }
 
     100% {
+        -ms-opacity: 0;
         -ms-transform: rotateY(720deg) rotateZ(-45deg) translate(-20px, 20px);
         -webkit-transform: rotateY(720deg) rotateZ(-45deg) translate(-20px, 20px);
-        transform: rotateY(720deg) rotateZ(-45deg) translate(-20px, 20px);
-        -ms-opacity: 0;
         opacity: 0;
+        transform: rotateY(720deg) rotateZ(-45deg) translate(-20px, 20px);
     }
 }
 
@@ -3787,9 +3776,10 @@ span.BlogNameAndDate {
 }
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+
 @media screen and (max-width: 800px) {
     .blogLeftcolumn, .blogRightcolumn {
-        width: 100%;
         padding: 0;
+        width: 100%;
     }
 }

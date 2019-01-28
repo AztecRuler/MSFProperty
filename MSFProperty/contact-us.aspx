@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Contact-Us</title>
-    <link rel="canonical" href=""/>
+    <link rel="canonical" href="" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainBody" runat="server">
@@ -11,7 +11,7 @@
         <div class="span-table">
             <div class="span-table-cell vertical-align-middle text-align-center">
                 <div class="container">
-                    <h2 class="editable"> <%= GetText(35) %></h2>
+                    <h2 class="editable"><%= GetText(35) %></h2>
                     <p class="editable"><%= GetText(36) %> </p>
                 </div>
             </div>
@@ -34,6 +34,7 @@
     </div>
 
 
+
     <div class="Cu">
         <h2 style="text-align: center;">
             <span style="font-size: 20px;" class="editable">
@@ -43,22 +44,22 @@
         <p style="text-align: center;" class="editable"><%= GetText(38) %></p>
         <div id="cuDIV_8">
             <span id="cuSPAN_9">
-                <input type="text" name="msf-subject" size="40" placeholder="Subject" id="cuINPUT_10"/>
+                <input type="text" name="msf-subject" size="40" placeholder="Subject" id="cuINPUT_10" />
             </span>
         </div>
         <div id="cuDIV_11">
             <span id="cuSPAN_12">
-                <input type="text" name="msf-name" size="40" placeholder="Name" id="cuINPUT_13"/>
+                <input type="text" name="msf-name" size="40" placeholder="Name" id="cuINPUT_13" />
             </span>
         </div>
         <div id="cuDIV_14">
             <span id="cuSPAN_15">
-                <input type="email" name="msf-email" size="40" placeholder="Confirm Email Address" id="cuINPUT_16"/>
+                <input type="email" name="msf-email" size="40" placeholder="Confirm Email Address" id="cuINPUT_16" />
             </span>
         </div>
         <div id="cuDIV_17">
             <span id="cuSPAN_18">
-                <input type="text" name="msf-phone" size="40" placeholder="Telephone Number" id="cuINPUT_19"/>
+                <input type="text" name="msf-phone" size="40" placeholder="Telephone Number" id="cuINPUT_19" />
             </span>
         </div>
         <div id="cuDIV_20">
@@ -68,13 +69,14 @@
         </div>
         <div id="cuDIV_23">
             <span id="cuSPAN_24">
-                <input type="checkbox" name="privacy-consent" value="1" id="cuINPUT_25"/>
-            </span> <span id="cuSPAN_26">I've read and accept the <a href="/privacy-policy/" id="cuA_27">Privacy Policy</a>.</span>
+                <input type="checkbox" name="privacy-consent" value="1" id="privacyCheck" />
+            </span><span id="cuSPAN_26">I've read and accept the <a href="/Privacy.aspx" id="cuA_27">Privacy Policy</a>.</span>
         </div>
         <div id="cuDIV_28">
-            <input type="submit" value="Submit" disabled="disabled" id="cuINPUT_29"/><img src="ajax-loader.gif" alt="Sending ..." id="cuIMG_30"/>
+            <input type="submit" value="Submit" disabled="disabled" id="sendMessage" /><img src="ajax-loader.gif" alt="Sending ..." id="cuIMG_30" />
         </div>
         <div id="cuDIV_31">
         </div>
     </div>
+
 </asp:Content>
