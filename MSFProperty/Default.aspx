@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MSFMaster.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="MSFProperty.Default" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>MSF Property Management</title>
     <link rel="canonical" href="" />
@@ -12,83 +13,83 @@
                 <h2 class="editable"><%=GetText(1)%></h2>
                 <p class="editable"><%=GetText(2)%></p>
             </div>
-                   <div id="DIV_1">
-            <div id="DIV_2">
-                <h3 id="H3_3">Property Search
-                </h3>
+            <div id="DIV_1">
+                <div id="DIV_2">
+                    <h3 id="H3_3">Property Search
+                    </h3>
 
 
-                <form method="get" action="#/accommodation/" id="FORM_4">
                     <ul id="UL_5">
                         <li id="LI_6">
                             <div id="DIV_7">
                                 <label for="msf-date-search-text-main" id="LABEL_8">
-                                    <input type="text" id="INPUT_9" name="msf-date-search-text-main" placeholder="Enter search term here">
+                                    <input type="text" id="searchInput" name="msf-date-search-text-main" placeholder="Enter search term here">
                                 </label>
                             </div>
                         </li>
                         <li id="LI_128">
-                            <input type="submit" value="Search" id="INPUT_129">
+                            <input type="submit" value="Search" id="searchSubmitButton">
                         </li>
                     </ul>
                     <div id="DIV_130">
                         <h4 id="H4_131" class="editable">
                             <%=GetText(4)%>
                         </h4>
-                        <input type="checkbox" id="INPUT_132" name="msf-checkbox-flexible">
+                        <input type="checkbox" id="flexDates" name="msf-checkbox-flexible">
                         <label for="msf-checkbox-flexible" id="LABEL_133" class="editable">
                             <%=GetText(5)%>
                         </label>
-                        <input type="checkbox" id="INPUT_134" name="msf-checkbox-smoking">
+                        <input type="checkbox" id="smokingSearch" name="msf-checkbox-smoking">
                         <label for="msf-checkbox-smoking" id="LABEL_135" class="editable">
                             <%=GetText(6)%>
                         </label>
-                        <input type="checkbox" id="INPUT_136" name="msf-checkbox-pet">
+                        <input type="checkbox" id="petSearch" name="msf-checkbox-pet">
                         <label for="msf-checkbox-pet" id="LABEL_137" class="editable">
                             <%=GetText(7)%>
                         </label>
                     </div>
-                </form>
 
+
+                </div>
+                <!-- .container -->
 
             </div>
-            <!-- .container -->
 
-        </div>
-      
 
-          
+
         </div>
         <div class="caption">
-            <a href="#"><span id="spinner1"  class="spinner_fade"></span><span id="spinner2" class="spinner_fade"></span><span id="spinner3"  class="spinner_fade"></span>
-            <span class="border editable"><%=GetText(3)%></span></a>
+            <a href="#check1"><span id="spinner1" class="spinner_fade"></span><span id="spinner2" class="spinner_fade"></span><span id="spinner3" class="spinner_fade"></span>
+                <span class="border editable"><%=GetText(3)%></span></a>
 
         </div>
 
-   <div class="msf-buttons-info msf-bg-grey">
+        <div class="msf-buttons-info msf-bg-grey">
             <div class="container clear-both-fix text-align-center">
                 <ul>
-                    <li class="msf-button-info-book "><a class="editable" href="#">  <%=GetText(8)%></a></li>
-                    <li class="msf-button-info-phone "><a class="editable" href="tel:07709 649 292 7"> <%=GetText(9)%> </a></li>
-                    <li class="msf-button-info-contact "><a class="editable" href="../contact-us/"> <%=GetText(10)%></a></li>
+                    <li class="msf-button-info-book "><a class="editable" href="#"><%=GetText(8)%></a></li>
+                    <li class="msf-button-info-phone "><a class="editable" href="tel:07709 649 292 7"><%=GetText(9)%> </a></li>
+                    <li class="msf-button-info-contact "><a class="editable" href="../contact-us/"><%=GetText(10)%></a></li>
                 </ul>
             </div>
         </div>
     </div>
-
+    <div id="check1"></div>
     <div class="foregroundDiv">
-        <h3 class="editable"  style="text-align: center;"> <%=GetText(11)%> </h3>
+        <h3 class="editable" style="text-align: center;"><%=GetText(11)%> </h3>
 
-        <span class="editable top_front_div"> <%=GetText(12)%> </span> </div>
+        <span class="editable top_front_div"><%=GetText(12)%> </span>
+    </div>
 
-    <div class="bgimg-2 editable"  style="background-image: url('../Images/<%=GetImage(2)%>')">
+    <div class="bgimg-2 editable" style="background-image: url('../Images/<%=GetImage(2)%>')">
         <div class="caption">
             <span class="border"><a href="acommodationsPage.aspx" class="border editable"><%=GetText(13)%></a></span>
 
-  <a href="#" id="followFadeAnchor"><span class="followFade"></span><span class="followFade"></span><span class="followFade"></span></a>
+            <a href="#check2"  id="followFadeAnchor"><span class="followFade"></span><span class="followFade"></span><span class="followFade"></span></a>
 
         </div>
     </div>
+    <div id="check2"></div>
 
     <div style="position: relative;">
         <div class="foregroundDiv_dark">
@@ -96,7 +97,7 @@
 
             <div class="msf-list-villas msf-bg-white">
                 <div class="container">
-                                       <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
                             <p class="text-align-right msf-list-villas-pager">
                                 View
@@ -165,14 +166,13 @@
         </div>
     </div>
 
-    <div class="bgimg-3 editable"  style="background-image: url('../Images/<%=GetImage(3)%>')">
+    <div class="bgimg-3 editable" style="background-image: url('../Images/<%=GetImage(3)%>')">
         <div class="caption">
-            <span class="border editable"><%=GetText(14)%></span>
+            <a href="#" > <span class="border editable"><%=GetText(14)%></span></a>
         </div>
     </div>
 
     <div style="position: relative;">
-      
     </div>
 </asp:Content>
 

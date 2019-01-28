@@ -133,6 +133,7 @@
     <Content Include="Logs\log.txt" />
     <Content Include="Privacy.aspx" />
     <Content Include="properties.aspx" />
+    <Content Include="SearchResults.aspx" />
     <Content Include="services.aspx" />
     <Content Include="star.png" />
     <Content Include="TodoList.aspx" />
@@ -271,6 +272,13 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SearchResults.aspx.cs">
+      <DependentUpon>SearchResults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchResults.aspx.designer.cs">
+      <DependentUpon>SearchResults.aspx</DependentUpon>
     </Compile>
     <Compile Include="services.aspx.cs">
       <DependentUpon>services.aspx</DependentUpon>

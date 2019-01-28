@@ -14,6 +14,7 @@ html {
     font-size: 77.5%;
     height: 100%;
     margin: 0;
+    scroll-behavior: smooth;
 }
 
 h3 {
@@ -676,7 +677,7 @@ input {
     background: rgb(255, 255, 255) none repeat scroll 0% 0%/auto padding-box border-box;
     display: table;
     margin: auto;
-    width: 1126px;
+    width: 60%;
 }
 
     #UL_5:after {
@@ -709,15 +710,8 @@ input {
     }
 
 #DIV_7 {
-    box-sizing: border-box;
-    font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    height: 30px;
-    list-style: none outside none;
     padding: 0 11px;
-    perspective-origin: 110.5px 15px;
-    text-align: left;
-    transform-origin: 110.5px 15px;
-    width: 221px;
+    width: 100%;
 }
 
     #DIV_7:after {
@@ -735,20 +729,7 @@ input {
     }
 
 #LABEL_8 {
-    bottom: 0;
-    box-sizing: border-box;
-    display: block;
-    font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    height: 30px;
-    left: 0;
-    list-style: none outside none;
-    perspective-origin: 99.5px 15px;
-    position: relative;
-    right: 0;
-    text-align: left;
-    top: 0;
-    transform-origin: 99.5px 15px;
-    width: 199px;
+    width: 100%;
 }
 
     #LABEL_8:after {
@@ -765,61 +746,41 @@ input {
         text-align: left;
     }
 
-#INPUT_9 {
-    border: 0 none rgb(162, 165, 164);
+#searchInput {
     color: rgb(162, 165, 164);
-    column-rule-color: rgb(162, 165, 164);
-    display: block;
     font: normal normal 400 normal 18px/30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    height: 30px;
-    list-style: none outside none;
-    outline: rgb(162, 165, 164) none 0;
-    overflow: hidden;
-    padding: 0;
-    perspective-origin: 99.5px 15px;
-    text-decoration: none solid rgb(162, 165, 164);
     text-overflow: ellipsis;
-    transform-origin: 99.5px 15px;
-    vertical-align: middle;
-    white-space: nowrap;
-    width: 199px;
+    width: 100%;
 }
 
-    #INPUT_9:after {
-        border: 0 none rgb(162, 165, 164);
-        box-sizing: border-box;
-        color: rgb(162, 165, 164);
-        column-rule-color: rgb(162, 165, 164);
-        font: normal normal 400 normal 18px/30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        list-style: none outside none;
-        outline: rgb(162, 165, 164) none 0;
-        text-decoration: none solid rgb(162, 165, 164);
-        white-space: nowrap;
-    }
+#INPUT_9:after {
+    border: 0 none rgb(162, 165, 164);
+    box-sizing: border-box;
+    color: rgb(162, 165, 164);
+    column-rule-color: rgb(162, 165, 164);
+    font: normal normal 400 normal 18px/30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    list-style: none outside none;
+    outline: rgb(162, 165, 164) none 0;
+    text-decoration: none solid rgb(162, 165, 164);
+    white-space: nowrap;
+}
 
-    #INPUT_9:before {
-        border: 0 none rgb(162, 165, 164);
-        box-sizing: border-box;
-        color: rgb(162, 165, 164);
-        column-rule-color: rgb(162, 165, 164);
-        font: normal normal 400 normal 18px/30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-        list-style: none outside none;
-        outline: rgb(162, 165, 164) none 0;
-        text-decoration: none solid rgb(162, 165, 164);
-        white-space: nowrap;
-    }
+#INPUT_9:before {
+    border: 0 none rgb(162, 165, 164);
+    box-sizing: border-box;
+    color: rgb(162, 165, 164);
+    column-rule-color: rgb(162, 165, 164);
+    font: normal normal 400 normal 18px/30px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
+    list-style: none outside none;
+    outline: rgb(162, 165, 164) none 0;
+    text-decoration: none solid rgb(162, 165, 164);
+    white-space: nowrap;
+}
 
 #LI_128 {
-    box-sizing: border-box;
     display: table-cell;
-    font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    height: 50px;
-    list-style: none outside none;
     max-width: 200px;
     min-width: 75px;
-    perspective-origin: 98.5px 25px;
-    transform-origin: 98.5px 25px;
-    vertical-align: middle;
     width: 197px;
 }
 
@@ -835,28 +796,15 @@ input {
         list-style: none outside none;
     }
 
-#INPUT_129 {
-    align-items: flex-start;
+#searchSubmitButton {
     background: rgb(13, 170, 149) none repeat scroll 0% 0%/auto padding-box border-box;
-    border: 0 none rgb(255, 255, 255);
     color: rgb(255, 255, 255);
-    column-rule-color: rgb(255, 255, 255);
     cursor: pointer;
     font: normal normal 300 normal 18px/50px Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    height: 50px;
-    list-style: none outside none;
-    outline: rgb(255, 255, 255) none 0;
-    padding: 0 60px;
-    perspective-origin: 98.5px 25px;
-    text-align: center;
-    text-decoration: none solid rgb(255, 255, 255);
-    transform-origin: 98.5px 25px;
-    user-select: none;
-    white-space: pre;
-    width: 197px;
+    width: 100%;
 }
 
-    #INPUT_129:after {
+    #searchSubmitButton:after {
         border: 0 none rgb(255, 255, 255);
         box-sizing: border-box;
         color: rgb(255, 255, 255);
@@ -871,7 +819,7 @@ input {
         white-space: pre;
     }
 
-    #INPUT_129:before {
+    #searchSubmitButton:before {
         border: 0 none rgb(255, 255, 255);
         box-sizing: border-box;
         color: rgb(255, 255, 255);
@@ -934,13 +882,13 @@ input {
         text-decoration: none solid rgb(255, 255, 255);
     }
 
-#INPUT_132, #INPUT_134, #INPUT_136 {
+#flexDates, #smokingSearch, #petSearch {
     border: 0 none rgb(255, 255, 255);
     margin: 0 0 0 15px;
     transform-origin: 6.5px 6.5px;
 }
 
-    #INPUT_132:after, #INPUT_134:after, #INPUT_136:after {
+    #flexDates:after, #smokingSearch:after, #petSearch:after {
         border: 0 none rgb(255, 255, 255);
         box-sizing: border-box;
         color: rgb(255, 255, 255);
@@ -951,7 +899,7 @@ input {
         text-decoration: none solid rgb(255, 255, 255);
     }
 
-    #INPUT_132:before, #INPUT_134:before, #INPUT_136:before {
+    #flexDates:before, #smokingSearch:before, #petSearch:before {
         border: 0 none rgb(255, 255, 255);
         box-sizing: border-box;
         color: rgb(255, 255, 255);
@@ -3438,6 +3386,16 @@ p, li {
 
 div#footerDIV_1 li {
     margin-bottom: 2px;
+}
+
+/*check points fro scrolling*/
+div#check1 {
+    position: relative;
+    bottom: 80px;
+}
+div#check2 {
+    position: relative;
+    bottom: 95px;
 }
 
 
