@@ -12,7 +12,7 @@
     $("#searchSubmitButton").click(function (e) {
         e.preventDefault();
         const searchCriteria = $("#searchInput").val();
-        if (searchCriteria != "") {
+        if (searchCriteria !== "") {
             const dates = $("#flexDates").is(":checked");
             const smoking = $("#smokingSearch").is(":checked");
             const pets = $("#petSearch").is(":checked");
