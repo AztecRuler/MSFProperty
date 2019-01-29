@@ -23,10 +23,6 @@
         margin-left: 5px;
     }
 
-.active:after {
-    content: "\2212";
-}
-
 .panel {
     padding: 0 18px;
     background-color: white;
@@ -35,7 +31,33 @@
     transition: max-height 0.2s ease-out;
 }
 
+/*about us section */
+.aboutUsInfoSection {
+    border: black 1px groove;
+    margin: 10px auto;
+    padding: 14px;
+    float: left;
+    min-width: 100%;
+}
+
+div#msf-About_Us-Image {
+    float: left;
+    min-width: 253px;
+}
+
+div#msf-About_Us-text {
+    float: left;
+    width: 60%;
+    margin: 0px 20px 40px;
+}
+
+
 /*admin screen*/
+span#errorText {
+    color: red;
+    font-size: xx-large;
+}
+
 .leftWrapper {
     float: left;
     width: 75%;
@@ -46,6 +68,367 @@
     width: 25%;
 }
 
-#AdminPanel, #TextChangePanel, #pageId {
+#AdminPanel, #TextChangePanel, #pageId, #ImageChangePanel, #elementNumber, #elementType, #elemenetLink, #pageId, #pageName, #imageprops, #uploadedImageUrl {
     display: none;
+}
+
+#imagePreview {
+    width: 200px;
+    height: 200px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.imageButtonUpload {
+    max-width: 200px;
+    max-height: 150px;
+    height: 150px;
+    min-width: 200px;
+    min-height: 150px;
+    padding-top: 14px;
+}
+
+    .imageButtonUpload:focus {
+        border: red solid 3px;
+    }
+
+#useUploadedFile {
+    max-height: 500px;
+    overflow: auto;
+}
+
+#ImageSave {
+    width: 100%;
+    height: 35px;
+    background: darkkhaki;
+}
+
+
+/*//master*/
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+
+body {
+    overflow-x: hidden;
+}
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+    #wrapper.toggled {
+        padding-left: 250px;
+    }
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    top: -1px;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+    .sidebar-nav li {
+        text-indent: 20px;
+        line-height: 40px;
+        border-top: .2px solid tan;
+    }
+
+        .sidebar-nav li a {
+            display: block;
+            text-decoration: none;
+            color: tan;
+        }
+
+            .sidebar-nav li a:hover {
+                text-decoration: none;
+                color: #fff;
+                background: rgba(255, 255, 255, 0.2);
+            }
+
+            .sidebar-nav li a:active, .sidebar-nav li a:focus {
+                text-decoration: none;
+            }
+
+    .sidebar-nav > .sidebar-brand {
+        height: 65px;
+        font-size: 18px;
+        line-height: 60px;
+    }
+
+        .sidebar-nav > .sidebar-brand a {
+            color: beige;
+        }
+
+            .sidebar-nav > .sidebar-brand a:hover {
+                color: #fff;
+                background: none;
+            }
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 0;
+    }
+
+        #wrapper.toggled {
+            padding-left: 250px;
+        }
+
+    #sidebar-wrapper {
+        width: 0;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
+
+/*nav bar*/
+#navBar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #000;
+    right: 8px;
+    position: relative;
+    top: -8px;
+    width: 102%;
+}
+
+    #navBar li {
+        float: left;
+        border-right: 1px solid #bbb;
+    }
+
+        #navBar li:last-child {
+            border-right: none;
+        }
+
+        #navBar li a {
+            display: block;
+            color: tan;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            height: 36px;
+        }
+
+            #navBar li a:hover:not(.active) {
+                background-color: #111;
+            }
+
+.active {
+    background-color: #84862d;
+}
+
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+    /* Style the buttons inside the tab */
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+    width: 100%;
+}
+
+.evenWrapper {
+    display: table-cell;
+    width: 50%;
+}
+
+.hidden {
+    display: none;
+}
+
+.blogEditPanel tr {
+    border: 1px solid lightgrey;
+    background: aliceblue;
+}
+
+.blogEditPanel table {
+    border-collapse: collapse;
+}
+
+.blogImg {
+    width: 100%;
+    padding: 20px;
+}
+
+.blogCard, .blogCardDelete {
+    background-color: #f2f2f2;
+    padding: 17px 50px;
+    float: left;
+    margin: 14px 14px;
+    height: 442px;
+    width: 569px;
+    text-align: center;
+}
+
+#textBoxPrevious {
+    width: 60%;
+    margin: 14px;
+    height: 300px;
+    overflow: auto;
+    background: white;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.smallBlogBlurb {
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: auto;
+    height: 30px;
+    font-size: 25px;
+}
+
+.popularBlogposts {
+    text-align: center;
+    padding: 5px;
+    border: lightgrey 1px solid;
+    margin-bottom: 14px;
+}
+
+.blogImg img {
+    width: 100%;
+    height: 243px;
+}
+
+table#streetTable {
+    font-size: 16px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 50%;
+    float: left;
+}
+
+#streetTable tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+#streetTable td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+    width: 50%;
+}
+
+iframe#mapForPostcode {
+    float: left;
+    width: 50%;
+    height: 474px;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

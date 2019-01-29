@@ -1,0 +1,20 @@
+
+Log Entry : 18:30:05 09 January 2019
+  :
+  :https://api.postcodes.io/postcodes/eh218la
+-------------------------------
+
+Log Entry : 18:30:05 09 January 2019
+  :
+  :{"status":200,"result":{"postcode":"EH21 8LA","quality":1,"eastings":337089,"northings":672346,"country":"Scotland","nhs_ha":"Lothian","longitude":-3.008716,"latitude":55.940029,"european_electoral_region":"Scotland","primary_care_trust":"East Lothian Community Health Partnership","region":null,"lsoa":"IZ01 - 07","msoa":"IZ01","incode":"8LA","outcode":"EH21","parliamentary_constituency":"East Lothian","admin_district":"East Lothian","parish":null,"admin_county":null,"admin_ward":"Tranent, Wallyford and Macmerry","ced":null,"ccg":"East Lothian Community Health Partnership","nuts":"East Lothian and Midlothian","codes":{"admin_district":"S12000010","admin_county":"S99999999","admin_ward":"S13002910","parish":"S99999999","parliamentary_constituency":"S14000020","ccg":"S03000031","ced":"S99999999","nuts":"UKM73"}}} resultconent 
+-------------------------------
+
+Log Entry : 18:30:05 09 January 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940029&lon=-3.008716
+-------------------------------
+
+Log Entry : 18:30:06 09 January 2019
+  :
+  :{"place_id":"82419633","licence":"Data Â© OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright","osm_type":"way","osm_id":"28198542","lat":"55.9398894536989","lon":"-3.0086633486798","display_name":"Wemyss Gardens, Pinkie Braes, Levenhall, Wallyford, East Lothian, Scotland, EH21 8LA, UK","address":{"road":"Wemyss Gardens","neighbourhood":"Pinkie Braes","suburb":"Levenhall","village":"Wallyford","county":"East Lothian","state":"Scotland","postcode":"EH21 8LA","country":"UK","country_code":"gb"},"boundingbox":["55.9393048","55.9404565","-3.0102363","-3.0081411"]}  content
+-------------------------------

@@ -4,33 +4,39 @@
 
 <html>
 <head runat="server">
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="CSS/MSF_StyleSheet.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="Javascript/msfJavascript.js"></script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
-        <link href="CSS/Design1Css.css" rel="stylesheet" />
     </asp:ContentPlaceHolder>
+    <script> var pagePath = "<%= PagePath %>";</script>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="NavigationMenu" runat="server">
-                <div id="wpg-bar">
+                <div id="msf-nav-bar">
                     <div class="container clear-both-fix">
-                        <h1 class="wpg-logo"><a href="Default.aspx">MSF Property Management 
+                        <h1 class="msfLogo"><a href="Default.aspx">MSF Property Management 
                 <br>
                             <span>MSF Property Management</span>
                         </a>
                         </h1>
-                        <ul class="wpg-bar-mobile-menu">
-                            <li class="wpg-phone-button"><a href="tel:07709 649 292 "><span>Phone</span></a></li>
-                            <li class="wpg-open-menu-button"><a href="#"><span>Open menu </span></a></li>
+                        <ul class="msf-nav-bar-mobile-menu">
+                            <li class="msf-phone-button"><a href="tel:07709 649 292 "><span>Phone</span></a></li>
+                            <li class="msf-open-menu-button"><a href="#"><span>Open menu </span></a></li>
                         </ul>
-                        <ul id="menu-main-menu" class="wpg-bar-main-menu wpg-mobile-menu" style="">
-                            <li id="menu-item-19" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-5 current_page_item"><a href="Default.aspx">Home</a></li>
-                            <li id="menu-item-18" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="services.aspx">Services</a></li>
-                            <li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="accommodation.aspx">Propertiess</a></li>
-                            <li id="menu-item-27" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="about-us.aspx">About us</a></li>
-                            <li id="menu-item-16" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="blog.aspx">Journal</a></li>
-                            <li id="menu-item-15" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="contact-us.aspx">Contact Us</a></li>
+                        <ul id="menu-main-menu" class="msf-nav-bar-main-menu msf-mobile-menu">
+                            <li id="menu-item-1" class="current-menu-item"><a href="Default.aspx">Home</a></li>
+                            <li id="menu-item-2" class=""><a href="services.aspx">Services</a></li>
+                            <li id="menu-item-3" class=""><a href="acommodationsPage.aspx">Propertiess</a></li>
+                            <li id="menu-item-4" class=""><a href="About_Us.aspx">About us</a></li>
+                            <li id="menu-item-5" class=""><a href="BlogMainPage.aspx">Blog</a></li>
+                            <li id="menu-item-6" class=""><a href="contact-us.aspx">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -42,17 +48,17 @@
 
 
 
-            <asp:ContentPlaceHolder ID="footer" runat="server">
+            <asp:ContentPlaceHolder ID="footerMaster" runat="server">
 
 
-                <div id="footer" class="footer">
+<%--                                <div id="footer" class="footer">
                     <div id="footerDIV_1">
                         <div id="footerDIV_2">
                             <div id="footerDIV_3">
                                 <div id="footerDIV_4">
                                     <ul id="footerUL_5">
                                         <li id="footerLI_6">
-                                            <a href="accommodation.aspx" id="footerA_7">Our Properties</a>
+                                            <a href="accommodationsPage.aspx" id="footerA_7">Our Properties</a>
                                         </li>
                                         <li id="footerLI_8">
                                             <a href="#" id="footerA_9">Amenities</a>
@@ -78,7 +84,7 @@
                                 <div id="footerDIV_20">
                                     <ul id="footerUL_21">
                                         <li id="footerLI_22">
-                                            <a href="about-us.aspx" id="footerA_23">About us</a>
+                                            <a href="About_Us.aspx" id="footerA_23">About us</a>
                                         </li>
                                         <li id="footerLI_24">
                                             <a href="blog.aspx" id="footerA_25">Journal</a>
@@ -110,7 +116,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--%>
             </asp:ContentPlaceHolder>
 
         </div>

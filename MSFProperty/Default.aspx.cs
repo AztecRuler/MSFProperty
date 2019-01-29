@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MSFProperty.Admin.EF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using MSFProperty.Admin.EF;
 
 namespace MSFProperty
 {
@@ -14,10 +15,30 @@ namespace MSFProperty
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            PopulateTextContents(); 
+            PopulateTextContents();
+            SetNumberOfProperty();
         }
 
-       private  void PopulateTextContents()
+        protected void SetNumberOfProperty()
+        {
+            string selectedNumber = PagerPropHome.SelectedValue;
+            int.TryParse(selectedNumber, out int number);
+
+            using (var db = new Model1())
+            {
+                PropertyRepeaterHome.DataSource = db.Properties.Where(p => p.Featured == true).ToList().Take(number);
+
+                PropertyRepeaterHome.DataBind();
+
+            }
+        }
+
+        public string getContents(int id)
+        {
+            return DataCalls.GetContents(id);
+        }
+
+        private void PopulateTextContents()
         {
             List<string> pageList = new List<string>();
             using (var db = new Model1())
@@ -29,21 +50,19 @@ namespace MSFProperty
                 }
             }
         }
-
+        public void RefreshCount(object sender, EventArgs e)
+        {
+            SetNumberOfProperty();
+        }
         public string GetText(int id)
         {
-            string text = ""; 
+            return DataCalls.GetText(id); ;
+        }
 
-            using (var db = new Model1())
-            {
-                foreach (var item in db.TextContents)
-                {
-                    if(item.ID == id)
-                    text =item.ElementText;
+        public string GetImage(int id)
+        {
+            return DataCalls.GetImage(id);
 
-                }
-            }
-            return text;
         }
     }
 }

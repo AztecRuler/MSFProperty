@@ -5,22 +5,89 @@
 <html>
 <head runat="server">
     <title></title>
-    <script src="../Javascript/TestScript.js"></script>
-    <asp:ContentPlaceHolder ID="head" runat="server">
+      <asp:ContentPlaceHolder ID="head" runat="server">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="../CSS/AdminStyleSheet1.css" rel="stylesheet" type="text/css" runat="server" />
+        <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
+
     </asp:ContentPlaceHolder>
 </head>
 <body>
 
     <form id="form1" runat="server">
-<%--        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="true" EnableScriptGlobalization="true">
             <Scripts>
-                <asp:ScriptReference Path="https://code.jquery.com/jquery-1.12.4.js"></asp:ScriptReference>
+                <asp:ScriptReference Path="https://code.jquery.com/jquery-2.2.4.min.js"></asp:ScriptReference>
+
+                <asp:ScriptReference Path="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></asp:ScriptReference>
+                <asp:ScriptReference Path="../Javascript/adminJavaScript.js"></asp:ScriptReference>
+
             </Scripts>
-        </asp:ScriptManager>--%>
+        </asp:ScriptManager>
         <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+            <asp:ContentPlaceHolder ID="AdminPanel" runat="server">
+                <div id="wrapper" class="toggled">
+
+                    <!-- Sidebar -->
+                    <div id="sidebar-wrapper">
+                        <ul class="sidebar-nav">
+                            <li class="sidebar-brand">
+                                <a href="Admin.aspx">DashBoard Home
+                                </a>
+                            </li>
+                            <li>
+                                <a href="EditPage.aspx">Edit WebSite Pages</a>
+                            </li>
+                            <li>
+                                <a href="PropertyPage.aspx">Edit Properties</a>
+                            </li>
+                            <li>
+                                <a href="EditImages.aspx">Edit Images</a>
+                            </li>
+                            <li>
+                                <a href="#">Analytics</a>
+                            </li>
+                            <li>
+                                <a href="AdminBlogPage.aspx">Edit Blog</a>
+                            </li>
+                            <li>
+                                <a href="AdminAboutUs.aspx">Edit About Us</a>
+                            </li>
+                            <li>
+                                <a href="#">Edit Email</a>
+                            </li>
+                            <li>
+                                <a href="#">Edit Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul id="navBar">
+                       <%-- <li><a class="active" href="#home">Home</a></li>
+                        <li><a href="#news">News</a></li>
+                        <li><a href="#contact">Contact</a></li>--%>
+                        <li style="float: right"><a href="../Default.aspx">View Live Web Site</a></li>
+                    </ul>
+                    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+
+                    <div id="page-content-wrapper">
+                        <div class="container-fluid">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+
+                </div>
+
+                <script>
+                    $("#menu-toggle").click(function (e) {
+                        e.preventDefault();
+                        $("#wrapper").toggleClass("toggled");
+                    });
+                </script>
+
             </asp:ContentPlaceHolder>
+
         </div>
     </form>
 </body>

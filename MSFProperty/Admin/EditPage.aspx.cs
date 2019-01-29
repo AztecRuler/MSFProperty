@@ -1,124 +1,150 @@
-﻿using MSFProperty.Admin.EF;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Web.UI.WebControls;
-using System.Web.Services;
+using System.Web.UI;
+using MSFProperty.Admin.EF;
+using Page = System.Web.UI.Page;
 
 namespace MSFProperty.Admin
 {
-    public partial class EditPage : System.Web.UI.Page
+    public partial class EditPage : Page
     {
+        private int? elementPageId;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            //if (!Master.Page.ClientScript.IsStartupScriptRegistered("alert"))
-            //{
-            //    Master.Page.ClientScript.RegisterStartupScript
-            //        (this.GetType(), "alert", "insideJS();", true);
-            //}
-
-            List<string> pageList = new List<string>();
-            using (var db = new Model1())
+            if (!Page.IsPostBack)
             {
-                foreach (var item in db.Pages)
+                List<string> pageList = new List<string>();
+                using (var db = new Model1())
                 {
-                    pageList.Add(item.PageName.ToString().Replace(" ", string.Empty));
+                    foreach (var item in db.Pages)
+                    {
+                        pageList.Add(item.PageName.Replace(" ", string.Empty));
 
+                    }
+
+                    rpData.DataSource = db.Pages.ToList();
+
+                    rpData.DataBind();
                 }
 
-                rpData.DataSource = db.Pages.ToList();
+                GetImagesFromFolder();
 
-                rpData.DataBind();
+            }
+        }
+
+        private void GetImagesFromFolder()
+        {
+            List<string> imageList = new List<string>();
+            String[] filenames = Directory.GetFiles(Server.MapPath("~/Images"));
+
+            foreach (var item in filenames)
+            {
+                imageList.Add(item.Replace(" ", string.Empty).Split('\\').Last());
+
             }
 
+            Repeater1.DataSource = imageList.ToList();
 
-        }
-
-        protected void btnLogin_Click(object sender, EventArgs e)
-        {
-            ScriptManager1.RegisterClientScriptBlock(this, GetType(), "none", "<script>executeAfter();</script>", false);
-        }
-
-        public class EditableEllement
-        {
-            public int Id { get; set; }
-            public string PageName { get; set; }
-            public int PageId { get; set; }
-            public string ElementText { get; set; }
-            public int ElementNumber { get; set; }
-            public string ElementType { get; set; }
-            public string ElemenetLink { get; set; }
-        }
-
-
-        [WebMethod]
-        public static void PassThings(EditableEllement ellement)
-        {
-            var t = ellement;
-
-        }
-
-        private void OpenAdminPanelForText(EditableEllement text)
-        {
-            ////display panel
-            //AdminPanel.Visible = true;
-
-            ////populate input fields 
-            //pageName.Text = text.PageName;
-
-            //pageId.Text = text.PageId.ToString();
-
-            //elementText.Text = text.ElementText;
-
-            //elementNumber.Text = text.ElementNumber.ToString();
-
-            //elementType.Text = text.ElementType;
-
-            //elemenetLink.Text = text.ElemenetLink;
-
-
+            Repeater1.DataBind();
         }
 
         protected void Save_Click(object sender, EventArgs e)
         {
+            elementPageId = Convert.ToInt32(hdnfldVariable.Value);
+
             using (var db = new Model1())
             {
-
-                var result = db.TextContents.SingleOrDefault(b => b.ElementNumber == elementNumber.Text);
+                TextContent result = db.TextContents.SingleOrDefault(b => b.ElementNumber == elementNumber.Text && b.PageId == elementPageId);
                 if (result != null)
                 {
                     result.ElementText = elementText.Text;
                     db.SaveChanges();
                 }
-                else
-                {
-                    //var std = new TextContent()
-                    //{
-
-                    //    PageName = pageName.Text.ToString(),
-                    //    PageId = int.Parse(pageId.Text),
-                    //    ElementText = elementText.Text,
-                    //    ElementNumber = elementNumber.Text,
-                    //    ElementType = elementType.Text,
-                    //    ElementLink = elemenetLink.Text
-                    //};
-
-                    //db.TextContents.Add(std);
-
-                    //db.SaveChanges();
-                }
-            
-                //if (!Master.Page.ClientScript.IsStartupScriptRegistered("alert"))
-                //{
-                //    Master.Page.ClientScript.RegisterStartupScript
-                //        (this.GetType(), "alert", "clearIframe(iframe1);", true);
-                //}
-
-
-
+        
+            }
+            if (!Page.ClientScript.IsStartupScriptRegistered("reload"))
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "reload", "<script>clearIframe(" + elementPageId + ");</script>", false);
             }
 
         }
+        protected void Image_Save_Click(object sender, EventArgs e)
+        {
+            string realPhysicalPath = "";
+            elementPageId = Convert.ToInt32(hdnfldVariable.Value);
+
+            if (IsImage(FileUpload1.FileContent) || uploadedImageUrl.Text !="")
+            {
+                using (var db = new Model1())
+                {
+                    PageImage result = db.PageImages.SingleOrDefault(b => b.ImageID == ImageID.Text && b.PageId == elementPageId);
+                    String Filename = "";
+
+                    if (FileUpload1.HasFile)
+                    {
+                        realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + FileUpload1.FileName);
+                        FileUpload1.SaveAs(realPhysicalPath);
+                        Filename = "MSF-" + FileUpload1.FileName;
+                    }
+                    else if (uploadedImageUrl.Text != "")
+                    {
+                        Filename = uploadedImageUrl.Text.Replace("../images/", String.Empty); 
+                    }
+                    if (result != null)
+                    {
+
+                        result.ImageUrl = Filename;
+                        if (imageNewName.Text != "")
+                        {
+                            result.ImageName = imageNewName.Text;
+                        }
+                        else
+                        {
+                            result.ImageName = Filename;
+                        }
+                    }
+
+                    db.SaveChanges();
+                }
+                GetImagesFromFolder();
+                if (!Page.ClientScript.IsStartupScriptRegistered("reload"))
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "reload", "<script>clearIframe();</script>", false);
+                }
+            }
+        }
+
+        private bool IsImage(Stream stream)
+        {
+                stream.Seek(0, SeekOrigin.Begin);
+
+                List<string> jpg = new List<string> { "FF", "D8" };
+                List<string> bmp = new List<string> { "42", "4D" };
+                List<string> gif = new List<string> { "47", "49", "46" };
+                List<string> png = new List<string> { "89", "50", "4E", "47", "0D", "0A", "1A", "0A" };
+                List<List<string>> imgTypes = new List<List<string>> { jpg, bmp, gif, png };
+
+                List<string> bytesIterated = new List<string>();
+
+                for (int i = 0; i < 8; i++)
+                {
+                    string bit = stream.ReadByte().ToString("X2");
+                    bytesIterated.Add(bit);
+
+                    bool isImage = imgTypes.Any(img => !img.Except(bytesIterated).Any());
+                    if (isImage)
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+        }
+
     }
+
+
 }
