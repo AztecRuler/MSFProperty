@@ -60,7 +60,7 @@ namespace MSFProperty
             int.TryParse(indexNumber, out int index);
 
             index = index * number; 
-            using (var db = new Model1())
+            using (var db = new Model1())77
             {
                 PropertyRepeaterHome.DataSource = db.Properties.Where(p => p.Featured == true).ToList().Skip(index - number).Take(number);
                  PropertyRepeaterHome.DataBind();
