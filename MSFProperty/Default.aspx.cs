@@ -20,7 +20,7 @@ namespace MSFProperty
             SetNumberOfProperty();
         }
 
-        protected void SetPagination()
+        protected void SetPagination(int pageNumber = 0)
         {
             
             string selectedNumber = PagerPropHome.SelectedValue;
@@ -28,7 +28,7 @@ namespace MSFProperty
 
             //int numBoxes = Math.DivRem(numItems, capacity, out remainder);
             var rowCount = 0;
-            var rowCountItteration = 1; 
+            var rowCounteraction = 1; 
             //get all properties count 
             using (var db = new Model1())
             {
@@ -42,8 +42,8 @@ namespace MSFProperty
                 
                 if (i % number == 0)
                 {
-                    pagerNumbersList.Add(rowCountItteration);
-                    rowCountItteration++;
+                    pagerNumbersList.Add(rowCounteraction);
+                    rowCounteraction++;
                 }
             }
             //add this list as data for reapeater 
@@ -60,13 +60,13 @@ namespace MSFProperty
             int.TryParse(indexNumber, out int index);
 
             index = index * number; 
-            using (var db = new Model1())77
+            using (var db = new Model1())
             {
                 PropertyRepeaterHome.DataSource = db.Properties.Where(p => p.Featured == true).ToList().Skip(index - number).Take(number);
                  PropertyRepeaterHome.DataBind();
                     
             }
-            SetPagination();
+            SetPagination(index);
 
         }
 

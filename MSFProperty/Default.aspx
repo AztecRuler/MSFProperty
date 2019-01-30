@@ -161,7 +161,7 @@
                                     <asp:Repeater ID="pagerRepeater" runat="server">
 
                                         <ItemTemplate>
-                                            <a href="#"></a>
+                                             <a href="#" id="pagination_<%# Container.ItemIndex + 1%>"><%# Container.DataItem  %></a>
                                         </ItemTemplate>
                                     </asp:Repeater>
 
