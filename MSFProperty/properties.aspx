@@ -1,46 +1,48 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MSFMaster.Master" AutoEventWireup="true" CodeBehind="properties.aspx.cs" Inherits="MSFProperty.properties" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>About-us</title>
-     <link rel="canonical" href="" />
+    <link rel="canonical" href="" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainBody" runat="server">
 
-<div id="slideshow">
-   <div style="background-image: URL('http://farm6.static.flickr.com/5230/5638093881_a791e4f819_m.jpg')" data-id="1">
-   </div>
-</div>
-<script>
-    $("#slideshow > div:gt(0)").hide();
+    <div id="slideshow">
+        <div class="bgimg lazy" style="background-image: URL('http://farm6.static.flickr.com/5230/5638093881_a791e4f819_m.jpg')" data-id="1">
+        </div>
+    </div>
+    <script>
+        $("#slideshow > div:gt(0)").hide();
 
-setInterval(function() {
-  $('#slideshow > div:first')
-    .fadeOut(1000)
-    .next()
-    .fadeIn(1000)
-    .end()
-    .appendTo('#slideshow');
-    }, 3000);
+        setInterval(function () {
+            $('#slideshow > div:first')
+                .fadeOut(1000)
+                .next()
+                .fadeIn(1000)
+                .end()
+                .appendTo('#slideshow');
+        }, 3000);
     </script>
-    <style>#slideshow {
-     position: relative;
-    overflow: hidden;
-    max-width: 1600px;
-    margin: 0px auto;
-    height: 500px;
-    top: 92px;
-}
+    <style>
+        #slideshow {
+            position: relative;
+            overflow: hidden;
+            max-width: 1600px;
+            margin: 0px auto;
+            height: 500px;
+            top: 92px;
+        }
 
-#slideshow > div {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-   
-    bottom: 10px;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}</style>
-<%--<div class="msf-info-panel">
+            #slideshow > div {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+            }
+    </style>
+    <%--<div class="msf-info-panel">
 	<div class="container">
 		<div class="span-table">
 			<div class="span-table-cell vertical-align-middle text-align-left">
@@ -93,7 +95,7 @@ setInterval(function() {
 	</div>
 </div>--%>
 
-<!--
+    <!--
 <div class="msf-smth-text msf-bg-white">
 
 		<div class="container clear-both-fix contentOfHomePage">
@@ -108,7 +110,7 @@ setInterval(function() {
 </div>
 -->
 
-<%--<div class="msf-tabs-simple msf-bg-white">
+    <%--<div class="msf-tabs-simple msf-bg-white">
 <div class="container">
 <div class="span-table">
 <div class="span-table-cell vertical-align-top msf-tabs-simple-col-one">
@@ -116,7 +118,7 @@ setInterval(function() {
 	<div class="span-table-cell vertical-align-top span-17"><div class="msf-tabs-simple-pger"><a href="#">General</a><a href="#">Overview</a><a href="#">Amenities</a><a href="#">Reviews</a><a href="#">Location</a><a href="#" class="cycle-pager-active">Pricing &amp; Availability</a></div></div>
 	<div class="span-table-cell vertical-align-top span-7 msf-right-header-tabs-outset"><div class="span-table msf-right-header-tabs"><h3></h3></div></div>
 </div>--%>
-<!--
+    <!--
 <div class="cycle-slideshow msf-tabs-simple-main-content"
 	data-cycle-fx="scrollHorz"
 	data-cycle-timeout=0
@@ -125,7 +127,7 @@ setInterval(function() {
 	data-cycle-slides="> div"
 >
 -->
-<%--<div class="msf-tabs-simple-main-content" style="position: relative; height: 1264px;">
+    <%--<div class="msf-tabs-simple-main-content" style="position: relative; height: 1264px;">
 
 
 
@@ -524,30 +526,42 @@ setInterval(function() {
 </div>
 </div>--%>
 
-<div style="display: none;" class="msf-popup-bg">
-	<form class="add_property_comments">
-		<div class="msf-popup msf-popup-x21 msf-smth-text-inset">
-			<a class="msf-popup-close" href="#">×</a>
-			<h3>Write a Review</h3>
-				<span class="review-inset">
-					<input type="hidden" value="384 " name="property_id">
-					<input type="hidden" id="name_ajax_review" name="name_ajax_review" value="7b53ff45dc"><input type="hidden" name="_wp_http_referer" value="/properties/sunny-condo-2-9/">					<div class="msf-input-default"><input type="text" name="msf-name" placeholder="Name"></div>
-					<div class="msf-input-default"><input type="text" name="msf-review-title" placeholder="Review Title"></div>
-					<div class="msf-input-default"><textarea name="msf-your-review" placeholder="Your Review..."></textarea></div>
+    <div style="display: none;" class="msf-popup-bg">
+        <form class="add_property_comments">
+            <div class="msf-popup msf-popup-x21 msf-smth-text-inset">
+                <a class="msf-popup-close" href="#">×</a>
+                <h3>Write a Review</h3>
+                <span class="review-inset">
+                    <input type="hidden" value="384 " name="property_id">
+                    <input type="hidden" id="name_ajax_review" name="name_ajax_review" value="7b53ff45dc"><input type="hidden" name="_wp_http_referer" value="/properties/sunny-condo-2-9/">
+                    <div class="msf-input-default">
+                        <input type="text" name="msf-name" placeholder="Name"></div>
+                    <div class="msf-input-default">
+                        <input type="text" name="msf-review-title" placeholder="Review Title"></div>
+                    <div class="msf-input-default">
+                        <textarea name="msf-your-review" placeholder="Your Review..."></textarea></div>
 
-					<p>Choose your star rating</p>
-					<!--<div class="msf-stars" style="background-image: url(http://northernlights.websites.365villas.com/wp-content/themes/villas/img/stars-empty-grey.png);"><div class="msf-stars-inset" style="width: 0;"></div></div>-->
-					<div style="text-align:  center; margin-bottom: 10px;">        <div class="rateit" data-rateit-backingfld=".rating-field"><button id="rateit-reset-2" class="rateit-reset" aria-label="reset rating" aria-controls="rateit-range-2"></button><div id="rateit-range-2" class="rateit-range" tabindex="0" role="slider" aria-label="rating" aria-owns="rateit-reset-2" aria-valuemin="0" aria-valuemax="5" aria-valuenow="" aria-readonly="false" style="width: 80px; height: 16px;"><div class="rateit-selected" style="height: 16px; width: 0px;"></div><div class="rateit-hover" style="height:16px"></div></div></div>
-        <input type="hidden" name="rating" class="rating-field" style="display: none;">
-      </div>
-					<div><input type="submit" name="msf-submit" value="Submit Review"></div>
-					<img class="ajax-loader-review" src="http://northernlights.websites.365villas.com/wp-content/themes/villas/ajax-loader.gif" alt="Sending ..." style="display: none">
-				</span>
-		</div>
-	</form>
-</div>
+                    <p>Choose your star rating</p>
+                    <!--<div class="msf-stars" style="background-image: url(http://northernlights.websites.365villas.com/wp-content/themes/villas/img/stars-empty-grey.png);"><div class="msf-stars-inset" style="width: 0;"></div></div>-->
+                    <div style="text-align: center; margin-bottom: 10px;">
+                        <div class="rateit" data-rateit-backingfld=".rating-field">
+                            <button id="rateit-reset-2" class="rateit-reset" aria-label="reset rating" aria-controls="rateit-range-2"></button>
+                            <div id="rateit-range-2" class="rateit-range" tabindex="0" role="slider" aria-label="rating" aria-owns="rateit-reset-2" aria-valuemin="0" aria-valuemax="5" aria-valuenow="" aria-readonly="false" style="width: 80px; height: 16px;">
+                                <div class="rateit-selected" style="height: 16px; width: 0px;"></div>
+                                <div class="rateit-hover" style="height: 16px"></div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="rating" class="rating-field" style="display: none;">
+                    </div>
+                    <div>
+                        <input type="submit" name="msf-submit" value="Submit Review"></div>
+                    <img class="ajax-loader-review" src="http://northernlights.websites.365villas.com/wp-content/themes/villas/ajax-loader.gif" alt="Sending ..." style="display: none">
+                </span>
+            </div>
+        </form>
+    </div>
 
-<%--<div class="msf-footer msf-bg-grey" id="msf-footer">
+    <%--<div class="msf-footer msf-bg-grey" id="msf-footer">
 	<div class="container clear-both-fix">
 		<div class="span-table msf-footer-inset">
 			<div class="span-table-cell vertical-align-top">
@@ -606,6 +620,5 @@ var icl_vars = {"current_language":"en","icl_home":"http:\/\/northernlights.webs
 /* ]]> */
 </script>
 <script type="text/javascript" src="http://northernlights.websites.365villas.com/wp-content/plugins/sitepress-multilingual-cms/res/js/sitepress.js?ver=4.4.17"></script>--%>
-
 </asp:Content>
 

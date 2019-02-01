@@ -7,7 +7,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainBody" runat="server">
 
-    <div class="msf-main-bg-header bgimg editable" style="background-image: url('../Images/<%= GetImage(8) %>')">
+    <div class="msf-main-bg-header bgimg editable lazy" style="background-image: url('../Images/<%= GetImage(8) %>')">
         <div class="span-table">
             <div class="span-table-cell vertical-align-middle text-align-center">
                 <div class="container">
@@ -73,7 +73,7 @@
             </span><span id="cuSPAN_26">I've read and accept the <a href="/Privacy.aspx" id="cuA_27">Privacy Policy</a>.</span>
         </div>
         <div id="cuDIV_28">
-            <input type="submit" value="Submit" disabled="disabled" id="sendMessage" /><img src="ajax-loader.gif" alt="Sending ..." id="cuIMG_30" />
+            <input type="submit" value="Submit" disabled="disabled" id="sendMessage" /><img  src="ajax-loader.gif" alt="Sending ..." id="cuIMG_30" />
         </div>
         <div id="cuDIV_31">
         </div>

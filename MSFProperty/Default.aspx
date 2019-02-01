@@ -3,11 +3,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>MSF Property Management</title>
     <link rel="canonical" href="" />
+
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainBody" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <div id="bgimg-1" class="bgimg-1 editable" style="background-image: url('../Images/<%=GetImage(1)%>')">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+
+    <div id="bgimg-1" class="bgimg-1 editable lazy" style="background-image: url('../Images/<%=GetImage(1)%>')">
         <div class="caption">
             <div class="container" style="margin-top: -300px;">
                 <h2 class="editable"><%=GetText(1)%></h2>
@@ -81,7 +84,7 @@
         <span class="editable top_front_div"><%=GetText(12)%> </span>
     </div>
 
-    <div class="bgimg-2 editable" style="background-image: url('../Images/<%=GetImage(2)%>')">
+    <div class="bgimg-2 editable lazy" style="background-image: url('../Images/<%=GetImage(2)%>')">
         <div class="caption">
             <span class="border"><a href="acommodationsPage.aspx" class="border editable"><%=GetText(13)%></a></span>
 
@@ -118,7 +121,7 @@
                                         <li class="msf-list-villas-inset-item clear-both-fix">
                                             <div class="msf-lvi-box span-table">
 
-                                                <div class="span-table-cell msf-lvi-box-main" style="background-image: url(Images/<%# Eval("MainImage") %>);">
+                                                <div class="span-table-cell msf-lvi-box-main lazy" style="background-image: url(Images/<%# Eval("MainImage") %>);">
                                                     <a href="properties.aspx/" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;"></a>
 
                                                 </div>
@@ -140,7 +143,7 @@
                                             <div class="msf-lvi-sub-box">
                                                 <h3><a href="properties.aspx/"><%# Eval("PropertyName") %></a></h3>
                                                 <p></p>
-                                                <p style="width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><%# getContents(Convert.ToInt32(Eval("ID"))) %> </p>
+                                                <p style="width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><%# GetTextContents(Convert.ToInt32(Eval("ID"))) %> </p>
                                                 <a style="z-index: 1; color: gray; font-weight: bold; position: relative; bottom: 1px;" href="properties.aspx/">more</a>
 
                                                 <a class="msf-more-button" href="properties.aspx/">More Information</a>
@@ -154,20 +157,18 @@
                             </ul>
 
                             <div class="center">
-                                <%--                              class="active"--%>
                                 <div class="pagination">
-                                    <a href="#">&laquo;</a>
+                                    <a href="javascript:__doPostBack('pagination','pagerBack')" id="pagerBack">&laquo;</a>
 
                                     <asp:Repeater ID="pagerRepeater" runat="server">
-
-                                        <ItemTemplate>
-                                             <a href="#" id="pagination_<%# Container.ItemIndex + 1%>"><%# Container.DataItem  %></a>
+                                         <ItemTemplate>
+                                             <a href="javascript:__doPostBack('pagination','<%# Container.ItemIndex + 1 %>')" class="paginationNumber" id="pagination_<%# Container.ItemIndex + 1%>"><%# Container.DataItem  %></a>
                                         </ItemTemplate>
                                     </asp:Repeater>
 
-                                    <a href="#">&raquo;</a>
+                                    <a href="javascript:__doPostBack('pagination','pagerForwards')" id="pagerForwards">&raquo;</a>
                                 </div>
-                                <asp:HiddenField ID="pagerNumber" runat="server" Value="0" />
+                                <asp:HiddenField ID="pagerNumber" runat="server" Value="1" />
                             </div>
                             </div>
                         </ContentTemplate>
@@ -178,7 +179,7 @@
         </div>
     </div>
 
-    <div class="bgimg-3 editable" style="background-image: url('../Images/<%=GetImage(3)%>')">
+    <div class="bgimg-3 editable lazy" style="background-image: url('../Images/<%=GetImage(3)%>')">
         <div class="caption">
             <a href="#"><span class="border editable"><%=GetText(14)%></span></a>
         </div>

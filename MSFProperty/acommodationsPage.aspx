@@ -7,7 +7,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainBody" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <div class="msf-main-bg-header bgimg editable" style="background-image: url('../Images/<%=GetImage(5)%>')" max-height: 871px;">
+    <div class="msf-main-bg-header bgimg editable lazy" style="background-image: url('../Images/<%=GetImage(5)%>')" max-height: 871px;">
         <div class="span-table">
             <div class="span-table-cell vertical-align-middle text-align-center">
                 <div class="container">
@@ -44,7 +44,7 @@
                                         <li class="msf-list-villas-inset-item clear-both-fix">
                                             <div class="span-table">
 
-                                                <div class="span-table-cell msf-lvi-box-main" style="background-image: url(Images/<%# Eval("MainImage") %>);">
+                                                <div class="span-table-cell msf-lvi-box-main lazy" style="background-image: url(Images/<%# Eval("MainImage") %>);">
                                                     <a href="properties.aspx/" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;"></a>
 
                                                 </div>
