@@ -184,6 +184,7 @@
     <Compile Include="Admin\EF\AboutUsInfo.cs" />
     <Compile Include="Admin\EF\Blog.cs" />
     <Compile Include="Admin\EF\ContentImage.cs" />
+    <Compile Include="Admin\EF\ErrorReporting.cs" />
     <Compile Include="Admin\EF\Model1.cs" />
     <Compile Include="Admin\EF\Page.cs" />
     <Compile Include="Admin\EF\PageImage.cs" />
