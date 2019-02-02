@@ -1,17 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace MSFProperty
 {
-    public partial class Privacy : System.Web.UI.Page
+    public partial class Privacy : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+        }
 
+        public string GetText(int id)
+        {
+            return DataCalls.GetText(id);
+        }
+
+        public string GetImage(int id)
+        {
+            return DataCalls.GetImage(id);
         }
     }
 }

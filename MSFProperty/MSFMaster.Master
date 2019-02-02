@@ -48,7 +48,7 @@
                             <a href="services.aspx">Services</a>
                         </li>
                         <li id="menu-item-3" class="">
-                            <a href="acommodationsPage.aspx">Propertiess</a>
+                            <a href="properties.aspx">Properties</a>
                         </li>
                         <li id="menu-item-4" class="">
                             <a href="About_Us.aspx">About us</a>
@@ -73,16 +73,16 @@
 
             <div id="footer" class="footer">
                 <div id="footerContainer">
-                    <div class="footerColumn coloumnFirst">
+                    <div class="footerColumn columnFirst">
                         <ul class="footerUL">
                             <li>
-                                <a href="accommodationsPage.aspx" id="footerA_7">Our Properties</a>
+                                <a href="accommodationsPage.aspx">Our Properties</a>
                             </li>
                             <li>
-                                <a href="#">Amenities</a>
+                              <a href="SearchResults.aspx">Search Page</a>
                             </li>
                             <li>
-                                <a href="#">Location</a>
+                                <a href="#">Find Us</a>
                             </li>
                         </ul>
                     </div>
@@ -92,10 +92,10 @@
                                 <a href="#">Availability</a>
                             </li>
                             <li>
-                                <a href="#">Book Now</a>
+                                <a href="Privacy.aspx">Privacy Policy</a>
                             </li>
                             <li>
-                                <a href="#">Reviews</a>
+                              <a href="Reviews.aspx">Reviews</a>
                             </li>
                         </ul>
                     </div>
@@ -105,7 +105,7 @@
                                 <a href="About_Us.aspx">About us</a>
                             </li>
                             <li>
-                                <a href="blog.aspx">Journal</a>
+                                <a href="BlogMainPage.aspx">Blog</a>
                             </li>
                             <li>
                                 <a href="contact-us.aspx">Contact Us</a>
