@@ -3469,6 +3469,7 @@ p#msf-About_Us-P {
     -webkit-box-shadow: -1px 9px 200px -16px rgba(181, 174, 181, 1);
     box-shadow: 27px 16px 114px -48px rgba(181, 174, 181, 1);
     box-shadow: -1px 9px 200px -16px rgba(181, 174, 181, 1);
+    padding: 10px;
 }
 
     .mainBlogContents h2 {

@@ -48,7 +48,7 @@
                             <a href="services.aspx">Services</a>
                         </li>
                         <li id="menu-item-3" class="">
-                            <a href="properties.aspx">Properties</a>
+                            <a href="AcommodationsPage.aspx">Properties</a>
                         </li>
                         <li id="menu-item-4" class="">
                             <a href="About_Us.aspx">About us</a>

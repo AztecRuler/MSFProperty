@@ -1,52 +1,174 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MSFMaster.Master" AutoEventWireup="true" CodeBehind="properties.aspx.cs" Inherits="MSFProperty.properties" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>About-us</title>
+    <title>Property Details</title>
     <link rel="canonical" href="" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainBody" runat="server">
 
-    <div id="slideshow">
-        <div class="bgimg lazy" style="background-image: URL('http://farm6.static.flickr.com/5230/5638093881_a791e4f819_m.jpg')" data-id="1">
-        </div>
+
+
+<div class="slideShowContainer ">
+    <asp:Repeater ID="slideImages" runat="server">
+        <ItemTemplate>
+            <h2 style="text-align:center"><%=GetPropertyName() %></h2>
+  <div class="mySlides">
+    <div class="numbertext"><%# Container.ItemIndex + 1 %> / <%=GetCount() %></div>
+    <img src="~/../Images/<%# Container.DataItem %>" >
+  </div>
+        </ItemTemplate>
+    </asp:Repeater>
+  <a class="slideShowPrev" onclick="plusSlides(-1)">❮</a>
+  <a class="slideShowNext" onclick="plusSlides(1)">❯</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="slideShowRow">
+      <asp:Repeater ID="slideShowColumnRepeater" runat="server">
+          <ItemTemplate>
+    <div class="slideShowColumn">
+      <img class="slideShowSelector cursor" src="~/../Images/<%# Container.DataItem %>" style="width:100%" onclick="currentSlide(<%# Container.ItemIndex + 1 %>)" alt="<%# Container.DataItem %>">
     </div>
-    <script>
-        $("#slideshow > div:gt(0)").hide();
 
-        setInterval(function () {
-            $('#slideshow > div:first')
-                .fadeOut(1000)
-                .next()
-                .fadeIn(1000)
-                .end()
-                .appendTo('#slideshow');
-        }, 3000);
-    </script>
-    <style>
-        #slideshow {
-            position: relative;
-            overflow: hidden;
-            max-width: 1600px;
-            margin: 0px auto;
-            height: 500px;
-            top: 92px;
+          </ItemTemplate>
+      </asp:Repeater>
+  </div>
+</div>
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("slideShowSelector");
+        var captionText = document.getElementById("caption");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
         }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        captionText.innerHTML = dots[slideIndex-1].alt;
+    }
+</script>
 
-            #slideshow > div {
-                position: absolute;
-                top: 10px;
-                left: 10px;
-                right: 10px;
-                bottom: 10px;
-                background-repeat: no-repeat;
-                background-size: 100% 100%;
-            }
-    </style>
+<style>
+
+    .mySlides img {
+        width: 100%;
+        display: block;
+        max-height: 450px;
+        height: auto;
+        min-height: 450px;
+    }
+
+    /* Position the image container (needed to position the left and right arslideShowRows) */
+    .slideShowContainer {
+        position: relative;
+        top: 108px;
+    }
+
+    /* Hide the images by default */
+    .mySlides {
+        display: none;
+    }
+
+    /* Add a pointer when hovering over the thumbnail images */
+    .cursor {
+        cursor: pointer;
+    }
+
+    /* slideShowNext & slideShowPrevious buttons */
+    .slideShowPrev,
+    .slideShowNext {
+        cursor: pointer;
+        position: absolute;
+        top: 40%;
+        width: auto;
+        padding: 16px;
+        margin-top: -50px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    /* Position the "slideShowNext button" to the right */
+    .slideShowNext {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .slideShowPrev:hover,
+    .slideShowNext:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+
+    /* Container for image text */
+    .caption-container {
+        text-align: center;
+        background-color: #222;
+        padding: 2px 16px;
+        color: white;
+    }
+
+    .slideShowRow:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Six slideShowColumns side by side */
+    .slideShowColumn {
+        float: left;
+        width: 16.66%;
+    }
+
+    /* Add a transparency effect for thumnbail images */
+    .slideShowSelector {
+        opacity: 0.6;
+    }
+
+    .active,
+    .slideShowSelector:hover {
+        opacity: 1;
+    }
+</style>
+
+
+
     <%--<div class="msf-info-panel">
 	<div class="container">
 		<div class="span-table">
 			<div class="span-table-cell vertical-align-middle text-align-left">
-				<a class="msf-arrow-tringle" href="http://northernlights.websites.365villas.com/?back=1">Back</a>
+				<a class="msf-arslideShowRow-tringle" href="http://northernlights.websites.365villas.com/?back=1">Back</a>
 			</div>
 			<div class="span-table-cell vertical-align-middle text-align-right msf-breadcrumb">
 				<a href="http://northernlights.websites.365villas.com">Home</a> / <a href="http://northernlights.websites.365villas.com/accommodation/">Properties</a> / <a href="#"> French Retreat</a>
@@ -102,7 +224,7 @@
 		<h1>French Retreat</h1>
 		<div class="homeBanerText">
 		<p>Charming apartment in the heart of the ancient city, with magnificent altana where to dream and a fabulous terrace, both with an extraordinary view over the city.</p>
-<p>Elegant apartment in the heart of the medieval city between Piazza Maggiore and the Two Towers. The accommodation is located on the fifth floor of a beautiful historic building, with the characteristic red color typical of Bologna. The apartment is completely renovated, it has two rooms, elegant and functional: a living area with kitchenette, table, sofa bed, bathroom with large shower and beautiful terrace. A sleeping area, composed of a wonderful panoramic roof terrace with French bed, with windows on all four sides, with breathtaking views of the city. To gain access to the roof-there is a wooden ladder with side loops (only entrance, see photo). The finishes are of high standard and include air conditioning, heating, and anti-noise windows. In addition, the house is complete with all the amenities: washing machine, industrially sanitized towels and sheets, dishwasher, microwave, Nespresso machine, 40-inch TV, air conditioning, electric shutters, led lights, wi-fi.</p>
+<p>Elegant apartment in the heart of the medieval city between Piazza Maggiore and the Two Towers. The accommodation is located on the fifth floor of a beautiful historic building, with the characteristic red color typical of Bologna. The apartment is completely renovated, it has two rooms, elegant and functional: a living area with kitchenette, table, sofa bed, bathroom with large shower and beautiful terrace. A sleeping area, composed of a wonderful panoramic roof terrace with French bed, with windows on all four sides, with breathtaking views of the city. To gain access to the roof-there is a wooden ladder with side loops (only entrance, see photo). The finishes are of high standard and include air conditioning, heating, and anti-noise windows. In addition, the house is complete with all the amenities: washing machine, industrially sanitized towels and sheets, dishwasher, micslideShowRowave, Nespresso machine, 40-inch TV, air conditioning, electric shutters, led lights, wi-fi.</p>
 		</div>
 			<a style="z-index: 1; text-transform: uppercase; cursor:pointer;color: gray; font-size: 1.6rem; font-weight: bold;  position: relative; bottom: 1px; margin-top: 15px; display: inline-block; border-bottom: 1px solid gray; padding-bottom: 0; padding-top: 10px;" class="homeMore" >more</a>
 
@@ -142,7 +264,7 @@
 	<div class="msf-smth-text">
 		<h1>French Retreat</h1>
 		<p>Charming apartment in the heart of the ancient city, with magnificent altana where to dream and a fabulous terrace, both with an extraordinary view over the city.</p>
-<p>Elegant apartment in the heart of the medieval city between Piazza Maggiore and the Two Towers. The accommodation is located on the fifth floor of a beautiful historic building, with the characteristic red color typical of Bologna. The apartment is completely renovated, it has two rooms, elegant and functional: a living area with kitchenette, table, sofa bed, bathroom with large shower and beautiful terrace. A sleeping area, composed of a wonderful panoramic roof terrace with French bed, with windows on all four sides, with breathtaking views of the city. To gain access to the roof-there is a wooden ladder with side loops (only entrance, see photo). The finishes are of high standard and include air conditioning, heating, and anti-noise windows. In addition, the house is complete with all the amenities: washing machine, industrially sanitized towels and sheets, dishwasher, microwave, Nespresso machine, 40-inch TV, air conditioning, electric shutters, led lights, wi-fi.</p>
+<p>Elegant apartment in the heart of the medieval city between Piazza Maggiore and the Two Towers. The accommodation is located on the fifth floor of a beautiful historic building, with the characteristic red color typical of Bologna. The apartment is completely renovated, it has two rooms, elegant and functional: a living area with kitchenette, table, sofa bed, bathroom with large shower and beautiful terrace. A sleeping area, composed of a wonderful panoramic roof terrace with French bed, with windows on all four sides, with breathtaking views of the city. To gain access to the roof-there is a wooden ladder with side loops (only entrance, see photo). The finishes are of high standard and include air conditioning, heating, and anti-noise windows. In addition, the house is complete with all the amenities: washing machine, industrially sanitized towels and sheets, dishwasher, micslideShowRowave, Nespresso machine, 40-inch TV, air conditioning, electric shutters, led lights, wi-fi.</p>
 	</div>
 </div><div data-cycle-hash="overview" data-cycle-pager-template="<a href=#>Overview</a>" data-msf-right-header-tabs="Property Details" class="cycle-slide" style="position: absolute; top: 0px; left: 0px; z-index: 97; visibility: hidden;">
 	<div class="span-table">
@@ -167,7 +289,7 @@
 <p>air conditioning</p>
 <p>heating</p>
 <p>anti-noise windows</p>
-<p>In addition, the house is complete with all the amenities: washing machine, industrially sanitized towels and sheets, dishwasher, microwave, Nespresso machine, 40-inch TV, air conditioning, electric shutters, led lights, wi-fi.</p>
+<p>In addition, the house is complete with all the amenities: washing machine, industrially sanitized towels and sheets, dishwasher, micslideShowRowave, Nespresso machine, 40-inch TV, air conditioning, electric shutters, led lights, wi-fi.</p>
 		</div>
 	</div>
 
@@ -237,7 +359,7 @@
 																																
 																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -1280px"></span>Oven </li>
 																																
-																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -1320px"></span>Microwave </li>
+																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -1320px"></span>MicslideShowRowave </li>
 																																
 																							<li class="msf-ico-air-conditioned"><span class="icon" style="background-position: 0px -1360px"></span>Dishwasher </li>
 																																
@@ -339,7 +461,7 @@
 <p>air conditioning</p>
 <p>heating</p>
 <p>anti-noise windows</p>
-<p>In addition, the house is complete with all the amenities: washing machine, industrially sanitized towels and sheets, dishwasher, microwave, Nespresso machine, 40-inch TV, air conditioning, electric shutters, led lights, wi-fi.</p>
+<p>In addition, the house is complete with all the amenities: washing machine, industrially sanitized towels and sheets, dishwasher, micslideShowRowave, Nespresso machine, 40-inch TV, air conditioning, electric shutters, led lights, wi-fi.</p>
 				<a href="#" class="more_button" style="display: none; position:absolute; margin:0; bottom:0">more</a>
 				<a href="#" class="less_button" style="display: none; position:absolute; margin:0; bottom:0">less</a>
 			</div>

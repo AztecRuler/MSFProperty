@@ -103,7 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About_Us.aspx" />
-    <Content Include="acommodationsPage.aspx" />
+    <Content Include="AcommodationsPage.aspx" />
     <Content Include="Admin\Admin.aspx" />
     <Content Include="Admin\AdminAboutUs.aspx" />
     <Content Include="Admin\AdminBlogPage.aspx" />
@@ -124,6 +124,7 @@
     <Content Include="ajax-loader.gif" />
     <Content Include="Icons\wpg-ico-75x60.png" />
     <Content Include="Images\AboutUsPictures\About_usImagePlaceholder.png" />
+    <Content Include="Images\img_woods_wide.jpg" />
     <Content Include="Javascript\adminJavaScript.js" />
     <Content Include="Javascript\msfJavascript.js" />
     <Content Include="Logs\log.txt" />
@@ -146,12 +147,12 @@
     <Compile Include="About_Us.aspx.designer.cs">
       <DependentUpon>About_Us.aspx</DependentUpon>
     </Compile>
-    <Compile Include="acommodationsPage.aspx.cs">
-      <DependentUpon>acommodationsPage.aspx</DependentUpon>
+    <Compile Include="AcommodationsPage.aspx.cs">
+      <DependentUpon>AcommodationsPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="acommodationsPage.aspx.designer.cs">
-      <DependentUpon>acommodationsPage.aspx</DependentUpon>
+    <Compile Include="AcommodationsPage.aspx.designer.cs">
+      <DependentUpon>AcommodationsPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\AddressResults.cs" />
     <Compile Include="Admin\Admin.aspx.cs">
