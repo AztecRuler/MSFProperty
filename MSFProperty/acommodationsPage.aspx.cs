@@ -122,7 +122,7 @@ namespace MSFProperty
 
             using (var db = new Model1())
             {
-                PropertyRepeater.DataSource = db.Properties.ToList().Take(number);
+                PropertyRepeater.DataSource = db.Properties.ToList().Skip(indexIn).Take(number);
 
                 PropertyRepeater.DataBind();
             }
@@ -146,6 +146,8 @@ namespace MSFProperty
         public void RefreshCount(object sender, EventArgs e)
         {
             SetNumberOfProperty();
+            SetPagination();
+            ResetPaginaton();
         }
     }
 }

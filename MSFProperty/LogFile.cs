@@ -39,7 +39,7 @@ namespace MSFProperty
                     };
 
                     db.ErrorReportings.Add(error);
-                    db.SaveChanges();
+                   // db.SaveChanges();
                 }
             }
         }
