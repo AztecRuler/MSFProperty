@@ -64,7 +64,7 @@
             </div>
         </asp:ContentPlaceHolder>
 
-        <asp:ContentPlaceHolder ID="MainBody" runat="server">
+        <asp:ContentPlaceHolder ID="MainBody"  runat="server">
         </asp:ContentPlaceHolder>
 
 
@@ -141,7 +141,7 @@
                             </li>
                         </ul>
                         <p class="classAntics">
-                            <a href="http://www.classantics.co.uk" target="_blank">Powered by Calssantics</a>
+                            <a href="http://www.classantics.co.uk" target="_blank">Powered by ClassAntics</a>
                         </p>
                     </div>
                 </div>

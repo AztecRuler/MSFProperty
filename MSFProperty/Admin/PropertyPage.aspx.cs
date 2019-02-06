@@ -264,6 +264,7 @@ namespace MSFProperty.Admin
         }
         private bool Validation()
         {
+            //TODO: set validation here
             return true;
              //return (PropertyLocation.Text != "" && PropertyRentPrice.Text != "" && PropertyDeposit.Text != "");
         }
@@ -327,20 +328,17 @@ namespace MSFProperty.Admin
                     var addressResults = AddressResults.FromJson(content);
                     var address = addressResults.Address;
 
-                    if (addressResults != null)
-                    {
-                        PropertyHouseNumber.Text = houseNumber;
-                        PropertyStreet.Text = address.Road;
-                        PropertyStreet2.Text = address.Village ?? PostCodeRestResult.Result.AdminWard;
-                        PropertyCounty.Text = address.County ?? PostCodeRestResult.Result.AdminDistrict;
-                        PropertyCountry.Text = address.State ?? PostCodeRestResult.Result.Country;
-                        PropertyPostCode.Text = PropertyPostCode.Text == address.Postcode ? address.Postcode : PostCodeRestResult.Result.Postcode;
-                        PropertyLocation.Text = address.Neighbourhood ?? PostCodeRestResult.Result.AdminDistrict;
-                        PropertyLocationX.Text = PostCodeRestResult.Result.Latitude.ToString();
-                        PropertyY.Text = PostCodeRestResult.Result.Longitude.ToString();
+                    PropertyHouseNumber.Text = houseNumber;
+                    PropertyStreet.Text = address.Road;
+                    PropertyStreet2.Text = address.Village ?? PostCodeRestResult.Result.AdminWard;
+                    PropertyCounty.Text = address.County ?? PostCodeRestResult.Result.AdminDistrict;
+                    PropertyCountry.Text = address.State ?? PostCodeRestResult.Result.Country;
+                    PropertyPostCode.Text = PropertyPostCode.Text == address.Postcode ? address.Postcode : PostCodeRestResult.Result.Postcode;
+                    PropertyLocation.Text = address.Neighbourhood ?? PostCodeRestResult.Result.AdminDistrict;
+                    PropertyLocationX.Text = PostCodeRestResult.Result.Latitude.ToString();
+                    PropertyY.Text = PostCodeRestResult.Result.Longitude.ToString();
 
-                        mapForPostcode.Attributes["src"] = "http://maps.google.com/maps?q=" + PropertyHouseNumber.Text + " " + address.Road + " " + address.County + "&z=16&output=embed";
-                    }
+                    mapForPostcode.Attributes["src"] = "http://maps.google.com/maps?q=" + PropertyHouseNumber.Text + " " + address.Road + " " + address.County + "&z=16&output=embed";
                 }
                 else
                 {

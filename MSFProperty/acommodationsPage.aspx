@@ -65,7 +65,7 @@
                                                             <strong>Washing Facilities</strong><small><%# Eval("BathType") %></small>
                                                         </li>
                                                         <li class="msf-ico-location msf-ico">
-                                                            <a href="properties.aspx?id=<%# Eval("ID") %>#location">Location</a><small style="padding-top: 20px;">Location</small>
+                                                            <a href="properties.aspx?id=<%# Eval("ID") %>&tab=Location">Location</a><small style="padding-top: 20px;">Location</small>
                                                         </li>
                                                         <li class="msf-ico-pet msf-ico">
                                                             <strong>Pet</strong> <span><%# Eval("Pets").ToString().Replace("True", " Yes").Replace("False", " No") %></span>
@@ -75,10 +75,10 @@
                                                             </small>
                                                         </li>
                                                         <li class="msf-ico-email msf-ico">
-                                                            <a href="properties.aspx?id=<%# Eval("ID") %>#pricing-availability">Pricing</a> <small style="padding-top: 20px;">Availability</small>
+                                                            <a href="properties.aspx?id=<%# Eval("ID") %>&tab=Pricing">Pricing</a> <small style="padding-top: 20px;">Availability</small>
                                                         </li>
                                                         <li class="msf-ico-cost msf-ico">
-                                                            <a style="text-indent: 5px; font-size: 14px; text-align: center;" href="properties.aspx?id=<%# Eval("ID") %>#pricing-availability"><%# Eval("RentPrice") %></a>
+                                                            <a style="text-indent: 5px; font-size: 14px; text-align: center;" href="properties.aspx?id=<%# Eval("ID") %>&tab=Pricing"><%# Eval("RentPrice") %></a>
                                                             <small>
                                                                 <span><%# Eval("RentPrice") %> per month </span>
                                                             </small>
