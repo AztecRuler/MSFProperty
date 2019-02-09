@@ -13,6 +13,8 @@ namespace MSFProperty
         private Property _result;
         public List<string> Images = new List<string>();
         private int _imageCount = 0;
+        private int _slideCount = 0;
+        private int _bathCount = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,17 +27,21 @@ namespace MSFProperty
                 _result = db.Properties.SingleOrDefault(b => b.ID == id);
             }
 
-            if (_result != null) Images = GetRepeaterImagesFromDataBase(_result.Images);
+            if (_result != null) Images = GetSplitStrings(_result.Images);
+            if (Images[0] == "")
+                Images[0] = GetMainImage();
+            _slideCount = _imageCount;
             slideShowColumnRepeater.DataSource = Images;
             slideShowColumnRepeater.DataBind();
             slideImages.DataSource = Images;
             slideImages.DataBind();
             List<string> bathResults = null;
-            if (_result != null) bathResults =  GetRepeaterImagesFromDataBase(_result.BathType);
+            if (_result != null) bathResults =  GetSplitStrings(_result.BathType);
+            _bathCount = _imageCount;
             bathRepeater.DataSource = bathResults;
             bathRepeater.DataBind();
             List<string> amenitiesResults = null;
-            if (_result != null) amenitiesResults = GetRepeaterImagesFromDataBase(_result.Amenities);
+            if (_result != null) amenitiesResults = GetSplitStrings(_result.Amenities);
             amRepeater.DataSource = amenitiesResults;
             amRepeater.DataBind();
             if (_result != null)
@@ -43,7 +49,7 @@ namespace MSFProperty
                                                    _result.Street + " " + _result.County + "&z=16&output=embed";
         }
 
-        private List<string> GetRepeaterImagesFromDataBase(string stringForSplitting)
+        private List<string> GetSplitStrings(string stringForSplitting)
         {
             var dataImages = stringForSplitting.TrimEnd().TrimEnd(',');
             var values = dataImages.Split(',').Select(sValue => sValue.Trim()).ToArray();
@@ -56,11 +62,16 @@ namespace MSFProperty
             return _result.PropertyName ?? "Latest Property";
         }
 
-        public int GetCount()
+        public int GetSlideCount()
         {
-            return _imageCount;
+            return _slideCount;
         }
 
+        public int GetBathCount()
+        {
+            return _bathCount;
+        }
+        
         public string GetMainImage()
         {
             return _result.MainImage != "" ? "AboutUsPictures\\About_usImagePlaceholder.png" : _result.MainImage;

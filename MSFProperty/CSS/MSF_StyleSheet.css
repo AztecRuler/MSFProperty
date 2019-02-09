@@ -268,7 +268,8 @@ h3 {
 
 .slideShowRow {
     width: 100%;
-    /* text-align: justify; */
+    max-height: 316px;
+    overflow: auto;
 }
 
 img.slideShowSelector.slideShowCursor.bgimg {
@@ -303,13 +304,20 @@ img.slideShowSelector.slideShowCursor.bgimg {
         opacity: 1;
     }
 /*end of slideshow*/
-/*statr tabs*/
+/*start of tabs*/
 /* Style the tab */
 .tab {
     overflow: hidden;
-    border: 1px solid #ccc;
     background-color: #f1f1f1;
     margin-bottom: 45px;
+    min-height: 600px;
+    border: 5px solid #111;
+    -webkit-box-shadow: 35px 35px 7px #999999;
+    box-shadow: 35px 35px 7px #999999;
+    border-bottom-right-radius: 15px;
+    border-radius: 25px;
+    padding: 15px 25px;
+    height: inherit;
 }
 
     /* Style the buttons inside the tab */
@@ -343,7 +351,44 @@ img.slideShowSelector.slideShowCursor.bgimg {
     width: 100%;
 }
 
-*/
+.tab ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: ordered-list;
+}
+
+.tab li {
+    border-bottom: 1px solid #808080;
+    font-size: 20px;
+    padding: 15px 15px 20px 120px;
+    position: relative;
+}
+
+    .tab li:last-child {
+        border-bottom: none;
+    }
+
+    .tab li:before {
+        color: #808080;
+        content: "\f112";
+        font-family: Dashicons;
+        font-size: 24px;
+        font-weight: bold;
+        left: 60px;
+        line-height: 28px;
+        position: absolute;
+    }
+
+li.pointlist:before {
+   
+    content: "\f109 ";
+}
+
+li.pricePointList:before {
+    content: "\f323";
+}
+
 /*start of footer*/
 .footerUL li {
     text-align: center;
@@ -399,6 +444,7 @@ img.slideShowSelector.slideShowCursor.bgimg {
 tabView {
     padding-top: 14px;
 }
+
 #twitterLink:before {
     color: rgb(160, 157, 157);
     content: "\f301";
@@ -1508,7 +1554,7 @@ input {
     }
 
         .msf-lvi-box-side > ul > li:before {
-            background-image: url('../Icons/wpg-ico-75x60.png');
+            background-image: url('~/../Icons/wpg-ico-75x60.png');
             background-repeat: no-repeat;
             content: '';
             height: 60px;
