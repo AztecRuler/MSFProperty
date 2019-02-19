@@ -24,7 +24,7 @@
                     <a class="editable" href="#"><%= GetText(8) %></a>
                 </li>
                 <li class="msf-button-info-phone ">
-                    <a class="editable" href="tel:07709 649 292 7"><%= GetText(9) %> </a>
+                    <a class="editable" href="tel:<%= GetText(9) %>"><%= GetText(9) %> </a>
                 </li>
                 <li class="msf-button-info-contact ">
                     <a class="editable" href="../contact-us/"><%= GetText(10) %></a>
@@ -47,32 +47,32 @@
                 <input type="text" name="msf-subject" size="40" placeholder="Subject" id="cuINPUT_10" />
             </span>
         </div>
-        <div id="cuDIV_11">
+        <div id="cumainSearchContainer1">
             <span id="cuSPAN_12">
                 <input type="text" name="msf-name" size="40" placeholder="Name" id="cuINPUT_13" />
             </span>
         </div>
-        <div id="cuDIV_14">
+        <div id="cumainSearchContainer4">
             <span id="cuSPAN_15">
                 <input type="email" name="msf-email" size="40" placeholder="Confirm Email Address" id="cuINPUT_16" />
             </span>
         </div>
-        <div id="cuDIV_17">
+        <div id="cumainSearchContainer7">
             <span id="cuSPAN_18">
                 <input type="text" name="msf-phone" size="40" placeholder="Telephone Number" id="cuINPUT_19" />
             </span>
         </div>
-        <div id="cuDIV_20">
+        <div id="cusmallSearchContainer0">
             <span id="cuSPAN_21"></span>
             <textarea name="msf-inquiry" cols="40" rows="10" placeholder="Inquiry" id="cuTEXTAREA_22">
 		</textarea>
         </div>
-        <div id="cuDIV_23">
+        <div id="cusmallSearchContainer3">
             <span id="cuSPAN_24">
                 <input type="checkbox" name="privacy-consent" value="1" id="privacyCheck" />
             </span><span id="cuSPAN_26">I've read and accept the <a href="/Privacy.aspx" id="cuA_27">Privacy Policy</a>.</span>
         </div>
-        <div id="cuDIV_28">
+        <div id="cusmallSearchContainer8">
             <input type="submit" value="Submit" disabled="disabled" id="sendMessage" /><img  src="ajax-loader.gif" alt="Sending ..." id="cuIMG_30" />
         </div>
         <div id="cuDIV_31">

@@ -19,7 +19,5 @@ namespace MSFProperty.Admin.EF
 
         [Column(TypeName = "date")]
         public DateTime? Date { get; set; }
-
-
     }
 }

@@ -45,7 +45,7 @@ namespace MSFProperty.Admin.EF
         [StringLength(100)]
         public string Area { get; set; }
 
-        [StringLength(1000)]
+        [StringLength(3000)]
         public string Blurb { get; set; }
 
         public bool? Featured { get; set; }
@@ -73,5 +73,7 @@ namespace MSFProperty.Admin.EF
 
         [StringLength(10)]
         public string PostCode { get; set; }
+
+        public bool? Smoking { get; set; }
     }
 }

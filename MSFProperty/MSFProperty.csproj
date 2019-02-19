@@ -191,6 +191,7 @@
     <Compile Include="Admin\EF\Page.cs" />
     <Compile Include="Admin\EF\PageImage.cs" />
     <Compile Include="Admin\EF\Property.cs" />
+    <Compile Include="Admin\EF\Review.cs" />
     <Compile Include="Admin\EF\TextContent.cs" />
     <Compile Include="Admin\PostcodeResult.cs" />
     <Compile Include="Admin\EditImages.aspx.cs">

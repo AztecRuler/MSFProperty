@@ -19,6 +19,7 @@ namespace MSFProperty.Admin.EF
         public virtual DbSet<PageImage> PageImages { get; set; }
         public virtual DbSet<Page> Pages { get; set; }
         public virtual DbSet<Property> Properties { get; set; }
+        public virtual DbSet<Review> Reviews { get; set; }
         public virtual DbSet<TextContent> TextContents { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -153,6 +154,18 @@ namespace MSFProperty.Admin.EF
 
             modelBuilder.Entity<Property>()
                 .Property(e => e.PostCode)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Review>()
+                .Property(e => e.ReviewLeft)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Review>()
+                .Property(e => e.Rating)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Review>()
+                .Property(e => e.UserName)
                 .IsFixedLength();
 
             modelBuilder.Entity<TextContent>()

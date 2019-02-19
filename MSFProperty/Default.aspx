@@ -16,9 +16,9 @@
                 <h2 class="editable"><%=GetText(1)%></h2>
                 <p class="editable"><%=GetText(2)%></p>
             </div>
-            <div id="DIV_1">
-                <div id="DIV_2">
-                    <h3 id="H3_3">Property Search
+            <div id="mainSearchContainer">
+                <div id="smallSearchContainer">
+                    <h3 id="mainSearchTitle">Property Search
                     </h3>
 
 
@@ -34,7 +34,7 @@
                             <input type="submit" value="Search" id="searchSubmitButton">
                         </li>
                     </ul>
-                    <div id="DIV_130">
+                    <div id="mainSearchContainer30">
                         <h4 id="H4_131" class="editable">
                             <%=GetText(4)%>
                         </h4>

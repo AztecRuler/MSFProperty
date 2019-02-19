@@ -24,7 +24,6 @@ body {
 h3 {
     color: #5b5b5b;
     font: 20px "Lato", sans-serif;
-    letter-spacing: 5px;
     text-transform: uppercase;
 }
 
@@ -381,7 +380,6 @@ img.slideShowSelector.slideShowCursor.bgimg {
     }
 
 li.pointlist:before {
-   
     content: "\f109 ";
 }
 
@@ -514,7 +512,7 @@ p.classAntics {
 #footerIconsSection {
     border-bottom: 1px solid rgb(196, 196, 196);
     font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    padding-bottom: 8%;
+    padding-bottom: 0%;
 }
 
     #footerIconsSection li {
@@ -943,40 +941,41 @@ input {
     background-color: #1c1c1c;
 }
 
-#DIV_1 {
+#mainSearchContainer {
     margin: -195px 0 0;
     position: absolute;
     top: 80%;
     width: 100%;
+    z-index: 9999;
 }
 
-    #DIV_1:after {
+    #mainSearchContainer:after {
         -moz-box-sizing: border-box;
         box-sizing: border-box;
         font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
 
-    #DIV_1:before {
+    #mainSearchContainer:before {
         -moz-box-sizing: border-box;
         box-sizing: border-box;
         font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
 
-#DIV_2 {
+#smallSearchContainer {
     padding: 14px 21px;
 }
 
-    #DIV_2:after {
+    #smallSearchContainer:after {
         box-sizing: border-box;
         font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
 
-    #DIV_2:before {
+    #smallSearchContainer:before {
         box-sizing: border-box;
         font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
 
-#H3_3 {
+#mainSearchTitle {
     color: rgb(255, 255, 255);
     height: 52px;
     letter-spacing: 1px;
@@ -985,7 +984,7 @@ input {
     text-align: center;
 }
 
-    #H3_3:after {
+    #mainSearchTitle:after {
         -moz-box-sizing: border-box;
         -ms-column-rule-color: rgb(255, 255, 255);
         -webkit-column-rule-color: rgb(255, 255, 255);
@@ -1000,7 +999,7 @@ input {
         text-decoration: none solid rgb(255, 255, 255);
     }
 
-    #H3_3:before {
+    #mainSearchTitle:before {
         background: rgba(0, 0, 0, 0) url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAUCAMAAABPqWaPAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAC6UExURQAAAP////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////IcJMEAAAA9dFJOUwACxvJg+/6wgDDzCDnTQb4FeBmqy5bx2bUdag/wDVAc0kOuyOORLuJOaNot54IqhPrB5pTgUfkO2wc29jfYRJbVAAAAyElEQVQoz+XRVxaCUAwE0AF8PAV77yjYFSxgd/a/LQOyC/M1yT0nPwPI1BtOq4nfNFtWo55nlCsku0NDojHsSq6Us/uoY7PGtsVghVVAqy2b3RkB1wN71RKLnk+lFX2vyFK1x8MV6ha6EAE2a643gAie4U2BWj5mggIL+Amg+WfymnG8NTIxtmPOPrncY5t9h+ZeZG/S6dOO76k8LtzNMdBUJk1FPcB8x8tDhKejm/Y0XUhni2ka3eOJRHKO8mony/dykufonHwBL7MnO0AY/0AAAAAASUVORK5CYII=") no-repeat scroll 0% 0%/contain padding-box border-box;
         content: close-quote;
         display: inline-block;
@@ -1104,6 +1103,7 @@ input {
     width: 100%;
 }
 
+
 #INPUT_9:after {
     border: 0 none rgb(162, 165, 164);
     box-sizing: border-box;
@@ -1185,19 +1185,19 @@ input {
         white-space: pre;
     }
 
-#DIV_130 {
+#mainSearchContainer30 {
     font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     text-align: center;
     transform-origin: 563px 28px;
 }
 
-    #DIV_130:after {
+    #mainSearchContainer30:after {
         box-sizing: border-box;
         clear: both;
         visibility: hidden;
     }
 
-    #DIV_130:before {
+    #mainSearchContainer30:before {
         box-sizing: border-box;
         font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: center;
@@ -3190,30 +3190,30 @@ p, li {
 
 /*#cuFORM_1:before*/
 
-#cuDIV_2 {
+#cusmallSearchContainer {
     box-sizing: border-box;
     display: none;
     font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     text-align: left;
 }
 
-    /*#cuDIV_2*/
+    /*#cusmallSearchContainer*/
 
-    #cuDIV_2:after {
+    #cusmallSearchContainer:after {
         box-sizing: border-box;
         font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
     }
 
-    /*#cuDIV_2:after*/
+    /*#cusmallSearchContainer:after*/
 
-    #cuDIV_2:before {
+    #cusmallSearchContainer:before {
         box-sizing: border-box;
         font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
     }
 
-/*#cuDIV_2:before*/
+/*#cusmallSearchContainer:before*/
 
 #cuINPUT_3, #cuINPUT_4, #cuINPUT_6 {
     background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%/auto padding-box border-box;
@@ -3269,7 +3269,7 @@ p, li {
 
 /*#cuINPUT_5:before, #cuINPUT_7:before*/
 
-#cuDIV_8, #cuDIV_11, #cuDIV_14, #cuDIV_17 {
+#cuDIV_8, #cumainSearchContainer1, #cumainSearchContainer4, #cumainSearchContainer7 {
     box-sizing: border-box;
     font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     height: 60px;
@@ -3277,17 +3277,17 @@ p, li {
     width: 100%;
 }
 
-    /*#cuDIV_8, #cuDIV_11, #cuDIV_14, #cuDIV_17*/
+    /*#cuDIV_8, #cumainSearchContainer1, #cumainSearchContainer4, #cumainSearchContainer7*/
 
-    #cuDIV_8:after, #cuDIV_11:after, #cuDIV_14:after, #cuDIV_17:after {
+    #cuDIV_8:after, #cumainSearchContainer1:after, #cumainSearchContainer4:after, #cumainSearchContainer7:after {
         box-sizing: border-box;
         font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
     }
 
-    /*#cuDIV_8:after, #cuDIV_11:after, #cuDIV_14:after, #cuDIV_17:after*/
+    /*#cuDIV_8:after, #cumainSearchContainer1:after, #cumainSearchContainer4:after, #cumainSearchContainer7:after*/
 
-    #cuDIV_8:before, #cuDIV_11:before, #cuDIV_14:before, #cuDIV_17:before {
+    #cuDIV_8:before, #cumainSearchContainer1:before, #cumainSearchContainer4:before, #cumainSearchContainer7:before {
         box-sizing: border-box;
         font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
@@ -3338,29 +3338,29 @@ p, li {
 
 /*#cuINPUT_16:before*/
 
-#cuDIV_20 {
+#cusmallSearchContainer0 {
     box-sizing: border-box;
     font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     padding: 7px;
 }
 
-    /*#cuDIV_20*/
+    /*#cusmallSearchContainer0*/
 
-    #cuDIV_20:after {
+    #cusmallSearchContainer0:after {
         box-sizing: border-box;
         font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
     }
 
-    /*#cuDIV_20:after*/
+    /*#cusmallSearchContainer0:after*/
 
-    #cuDIV_20:before {
+    #cusmallSearchContainer0:before {
         box-sizing: border-box;
         font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
     }
 
-/*#cuDIV_20:before*/
+/*#cusmallSearchContainer0:before*/
 
 #cuTEXTAREA_22 {
     border: 2px solid rgb(172, 172, 172);
@@ -3386,22 +3386,22 @@ p, li {
 
 /*#cuTEXTAREA_22:before*/
 
-#cuDIV_23 {
+#cusmallSearchContainer3 {
     font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     padding: 7px;
 }
 
-    /*#cuDIV_23*/
+    /*#cusmallSearchContainer3*/
 
-    #cuDIV_23:after {
+    #cusmallSearchContainer3:after {
         box-sizing: border-box;
         font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
     }
 
-    /*#cuDIV_23:after*/
+    /*#cusmallSearchContainer3:after*/
 
-    #cuDIV_23:before {
+    #cusmallSearchContainer3:before {
         box-sizing: border-box;
         font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
@@ -3512,27 +3512,27 @@ p, li {
     width: 50%;
 }
 
-#cuDIV_28 {
+#cusmallSearchContainer8 {
     padding: 7px;
 }
 
-    /*#cuDIV_28*/
+    /*#cusmallSearchContainer8*/
 
-    #cuDIV_28:after {
+    #cusmallSearchContainer8:after {
         box-sizing: border-box;
         font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
     }
 
-    /*#cuDIV_28:after*/
+    /*#cusmallSearchContainer8:after*/
 
-    #cuDIV_28:before {
+    #cusmallSearchContainer8:before {
         box-sizing: border-box;
         font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
         text-align: left;
     }
 
-/*#cuDIV_28:before*/
+/*#cusmallSearchContainer8:before*/
 
 #cuINPUT_29 {
     background: rgb(13, 170, 149) none repeat scroll 0% 0%/auto padding-box border-box;
@@ -3639,8 +3639,58 @@ div#check2 {
     bottom: 95px;
     position: relative;
 }
+/*review section*/
+.reviewGiven {
+    max-width: 80%;
+    margin: auto;
+}
 
+.reviewTitle {
+    padding: 7px;
+}
 
+.reviewRating {
+    padding-top: 14px;
+}
+
+.reviewDivs {
+    margin: 10px;
+    clear: both;
+    display: grid;
+}
+
+.revieContainerRepeater {
+    max-height: 868px;
+    overflow: auto;
+}
+
+.reviewContainer span {
+    color: aliceblue;
+    font: 28px "Lato", sans-serif;
+    text-transform: uppercase;
+    float: left;
+    margin-bottom: 7px;
+}
+
+textarea#TextBoxReview {
+    margin: 14px;
+    min-height: 171px;
+    min-width: 412px;
+}
+
+.reviewContainer input, .reviewContainer textarea {
+    color: #5b5b5b;
+    font: 20px "Lato", sans-serif;
+    text-transform: uppercase;
+    float: left;
+    border: solid 1px;
+    padding: 14px;
+}
+
+#SaveReview {
+    color: black;
+    background-color: bisque;
+}
 /*About_Us*/
 
 #msf-About_Us-Image img {
@@ -3654,21 +3704,29 @@ div#check2 {
     height: 100%;
 }
 
-.aboutUsInfoSection {
-    -moz-border-radius: 105px 105px 105px 105px;
-    -moz-box-shadow: 27px 16px 114px -48px rgba(181, 174, 181, 1);
-    -moz-box-shadow: -1px 9px 200px -16px rgba(181, 174, 181, 1);
+.aboutUsInfoSection, .reviewContainer {
     -webkit-border-radius: 105px 105px 105px 105px;
-    -webkit-box-shadow: 27px 16px 114px -48px rgba(181, 174, 181, 1);
-    -webkit-box-shadow: -1px 9px 200px -16px rgba(181, 174, 181, 1);
     border: 2px solid rgba(181, 174, 181, 1);
     border-radius: 105px 105px 105px 105px;
-    box-shadow: 27px 16px 114px -48px rgba(181, 174, 181, 1);
-    box-shadow: -1px 9px 200px -16px rgba(181, 174, 181, 1);
     display: inline-block;
-    margin: 33px auto;
+    margin: 14px auto;
     width: 100%;
+    text-align: center;
+    background-color: #f2f6c1;
+    color: #6a5f49;
+    text-shadow: 0 1px 1px white;
 }
+
+    .reviewContainer.addcoment {
+        border-radius: unset;
+        display: table;
+        border-bottom-style: groove;
+        border-width: 4px;
+        background-color: #3d3d3e;
+        position: relative;
+        margin: 14px;
+        bottom: -1px;
+    }
 
 div#msf-About_Us-Image {
     height: 210px;
@@ -3930,6 +3988,10 @@ span.BlogNameAndDate {
     animation-timing-function: linear;
 }
 
+#replyDiv {
+    font-size: 28px;
+    color: #ff7f50;
+}
 
 #spinner1 {
     top: 25px;

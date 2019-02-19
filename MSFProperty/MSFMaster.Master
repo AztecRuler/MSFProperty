@@ -76,7 +76,7 @@
                     <div class="footerColumn columnFirst">
                         <ul class="footerUL">
                             <li>
-                                <a href="accommodationsPage.aspx">Our Properties</a>
+                                <a href="AcommodationsPage.aspx">Our Properties</a>
                             </li>
                             <li>
                               <a href="SearchResults.aspx">Search Page</a>
@@ -114,27 +114,8 @@
                     </div>
                     <div class="footerColumn">
                         <ul id="footerIconsSection">
-                            <li>
-                                <a href="#" id="twitterLink">
-                                    <span>Twitter</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" id="googleLink">
-                                    <span>Google Plus</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" id="pintrstLink">
-                                    <span>Printerest</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" id="linkinLink">
-                                    <span>Linkedin</span>
-                                </a>
-                            </li>
-                            <li>
+                        <li>
+                            Social<br/>
                                 <a href="#" id="facebookLink">
                                     <span>facebook</span>
                                 </a>
