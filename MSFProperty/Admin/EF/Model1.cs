@@ -20,8 +20,8 @@ namespace MSFProperty.Admin.EF
         public virtual DbSet<Page> Pages { get; set; }
         public virtual DbSet<Property> Properties { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
-        public virtual DbSet<TextContent> TextContents { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<TextContent> TextContents { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -169,6 +169,18 @@ namespace MSFProperty.Admin.EF
                 .Property(e => e.UserName)
                 .IsFixedLength();
 
+            modelBuilder.Entity<User>()
+                .Property(e => e.Username)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<User>()
+                .Property(e => e.Password)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<User>()
+                .Property(e => e.Email)
+                .IsUnicode(false);
+
             modelBuilder.Entity<TextContent>()
                 .Property(e => e.PageName)
                 .IsFixedLength();
@@ -187,18 +199,6 @@ namespace MSFProperty.Admin.EF
 
             modelBuilder.Entity<TextContent>()
                 .Property(e => e.ElementLink)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<User>()
-                .Property(e => e.Username)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<User>()
-                .Property(e => e.Password)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<User>()
-                .Property(e => e.Email)
                 .IsUnicode(false);
         }
     }

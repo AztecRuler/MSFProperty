@@ -2,6 +2,7 @@
 
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <asp:Panel ID="UsersPanel" runat="server" GroupingText="Users">
         <div class="tab">
             <button class="tablinks active" id="createNewUser" onclick="OpenAdminTab(event, 'addUser', 1)">Add A New User</button>
@@ -9,8 +10,9 @@
         </div>
 
         <div id="addUser" class="tabcontent" style="display: table;">
-            <asp:UpdatePanel ID="AddUserUpdatePanel" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
+            <asp:UpdatePanel ID="AddUserUpdatePanel" runat="server">
                 <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="CreateUserButton"/>
 
                 </Triggers>
                 <ContentTemplate>
@@ -89,12 +91,111 @@
             </asp:UpdatePanel>
         </div>
 
-        <div id="editUser" class="tabcontent" style="display: table;">
-            <asp:UpdatePanel ID="EditUserUpdatePanel" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
+        <div id="editUser" class="tabcontent">
+            <asp:UpdatePanel ID="EditUserUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="False">
                 <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="CancelEditUser"/>
 
                 </Triggers>
-                <ContentTemplate></ContentTemplate>
+                <ContentTemplate>
+                    <asp:Repeater ID="UsersRepeater" runat="server">
+                        <ItemTemplate>
+                            <div  data-id="<%#Eval("UserId") %>" class="userViewContainer">
+
+                                <div> <%# Eval("Username") %></div>
+                            </div>
+
+                        </ItemTemplate>
+                    </asp:Repeater>
+                    <asp:HiddenField runat="server" ID="editUserId"></asp:HiddenField>
+
+               
+                    <asp:Panel ID="passwordConfirmPanel" runat="server" GroupingText="Password Confirm" CssClass="hidden">
+                        <asp:Label ID="userConfirmPasswordLabel" runat="server" Text="Enter Current Password For This User"></asp:Label>
+                        <asp:TextBox ID="userConfirmPasswordTextBox" runat="server"></asp:TextBox>
+                        <asp:Button ID="userConfirmPasswordCheck" runat="server" Text="Enter Password" OnClick="ConfirmPassword"/>
+                    </asp:Panel>
+                    <asp:Panel runat="server" ID="EditUserDetailsPanel" GroupingText="Edit User Details" Visible="False">
+                        <table cellpadding="1" cellspacing="0" style="border-collapse: collapse;">
+                            <tr>
+                                <td>
+                                    <table cellpadding="0">
+                                        <tr>
+                                            <td align="center" colspan="2">Add User</td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right">
+                                                <asp:Label ID="EditUserDetails" runat="server" AssociatedControlID="EditUserDetailsTextBox">User Name:</asp:Label>
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EditUserDetailsTextBox" runat="server"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="EditUserDetailsTextBox" ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="LoginAdmin">*</asp:RequiredFieldValidator>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right">
+                                                <asp:Label ID="EditUserDetailsPasswordLabel" runat="server" AssociatedControlID="EditUserDetailsPasswordTextBox">Password:</asp:Label>
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EditUserDetailsPasswordTextBox" runat="server" TextMode="Password"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="EditUserDetailsPasswordTextBox" ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="LoginAdmin">*</asp:RequiredFieldValidator>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right">
+                                                <asp:Label ID="Label3" runat="server" AssociatedControlID="PasswordRepeatTextBox">Confirm Password:</asp:Label>
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EditUserDetailsPasswordRepeatTextBox" runat="server" TextMode="Password"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="EditUserDetailsPasswordRepeatTextBox" ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="LoginAdmin">*</asp:RequiredFieldValidator>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right">
+                                                <asp:Label ID="EditUserDetailsEmailLabel" runat="server" AssociatedControlID="EditUserDetailsEmailTextBox">Email:</asp:Label>
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EditUserDetailsEmailTextBox" runat="server" TextMode="Email"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="EditUserDetailsEmailTextBox" ErrorMessage="Email is required." ToolTip="Email is required." ValidationGroup="LoginAdmin">*</asp:RequiredFieldValidator>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right">
+                                                <asp:Label ID="EditUserDetailsConfirmEmailLabel" runat="server" AssociatedControlID="EditUserDetailsConfirmEmailTextBox">Confirm Email:</asp:Label>
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EditUserDetailsConfirmEmailTextBox" runat="server" TextMode="Email"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="EditUserDetailsConfirmEmailTextBox" ErrorMessage="Email is required." ToolTip="Email is required." ValidationGroup="LoginAdmin">*</asp:RequiredFieldValidator>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center" colspan="2" style="color: Red;">
+                                                <asp:Label ID="EditUserDetailsErrorLabel" runat="server" ForeColor="Red"></asp:Label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right" colspan="2">
+                                                <asp:Button ID="EditUserDetailsSave" runat="server" CommandName="Login" Text="Edit User" ValidationGroup="LoginAdmin" OnClick="EditUserDetailsSave_OnClickUserButtonClick"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </asp:Panel>
+                        <asp:Label ID="editUserError" runat="server" ForeColor="Red"></asp:Label>
+                    <asp:Button ID="CancelEditUser" runat="server" Text="Cancel" CssClass="hidden"/>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <asp:UpdatePanel id="UserEditOptionUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="False">
+                <ContentTemplate>
+                <asp:Panel ID="editUserOptions" runat="server" GroupingText="edit User options" CssClass="hidden">
+                    <asp:Button ID="DeleteUser" runat="server" Text="Delete User" OnClick="DeleteUser_OnClick"/>
+                    <asp:Button ID="EditUserButton" runat="server" Text="Edit User"/>
+                </asp:Panel>
+            </ContentTemplate>
+
             </asp:UpdatePanel>
         </div>
 

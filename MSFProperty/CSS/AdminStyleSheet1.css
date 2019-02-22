@@ -118,6 +118,10 @@ body {
     width: 100%;
 }
 
+input, a, button {
+    cursor: pointer;
+}
+
 #wrapper {
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
@@ -286,7 +290,29 @@ a#LoginStatus1 {
     background-color: #84862d;
 }
 
+/*users*/
+.userViewContainer {
+    background-color: #f2f2f2;
+    padding: 17px 50px;
+    float: left;
+    margin: 14px 14px;
+    width: 45%;
+    text-align: center;
+    cursor: pointer;
+}
 
+    .userViewContainer:hover {
+        background-color: #F2F2C8;
+    }
+
+div#passwordConfirmPanel {
+    float: left;
+    width: 60%;
+}
+
+#editUserOptions {
+    float: left;
+}
 /* Style the tab */
 .tab {
     overflow: hidden;
