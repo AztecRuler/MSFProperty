@@ -149,7 +149,7 @@ namespace MSFProperty.Admin
             sbEmailBody.Append("<br/>");
             sbEmailBody.Append("<a href='http://localhost:41121/Admin/ChangePassword.aspx?uid='"+ uniqueId +">Click here to reset password</a>" );
             sbEmailBody.Append("<br/><br/>");
-            sbEmailBody.Append("<b>msfproperty.co.uk</b>");
+            sbEmailBody.Append("<b>msfproperty.co.uk</b> </br> Letting Agent Registration Number: LARN1809015");
 
             try
             {

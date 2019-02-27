@@ -14,6 +14,7 @@ namespace MSFProperty.Admin.EF
 
         public virtual DbSet<AboutUsInfo> AboutUsInfoes { get; set; }
         public virtual DbSet<Blog> Blogs { get; set; }
+        public virtual DbSet<ContactDetail> ContactDetails { get; set; }
         public virtual DbSet<ContentImage> ContentImages { get; set; }
         public virtual DbSet<ErrorReporting> ErrorReportings { get; set; }
         public virtual DbSet<PageImage> PageImages { get; set; }
@@ -52,6 +53,34 @@ namespace MSFProperty.Admin.EF
             modelBuilder.Entity<Blog>()
                 .Property(e => e.ImageUrl)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.AddressLineOne)
+                .IsFixedLength();
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.AddressLineTwo)
+                .IsFixedLength();
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.PostCode)
+                .IsFixedLength();
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.TelephoneNumberLandLine)
+                .IsFixedLength();
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.TelephoneMobile)
+                .IsFixedLength();
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.RegNumber)
+                .IsFixedLength();
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.EmailAdress)
+                .IsFixedLength();
 
             modelBuilder.Entity<ContentImage>()
                 .Property(e => e.ImageUrl)

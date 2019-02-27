@@ -123,7 +123,11 @@
     <Content Include="Admin\Admin.aspx" />
     <Content Include="Admin\AdminAboutUs.aspx" />
     <Content Include="Admin\AdminBlogPage.aspx" />
+    <Content Include="Admin\AdminPrivacyPolicy.aspx" />
+    <Content Include="Admin\AdminReviewOverview.aspx" />
+    <Content Include="Admin\Analytics.aspx" />
     <Content Include="Admin\ChangePassword.aspx" />
+    <Content Include="Admin\EditContactDetails.aspx" />
     <Content Include="Admin\EditImages.aspx" />
     <Content Include="Admin\EditPage.aspx" />
     <Content Include="Admin\PropertyPage.aspx" />
@@ -136,6 +140,7 @@
     <Content Include="Default.aspx" />
     <Content Include="fancyLine.png" />
     <Content Include="favicon.ico" />
+    <Content Include="FindUs.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Icons\font-awesome.css" />
     <Content Include="Icons\ionicons.css" />
@@ -207,6 +212,27 @@
     <Compile Include="Admin\AdminMasterPage.Master.designer.cs">
       <DependentUpon>AdminMasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AdminPrivacyPolicy.aspx.cs">
+      <DependentUpon>AdminPrivacyPolicy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminPrivacyPolicy.aspx.designer.cs">
+      <DependentUpon>AdminPrivacyPolicy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminReviewOverview.aspx.cs">
+      <DependentUpon>AdminReviewOverview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminReviewOverview.aspx.designer.cs">
+      <DependentUpon>AdminReviewOverview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Analytics.aspx.cs">
+      <DependentUpon>Analytics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Analytics.aspx.designer.cs">
+      <DependentUpon>Analytics.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -214,8 +240,16 @@
     <Compile Include="Admin\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EditContactDetails.aspx.cs">
+      <DependentUpon>EditContactDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditContactDetails.aspx.designer.cs">
+      <DependentUpon>EditContactDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\EF\AboutUsInfo.cs" />
     <Compile Include="Admin\EF\Blog.cs" />
+    <Compile Include="Admin\EF\ContactDetail.cs" />
     <Compile Include="Admin\EF\ContentImage.cs" />
     <Compile Include="Admin\EF\ErrorReporting.cs" />
     <Compile Include="Admin\EF\Model1.cs" />
@@ -281,6 +315,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindUs.aspx.cs">
+      <DependentUpon>FindUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FindUs.aspx.designer.cs">
+      <DependentUpon>FindUs.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

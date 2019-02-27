@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MSFMaster.master.cs" Inherits="MSFProperty.MSFMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="MSFProperty.MSFMaster" Codebehind="MSFMaster.master.cs" %>
 
 <!DOCTYPE html>
 
@@ -64,7 +64,7 @@
             </div>
         </asp:ContentPlaceHolder>
 
-        <asp:ContentPlaceHolder ID="MainBody"  runat="server">
+        <asp:ContentPlaceHolder ID="MainBody" runat="server">
         </asp:ContentPlaceHolder>
 
 
@@ -72,60 +72,63 @@
 
 
             <div id="footer" class="footer">
-                <div id="footerContainer">
-                    <div class="footerColumn columnFirst">
-                        <ul class="footerUL">
-                            <li>
-                                <a href="AcommodationsPage.aspx">Our Properties</a>
-                            </li>
-                            <li>
-                              <a href="SearchResults.aspx">Search Page</a>
-                            </li>
-                            <li>
-                                <a href="#">Find Us</a>
-                            </li>
-                        </ul>
+            <div id="footerContainer">
+                <asp:Repeater ID="ContactUsRepeater" runat="server">
+                    <ItemTemplate>
+                        <div class="footerColumn columnFirst">
+                            <ul class="footerUL">
+
+                                <li>
+                                    <a href="SearchResults.aspx">Search Page</a>
+                                </li>
+                                <li>
+                                    <a href="FindUs.aspx">Find Us</a>
+                                </li>
+                                <li>
+
+                                    <a href="Privacy.aspx">Privacy Policy</a>
+                                </li>
+                                <li>
+                                    <a href="Reviews.aspx">Reviews</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="footerColumn">
+                            <ul class="footerUL">
+                                <li class="contactDetails footerAddress">
+                                    <%#Eval("AddressNumber") %> <%#Eval("AddressLineOne") %><br/><%#Eval("AddressLineTwo") %><br/><%#Eval("PostCode") %>
+                                </li>
+                                <li class="contactDetails">Email:<%#Eval("EmailAdress") %></li>
+
+                            </ul>
+                        </div>
+                        <div class="footerColumn">
+                            <ul class="footerUL">
+                                <li class="contactDetails">LandLine:<%#Eval("TelephoneNumberLandLine") %></li>
+                                <li class="contactDetails footerMobile">Mobile:<%#Eval("TelephoneMobile") %></li>
+                                <li class="contactDetails">Property Reg number:<%#Eval("RegNumber") %></li>
+
+                            </ul>
+                        </div>
+                        <div class="footerColumn coloumnLast">
+                            <ul id="footerIconsSection">
+                                <li>
+                                    Social<br/>
+                                    <a href="#" id="facebookLink">
+                                        <span>facebook</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <p class="classAntics">
+                                <a href="http://www.classantics.co.uk" target="_blank">Powered by ClassAntics</a>
+                            </p>
+                        </div>
                     </div>
-                    <div class="footerColumn">
-                        <ul class="footerUL">
-                            <li>
-                                <a href="#">Availability</a>
-                            </li>
-                            <li>
-                                <a href="Privacy.aspx">Privacy Policy</a>
-                            </li>
-                            <li>
-                              <a href="Reviews.aspx">Reviews</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="footerColumn">
-                        <ul class="footerUL">
-                            <li>
-                                <a href="About_Us.aspx">About us</a>
-                            </li>
-                            <li>
-                                <a href="BlogMainPage.aspx">Blog</a>
-                            </li>
-                            <li>
-                                <a href="contact-us.aspx">Contact Us</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="footerColumn">
-                        <ul id="footerIconsSection">
-                        <li>
-                            Social<br/>
-                                <a href="#" id="facebookLink">
-                                    <span>facebook</span>
-                                </a>
-                            </li>
-                        </ul>
-                        <p class="classAntics">
-                            <a href="http://www.classantics.co.uk" target="_blank">Powered by ClassAntics</a>
-                        </p>
-                    </div>
-                </div>
+                    </ItemTemplate>
+
+                </asp:Repeater>
             </div>
         </asp:ContentPlaceHolder>
 

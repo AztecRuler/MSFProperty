@@ -392,6 +392,11 @@ li.pricePointList:before {
     text-align: center;
 }
 
+.footerColumn.columnFirst li a:hover {
+    color: gold !important;
+}
+
+
 #footer {
     text-align: center;
     border-top: 1px solid rgb(196, 196, 196);
@@ -403,6 +408,7 @@ li.pricePointList:before {
         margin: 0 auto;
         position: relative;
         width: 100%;
+        height: 142px;
     }
 
     #footer a {
@@ -414,19 +420,42 @@ li.pricePointList:before {
     #footer div:not(:first-child) {
         border-left: 1px solid rgb(196, 196, 196);
         display: table-cell;
-        padding: 14px;
     }
 
 .footerColumn {
     width: 25%;
 }
 
-    .footerColumn.columnFirst {
-        display: table-cell;
+    .footerColumn.coloumnLast {
+        width: 10%;
     }
 
+ul.footerUL {
+    margin-top: 14px;
+}
+
+.footerColumn.columnFirst {
+    display: table-cell;
+}
+
 #footer li {
-    margin-bottom: 0;
+    margin-bottom: 0px;
+}
+
+li.contactDetails.footerAddress {
+}
+
+.contactDetails {
+    font-size: 16px;
+}
+
+#footer li, #footer a {
+    font-size: 18px;
+}
+
+li.contactDetails.footerAddress {
+    padding-bottom: 7px;
+    margin-bottom: 7px !important;
 }
 
 .leftWrapper {
@@ -494,7 +523,9 @@ a#linkinLink {
 p.classAntics {
     margin: 0;
     position: relative;
-    top: 7px;
+    top: 6px;
+    right: 17px;
+    float: right;
 }
 
 /*end of footer*/
@@ -509,10 +540,14 @@ p.classAntics {
     width: 100%;
 }
 
+li.contactDetails.footerMobile {
+    margin-bottom: 7px !important;
+}
+
 #footerIconsSection {
     border-bottom: 1px solid rgb(196, 196, 196);
     font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
-    padding-bottom: 0%;
+    padding-bottom: 36px;
 }
 
     #footerIconsSection li {

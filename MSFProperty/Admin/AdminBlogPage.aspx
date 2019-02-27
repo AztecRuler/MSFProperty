@@ -13,7 +13,8 @@
         <div id="createBlog" class="tabcontent" style="display: table;">
             <asp:UpdatePanel ID="UpdatePanel2" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                 <Triggers>
-                    <asp:PostBackTrigger ControlID="SaveButton" />
+<%--                    <asp:AsyncPostBackTrigger ControlID="SaveButton" EventName="Click"/>--%>
+                    <asp:PostBackTrigger ControlID="SaveButton"/>
 
                 </Triggers>
                 <ContentTemplate>
@@ -92,7 +93,7 @@
         <div id="existingBlog" class="tabcontent">
             <asp:UpdatePanel ID="UpdatePanel3" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                 <Triggers>
-                    <asp:PostBackTrigger ControlID="SaveEditBlog" />
+                    <asp:AsyncPostBackTrigger ControlID="SaveEditBlog" EventName="Click"/>
 
                 </Triggers>
                 <ContentTemplate>
@@ -205,8 +206,7 @@
         <div id="organiseExistingBlogs" class="tabcontent">
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                 <Triggers>
-                    <asp:PostBackTrigger ControlID="SaveEditBlog" />
-
+                    <asp:AsyncPostBackTrigger ControlID="SaveEditBlog" EventName="Click"/>
                 </Triggers>
                 <ContentTemplate>
 
