@@ -181,6 +181,10 @@ namespace MSFProperty.Admin.EF
                 .Property(e => e.Email)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<User>()
+                .Property(e => e.UIDRESET)
+                .IsUnicode(false);
+
             modelBuilder.Entity<TextContent>()
                 .Property(e => e.PageName)
                 .IsFixedLength();

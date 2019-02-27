@@ -18,7 +18,19 @@ namespace MSFProperty.Admin.EF
         [StringLength(50)]
         public string Password { get; set; }
 
+        [Required]
         [StringLength(320)]
         public string Email { get; set; }
+
+        public bool? Locked { get; set; }
+
+        public DateTime? LockedTime { get; set; }
+
+        public int? LogAttempts { get; set; }
+
+        [StringLength(50)]
+        public string UIDRESET { get; set; }
+
+        public DateTime? UIDRESETTIME { get; set; }
     }
 }

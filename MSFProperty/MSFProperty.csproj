@@ -123,6 +123,7 @@
     <Content Include="Admin\Admin.aspx" />
     <Content Include="Admin\AdminAboutUs.aspx" />
     <Content Include="Admin\AdminBlogPage.aspx" />
+    <Content Include="Admin\ChangePassword.aspx" />
     <Content Include="Admin\EditImages.aspx" />
     <Content Include="Admin\EditPage.aspx" />
     <Content Include="Admin\PropertyPage.aspx" />
@@ -205,6 +206,13 @@
     </Compile>
     <Compile Include="Admin\AdminMasterPage.Master.designer.cs">
       <DependentUpon>AdminMasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\EF\AboutUsInfo.cs" />
     <Compile Include="Admin\EF\Blog.cs" />
