@@ -12,6 +12,7 @@ namespace MSFProperty.Admin
         protected void Page_Load(object src, EventArgs e)
         {
             if (!IsPostBack) FillRepeaterData();
+            Page.Form.Attributes.Add("enctype", "multipart/form-data");
         }
 
         private void FillRepeaterData()
