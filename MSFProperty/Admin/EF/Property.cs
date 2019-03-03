@@ -1,10 +1,12 @@
-using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace MSFProperty.Admin.EF
 {
-    public class Property
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
+    public partial class Property
     {
         public int ID { get; set; }
 
@@ -43,7 +45,7 @@ namespace MSFProperty.Admin.EF
         [StringLength(100)]
         public string Area { get; set; }
 
-        [StringLength(1000)]
+        [StringLength(3000)]
         public string Blurb { get; set; }
 
         public bool? Featured { get; set; }
@@ -71,5 +73,7 @@ namespace MSFProperty.Admin.EF
 
         [StringLength(10)]
         public string PostCode { get; set; }
+
+        public bool? Smoking { get; set; }
     }
 }

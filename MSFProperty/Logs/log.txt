@@ -18,3 +18,93 @@ Log Entry : 18:30:06 09 January 2019
   :
   :{"place_id":"82419633","licence":"Data Â© OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright","osm_type":"way","osm_id":"28198542","lat":"55.9398894536989","lon":"-3.0086633486798","display_name":"Wemyss Gardens, Pinkie Braes, Levenhall, Wallyford, East Lothian, Scotland, EH21 8LA, UK","address":{"road":"Wemyss Gardens","neighbourhood":"Pinkie Braes","suburb":"Levenhall","village":"Wallyford","county":"East Lothian","state":"Scotland","postcode":"EH21 8LA","country":"UK","country_code":"gb"},"boundingbox":["55.9393048","55.9404565","-3.0102363","-3.0081411"]}  content
 -------------------------------
+
+Log Entry : 04:54:55 02 February 2019
+  :
+  :https://api.postcodes.io/postcodes/eh87sj
+-------------------------------
+
+Log Entry : 04:54:56 02 February 2019
+  :
+  :{"status":200,"result":{"postcode":"EH8 7SJ","quality":1,"eastings":329190,"northings":673804,"country":"Scotland","nhs_ha":"Lothian","longitude":-3.135528,"latitude":55.952026,"european_electoral_region":"Scotland","primary_care_trust":"Edinburgh Community Health Partnership","region":null,"lsoa":"Mountcastle - 03","msoa":"Mountcastle","incode":"7SJ","outcode":"EH8","parliamentary_constituency":"Edinburgh East","admin_district":"City of Edinburgh","parish":null,"admin_county":null,"admin_ward":"Craigentinny/Duddingston","ced":null,"ccg":"Edinburgh Community Health Partnership","nuts":"Edinburgh, City of","codes":{"admin_district":"S12000036","admin_county":"S99999999","admin_ward":"S13002932","parish":"S99999999","parliamentary_constituency":"S14000022","ccg":"S03000042","ced":"S99999999","nuts":"UKM75"}}} resultconent 
+-------------------------------
+
+Log Entry : 04:57:29 02 February 2019
+  :
+  :https://api.postcodes.io/postcodes/eh87sj
+-------------------------------
+
+Log Entry : 04:57:30 02 February 2019
+  :
+  :{"status":200,"result":{"postcode":"EH8 7SJ","quality":1,"eastings":329190,"northings":673804,"country":"Scotland","nhs_ha":"Lothian","longitude":-3.135528,"latitude":55.952026,"european_electoral_region":"Scotland","primary_care_trust":"Edinburgh Community Health Partnership","region":null,"lsoa":"Mountcastle - 03","msoa":"Mountcastle","incode":"7SJ","outcode":"EH8","parliamentary_constituency":"Edinburgh East","admin_district":"City of Edinburgh","parish":null,"admin_county":null,"admin_ward":"Craigentinny/Duddingston","ced":null,"ccg":"Edinburgh Community Health Partnership","nuts":"Edinburgh, City of","codes":{"admin_district":"S12000036","admin_county":"S99999999","admin_ward":"S13002932","parish":"S99999999","parliamentary_constituency":"S14000022","ccg":"S03000042","ced":"S99999999","nuts":"UKM75"}}} resultconent 
+-------------------------------
+
+Log Entry : 04:58:30 02 February 2019
+  :
+  :https://api.postcodes.io/postcodes/eh87sj
+-------------------------------
+
+Log Entry : 04:58:31 02 February 2019
+  :
+  :{"status":200,"result":{"postcode":"EH8 7SJ","quality":1,"eastings":329190,"northings":673804,"country":"Scotland","nhs_ha":"Lothian","longitude":-3.135528,"latitude":55.952026,"european_electoral_region":"Scotland","primary_care_trust":"Edinburgh Community Health Partnership","region":null,"lsoa":"Mountcastle - 03","msoa":"Mountcastle","incode":"7SJ","outcode":"EH8","parliamentary_constituency":"Edinburgh East","admin_district":"City of Edinburgh","parish":null,"admin_county":null,"admin_ward":"Craigentinny/Duddingston","ced":null,"ccg":"Edinburgh Community Health Partnership","nuts":"Edinburgh, City of","codes":{"admin_district":"S12000036","admin_county":"S99999999","admin_ward":"S13002932","parish":"S99999999","parliamentary_constituency":"S14000022","ccg":"S03000042","ced":"S99999999","nuts":"UKM75"}}} resultconent 
+-------------------------------
+
+Log Entry : 05:00:07 02 February 2019
+  :
+  :https://api.postcodes.io/postcodes/eh87sj
+-------------------------------
+
+Log Entry : 05:00:08 02 February 2019
+  :
+  :{"status":200,"result":{"postcode":"EH8 7SJ","quality":1,"eastings":329190,"northings":673804,"country":"Scotland","nhs_ha":"Lothian","longitude":-3.135528,"latitude":55.952026,"european_electoral_region":"Scotland","primary_care_trust":"Edinburgh Community Health Partnership","region":null,"lsoa":"Mountcastle - 03","msoa":"Mountcastle","incode":"7SJ","outcode":"EH8","parliamentary_constituency":"Edinburgh East","admin_district":"City of Edinburgh","parish":null,"admin_county":null,"admin_ward":"Craigentinny/Duddingston","ced":null,"ccg":"Edinburgh Community Health Partnership","nuts":"Edinburgh, City of","codes":{"admin_district":"S12000036","admin_county":"S99999999","admin_ward":"S13002932","parish":"S99999999","parliamentary_constituency":"S14000022","ccg":"S03000042","ced":"S99999999","nuts":"UKM75"}}} resultconent 
+-------------------------------
+
+Log Entry : 05:00:08 02 February 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.952026&lon=-3.135528
+-------------------------------
+
+Log Entry : 05:00:09 02 February 2019
+  :
+  :{"place_id":"51784124","licence":"Data Â© OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright","osm_type":"node","osm_id":"4065432523","lat":"55.9520528","lon":"-3.1355468","display_name":"20, Mountcastle Drive North, Mountcastle, Northfield/Willowbrae, Edinburgh, City of Edinburgh, Scotland, EH8 7SJ, UK","address":{"house_number":"20","road":"Mountcastle Drive North","neighbourhood":"Mountcastle","suburb":"Northfield/Willowbrae","city":"Edinburgh","county":"City of Edinburgh","state":"Scotland","postcode":"EH8 7SJ","country":"UK","country_code":"gb"},"boundingbox":["55.9519528","55.9521528","-3.1356468","-3.1354468"]}  content
+-------------------------------
+
+Log Entry : 05:18:01 02 February 2019
+  :
+  :https://api.postcodes.io/postcodes/EH21 8LA
+-------------------------------
+
+Log Entry : 05:18:02 02 February 2019
+  :
+  :{"status":200,"result":{"postcode":"EH21 8LA","quality":1,"eastings":337089,"northings":672346,"country":"Scotland","nhs_ha":"Lothian","longitude":-3.008716,"latitude":55.940029,"european_electoral_region":"Scotland","primary_care_trust":"East Lothian Community Health Partnership","region":null,"lsoa":"IZ01 - 07","msoa":"IZ01","incode":"8LA","outcode":"EH21","parliamentary_constituency":"East Lothian","admin_district":"East Lothian","parish":null,"admin_county":null,"admin_ward":"Tranent, Wallyford and Macmerry","ced":null,"ccg":"East Lothian Community Health Partnership","nuts":"East Lothian and Midlothian","codes":{"admin_district":"S12000010","admin_county":"S99999999","admin_ward":"S13002910","parish":"S99999999","parliamentary_constituency":"S14000020","ccg":"S03000031","ced":"S99999999","nuts":"UKM73"}}} resultconent 
+-------------------------------
+
+Log Entry : 05:18:02 02 February 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940029&lon=-3.008716
+-------------------------------
+
+Log Entry : 05:18:02 02 February 2019
+  :
+  :{"place_id":"82419633","licence":"Data Â© OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright","osm_type":"way","osm_id":"28198542","lat":"55.9398894536989","lon":"-3.0086633486798","display_name":"Wemyss Gardens, Pinkie Braes, Levenhall, Wallyford, East Lothian, Scotland, EH21 8LA, UK","address":{"road":"Wemyss Gardens","neighbourhood":"Pinkie Braes","suburb":"Levenhall","village":"Wallyford","county":"East Lothian","state":"Scotland","postcode":"EH21 8LA","country":"UK","country_code":"gb"},"boundingbox":["55.9393048","55.9404565","-3.0102363","-3.0081411"]}  content
+-------------------------------
+
+Log Entry : 18:31:06 27 February 2019
+  :
+  :https://api.postcodes.io/postcodes/eh525qj
+-------------------------------
+
+Log Entry : 18:31:07 27 February 2019
+  :
+  :{"status":200,"result":{"postcode":"EH52 5QJ","quality":1,"eastings":308334,"northings":672101,"country":"Scotland","nhs_ha":"Lothian","longitude":-3.468827,"latitude":55.9332,"european_electoral_region":"Scotland","primary_care_trust":"West Lothian Community Health and Care Partnership","region":null,"lsoa":"Broxburn South - 05","msoa":"Broxburn South","incode":"5QJ","outcode":"EH52","parliamentary_constituency":"Livingston","admin_district":"West Lothian","parish":null,"admin_county":null,"admin_ward":"Broxburn, Uphall and Winchburgh","ced":null,"ccg":"West Lothian Community Health and Care Partnership","nuts":"West Lothian","codes":{"admin_district":"S12000040","admin_county":"S99999999","admin_ward":"S13002821","parish":"S99999999","parliamentary_constituency":"S14000044","ccg":"S03000035","ced":"S99999999","nuts":"UKM78"}}} resultconent 
+-------------------------------
+
+Log Entry : 18:31:08 27 February 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.9332&lon=-3.468827
+-------------------------------
+
+Log Entry : 18:31:08 27 February 2019
+  :
+  :{"place_id":"91683393","licence":"Data Â© OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright","osm_type":"way","osm_id":"69044646","lat":"55.9333452457891","lon":"-3.46879104350334","display_name":"Almondell Road, Jessiehill Cottages, Broxburn, West Lothian, Scotland, EH52 5HT, UK","address":{"road":"Almondell Road","suburb":"Jessiehill Cottages","town":"Broxburn","county":"West Lothian","state":"Scotland","postcode":"EH52 5HT","country":"UK","country_code":"gb"},"boundingbox":["55.9330652","55.9336102","-3.4701556","-3.4653776"]}  content
+-------------------------------

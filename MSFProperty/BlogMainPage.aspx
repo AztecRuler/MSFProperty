@@ -6,7 +6,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainBody" runat="server">
-    <div class="msf-main-bg-header bgimg editable" style="background-image: url('../Images/<%=GetImage(7)%>')">
+    <div class="msf-main-bg-header bgimg editable lazy" style="background-image: url('~/../Images/<%=GetImage(7)%>')">
         <div class="span-table">
             <div class="span-table-cell vertical-align-middle text-align-center">
                 <div class="container">
@@ -21,7 +21,7 @@
             <ul>
                 <li class="msf-button-info-book "><a class="editable" href="#"><%=GetText(8)%></a></li>
                 <li class="msf-button-info-phone "><a class="editable" href="tel:07709 649 292 7"><%=GetText(9)%> </a></li>
-                <li class="msf-button-info-contact "><a class="editable" href="../contact-us/"><%=GetText(10)%></a></li>
+                <li class="msf-button-info-contact "><a class="editable" href="~/../contact-us/"><%=GetText(10)%></a></li>
             </ul>
         </div>
     </div>

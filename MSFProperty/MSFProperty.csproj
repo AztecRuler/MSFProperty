@@ -23,6 +23,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,7 +33,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
     <LangVersion>7</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -46,6 +47,12 @@
     <LangVersion>7.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery, Version=3.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.3.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -56,6 +63,9 @@
       <HintPath>..\packages\WCM.FreeTextBox.3.3.0\lib\FreeTextBox.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -93,6 +103,9 @@
     <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -100,16 +113,25 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="About_Us.aspx" />
-    <Content Include="acommodationsPage.aspx" />
+    <Content Include="AcommodationsPage.aspx" />
     <Content Include="Admin\Admin.aspx" />
     <Content Include="Admin\AdminAboutUs.aspx" />
     <Content Include="Admin\AdminBlogPage.aspx" />
+    <Content Include="Admin\AdminPrivacyPolicy.aspx" />
+    <Content Include="Admin\AdminReviewOverview.aspx" />
+    <Content Include="Admin\Analytics.aspx" />
+    <Content Include="Admin\ChangePassword.aspx" />
+    <Content Include="Admin\EditContactDetails.aspx" />
     <Content Include="Admin\EditImages.aspx" />
     <Content Include="Admin\EditPage.aspx" />
     <Content Include="Admin\PropertyPage.aspx" />
+    <Content Include="Admin\Users.aspx" />
     <Content Include="BlogMainPage.aspx" />
     <Content Include="BlogPageView.aspx" />
     <Content Include="contact-us.aspx" />
@@ -118,17 +140,26 @@
     <Content Include="Default.aspx" />
     <Content Include="fancyLine.png" />
     <Content Include="favicon.ico" />
+    <Content Include="FindUs.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Icons\font-awesome.css" />
     <Content Include="Icons\ionicons.css" />
     <Content Include="ajax-loader.gif" />
     <Content Include="Icons\wpg-ico-75x60.png" />
     <Content Include="Images\AboutUsPictures\About_usImagePlaceholder.png" />
+    <Content Include="Images\img_woods_wide.jpg" />
     <Content Include="Javascript\adminJavaScript.js" />
     <Content Include="Javascript\msfJavascript.js" />
     <Content Include="Logs\log.txt" />
     <Content Include="Privacy.aspx" />
     <Content Include="properties.aspx" />
+    <Content Include="Reviews.aspx" />
+    <Content Include="Admin\Web.config" />
+    <None Include="Scripts\jquery-3.3.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="SearchResults.aspx" />
     <Content Include="services.aspx" />
     <Content Include="star.png" />
@@ -145,12 +176,12 @@
     <Compile Include="About_Us.aspx.designer.cs">
       <DependentUpon>About_Us.aspx</DependentUpon>
     </Compile>
-    <Compile Include="acommodationsPage.aspx.cs">
-      <DependentUpon>acommodationsPage.aspx</DependentUpon>
+    <Compile Include="AcommodationsPage.aspx.cs">
+      <DependentUpon>AcommodationsPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="acommodationsPage.aspx.designer.cs">
-      <DependentUpon>acommodationsPage.aspx</DependentUpon>
+    <Compile Include="AcommodationsPage.aspx.designer.cs">
+      <DependentUpon>AcommodationsPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\AddressResults.cs" />
     <Compile Include="Admin\Admin.aspx.cs">
@@ -181,14 +212,53 @@
     <Compile Include="Admin\AdminMasterPage.Master.designer.cs">
       <DependentUpon>AdminMasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AdminPrivacyPolicy.aspx.cs">
+      <DependentUpon>AdminPrivacyPolicy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminPrivacyPolicy.aspx.designer.cs">
+      <DependentUpon>AdminPrivacyPolicy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminReviewOverview.aspx.cs">
+      <DependentUpon>AdminReviewOverview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminReviewOverview.aspx.designer.cs">
+      <DependentUpon>AdminReviewOverview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Analytics.aspx.cs">
+      <DependentUpon>Analytics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Analytics.aspx.designer.cs">
+      <DependentUpon>Analytics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditContactDetails.aspx.cs">
+      <DependentUpon>EditContactDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditContactDetails.aspx.designer.cs">
+      <DependentUpon>EditContactDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\EF\AboutUsInfo.cs" />
     <Compile Include="Admin\EF\Blog.cs" />
+    <Compile Include="Admin\EF\ContactDetail.cs" />
     <Compile Include="Admin\EF\ContentImage.cs" />
+    <Compile Include="Admin\EF\ErrorReporting.cs" />
     <Compile Include="Admin\EF\Model1.cs" />
     <Compile Include="Admin\EF\Page.cs" />
     <Compile Include="Admin\EF\PageImage.cs" />
     <Compile Include="Admin\EF\Property.cs" />
+    <Compile Include="Admin\EF\Review.cs" />
     <Compile Include="Admin\EF\TextContent.cs" />
+    <Compile Include="Admin\EF\User.cs" />
     <Compile Include="Admin\PostcodeResult.cs" />
     <Compile Include="Admin\EditImages.aspx.cs">
       <DependentUpon>EditImages.aspx</DependentUpon>
@@ -210,6 +280,13 @@
     </Compile>
     <Compile Include="Admin\PropertyPage.aspx.designer.cs">
       <DependentUpon>PropertyPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
     </Compile>
     <Compile Include="BlogMainPage.aspx.cs">
       <DependentUpon>BlogMainPage.aspx</DependentUpon>
@@ -238,6 +315,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FindUs.aspx.cs">
+      <DependentUpon>FindUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FindUs.aspx.designer.cs">
+      <DependentUpon>FindUs.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -268,6 +352,13 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Reviews.aspx.cs">
+      <DependentUpon>Reviews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reviews.aspx.designer.cs">
+      <DependentUpon>Reviews.aspx</DependentUpon>
     </Compile>
     <Compile Include="SearchResults.aspx.cs">
       <DependentUpon>SearchResults.aspx</DependentUpon>
@@ -314,10 +405,13 @@
     <Content Include="Fonts\dashicons.eot" />
     <Content Include="Fonts\ProximaNova-Regular.woff" />
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -14,7 +14,7 @@ namespace MSFProperty.UserControls
         public string Chat { get; set; }
         public string ImageUrl { get; set; }
         public int DataId { get; set; }
-
+        public bool DataDelete { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
          

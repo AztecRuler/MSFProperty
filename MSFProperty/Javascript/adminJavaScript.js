@@ -4,30 +4,30 @@
 
         setBlogEditClick();
         SetForDeleteBlog();
+        setUserEditClick();
+        if ($("#createNewAbout_Us").length) {
+            setAboutUsEditClick();
+            setCancelDeleteClick();
+        }
 
-        setAboutUsEditClick();
+        if ($("#datepicker1").length) {
+            $(function() {
+                $("#datepicker2").datepicker();
+                $("#datepicker1").datepicker();
 
-        //var prm = Sys.WebForms.PageRequestManager.getInstance();
-        //prm.add_endRequest(function (s, e) {
-        //    FixTabs();
-        //});
-        $(function () {
-            $("#datepicker2").datepicker();
-            $("#datepicker1").datepicker();
+            });
 
-        });
-
-        $("#datepicker1").datepicker({
-            onSelect: function (dateText, inst) {
-                $('#datepicker1Value').val(dateText);
-            }
-        });
-        $("#datepicker2").datepicker({
-            onSelect: function (dateText, inst) {
-                $('#datepicker2Value').val(dateText);
-            }
-        });
-
+            $("#datepicker1").datepicker({
+                onSelect: function(dateText, inst) {
+                    $('#datepicker1Value').val(dateText);
+                }
+            });
+            $("#datepicker2").datepicker({
+                onSelect: function(dateText, inst) {
+                    $('#datepicker2Value').val(dateText);
+                }
+            });
+        }
         $(".imageButtonUpload").on('click', function (event) {
             event.stopPropagation();
             event.stopImmediatePropagation();
@@ -36,36 +36,37 @@
             $("#imagePreview").css("background-image", "url(" + $('#uploadedImageUrl').val() + ")");
         
         });
+        if ($('iframe').length) {
+            $('iframe').load(function() {
+                $('iframe').contents().find("head")
+                    .append($(
+                        "<style type='text/css'>  #footer,#msf-nav-bar{display:none;} .editable{ box-shadow: none;} .editable:hover {box-shadow: 0 0 25px red;  inset 0 0 10px white;}  div[class*='bgimg'] {width: 99%; margin: auto;}</style>"));
+                var allTextElements = $(this).contents().find(".editable").not('div[class*="bgimg"]');
+                var allImageElements = $(this).contents().find('div[class*="bgimg"]');
 
-        $('iframe').load(function () {
-            $('iframe').contents().find("head")
-                .append($("<style type='text/css'>  #footer,#msf-nav-bar{display:none;} .editable{ box-shadow: none;} .editable:hover {box-shadow: 0 0 25px red;  inset 0 0 10px white;}  div[class*='bgimg'] {width: 99%; margin: auto;}</style>"));
-            var allTextElements = $(this).contents().find(".editable").not('div[class*="bgimg"]');
-            var allImageElements = $(this).contents().find('div[class*="bgimg"]');
 
+                $(this).contents().find(".editable").on('click',
+                    function(event) {
 
-            $(this).contents().find(".editable").on('click', function (event) {
+                        $('#ImageChangePanel, #TextChangePanel').css({ 'display': 'none' });
+                        if (this.tagName === "A") {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        $('#AdminPanel').css({ 'display': 'block' });
+                        var editableElement = $(this).get(0);
+                        highlightElement(event, editableElement);
 
-                $('#ImageChangePanel, #TextChangePanel').css({ 'display': 'none' });
-                if (this.tagName === "A") {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                $('#AdminPanel').css({ 'display': 'block' });
-                var editableElement = $(this).get(0);
-                highlighElement(event, editableElement);
+                        if ($.inArray(this, allTextElements) > -1) {
+                            loadTextAdminPanel(allTextElements, editableElement);
+                        } else {
+                            loadImageAdminPanel(allImageElements, editableElement);
 
-                if ($.inArray(this, allTextElements) > -1) {
-                    loadTextAdminPanel(allTextElements, editableElement);
-                }
-                else {
-                    loadImageAdminPanel(allImageElements, editableElement);
+                        }
 
-                }
-
+                    });
             });
-        });
-
+        }
         setAccordians();
         function readUrl(input,preview) {
             if (input.files && input.files[0]) {
@@ -88,28 +89,33 @@
     });
 }
 
-function FixTabs() {
-    var tabIndex = document.getElementById('<%=hdnTab.ClientID%>').value;
-    var t1 = document.getElementById("createNewBlog");
-    var t2 = document.getElementById("editBlog");
-    var t3 = document.getElementById("organizeBlog");
+function setUserEditClick() {
+    $(".userViewContainer").on('click', function (event) {
+        var arrayCapture = $(this).map(function () {
+            return [$.map($(this).data(), function (v) {
+                return v;
+            })];
+        }).get();
+        var usersArray = arrayCapture[0];
+        $(".userViewContainer").not(this).toggleClass("hidden");
 
-    t1.setAttribute('class', '');
-    t2.setAttribute('class', '');
-    t3.setAttribute('class', '');
-    if (tabIndex === "1")
-        t1.setAttribute('class', 'active');
-    else if (tabIndex === "2")
-        t2.setAttribute('class', 'active');
-    else if (tabIndex === "3")
-        t3.setAttribute('class', 'active');
+        $("#passwordConfirmPanel, #CancelEditUser").toggleClass("hidden");
+
+        $("#editUserId").val(usersArray[0]);
+    });
 }
 
+
+function setCancelDeleteClick() {
+    $("#CancelDelete").on("click", function (event) {
+        $(".aboutUsInfoSection").removeClass("hidden");
+    });
+}
 function setAboutUsEditClick() {
 
     $(".aboutUsInfoSection").on('click',
         function(event) {
-            var arrayCapture = $(this).map(function() {
+            const arrayCapture = $(this).map(function() {
                 return [
                     $.map($(this).data(),
                         function(v) {
@@ -117,21 +123,32 @@ function setAboutUsEditClick() {
                         })
                 ];
             }).get();
-            var blogArray = arrayCapture[0];
-            $("#About_UsEditTextBox1").attr("readonly", false).val(blogArray[3]);
-            $("#About_UsEditTextBox2").attr("readonly", false).val(blogArray[2]);
-            $("#About_UsEditTextBox3").attr("readonly", false).val(blogArray[1]);
+            const blogArray = arrayCapture[0];
+            const deleteSelection = blogArray[0];
+            if (deleteSelection !== "False") {
+                $(".aboutUsInfoSection").not(this).toggleClass("hidden");
+                $(".About_UsDeletePanel").toggleClass("hidden");
+                $("html, body").animate({ scrollTop: $(document).height() }, "slow");
 
-            $("#imagePreview").attr("readonly", false).css("background-image", "url(../images/" + blogArray[0] + ")");
-       
-            $(".About_UsEditSelect, .About_UsEditPanel").toggleClass("hidden");
+            } else {
+                $("#About_UsEditTextBox1").attr("readonly", false).val(blogArray[4]);
+                $("#About_UsEditTextBox2").attr("readonly", false).val(blogArray[3]);
+                $("#About_UsEditTextBox3").attr("readonly", false).val(blogArray[2]);
 
-            $("#editAbout_UsId").val(blogArray[4]);
-            console.log($("#editBlogId").val());
+                $("#imagePreview").attr("readonly", false)
+                    .css("background-image", "url(../images/" + blogArray[1] + ")");
+
+                $(".About_UsEditSelect, .About_UsEditPanel").toggleClass("hidden");
+            }
+            $("#editAbout_UsId").val(blogArray[5]);
 
         });
 }
 
+function resetAboutUsTabs() {
+    $(" .About_UsEditPanel, .About_UsDeletePanel").addClass("hidden");
+    $(".aboutUsInfoSection, .About_UsEditSelect").removeClass("hidden");
+}
 function setBlogEditClick() {
     $(".blogEditSelect .blogCard").on('click', function (event) {
         var arrayCapture = $(this).map(function () {
@@ -179,7 +196,7 @@ function SetForDeleteBlog(){
 
 }
 
-function highlighElement(event, element) {
+function highlightElement(event, element) {
 
     event.stopPropagation();
     $(element).mouseover(function (event) {
@@ -348,5 +365,7 @@ function OpenAdminTab(evt, tabName, tabId) {
     }
     document.getElementById(tabName).style.display = "table";
     evt.currentTarget.className += " active";
-    //document.getElementById('<%=hdnTab.ClientID %>').value = tabId;
+    if ($("#createNewAbout_Us").length) {
+        resetAboutUsTabs();
+    }
 }

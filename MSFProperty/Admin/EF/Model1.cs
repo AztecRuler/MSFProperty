@@ -1,8 +1,11 @@
-using System.Data.Entity;
-
 namespace MSFProperty.Admin.EF
 {
-    public class Model1 : DbContext
+    using System;
+    using System.Data.Entity;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Linq;
+
+    public partial class Model1 : DbContext
     {
         public Model1()
             : base("name=Model1")
@@ -11,10 +14,14 @@ namespace MSFProperty.Admin.EF
 
         public virtual DbSet<AboutUsInfo> AboutUsInfoes { get; set; }
         public virtual DbSet<Blog> Blogs { get; set; }
+        public virtual DbSet<ContactDetail> ContactDetails { get; set; }
         public virtual DbSet<ContentImage> ContentImages { get; set; }
+        public virtual DbSet<ErrorReporting> ErrorReportings { get; set; }
         public virtual DbSet<PageImage> PageImages { get; set; }
         public virtual DbSet<Page> Pages { get; set; }
         public virtual DbSet<Property> Properties { get; set; }
+        public virtual DbSet<Review> Reviews { get; set; }
+        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<TextContent> TextContents { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -44,12 +51,36 @@ namespace MSFProperty.Admin.EF
                 .IsFixedLength();
 
             modelBuilder.Entity<Blog>()
-                .Property(e => e.Contents)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Blog>()
                 .Property(e => e.ImageUrl)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.AddressLineOne)
+                .IsFixedLength();
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.AddressLineTwo)
+                .IsFixedLength();
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.PostCode)
+                .IsFixedLength();
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.TelephoneNumberLandLine)
+                .IsFixedLength();
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.TelephoneMobile)
+                .IsFixedLength();
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.RegNumber)
+                .IsFixedLength();
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.EmailAdress)
+                .IsFixedLength();
 
             modelBuilder.Entity<ContentImage>()
                 .Property(e => e.ImageUrl)
@@ -65,6 +96,14 @@ namespace MSFProperty.Admin.EF
 
             modelBuilder.Entity<ContentImage>()
                 .Property(e => e.ImageName)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ErrorReporting>()
+                .Property(e => e.Error)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ErrorReporting>()
+                .Property(e => e.File)
                 .IsUnicode(false);
 
             modelBuilder.Entity<PageImage>()
@@ -146,6 +185,34 @@ namespace MSFProperty.Admin.EF
             modelBuilder.Entity<Property>()
                 .Property(e => e.PostCode)
                 .IsFixedLength();
+
+            modelBuilder.Entity<Review>()
+                .Property(e => e.ReviewLeft)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Review>()
+                .Property(e => e.Rating)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Review>()
+                .Property(e => e.UserName)
+                .IsFixedLength();
+
+            modelBuilder.Entity<User>()
+                .Property(e => e.Username)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<User>()
+                .Property(e => e.Password)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<User>()
+                .Property(e => e.Email)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<User>()
+                .Property(e => e.UIDRESET)
+                .IsUnicode(false);
 
             modelBuilder.Entity<TextContent>()
                 .Property(e => e.PageName)

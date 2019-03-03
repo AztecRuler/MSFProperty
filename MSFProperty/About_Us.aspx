@@ -10,7 +10,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainBody" runat="server">
 
-    <div class="msf-main-bg-header bgimg editable" style="background-image: url('../Images/<%=GetImage(6)%>')">
+    <div class="msf-main-bg-header bgimg editable lazy" style="background-image: url('../Images/<%=GetImage(6)%>')">
         <div class="span-table">
             <div class="span-table-cell vertical-align-middle text-align-center">
                 <div class="container">

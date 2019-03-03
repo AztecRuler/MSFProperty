@@ -2,18 +2,18 @@
 <%@ Register TagPrefix="uc1" TagName="AboutUsInfo" Src="~/UserControls/AboutUsInfo.ascx" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
-        <asp:Panel ID="Panel1" runat="server" GroupingText="About_Us">
+
+    <asp:Panel ID="Panel1" runat="server" GroupingText="About_Us">
         <div class="tab">
             <button class="tablinks active" id="createNewAbout_Us" onclick="OpenAdminTab(event, 'createAbout_Us', 1)">Create A New About Us Section</button>
             <button class="tablinks" id="editAbout_Us" onclick="OpenAdminTab(event, 'existingAbout_Us', 2)">Edit An Existing About Us Section</button>
-            <button class="tablinks"  id="organizeAbout_Us" onclick="OpenAdminTab(event, 'organiseExistingAbout_Uss', 3)">Organize Existing About Us Section</button>
+            <button class="tablinks" id="organizeAbout_Us" onclick="OpenAdminTab(event, 'organiseExistingAbout_Uss', 3)">Organize Existing About Us Section</button>
         </div>
 
         <div id="createAbout_Us" class="tabcontent" style="display: table;">
             <asp:UpdatePanel ID="UpdatePanel2" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                 <Triggers>
-                    <asp:PostBackTrigger ControlID="SaveButton" />
+                    <asp:AsyncPostBackTrigger ControlID="SaveButton" EventName="Click"/>
 
                 </Triggers>
                 <ContentTemplate>
@@ -59,14 +59,14 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:Image ID="aboutimagePreview" runat="server" />
-                                    <asp:FileUpload class="uploaders" ID="AboutImage"  runat="server" accept=".png,.jpg,.jpeg,.gif" />
+                                    <asp:Image ID="aboutimagePreview" runat="server"/>
+                                    <asp:FileUpload class="uploaders" ID="AboutImage" runat="server" accept=".png,.jpg,.jpeg,.gif"/>
 
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:Button ID="SaveButton" runat="server" Text="Save" OnClick="SaveButton_Click1" />
+                                    <asp:Button ID="SaveButton" runat="server" Text="Save" OnClick="SaveButton_Click1"/>
                                 </td>
                             </tr>
                             <tr>
@@ -83,21 +83,21 @@
         <div id="existingAbout_Us" class="tabcontent">
             <asp:UpdatePanel ID="UpdatePanel3" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                 <Triggers>
-                    <asp:PostBackTrigger ControlID="SaveEditAbout_Us" />
+                    <asp:AsyncPostBackTrigger ControlID="SaveEditAbout_Us" EventName="Click"/>
 
                 </Triggers>
                 <ContentTemplate>
 
                     <div class="About_UsEditSelect">
                         <h2>Select the About Us content you wish to Edit</h2>
-                        
-                                    <div class="container ">
-                                        <asp:Repeater ID="EditAbout_UsRepeaterItems" runat="server">
-                                            <ItemTemplate>
-                                                <uc1:AboutUsInfo runat="server" ID="AboutUsInfo" class="aboutUsAdminEdit" TitleText=<%#Eval("TitleText") %> Quote=<%#Eval("Quote") %> ImageUrl=<%#Eval("ImageUrl") %> Chat=<%#Eval("Chat") %> DataId=<%#Eval("ID") %>/>
-                                                </ItemTemplate>
-                                        </asp:Repeater>
-                                    </div>
+
+                        <div class="container ">
+                            <asp:Repeater ID="EditAbout_UsRepeaterItems" runat="server">
+                                <ItemTemplate>
+                                    <uc1:AboutUsInfo runat="server" ID="AboutUsInfo" class="aboutUsAdminEdit" TitleText=<%#Eval("TitleText") %> Quote=<%#Eval("Quote") %> ImageUrl=<%#Eval("ImageUrl") %> Chat=<%#Eval("Chat") %> DataId=<%#Eval("ID") %> DataDelete="False"/>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
                     </div>
                     <div class="About_UsEditPanel hidden">
                         <table>
@@ -136,16 +136,16 @@
                                 </td>
 
                                 <td>
-                                    <asp:Image ID="imagePreview" runat="server" />
-                                    <asp:FileUpload class="uploaders" ID="FileUpload1"  runat="server" accept=".png,.jpg,.jpeg,.gif" />
+                                    <asp:Image ID="imagePreview" runat="server"/>
+                                    <asp:FileUpload class="uploaders" ID="FileUpload1" runat="server" accept=".png,.jpg,.jpeg,.gif"/>
                                 </td>
 
                             </tr>
-                          
+
                             <tr>
                                 <td>
-                                    <asp:Button ID="SaveEditAbout_Us" runat="server" Text="Save" OnClick="EditAbout_UsSaveButton_Click" />
-
+                                    <asp:Button ID="SaveEditAbout_Us" runat="server" Text="Save" OnClick="EditAbout_UsSaveButton_Click"/>
+                                    <asp:Button ID="Cancel" runat="server" Text="Cancel" OnClick="Cancel_OnClick"/>
                                 </td>
                             </tr>
                             <tr class="hidden">
@@ -167,37 +167,34 @@
         </div>
 
         <div id="organiseExistingAbout_Uss" class="tabcontent">
-                    <asp:UpdatePanel ID="UpdatePanel1" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                 <Triggers>
-<%--                    <asp:PostBackTrigger ControlID="SaveEditAbout_Us" />--%>
+                    <asp:AsyncPostBackTrigger ControlID="DeleteAbout_Us" EventName="Click"/>
+                    <asp:AsyncPostBackTrigger ControlID="CancelDelete" EventName="Click"/>
 
                 </Triggers>
                 <ContentTemplate>
 
                     <div class="About_UsEditSelect">
-                        <h2>Select the About_Us you wish to Delete</h2>
-           <%--             <asp:Repeater ID="Repeater1" runat="server">
-
+                        <h2>Select the About Us you wish to Delete</h2>
+                        <asp:Repeater ID="DeleteAboutUsRepeater" runat="server">
                             <ItemTemplate>
-                                <asp:Panel runat="server">
-                                    <div runat="server" class="About_UsCardDelete" data-id='<%# Eval("ID") %>' data-name='<%#Eval("Name") %>' data-date='<%#Eval("Date") %>' data-title='<%#Eval("Title") %>' data-contents='<%#Eval("Contents") %>' data-image='<%#Eval("ImageUrl") %>' data-popular='<%#Eval("Popular") %>'>
-                                        <span>
-                                            <h1 class="About_UsTitle"><%# Eval("Title") %></h1>
-                                            <span class="About_UsNameAndDate"><%# Eval("Name") %> <%# Eval("Date") %></span>
-                                            <div class="About_UsImg">
-                                                <image src="../Images/<%# Eval("ImageUrl") %>"></image>
-                                            </div>
-                                            <asp:Button class="About_UsDeleteButton" runat="server" data-name='<%#Eval("Name") %>' Text="Delete"  OnClick="EditAbout_UsDeleteButton_Click" />
-                                        </span>
-                                    </div>
-                                </asp:Panel>
+                                <uc1:AboutUsInfo runat="server" ID="AboutUsInfo" class="aboutUsAdminEdit" TitleText=<%#Eval("TitleText") %> Quote=<%#Eval("Quote") %> ImageUrl=<%#Eval("ImageUrl") %> Chat=<%#Eval("Chat") %> DataId=<%#Eval("ID") %> DataDelete="True"/>
                             </ItemTemplate>
-                        </asp:Repeater>--%>
+                        </asp:Repeater>
                     </div>
-                                    <asp:HiddenField runat="server" ID="delteHiddenField1"></asp:HiddenField>
-                       </ContentTemplate>
+
+                    <div class="About_UsDeletePanel hidden">
+                        <div>
+                            <h1>Are you sure you want to delete this about us post?</h1>
+                            <asp:Button ID="DeleteAbout_Us" runat="server" Text="Delete" OnClick="DeleteAbout_UsButton_Click"/>
+                            <asp:Button ID="CancelDelete" runat="server" Text="Cancel" OnClick="Cancel_OnClick"/>
+
+                        </div>
+                    </div>
+                </ContentTemplate>
             </asp:UpdatePanel>
-      
+
         </div>
     </asp:Panel>
 

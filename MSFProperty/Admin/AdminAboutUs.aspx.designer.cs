@@ -166,6 +166,15 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.WebControls.Button SaveEditAbout_Us;
         
         /// <summary>
+        /// Cancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Cancel;
+        
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -193,12 +202,30 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// delteHiddenField1 control.
+        /// DeleteAboutUsRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField delteHiddenField1;
+        protected global::System.Web.UI.WebControls.Repeater DeleteAboutUsRepeater;
+        
+        /// <summary>
+        /// DeleteAbout_Us control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button DeleteAbout_Us;
+        
+        /// <summary>
+        /// CancelDelete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CancelDelete;
     }
 }

@@ -9,7 +9,7 @@ namespace MSFProperty.Admin
     public partial class EditImages : Page
     {
 
-        private int? elementPageId;
+        private int? _elementPageId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -50,7 +50,7 @@ namespace MSFProperty.Admin
         {
             string realPhysicalPath = "";
             if(hdnfldVariable.Value != "")
-            elementPageId = Convert.ToInt32(hdnfldVariable.Value);
+            _elementPageId = Convert.ToInt32(hdnfldVariable.Value);
 
             if (IsImage(FileUpload1.FileContent))
             {

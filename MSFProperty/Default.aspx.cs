@@ -1,105 +1,154 @@
-﻿using MSFProperty.Admin.EF;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+using MSFProperty.Admin.EF;
+using Page = System.Web.UI.Page;
 
 namespace MSFProperty
 {
-    public partial class Default : System.Web.UI.Page
+    public partial class Default : Page
     {
-        List<string> editableTextContents = new List<string>();
-        private List<int> pagerNumbersList = new List<int>(); 
+        public readonly List<string> EditableTextContents = new List<string>();
+        private readonly List<int> _pagerNumbersList = new List<int>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            PopulateTextContents();
-            SetNumberOfProperty();
+            if (!IsPostBack)
+            {
+                PopulateTextContents();
+                SetPagination();
+                ResetPaginaton();
+            }
+
+            TestForPostBackEvent();
         }
 
-        protected void SetPagination()
+        private void TestForPostBackEvent()
         {
-            
-            string selectedNumber = PagerPropHome.SelectedValue;
-            int.TryParse(selectedNumber, out int number);
+            ClientScript.GetPostBackEventReference(this, string.Empty);
+            var parameter = Request["__EVENTARGUMENT"];
+            if (Request.Form["__EVENTTARGET"] == "pagination") ChangePage(parameter);
+        }
 
-            //int numBoxes = Math.DivRem(numItems, capacity, out remainder);
-            var rowCount = 0;
-            var rowCountItteration = 1; 
+        public void ChangePage(string parameter)
+        {
+            int.TryParse(pagerNumber.Value, out var paginationSelectedNumber);
+            
+            switch (parameter)
+            {
+                case "pagerBack":
+                    paginationSelectedNumber--;
+                    break;
+                case "pagerForwards":
+                    paginationSelectedNumber++;
+                    break;
+                default:
+                    int.TryParse(parameter, out var number);
+                    paginationSelectedNumber = number;
+                    break;
+            }
+
+            GetAllPropertiesCount();
+            if (paginationSelectedNumber < 1) paginationSelectedNumber = 1;
+
+            if (paginationSelectedNumber >= _pagerNumbersList.Count)
+            {
+                paginationSelectedNumber = _pagerNumbersList.Count;
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "HideForwardsPagination",
+                    paginationSelectedNumber == _pagerNumbersList.Count ? "HideForwardsPagination(true); setActivePagination(" + paginationSelectedNumber + ");" : "HideForwardsPagination(false); setActivePagination(" + paginationSelectedNumber + ");", true);
+            }
+
+            pagerNumber.Value = paginationSelectedNumber.ToString();
+            SetPagination(paginationSelectedNumber);
+        }
+
+        protected void SetPagination(int pageNumber = 0)
+        {
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "HideBackPagination",
+                pagerNumber.Value == "1"  ? "HideBackPagination(true); setActivePagination(" + pageNumber + ");" : "HideBackPagination(false); setActivePagination(" + pageNumber + ");", true);
+            GetAllPropertiesCount();
+
+            //add this list as data for reapeater 
+            pagerRepeater.DataSource = _pagerNumbersList;
+
+            pagerRepeater.DataBind();
+            SetNumberOfProperty(pageNumber);
+        }
+
+        private void GetAllPropertiesCount()
+        {
+            var selectedNumber = PagerPropHome.SelectedValue;
+            int.TryParse(selectedNumber, out var number);
+            var rowCounteraction = 1;
+            int rowCount;
+            _pagerNumbersList.Clear();
             //get all properties count 
             using (var db = new Model1())
             {
                 rowCount = db.Properties.Count(p => p.Featured == true);
-          
             }
+
             //loop through them and find how many sets using the number to display 
-            for (int i = 0; i < rowCount; i++)
-            {
+            for (var i = 0; i < rowCount; i++)
                 //for each set add 1 to the pager numbers;
-                
                 if (i % number == 0)
                 {
-                    pagerNumbersList.Add(rowCountItteration);
-                    rowCountItteration++;
+                    _pagerNumbersList.Add(rowCounteraction);
+                    rowCounteraction++;
                 }
-            }
-            //add this list as data for reapeater 
 
-            pagerRepeater.DataSource = pagerNumbersList;
-
-            pagerRepeater.DataBind();
         }
-        protected void SetNumberOfProperty(string indexIn = "0")
+
+        protected void SetNumberOfProperty(int indexIn = 0)
         {
-            string selectedNumber = PagerPropHome.SelectedValue;
-            int.TryParse(selectedNumber, out int number);
-            string indexNumber = indexIn;
-            int.TryParse(indexNumber, out int index);
+            var selectedNumber = PagerPropHome.SelectedValue;
+            int.TryParse(selectedNumber, out var number);
+            var index = indexIn;
 
-            index = index * number; 
-            using (var db = new Model1())77
+            index = index * number;
+            using (var db = new Model1())
             {
-                PropertyRepeaterHome.DataSource = db.Properties.Where(p => p.Featured == true).ToList().Skip(index - number).Take(number);
-                 PropertyRepeaterHome.DataBind();
-                    
+                PropertyRepeaterHome.DataSource = db.Properties.Where(p => p.Featured == true).ToList()
+                    .Skip(index - number).Take(number);
+                PropertyRepeaterHome.DataBind();
             }
-            SetPagination();
-
         }
 
-        public string getContents(int id)
+        public string GetTextContents(int id)
         {
             return DataCalls.GetContents(id);
         }
 
         private void PopulateTextContents()
         {
-            List<string> pageList = new List<string>();
             using (var db = new Model1())
             {
-                foreach (var item in db.TextContents)
-                {
-                    editableTextContents.Add(item.ElementText);
-
-                }
+                foreach (var item in db.TextContents) EditableTextContents.Add(item.ElementText);
             }
         }
+
         public void RefreshCount(object sender, EventArgs e)
         {
-            SetNumberOfProperty();
+            SetPagination();
+            ResetPaginaton();
         }
+
+        private void ResetPaginaton()
+        {
+            pagerNumber.Value = "1";
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "SetPagination", "HideBackPagination(true); setActivePagination(1);", true);
+        }
+
         public string GetText(int id)
         {
-            return DataCalls.GetText(id); ;
+            return DataCalls.GetText(id);
+            
         }
 
         public string GetImage(int id)
         {
             return DataCalls.GetImage(id);
-
         }
     }
 }

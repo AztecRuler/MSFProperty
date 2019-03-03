@@ -1,11 +1,11 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MSFMaster.master.cs" Inherits="MSFProperty.MSFMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="MSFProperty.MSFMaster" Codebehind="MSFMaster.master.cs" %>
 
 <!DOCTYPE html>
 
 <html>
 <head runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="CSS/MSF_StyleSheet.css" rel="stylesheet" />
+    <link href="CSS/MSF_StyleSheet.css" rel="stylesheet"/>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
@@ -16,110 +16,123 @@
     <script> var pagePath = "<%= PagePath %>";</script>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="NavigationMenu" runat="server">
-                <div id="msf-nav-bar">
-                    <div class="container clear-both-fix">
-                        <h1 class="msfLogo"><a href="Default.aspx">MSF Property Management 
-                <br>
+<form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="NavigationMenu" runat="server">
+            <div id="msf-nav-bar">
+                <div class="container clear-both-fix">
+                    <h1 class="msfLogo">
+                        <a href="Default.aspx">
+                            MSF Property Management
+                            <br>
                             <span>MSF Property Management</span>
                         </a>
-                        </h1>
-                        <ul class="msf-nav-bar-mobile-menu">
-                            <li class="msf-phone-button"><a href="tel:07709 649 292 "><span>Phone</span></a></li>
-                            <li class="msf-open-menu-button"><a href="#"><span>Open menu </span></a></li>
-                        </ul>
-                        <ul id="menu-main-menu" class="msf-nav-bar-main-menu msf-mobile-menu">
-                            <li id="menu-item-1" class="current-menu-item"><a href="Default.aspx">Home</a></li>
-                            <li id="menu-item-2" class=""><a href="services.aspx">Services</a></li>
-                            <li id="menu-item-3" class=""><a href="acommodationsPage.aspx">Propertiess</a></li>
-                            <li id="menu-item-4" class=""><a href="About_Us.aspx">About us</a></li>
-                            <li id="menu-item-5" class=""><a href="BlogMainPage.aspx">Blog</a></li>
-                            <li id="menu-item-6" class=""><a href="contact-us.aspx">Contact Us</a></li>
-                        </ul>
-                    </div>
+                    </h1>
+                    <ul class="msf-nav-bar-mobile-menu">
+                        <li class="msf-phone-button">
+                            <a href="tel:07709 649 292 ">
+                                <span>Phone</span>
+                            </a>
+                        </li>
+                        <li class="msf-open-menu-button">
+                            <a href="#">
+                                <span>Open menu </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul id="menu-main-menu" class="msf-nav-bar-main-menu msf-mobile-menu">
+                        <li id="menu-item-1" class="current-menu-item">
+                            <a href="Default.aspx">Home</a>
+                        </li>
+                        <li id="menu-item-2" class="">
+                            <a href="services.aspx">Services</a>
+                        </li>
+                        <li id="menu-item-3" class="">
+                            <a href="AcommodationsPage.aspx">Properties</a>
+                        </li>
+                        <li id="menu-item-4" class="">
+                            <a href="About_Us.aspx">About us</a>
+                        </li>
+                        <li id="menu-item-5" class="">
+                            <a href="BlogMainPage.aspx">Blog</a>
+                        </li>
+                        <li id="menu-item-6" class="">
+                            <a href="contact-us.aspx">Contact Us</a>
+                        </li>
+                    </ul>
                 </div>
-            </asp:ContentPlaceHolder>
+            </div>
+        </asp:ContentPlaceHolder>
 
-            <asp:ContentPlaceHolder ID="MainBody" runat="server">
-            </asp:ContentPlaceHolder>
-
-
-
-
-            <asp:ContentPlaceHolder ID="footerMaster" runat="server">
+        <asp:ContentPlaceHolder ID="MainBody" runat="server">
+        </asp:ContentPlaceHolder>
 
 
-<%--                                <div id="footer" class="footer">
-                    <div id="footerDIV_1">
-                        <div id="footerDIV_2">
-                            <div id="footerDIV_3">
-                                <div id="footerDIV_4">
-                                    <ul id="footerUL_5">
-                                        <li id="footerLI_6">
-                                            <a href="accommodationsPage.aspx" id="footerA_7">Our Properties</a>
-                                        </li>
-                                        <li id="footerLI_8">
-                                            <a href="#" id="footerA_9">Amenities</a>
-                                        </li>
-                                        <li id="footerLI_10">
-                                            <a href="#" id="footerA_11">Location</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div id="footerDIV_12">
-                                    <ul id="footerUL_13">
-                                        <li id="footerLI_14">
-                                            <a href="#" id="footerA_15">Availability</a>
-                                        </li>
-                                        <li id="footerLI_16">
-                                            <a href="#" id="footerA_17">Book Now</a>
-                                        </li>
-                                        <li id="footerLI_18">
-                                            <a href="#" id="footerA_19">Reviews</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div id="footerDIV_20">
-                                    <ul id="footerUL_21">
-                                        <li id="footerLI_22">
-                                            <a href="About_Us.aspx" id="footerA_23">About us</a>
-                                        </li>
-                                        <li id="footerLI_24">
-                                            <a href="blog.aspx" id="footerA_25">Journal</a>
-                                        </li>
-                                        <li id="footerLI_26">
-                                            <a href="contact-us.aspx" id="footerA_27">Contact Us</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div id="footerDIV_28">
-                                    <ul id="footerUL_29">
-                                        <li id="footerLI_30">
-                                            <a href="#" id="footerA_31"><span id="footerSPAN_32">Twitter</span></a>
-                                        </li>
-                                        <li id="footerLI_33">
-                                            <a href="#" id="footerA_34"><span id="footerSPAN_35">Google Plus</span></a>
-                                        </li>
-                                        <li id="footerLI_36">
-                                            <a href="#" id="footerA_37"><span id="footerSPAN_38">Printerest</span></a>
-                                        </li>
-                                        <li id="footerLI_39">
-                                            <a href="#" id="footerA_40"><span id="footerSPAN_41">Linkedin</span></a>
-                                        </li>
-                                    </ul>
-                                    <p id="footerP_42">
-                                        <a href="Default.aspx" id="footerA_43">Powered by Calssantics</a>
-                                    </p>
-                                </div>
-                            </div>
+        <asp:ContentPlaceHolder ID="footerMaster" runat="server">
+
+
+            <div id="footer" class="footer">
+            <div id="footerContainer">
+                <asp:Repeater ID="ContactUsRepeater" runat="server">
+                    <ItemTemplate>
+                        <div class="footerColumn columnFirst">
+                            <ul class="footerUL">
+
+                                <li>
+                                    <a href="SearchResults.aspx">Search Page</a>
+                                </li>
+                                <li>
+                                    <a href="FindUs.aspx">Find Us</a>
+                                </li>
+                                <li>
+
+                                    <a href="Privacy.aspx">Privacy Policy</a>
+                                </li>
+                                <li>
+                                    <a href="Reviews.aspx">Reviews</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="footerColumn">
+                            <ul class="footerUL">
+                                <li class="contactDetails footerAddress">
+                                    <%#Eval("AddressNumber") %> <%#Eval("AddressLineOne") %><br/><%#Eval("AddressLineTwo") %><br/><%#Eval("PostCode") %>
+                                </li>
+                                <li class="contactDetails">Email:<%#Eval("EmailAdress") %></li>
+
+                            </ul>
+                        </div>
+                        <div class="footerColumn">
+                            <ul class="footerUL">
+                                <li class="contactDetails">LandLine:<%#Eval("TelephoneNumberLandLine") %></li>
+                                <li class="contactDetails footerMobile">Mobile:<%#Eval("TelephoneMobile") %></li>
+                                <li class="contactDetails">Property Reg number:<%#Eval("RegNumber") %></li>
+
+                            </ul>
+                        </div>
+                        <div class="footerColumn coloumnLast">
+                            <ul id="footerIconsSection">
+                                <li>
+                                    Social<br/>
+                                    <a href="#" id="facebookLink">
+                                        <span>facebook</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <p class="classAntics">
+                                <a href="http://www.classantics.co.uk" target="_blank">Powered by ClassAntics</a>
+                            </p>
                         </div>
                     </div>
-                </div>--%>
-            </asp:ContentPlaceHolder>
+                    </ItemTemplate>
 
-        </div>
-    </form>
+                </asp:Repeater>
+            </div>
+        </asp:ContentPlaceHolder>
+
+    </div>
+</form>
 </body>
 </html>

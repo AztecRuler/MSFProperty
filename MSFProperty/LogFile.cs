@@ -1,33 +1,46 @@
-﻿namespace MSFProperty
-{
-    using System;
-    using System.IO;
-    using System.Reflection;
+﻿using System;
+using System.Diagnostics;
+using System.IO;
+using MSFProperty.Admin.EF;
 
+namespace MSFProperty
+{
     //TODO add log into a database 
 
     public class LogWriter
     {
-        private string m_exePath = string.Empty;
+        private string _mExePath = string.Empty;
+
         public LogWriter(string logMessage, string location)
         {
             LogWrite(logMessage, location);
         }
+
         public void LogWrite(string logMessage, string location)
         {
-            m_exePath = location;
+            _mExePath = location;
 
             try
             {
-                using (StreamWriter w = File.AppendText(m_exePath + "\\" + "log.txt"))
+                using (var w = File.AppendText(_mExePath + "\\" + "log.txt"))
                 {
                     Log(logMessage, w);
                 }
             }
             catch (Exception ex)
             {
-                //TODO add exception
-              
+                using (var db = new Model1())
+                {
+                    var error = new ErrorReporting
+                    {
+                        Error = logMessage,
+                        File = ex.ToString(),
+                        Date = DateTime.Now
+                    };
+
+                    db.ErrorReportings.Add(error);
+                   // db.SaveChanges();
+                }
             }
         }
 
@@ -41,11 +54,34 @@
                 txtWriter.WriteLine("  :");
                 txtWriter.WriteLine("  :{0}", logMessage);
                 txtWriter.WriteLine("-------------------------------");
+                var ae = new StackTrace();
+                using (var db = new Model1())
+                {
+                    var error = new ErrorReporting
+                    {
+                        Error = logMessage,
+                        File = ae.ToString(),
+                        Date = DateTime.Now
+                    };
+
+                    db.ErrorReportings.Add(error);
+                    db.SaveChanges();
+                }
             }
             catch (Exception ex)
             {
-                //TODO add exception
-              
+                using (var db = new Model1())
+                {
+                    var error = new ErrorReporting
+                    {
+                        Error = logMessage,
+                        File = ex.ToString(),
+                        Date = DateTime.Now
+                    };
+
+                    db.ErrorReportings.Add(error);
+                    db.SaveChanges();
+                }
             }
         }
     }

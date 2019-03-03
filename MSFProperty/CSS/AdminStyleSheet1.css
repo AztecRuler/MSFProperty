@@ -37,8 +37,13 @@
     margin: 10px auto;
     padding: 14px;
     float: left;
-    min-width: 100%;
+    cursor: pointer;
+    width: 95%;
 }
+
+    .aboutUsInfoSection:hover {
+        background-color: #ddd;
+    }
 
 div#msf-About_Us-Image {
     float: left;
@@ -115,6 +120,11 @@ span#errorText {
 
 body {
     overflow-x: hidden;
+    width: 100%;
+}
+
+input, a, button {
+    cursor: pointer;
 }
 
 #wrapper {
@@ -150,9 +160,10 @@ body {
 }
 
 #page-content-wrapper {
-    width: 100%;
+    width: 95%;
     position: absolute;
     padding: 15px;
+    max-width: 95%;
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -247,7 +258,7 @@ body {
     right: 8px;
     position: relative;
     top: -8px;
-    width: 102%;
+    width: 100%;
 }
 
     #navBar li {
@@ -257,26 +268,57 @@ body {
 
         #navBar li:last-child {
             border-right: none;
+            position: relative;
+            right: 10px;
         }
 
-        #navBar li a {
-            display: block;
-            color: tan;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            height: 36px;
-        }
+a#LoginStatus1 {
+    color: yellow;
+    top: 13px;
+    position: relative;
+    right: 10px;
+}
 
-            #navBar li a:hover:not(.active) {
-                background-color: #111;
-            }
+#navBar li a {
+    display: block;
+    color: tan;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    height: 36px;
+}
+
+    #navBar li a:hover:not(.active) {
+        background-color: #111;
+    }
 
 .active {
     background-color: #84862d;
 }
 
+/*users*/
+.userViewContainer {
+    background-color: #f2f2f2;
+    padding: 17px 50px;
+    float: left;
+    margin: 14px 14px;
+    width: 45%;
+    text-align: center;
+    cursor: pointer;
+}
 
+    .userViewContainer:hover {
+        background-color: #F2F2C8;
+    }
+
+div#passwordConfirmPanel {
+    float: left;
+    width: 60%;
+}
+
+#editUserOptions {
+    float: left;
+}
 /* Style the tab */
 .tab {
     overflow: hidden;
@@ -307,6 +349,10 @@ body {
         }
 
 /* Style the tab content */
+.adminPanel input {
+    cursor: auto;
+}
+
 .tabcontent {
     display: none;
     padding: 6px 12px;

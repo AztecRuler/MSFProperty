@@ -46,7 +46,7 @@
                                 <a href="EditImages.aspx">Edit Images</a>
                             </li>
                             <li>
-                                <a href="#">Analytics</a>
+                                <a href="Analytics.aspx">Analytics.aspx</a>
                             </li>
                             <li>
                                 <a href="AdminBlogPage.aspx">Edit Blog</a>
@@ -55,19 +55,25 @@
                                 <a href="AdminAboutUs.aspx">Edit About Us</a>
                             </li>
                             <li>
-                                <a href="#">Edit Email</a>
+                                <a href="AdminPrivacyPolicy.aspx">Edit Privacy Policy</a>
                             </li>
                             <li>
-                                <a href="#">Edit Contact</a>
+                            <a href="AdminReviewOverview.aspx">Admin Review Overview</a>
                             </li>
+                            <li>
+                               <a href="EditContactDetails.aspx">Edit Contact Details</a>
+                            </li>
+                  
                         </ul>
                     </div>
+
                     <ul id="navBar">
-                       <%-- <li><a class="active" href="#home">Home</a></li>
-                        <li><a href="#news">News</a></li>
-                        <li><a href="#contact">Contact</a></li>--%>
+                        <asp:LoginStatus style="float: right" ID="LoginStatus1" runat="server" />
+
                         <li style="float: right"><a href="../Default.aspx">View Live Web Site</a></li>
+
                     </ul>
+
                     <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
 
                     <div id="page-content-wrapper">
