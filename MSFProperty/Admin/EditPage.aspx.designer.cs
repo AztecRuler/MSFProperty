@@ -76,13 +76,22 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.WebControls.Image imagePreview;
         
         /// <summary>
-        /// FileUpload1 control.
+        /// AsyncFileUpload1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        protected global::AjaxControlToolkit.AsyncFileUpload AsyncFileUpload1;
+        
+        /// <summary>
+        /// myfuimage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image myfuimage;
         
         /// <summary>
         /// Label3 control.
@@ -101,6 +110,15 @@ namespace MSFProperty.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox imageNewName;
+        
+        /// <summary>
+        /// Error control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Error;
         
         /// <summary>
         /// useUploadedFile control.

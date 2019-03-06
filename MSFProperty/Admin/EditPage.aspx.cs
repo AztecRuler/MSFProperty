@@ -3,17 +3,34 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web.UI;
+using AjaxControlToolkit;
 using MSFProperty.Admin.EF;
 using Page = System.Web.UI.Page;
+using System.Drawing.Imaging;
+using System.Drawing;
 
 namespace MSFProperty.Admin
 {
     public partial class EditPage : Page
     {
         private int? _elementPageId;
+        private string _filename;
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            Page.Form.Attributes.Add("enctype", "multipart/form-data");
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["val"] != null)
+            {
+                if (Session["val"].ToString() != "")
+                {
+                    _filename = Session["val"].ToString();
+                }
+            }
+
             if (Page.IsPostBack) return;
             using (var db = new Model1())
             {
@@ -58,47 +75,64 @@ namespace MSFProperty.Admin
                     "<script>clearIframe(" + _elementPageId + ");</script>", false);
         }
 
+        protected void AsyncFileUpload1_UploadedComplete(object sender, AsyncFileUploadEventArgs e)
+        {
+            if (IsImage(AsyncFileUpload1.FileContent) || uploadedImageUrl.Text != "")
+            {
+                if (AsyncFileUpload1.HasFile)
+                {
+                    var realPhysicalPath =
+                        Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + AsyncFileUpload1.FileName);
+                    AsyncFileUpload1.SaveAs(realPhysicalPath);
+                    Session["val"] = "MSF-" + AsyncFileUpload1.FileName;
+                }
+                else if (uploadedImageUrl.Text != "")
+                {
+                    Session["val"] = uploadedImageUrl.Text.Replace("../images/", string.Empty);
+                }
+
+            }
+            else
+            {
+                Error.Text = " this is not a valid file please select another one. ";
+                AsyncFileUpload1.BackColor = Color.Red;
+            }
+        }
+
+
         // ReSharper disable once MethodTooLong
         protected void Image_Save_Click(object sender, EventArgs e)
         {
             _elementPageId = Convert.ToInt32(hdnfldVariable.Value);
-
-            if (IsImage(FileUpload1.FileContent) || uploadedImageUrl.Text != "")
+            if (AsyncFileUpload1.FileContent == null )
             {
-                using (var db = new Model1())
+                if (uploadedImageUrl.Text != "")
                 {
-                    // ReSharper disable once ComplexConditionExpression
-                    var result =
-                        db.PageImages.SingleOrDefault(pi => pi.ImageID == ImageID.Text && pi.PageId == _elementPageId);
-                    var filename = "";
+                    _filename = uploadedImageUrl.Text.Replace("../images/", string.Empty);
+                }
+            }
 
-                    if (FileUpload1.HasFile)
-                    {
-                        var realPhysicalPath =
-                            Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + FileUpload1.FileName);
-                        FileUpload1.SaveAs(realPhysicalPath);
-                        filename = "MSF-" + FileUpload1.FileName;
-                    }
-                    else if (uploadedImageUrl.Text != "")
-                    {
-                        filename = uploadedImageUrl.Text.Replace("../images/", string.Empty);
-                    }
+            using (var db = new Model1())
+            {
+                // ReSharper disable once ComplexConditionExpression
+                var result =
+                    db.PageImages.SingleOrDefault(pi => pi.ImageID == ImageID.Text && pi.PageId == _elementPageId);
 
-                    if (result != null)
-                    {
-                        
-                        result.ImageUrl = filename;
-                        result.ImageName = imageNewName.Text != "" ? imageNewName.Text : filename;
-                    }
+                if (result != null)
+                {
 
-                    db.SaveChanges();
+                    result.ImageUrl = _filename;
+                    result.ImageName = imageNewName.Text != "" ? imageNewName.Text : _filename;
                 }
 
-                GetImagesFromFolder();
-                if (!Page.ClientScript.IsStartupScriptRegistered("reload"))
-                    ScriptManager.RegisterStartupScript(this, GetType(), "reload", "<script>clearIframe();</script>",
-                        false);
+                db.SaveChanges();
             }
+
+
+            GetImagesFromFolder();
+            if (!Page.ClientScript.IsStartupScriptRegistered("reload"))
+                ScriptManager.RegisterStartupScript(this, GetType(), "reload",
+                    "<script>clearIframe(" + _elementPageId + ");</script>", false);
         }
 
         private bool IsImage(Stream stream)
@@ -124,5 +158,6 @@ namespace MSFProperty.Admin
 
             return false;
         }
+
     }
 }

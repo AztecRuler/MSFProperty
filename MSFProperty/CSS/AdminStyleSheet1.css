@@ -1,4 +1,6 @@
-﻿
+﻿html {
+    scroll-behavior: smooth;
+}
 .accordion {
     background-color: #eee;
     color: #444;

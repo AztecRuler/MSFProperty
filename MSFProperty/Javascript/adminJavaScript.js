@@ -32,6 +32,7 @@
             event.stopPropagation();
             event.stopImmediatePropagation();
             event.preventDefault();
+            UploadComplete();
             $('#uploadedImageUrl').val($(this).attr('src'));
             $("#imagePreview").css("background-image", "url(" + $('#uploadedImageUrl').val() + ")");
         
@@ -92,6 +93,8 @@
       
     });
 }
+
+
 
 function setUserEditClick() {
     $(".userViewContainer").on('click', function (event) {
@@ -255,47 +258,62 @@ function loadImageAdminPanel(allImageElements, selectedElement) {
     $("#ImageUrl").val(EditableEllement.ImageUrl);
     $("#ImagePageName").val(EditableEllement.PageName);
     $("#ImagePageId").val(EditableEllement.PageId);
-   
+    window.scrollTo(0, 0);
 }
 
 function loadTextAdminPanel(allTextElements, selectedElement) {
    
     $('#TextChangePanel').css({ 'display': 'block' });
 
-    var EditableEllement = {
+    var editableEllement = {
         id: 1,
         pageName: "",
         pageId: 1,
         elementText: "",
         elementNumber: 0,
         elementType: "",
-        elemenetLink: ""
+        elemenetLink: "",
+        elementColor:""
     };
 
     allTextElements.each(function (i, obj) {
         if (obj === selectedElement) {
 
-            EditableEllement.elementNumber = i;
+            editableEllement.elementNumber = i;
 
-            EditableEllement.pageName = "Home";
-            EditableEllement.pageId = 1;
-
-            EditableEllement.elementText = $(obj).text();
-            EditableEllement.elementType = obj.tagName;
+            editableEllement.pageName = "Home";
+            editableEllement.pageId = 1;
+            editableEllement.elementColor = (rgb2hex($(this).css('color')));
+            editableEllement.elementText = $(obj).text();
+            editableEllement.elementType = obj.tagName;
             if (obj.tagName === "A") {
-                EditableEllement.elemenetLink = $(obj).attr('href');
+                editableEllement.elemenetLink = $(obj).attr('href');
             }
             return false;
         }
     });
 
-    $("#pageName").val(EditableEllement.pageName);
-    $("#pageId").val(EditableEllement.pageId);
-    $("#elementText").val(EditableEllement.elementText);
+    $("#pageName").val(editableEllement.pageName);
+    $("#pageId").val(editableEllement.pageId);
+    $("#elementText").val(editableEllement.elementText);
+    $('#textColor').val(editableEllement.elementColor);
+    $("#elementNumber").val(editableEllement.elementNumber);
+    $("#elementType").val(editableEllement.elementType);
+    $("#elemenetLink").val(editableEllement.elemenetLink);
+    window.scrollTo(0,0);
 
-    $("#elementNumber").val(EditableEllement.elementNumber);
-    $("#elementType").val(EditableEllement.elementType);
-    $("#elemenetLink").val(EditableEllement.elemenetLink);
+}
+
+function rgb2hex(rgb) {
+    if (rgb.search("rgb") == -1) {
+        return rgb;
+    } else {
+        rgb = rgb.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?\)$/);
+        function hex(x) {
+            return ("0" + parseInt(x).toString(16)).slice(-2);
+        }
+        return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+    }
 }
 
 function clearIframe(num) {
