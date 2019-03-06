@@ -72,6 +72,22 @@ namespace MSFProperty
             return text;
         }
 
+        public static string GetColour(int id)
+        {
+            var col = "";
+
+            using (var db = new Model1())
+            {
+                foreach (var item in db.TextContents)
+                {
+                    if (item.ID == id)
+                        col = item.Color;
+
+                }
+            }
+            return col;
+        }
+
         public static  (string title, string chat, string quote, string image) GetAboutUsInfo(int id)
         {
             string title = null;

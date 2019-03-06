@@ -43,7 +43,11 @@
                         "<style type='text/css'>  #footer,#msf-nav-bar{display:none;} .editable{ box-shadow: none;} .editable:hover {box-shadow: 0 0 25px red;  inset 0 0 10px white;}  div[class*='bgimg'] {width: 99%; margin: auto;}</style>"));
                 var allTextElements = $(this).contents().find(".editable").not('div[class*="bgimg"]');
                 var allImageElements = $(this).contents().find('div[class*="bgimg"]');
-
+                $(this).contents().find(".editable").each(function () {
+                    if ($(this).text() === "") {
+                        $(this).text("This is an empty box but can be edited");
+                    }
+                });
 
                 $(this).contents().find(".editable").on('click',
                     function(event) {
@@ -288,6 +292,7 @@ function loadTextAdminPanel(allTextElements, selectedElement) {
     $("#pageName").val(EditableEllement.pageName);
     $("#pageId").val(EditableEllement.pageId);
     $("#elementText").val(EditableEllement.elementText);
+
     $("#elementNumber").val(EditableEllement.elementNumber);
     $("#elementType").val(EditableEllement.elementType);
     $("#elemenetLink").val(EditableEllement.elemenetLink);

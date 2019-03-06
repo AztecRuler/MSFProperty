@@ -55,7 +55,7 @@
                                 <a href="AdminAboutUs.aspx">Edit About Us</a>
                             </li>
                             <li>
-                                <a href="AdminPrivacyPolicy.aspx">Edit Privacy Policy</a>
+                                <a href="SocialMediaEditAdmin.aspx">Edit Social Media Accounts</a>
                             </li>
                             <li>
                             <a href="AdminReviewOverview.aspx">Admin Review Overview</a>

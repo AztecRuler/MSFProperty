@@ -10,41 +10,26 @@ namespace MSFProperty.Admin
 {
     public partial class EditPage : Page
     {
-        private int? elementPageId;
+        private int? _elementPageId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            if (Page.IsPostBack) return;
+            using (var db = new Model1())
             {
-                List<string> pageList = new List<string>();
-                using (var db = new Model1())
-                {
-                    foreach (var item in db.Pages)
-                    {
-                        pageList.Add(item.PageName.Replace(" ", string.Empty));
-
-                    }
-
-                    rpData.DataSource = db.Pages.ToList();
-
-                    rpData.DataBind();
-                }
-
-                GetImagesFromFolder();
-
+                rpData.DataSource = db.Pages.ToList();
+                rpData.DataBind();
             }
+
+            GetImagesFromFolder();
         }
 
         private void GetImagesFromFolder()
         {
-            List<string> imageList = new List<string>();
-            String[] filenames = Directory.GetFiles(Server.MapPath("~/Images"));
+            var imageList = new List<string>();
+            var fileNames = Directory.GetFiles(Server.MapPath("~/Images"));
 
-            foreach (var item in filenames)
-            {
-                imageList.Add(item.Replace(" ", string.Empty).Split('\\').Last());
-
-            }
+            foreach (var item in fileNames) imageList.Add(item.Replace(" ", string.Empty).Split('\\').Last());
 
             Repeater1.DataSource = imageList.ToList();
 
@@ -53,98 +38,91 @@ namespace MSFProperty.Admin
 
         protected void Save_Click(object sender, EventArgs e)
         {
-            elementPageId = Convert.ToInt32(hdnfldVariable.Value);
+            _elementPageId = Convert.ToInt32(hdnfldVariable.Value);
 
             using (var db = new Model1())
             {
-                TextContent result = db.TextContents.SingleOrDefault(b => b.ElementNumber == elementNumber.Text && b.PageId == elementPageId);
+                // ReSharper disable once ComplexConditionExpression
+                var result = db.TextContents.SingleOrDefault(b =>
+                    b.ElementNumber == elementNumber.Text && b.PageId == _elementPageId);
                 if (result != null)
                 {
+                    result.Color = textColor.Value;
                     result.ElementText = elementText.Text;
                     db.SaveChanges();
                 }
-        
-            }
-            if (!Page.ClientScript.IsStartupScriptRegistered("reload"))
-            {
-                ScriptManager.RegisterStartupScript(this, GetType(), "reload", "<script>clearIframe(" + elementPageId + ");</script>", false);
             }
 
+            if (!Page.ClientScript.IsStartupScriptRegistered("reload"))
+                ScriptManager.RegisterStartupScript(this, GetType(), "reload",
+                    "<script>clearIframe(" + _elementPageId + ");</script>", false);
         }
+
+        // ReSharper disable once MethodTooLong
         protected void Image_Save_Click(object sender, EventArgs e)
         {
-            string realPhysicalPath = "";
-            elementPageId = Convert.ToInt32(hdnfldVariable.Value);
+            _elementPageId = Convert.ToInt32(hdnfldVariable.Value);
 
-            if (IsImage(FileUpload1.FileContent) || uploadedImageUrl.Text !="")
+            if (IsImage(FileUpload1.FileContent) || uploadedImageUrl.Text != "")
             {
                 using (var db = new Model1())
                 {
-                    PageImage result = db.PageImages.SingleOrDefault(b => b.ImageID == ImageID.Text && b.PageId == elementPageId);
-                    String Filename = "";
+                    // ReSharper disable once ComplexConditionExpression
+                    var result =
+                        db.PageImages.SingleOrDefault(pi => pi.ImageID == ImageID.Text && pi.PageId == _elementPageId);
+                    var filename = "";
 
                     if (FileUpload1.HasFile)
                     {
-                        realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + FileUpload1.FileName);
+                        var realPhysicalPath =
+                            Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + FileUpload1.FileName);
                         FileUpload1.SaveAs(realPhysicalPath);
-                        Filename = "MSF-" + FileUpload1.FileName;
+                        filename = "MSF-" + FileUpload1.FileName;
                     }
                     else if (uploadedImageUrl.Text != "")
                     {
-                        Filename = uploadedImageUrl.Text.Replace("../images/", String.Empty); 
+                        filename = uploadedImageUrl.Text.Replace("../images/", string.Empty);
                     }
+
                     if (result != null)
                     {
-
-                        result.ImageUrl = Filename;
-                        if (imageNewName.Text != "")
-                        {
-                            result.ImageName = imageNewName.Text;
-                        }
-                        else
-                        {
-                            result.ImageName = Filename;
-                        }
+                        
+                        result.ImageUrl = filename;
+                        result.ImageName = imageNewName.Text != "" ? imageNewName.Text : filename;
                     }
 
                     db.SaveChanges();
                 }
+
                 GetImagesFromFolder();
                 if (!Page.ClientScript.IsStartupScriptRegistered("reload"))
-                {
-                    ScriptManager.RegisterStartupScript(this, GetType(), "reload", "<script>clearIframe();</script>", false);
-                }
+                    ScriptManager.RegisterStartupScript(this, GetType(), "reload", "<script>clearIframe();</script>",
+                        false);
             }
         }
 
         private bool IsImage(Stream stream)
         {
-                stream.Seek(0, SeekOrigin.Begin);
+            stream.Seek(0, SeekOrigin.Begin);
 
-                List<string> jpg = new List<string> { "FF", "D8" };
-                List<string> bmp = new List<string> { "42", "4D" };
-                List<string> gif = new List<string> { "47", "49", "46" };
-                List<string> png = new List<string> { "89", "50", "4E", "47", "0D", "0A", "1A", "0A" };
-                List<List<string>> imgTypes = new List<List<string>> { jpg, bmp, gif, png };
+            var jpg = new List<string> {"FF", "D8"};
+            var bmp = new List<string> {"42", "4D"};
+            var gif = new List<string> {"47", "49", "46"};
+            var png = new List<string> {"89", "50", "4E", "47", "0D", "0A", "1A", "0A"};
+            var imgTypes = new List<List<string>> {jpg, bmp, gif, png};
 
-                List<string> bytesIterated = new List<string>();
+            var bytesIterated = new List<string>();
 
-                for (int i = 0; i < 8; i++)
-                {
-                    string bit = stream.ReadByte().ToString("X2");
-                    bytesIterated.Add(bit);
+            for (var i = 0; i < 8; i++)
+            {
+                var bit = stream.ReadByte().ToString("X2");
+                bytesIterated.Add(bit);
 
-                    bool isImage = imgTypes.Any(img => !img.Except(bytesIterated).Any());
-                    if (isImage)
-                    {
-                        return true;
-                    }
-                }
+                var isImage = imgTypes.Any(img => !img.Except(bytesIterated).Any());
+                if (isImage) return true;
+            }
 
-                return false;
+            return false;
         }
-
     }
-
-
 }

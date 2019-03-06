@@ -98,7 +98,7 @@
 
      <asp:Panel ID="deleteImages" runat="server">
                             <div class="accordion imageAccordion leftWrapper">Delete an existing image</div>
-                    <div class="panel leftWrapper"">
+                    <div class="panel leftWrapper">
                         <table>
                             <tr>
                                 <td>
@@ -107,7 +107,8 @@
                                         <asp:Repeater ID="ImageRepeater" runat="server">
                                             <ItemTemplate>
                                                 <asp:ImageButton CssClass="imageButtonUpload" runat="server" ImageUrl='<%# string.Format("../images/{0}", Container.DataItem )%>' />
-                                            </ItemTemplate>
+                                            <div class="ImageSizeDiv"><%= GetImageSize((int) Eval("ID")) %></div>
+                                                </ItemTemplate>
                                         </asp:Repeater>
                                         <asp:TextBox ID="uploadedImageUrl" runat="server"></asp:TextBox>
                                     </asp:Panel>

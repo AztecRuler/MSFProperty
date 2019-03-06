@@ -2,32 +2,34 @@
 using System.Net;
 using System.Net.Mail;
 using System.Text;
-using MSFProperty.Admin.EF;
-
+using System.Web.UI;
 
 namespace MSFProperty
 {
-    public partial class contact_us : System.Web.UI.Page
+    public partial class ContactUs : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         public string GetText(int id)
         {
-           return DataCalls.GetText(id);
+            return DataCalls.GetText(id);
         }
-
+        protected object GetColour(int id)
+        {
+            return DataCalls.GetColour(id);
+        }
         public string GetImage(int id)
         {
-           return DataCalls.GetImage(id);
+            return DataCalls.GetImage(id);
         }
 
         protected void sendMessage_OnClick(object sender, EventArgs e)
         {
             SendContactForm("info@msfproperty.co.uk", "Admin");
         }
+
         private void SendContactForm(string toEmail, string userName)
         {
             var sbEmailBody = new StringBuilder();
@@ -60,7 +62,7 @@ namespace MSFProperty
                 };
 
                 //Setup credentials to login to our sender email address ("UserName", "Password")
-                NetworkCredential credentials = new NetworkCredential("info@msfproperty.co.uk", "Marc1914");
+                var credentials = new NetworkCredential("info@msfproperty.co.uk", "Marc1914");
                 client.UseDefaultCredentials = true;
                 client.Credentials = credentials;
 
@@ -76,8 +78,6 @@ namespace MSFProperty
                 //replyLabel.Text = ex.ToString();
                 //"Your message failed to send, please try again."
             }
-
         }
-
     }
 }

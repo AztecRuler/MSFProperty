@@ -30,10 +30,10 @@
         </Triggers>
         <ContentTemplate>
             <div class="rightWrapper" id="AdminPanel">
-                                    <span>Select where you want to get your new image from </span>
+            
 
                 <asp:Panel runat="server" ID="ImageChangePanel">
-
+                    <span>Select where you want to get your new image from </span>
                     <div class="accordion imageAccordion">Upload a new image</div>
                     <div class="panel">
 
@@ -150,9 +150,17 @@
                                     <asp:Label runat="server" ID="elementTextLabel">Enter New Text Here</asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox runat="server" ID="elementText"></asp:TextBox>
+                                    <asp:TextBox runat="server" TextMode="multiline" style="margin: 0px; min-width: 388px; min-height: 334px;" ID="elementText"></asp:TextBox>
                                 </td>
                             </tr>
+                        <tr>
+                            <td>
+                                <asp:Label runat="server" ID="Label5">Please select text colour</asp:Label>
+
+                                <input runat="server" type="color" ID="textColor" name="textColor" value="#ff0000">
+                           
+                            </td>
+                        </tr>
                             <tr>
 
                                 <td>

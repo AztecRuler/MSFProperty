@@ -23,5 +23,9 @@ namespace MSFProperty
         {
             return DataCalls.GetContentImage(id);
         }
+        protected object GetColour(int id)
+        {
+            return DataCalls.GetColour(id);
+        }
     }
 }

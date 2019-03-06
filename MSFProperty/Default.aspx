@@ -10,11 +10,11 @@
 <asp:ScriptManager ID="ScriptManager1" runat="server">
 </asp:ScriptManager>
 
-<div id="bgimg-1" class="bgimg-1 editable lazy" style="background-image: url('~/../Images/<%= GetImage(1) %>')">
+<div id="bgimg-1" class="bgimg-1  editable lazy" style="background-image: url('~/../Images/<%= GetImage(1) %>')">
     <div class="caption">
         <div class="container" style="margin-top: -300px;">
-            <h2 class="editable"><%= GetText(1) %></h2>
-            <p class="editable"><%= GetText(2) %></p>
+            <h2  style ="color: <%= GetColour(1) %>;" class=" editable"><%= GetText(1) %></h2>
+            <p style ="color: <%= GetColour(2) %>;" class=" editable"><%= GetText(2) %></p>
         </div>
         <div id="mainSearchContainer">
             <div id="smallSearchContainer">
@@ -36,19 +36,19 @@
                     </li>
                 </ul>
                 <div id="mainSearchContainer30">
-                    <h4 id="H4_131" class="editable">
+                    <h4 id="H4_131" style ="color: <%= GetColour(4) %>;" class=" editable">
                         <%= GetText(4) %>
                     </h4>
                     <input type="checkbox" id="flexDates" name="msf-checkbox-flexible">
-                    <label for="msf-checkbox-flexible" id="LABEL_133" class="editable">
+                    <label for="msf-checkbox-flexible" id="LABEL_133" style ="color: <%= GetColour(5) %>;" class=" editable">
                         <%= GetText(5) %>
                     </label>
                     <input type="checkbox" id="smokingSearch" name="msf-checkbox-smoking">
-                    <label for="msf-checkbox-smoking" id="LABEL_135" class="editable">
+                    <label for="msf-checkbox-smoking" id="LABEL_135" style ="color: <%= GetColour(6) %>;" class=" editable">
                         <%= GetText(6) %>
                     </label>
                     <input type="checkbox" id="petSearch" name="msf-checkbox-pet">
-                    <label for="msf-checkbox-pet" id="LABEL_137" class="editable">
+                    <label for="msf-checkbox-pet" id="LABEL_137" style ="color: <%= GetColour(7) %>;" class=" editable">
                         <%= GetText(7) %>
                     </label>
                 </div>
@@ -64,7 +64,7 @@
     <div class="caption">
         <a href="#check1">
             <span id="spinner1" class="spinner_fade"></span><span id="spinner2" class="spinner_fade"></span><span id="spinner3" class="spinner_fade"></span>
-            <span class="border editable"><%= GetText(3) %></span>
+            <span class="border  editable"><%= GetText(3) %></span>
         </a>
 
     </div>
@@ -73,13 +73,13 @@
         <div class="container clear-both-fix text-align-center">
             <ul>
                 <li class="msf-button-info-book ">
-                    <a class="editable" href="../contact-us.aspx"><%= GetText(8) %></a>
+                    <a style ="color: <%= GetColour(8) %>;" class=" editable" href="../ContactUs.aspx"><%= GetText(8) %></a>
                 </li>
                 <li class="msf-button-info-phone ">
-                    <a class="editable" href="tel:<%= GetText(9) %>"><%= GetText(9) %> </a>
+                    <a style ="color: <%= GetColour(9) %>;" class=" editable" href="tel:<%= GetText(9) %>"><%= GetText(9) %> </a>
                 </li>
                 <li class="msf-button-info-contact ">
-                    <a class="editable" href="../contact-us.aspx"><%= GetText(10) %></a>
+                    <a style ="color: <%= GetColour(10) %>;" class=" editable" href="../ContactUs.aspx"><%= GetText(10) %></a>
                 </li>
             </ul>
         </div>
@@ -87,15 +87,15 @@
 </div>
 <div id="check1"></div>
 <div class="foregroundDiv">
-    <h3 class="editable" style="text-align: center;"><%= GetText(11) %> </h3>
+    <h3 style ="color: <%= GetColour(11) %>;" class=" editable" style="text-align: center;"><%= GetText(11) %> </h3>
 
-    <span class="editable top_front_div"><%= GetText(12) %> </span>
+    <span class=" editable top_front_div" style ="color: <%= GetColour(12) %>;" ><%= GetText(12) %> </span>
 </div>
 
-<div class="bgimg-2 editable lazy" style="background-image: url('~/../Images/<%= GetImage(2) %>')">
+<div class="bgimg-2  editable lazy" style="background-image: url('~/../Images/<%= GetImage(2) %>')">
     <div class="caption">
         <span class="border">
-            <a href="AcommodationsPage.aspx" class="border editable"><%= GetText(13) %></a>
+            <a href="AcommodationsPage.aspx" style ="color: <%= GetColour(13) %>;"  class="border  editable"><%= GetText(13) %></a>
         </span>
 
         <a href="#check2" id="followFadeAnchor">
@@ -215,10 +215,10 @@
     </div>
 </div>
 
-<div class="bgimg-3 editable lazy" style="background-image: url('~/../Images/<%= GetImage(3) %>')">
+<div class="bgimg-3  editable lazy" style="background-image: url('~/../Images/<%= GetImage(3) %>')">
     <div class="caption">
         <a href="#">
-            <span class="border editable"><%= GetText(14) %></span>
+            <span class="border  editable"><%= GetText(14) %></span>
         </a>
     </div>
 </div>

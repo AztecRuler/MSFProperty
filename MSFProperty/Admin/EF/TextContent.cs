@@ -26,5 +26,8 @@ namespace MSFProperty.Admin.EF
 
         [StringLength(2048)]
         public string ElementLink { get; set; }
+
+        [StringLength(40)]
+        public string Color { get; set; }
     }
 }

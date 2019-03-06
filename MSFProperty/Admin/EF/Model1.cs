@@ -82,6 +82,10 @@ namespace MSFProperty.Admin.EF
                 .Property(e => e.EmailAdress)
                 .IsFixedLength();
 
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.city)
+                .IsFixedLength();
+
             modelBuilder.Entity<ContentImage>()
                 .Property(e => e.ImageUrl)
                 .IsUnicode(false);
@@ -233,6 +237,10 @@ namespace MSFProperty.Admin.EF
             modelBuilder.Entity<TextContent>()
                 .Property(e => e.ElementLink)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<TextContent>()
+                .Property(e => e.Color)
+                .IsFixedLength();
         }
     }
 }

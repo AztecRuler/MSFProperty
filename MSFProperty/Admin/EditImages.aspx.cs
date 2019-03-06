@@ -22,14 +22,17 @@ namespace MSFProperty.Admin
 
         private void GetImagesFromFolder()
         {
-            List<string> imageList = new List<string>();
             String[] filenames = Directory.GetFiles(Server.MapPath("~/Images"));
 
-            foreach (var item in filenames)
-            {
-                imageList.Add(item.Replace(" ", string.Empty).Split('\\').Last());
+            List<string> imageList = filenames.Select(item => item.Replace(" ", string.Empty).Split('\\').Last()).ToList();
 
+            imageInFolder imgIF = new imageInFolder();
+
+            foreach (var image in imageList)
+            {
+                
             }
+
             ImageRepeater.DataSource = imageList.ToList();
             ImageRepeater.DataBind(); 
         }
@@ -96,5 +99,32 @@ namespace MSFProperty.Admin
         }
 
 
+        protected long GetImageSize(int id)
+        {
+            String[] filename = Directory.GetFiles(Server.MapPath("~/Images"));
+            List<string> imageList = filename.Select(item => item.Replace(" ", string.Empty).Split('\\').Last()).ToList();
+
+            var filePath = imageList[0];
+            var fileLength = new FileInfo("C:\\Users\\Gerry\\source\\repos\\MSFProperty\\MSFProperty\\Images\\MSF-edinburgh_view.jpg").Length;
+
+            return fileLength; 
+
+        }
     }
+    public class imageInFolder
+    {
+        public string Url { get; private set; }
+        public int Id { get; private set; }
+
+        public imageInFolder(string url, int id)
+        {
+            Url = url;
+            Id = id;
+        }
+
+        public imageInFolder()
+        {
+        }
+    }
+
 }

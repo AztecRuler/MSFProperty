@@ -32,5 +32,8 @@ namespace MSFProperty.Admin.EF
 
         [StringLength(40)]
         public string EmailAdress { get; set; }
+
+        [StringLength(40)]
+        public string city { get; set; }
     }
 }

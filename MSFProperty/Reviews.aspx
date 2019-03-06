@@ -5,12 +5,12 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="MainBody" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
-    <div class="msf-main-bg-header bgimg editable lazy" style="background-image: url('../Images/<%= GetImage(8) %>')" max-height: "871px;">
+    <div class="msf-main-bg-header bgimg  editable lazy" style="background-image: url('../Images/<%= GetImage(8) %>')" max-height: "871px;">
         <div class="span-table">
             <div class="span-table-cell vertical-align-middle text-align-center">
                 <div class="container">
-                    <h2 class="editable"><%= GetText(46) %></h2>
-                    <p class="editable"><%= GetText(47) %></p>
+                    <h2 style ="color: <%= GetColour(46) %>;" class=" editable"><%= GetText(46) %></h2>
+                    <p style ="color: <%= GetColour(47) %>;" class=" editable"><%= GetText(47) %></p>
                 </div>
             </div>
         </div>

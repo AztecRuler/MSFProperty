@@ -23,7 +23,10 @@ namespace MSFProperty
 
             TestForPostBackEvent();
         }
-
+        protected object GetColour(int id)
+        {
+            return DataCalls.GetColour(id);
+        }
         private void TestForPostBackEvent()
         {
             ClientScript.GetPostBackEventReference(this, string.Empty);

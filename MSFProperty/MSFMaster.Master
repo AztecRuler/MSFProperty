@@ -57,7 +57,7 @@
                             <a href="BlogMainPage.aspx">Blog</a>
                         </li>
                         <li id="menu-item-6" class="">
-                            <a href="contact-us.aspx">Contact Us</a>
+                            <a href="ContactUs.aspx">Contact Us</a>
                         </li>
                     </ul>
                 </div>

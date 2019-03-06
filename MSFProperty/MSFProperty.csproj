@@ -134,7 +134,7 @@
     <Content Include="Admin\Users.aspx" />
     <Content Include="BlogMainPage.aspx" />
     <Content Include="BlogPageView.aspx" />
-    <Content Include="contact-us.aspx" />
+    <Content Include="ContactUs.aspx" />
     <Content Include="CSS\MSF_StyleSheet.css" />
     <Content Include="CSS\AdminStyleSheet1.css" />
     <Content Include="Default.aspx" />
@@ -148,6 +148,7 @@
     <Content Include="Icons\wpg-ico-75x60.png" />
     <Content Include="Images\AboutUsPictures\About_usImagePlaceholder.png" />
     <Content Include="Images\img_woods_wide.jpg" />
+    <Content Include="Images\msf-img_0108.jpg" />
     <Content Include="Javascript\adminJavaScript.js" />
     <Content Include="Javascript\msfJavascript.js" />
     <Content Include="Logs\log.txt" />
@@ -155,6 +156,7 @@
     <Content Include="properties.aspx" />
     <Content Include="Reviews.aspx" />
     <Content Include="Admin\Web.config" />
+    <None Include="Properties\PublishProfiles\msfproperty.co.uk - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1-vsdoc.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -162,6 +164,7 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="SearchResults.aspx" />
     <Content Include="services.aspx" />
+    <Content Include="SocialMediaEditAdmin.aspx" />
     <Content Include="star.png" />
     <Content Include="TodoList.aspx" />
     <Content Include="UserControls\AboutUsInfo.ascx" />
@@ -302,12 +305,12 @@
     <Compile Include="BlogPageView.aspx.designer.cs">
       <DependentUpon>BlogPageView.aspx</DependentUpon>
     </Compile>
-    <Compile Include="contact-us.aspx.cs">
-      <DependentUpon>contact-us.aspx</DependentUpon>
+    <Compile Include="ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="contact-us.aspx.designer.cs">
-      <DependentUpon>contact-us.aspx</DependentUpon>
+    <Compile Include="ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -376,6 +379,13 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataCalls.cs" />
+    <Compile Include="SocialMediaEditAdmin.aspx.cs">
+      <DependentUpon>SocialMediaEditAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SocialMediaEditAdmin.aspx.designer.cs">
+      <DependentUpon>SocialMediaEditAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TodoList.aspx.cs">
       <DependentUpon>TodoList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -405,7 +415,6 @@
     <Content Include="Fonts\dashicons.eot" />
     <Content Include="Fonts\ProximaNova-Regular.woff" />
     <None Include="packages.config" />
-    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

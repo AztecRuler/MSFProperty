@@ -3,11 +3,11 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainBody" runat="server">
-    <div class="msf-main-bg-header bgimg editable lazy" style="background-image: url('~/../Images/<%=GetImage(7)%>')">
+    <div class="msf-main-bg-header bgimg  editable lazy" style="background-image: url('~/../Images/<%=GetImage(7)%>')">
         <div class="span-table">
             <div class="span-table-cell vertical-align-middle text-align-center">
                 <div class="container">
-                    <h2 class="editable">Search Results</h2>
+                    <h2>Search Results</h2>
                 </div>
             </div>
         </div>
@@ -27,19 +27,19 @@
                     </li>
                 </ul>
                 <div id="mainSearchContainer30">
-                    <h4 id="H4_131" class="editable">
+                    <h4 id="H4_131" style ="color: <%= GetColour(4) %>;" class=" editable">
                         <%=GetText(4)%>
                     </h4>
                     <input type="checkbox" id="flexDates" name="msf-checkbox-flexible">
-                    <label for="msf-checkbox-flexible" id="LABEL_133" class="editable">
+                    <label for="msf-checkbox-flexible" id="LABEL_133" style ="color: <%= GetColour(5) %>;" class=" editable">
                         <%=GetText(5)%>
                     </label>
                     <input type="checkbox" id="smokingSearch" name="msf-checkbox-smoking">
-                    <label for="msf-checkbox-smoking" id="LABEL_135" class="editable">
+                    <label for="msf-checkbox-smoking" id="LABEL_135" style ="color: <%= GetColour(6) %>;" class=" editable">
                         <%=GetText(6)%>
                     </label>
                     <input type="checkbox" id="petSearch" name="msf-checkbox-pet">
-                    <label for="msf-checkbox-pet" id="LABEL_137" class="editable">
+                    <label for="msf-checkbox-pet" id="LABEL_137" style ="color: <%= GetColour(7) %>;" class=" editable">
                         <%=GetText(7)%>
                     </label>
                 </div>
@@ -52,7 +52,7 @@
     </div>
     
     <div class="foregroundDiv">
-        <h3 style="text-align: center;" class="editable"><%=GetText(33)%></h3>
+        <h3 style="text-align: center; color: <%= GetColour(33) %>;" class=" editable"><%=GetText(33)%></h3>
 
 
         <div class="blogRow">

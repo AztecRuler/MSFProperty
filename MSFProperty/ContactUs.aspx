@@ -1,18 +1,17 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MSFMaster.Master" CodeFile="contact-us.aspx.cs" Inherits="MSFProperty.contact_us" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MSFMaster.Master" AutoEventWireup="true" CodeBehind="ContactUs.aspx.cs" Inherits="MSFProperty.ContactUs" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Contact-Us</title>
+    <title>ContactUs</title>
     <link rel="canonical" href="" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainBody" runat="server">
 
-    <div class="msf-main-bg-header bgimg editable lazy" style="background-image: url('~/../Images/<%= GetImage(8) %>')">
+    <div class="msf-main-bg-header bgimg  editable lazy" style="background-image: url('~/../Images/<%= GetImage(8) %>')">
         <div class="span-table">
             <div class="span-table-cell vertical-align-middle text-align-center">
                 <div class="container">
-                    <h2 class="editable"><%= GetText(35) %></h2>
-                    <p class="editable"><%= GetText(36) %> </p>
+                    <h2 style ="color: <%= GetColour(35) %>;" class=" editable"><%= GetText(35) %></h2>
+                    <p style ="color: <%= GetColour(36) %>;" class=" editable"><%= GetText(36) %> </p>
                 </div>
             </div>
         </div>
@@ -21,13 +20,13 @@
         <div class="container clear-both-fix text-align-center">
             <ul>
                 <li class="msf-button-info-book ">
-                    <a class="editable" href="#"><%= GetText(8) %></a>
+                    <a style ="color: <%= GetColour(8) %>;" class=" editable" href="#"><%= GetText(8) %></a>
                 </li>
                 <li class="msf-button-info-phone ">
-                    <a class="editable" href="tel:<%= GetText(9) %>"><%= GetText(9) %> </a>
+                    <a style ="color: <%= GetColour(9) %>;" class=" editable" href="tel:<%= GetText(9) %>"><%= GetText(9) %> </a>
                 </li>
                 <li class="msf-button-info-contact ">
-                    <a class="editable" href="../contact-us/"><%= GetText(10) %></a>
+                    <a style ="color: <%= GetColour(10) %>;" class=" editable" href="../ContactUs/"><%= GetText(10) %></a>
                 </li>
             </ul>
         </div>
@@ -37,11 +36,11 @@
 
     <div class="Cu">
         <h2 style="text-align: center;">
-            <span style="font-size: 20px;" class="editable">
+            <span style="font-size: 20px;" style ="color: <%= GetColour(37) %>;" class=" editable">
                 <strong><%= GetText(37) %> </strong>
             </span>
         </h2>
-        <p style="text-align: center;" class="editable"><%= GetText(38) %></p>
+        <p style="text-align: center; color: <%= GetColour(38) %>;" class=" editable"><%= GetText(38) %></p>
         <div id="cuDIV_8">
             <span id="cuSPAN_9">
                 <input type="text" name="msf-subject" size="40" placeholder="Subject" id="cuINPUT_10" />

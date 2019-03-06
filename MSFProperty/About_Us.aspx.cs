@@ -17,7 +17,10 @@ namespace MSFProperty
 
             Repeater1.DataBind();
         }
-
+        protected object GetColour(int id)
+        {
+            return DataCalls.GetColour(id);
+        }
         public string GetText(int id)
         {
             return DataCalls.GetText(id);
