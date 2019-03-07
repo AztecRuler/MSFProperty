@@ -31,13 +31,22 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
-        /// UpdatePanel2 control.
+        /// GetAdressUpdateProgress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+        protected global::System.Web.UI.UpdateProgress GetAdressUpdateProgress;
+        
+        /// <summary>
+        /// GetAdressUpdatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel GetAdressUpdatePanel;
         
         /// <summary>
         /// Panel2 control.
@@ -112,6 +121,15 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.WebControls.Button PostCodeLookUp;
         
         /// <summary>
+        /// ErrorAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ErrorAddress;
+        
+        /// <summary>
         /// PropertyLocation control.
         /// </summary>
         /// <remarks>
@@ -157,6 +175,15 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.HtmlControls.HtmlIframe mapForPostcode;
         
         /// <summary>
+        /// PropertyDetailsUpdatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel PropertyDetailsUpdatePanel;
+        
+        /// <summary>
         /// Panel3 control.
         /// </summary>
         /// <remarks>
@@ -193,13 +220,22 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.WebControls.Image imagePreview;
         
         /// <summary>
-        /// propertyImage control.
+        /// MainFileUploader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload propertyImage;
+        protected global::AjaxControlToolkit.AsyncFileUpload MainFileUploader;
+        
+        /// <summary>
+        /// spinImg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image spinImg;
         
         /// <summary>
         /// propertyPopularCheck control.
@@ -289,7 +325,7 @@ namespace MSFProperty.Admin {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::FreeTextBoxControls.FreeTextBox PropertyBlurb;
+        protected global::System.Web.UI.WebControls.TextBox PropertyBlurb;
         
         /// <summary>
         /// SaveButton control.
@@ -308,5 +344,14 @@ namespace MSFProperty.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label errorText;
+        
+        /// <summary>
+        /// PropertyDetailsUpdateProgress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdateProgress PropertyDetailsUpdateProgress;
     }
 }

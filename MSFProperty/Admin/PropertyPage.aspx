@@ -1,321 +1,349 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminMasterPage.Master" AutoEventWireup="true" CodeBehind="PropertyPage.aspx.cs" Inherits="MSFProperty.Admin.PropertyPage" ValidateRequest="false" %>
 
-<%@ Register TagPrefix="FTB" Namespace="FreeTextBoxControls" Assembly="FreeTextBox" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:ScriptManagerProxy ID="ScriptManagerProxy1" runat="server">
+    <Scripts>
+        <asp:ScriptReference Path="../Javascript/adminJavaScript.js"></asp:ScriptReference>
+    </Scripts>
+</asp:ScriptManagerProxy>
+<script type="text/javascript">
+    AjaxControlToolkit.AsyncFileUpload.prototype.newFileName = null;
+
+    function preview(sender, e) {
+       
+        $("#imagePreview").css("background-image", "url(../Images/" + sender.newFileName + ")");
+     
+    }
+</script>
+<asp:Panel ID="Panel1" runat="server" GroupingText="Property">
+<div class="tab">
+    <button class="tablinks active" id="createNewBlog" onclick="OpenAdminTab(event, 'createBlog', 1)">Create A New Property Listing</button>
+    <button class="tablinks" id="editBlog" onclick="OpenAdminTab(event, 'existingBlog', 2)">Edit An Existing Property Listing</button>
+    <button class="tablinks" id="organizeBlog" onclick="OpenAdminTab(event, 'organiseExistingBlogs', 3)">Organise Existing Property Listing</button>
+</div>
+
+<div id="createBlog" class="tabcontent" style="display: table;">
+<asp:UpdateProgress ID="GetAdressUpdateProgress" runat="server" AssociatedUpdatePanelID="GetAdressUpdatePanel" DynamicLayout="True">
+    <ProgressTemplate>
+        <img src="../ajax-loader.gif"/>Please Wait Loading ....
+    </ProgressTemplate>
+</asp:UpdateProgress>
+<asp:UpdatePanel ID="GetAdressUpdatePanel" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
+    <Triggers>
+
+        <asp:AsyncPostBackTrigger ControlID="PostCodeLookUp"/>
+        <asp:AsyncPostBackTrigger ControlID="ClearTextBoxes"/>
+
+    </Triggers>
+    <ContentTemplate>
+        <div class="propertyPanel">
+        <asp:Panel ID="Panel2" runat="server" GroupingText="Address">
+            <table id="streetTable">
+                <tr>
+                    <td>
+                        <asp:Label runat="server">Number</asp:Label>
+                        <asp:TextBox runat="server" ID="PropertyHouseNumber"></asp:TextBox>
+                    </td>
 
 
-    <asp:ScriptManagerProxy ID="ScriptManagerProxy1" runat="server">
-        <Scripts>
-            <asp:ScriptReference Path="../Javascript/adminJavaScript.js"></asp:ScriptReference>
-        </Scripts>
-    </asp:ScriptManagerProxy>
-    <asp:Panel ID="Panel1" runat="server" GroupingText="Property">
-        <div class="tab">
-            <button class="tablinks active" id="createNewBlog" onclick="OpenAdminTab(event, 'createBlog', 1)">Create A New Property Listing</button>
-            <button class="tablinks" id="editBlog" onclick="OpenAdminTab(event, 'existingBlog', 2)">Edit An Existing Property Listing</button>
-            <button class="tablinks" id="organizeBlog" onclick="OpenAdminTab(event, 'organiseExistingBlogs', 3)">Organise Existing Property Listing</button>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label runat="server">Street</asp:Label>
+                        <asp:TextBox runat="server" ID="PropertyStreet"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label runat="server">Street2</asp:Label>
+                        <asp:TextBox runat="server" ID="PropertyStreet2"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label runat="server">County</asp:Label>
+                        <asp:TextBox runat="server" ID="PropertyCounty"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label runat="server">Country</asp:Label>
+                        <asp:TextBox runat="server" ID="PropertyCountry"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label runat="server">PostCode</asp:Label>
+                        <asp:TextBox runat="server" ID="PropertyPostCode"></asp:TextBox>
+                        <asp:Button ID="PostCodeLookUp" runat="server" Text="Get Address From Postcode" OnClick="PostCodeLookUp_Click"/>
+                        <asp:Label runat="server" ID="ErrorAddress" ForeColor="Red"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label runat="server">Enter the Location of the property here </asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:TextBox runat="server" ID="PropertyLocation"></asp:TextBox>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label runat="server">Enter the LocationX of the property here </asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:TextBox runat="server" ID="PropertyLocationX"></asp:TextBox>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label runat="server">Enter the LocationY of the property here </asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:TextBox runat="server" ID="PropertyY"></asp:TextBox>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Button ID="ClearTextBoxes" runat="server" Text="Clear Boxes" OnClick="ClearTextBoxes_Click"/>
+                    </td>
+                </tr>
+            </table>
+            <iframe src="" width="1000" runat="server" frameborder="0" id="mapForPostcode" style="border: 0"> </iframe>
+        </asp:Panel>
         </div>
-
-        <div id="createBlog" class="tabcontent" style="display: table;">
-            <asp:UpdatePanel ID="UpdatePanel2" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
-                <Triggers>
-                    <asp:PostBackTrigger ControlID="SaveButton" />
-                    <asp:PostBackTrigger ControlID="PostCodeLookUp" />
-                    <asp:PostBackTrigger ControlID="ClearTextBoxes" />
-
-                </Triggers>
-                <ContentTemplate>
-                    <div class="propertyPanel">
-                        <asp:Panel ID="Panel2" runat="server" GroupingText="Address">
-                            <table id="streetTable">
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server">Number</asp:Label>
-                                        <asp:TextBox runat="server" ID="PropertyHouseNumber"></asp:TextBox>
-                                    </td>
+    </ContentTemplate>
+</asp:UpdatePanel>
 
 
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server">Street</asp:Label>
-                                        <asp:TextBox runat="server" ID="PropertyStreet"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server">Street2</asp:Label>
-                                        <asp:TextBox runat="server" ID="PropertyStreet2"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server">County</asp:Label>
-                                        <asp:TextBox runat="server" ID="PropertyCounty"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server">Country</asp:Label>
-                                        <asp:TextBox runat="server" ID="PropertyCountry"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server">PostCode</asp:Label>
-                                        <asp:TextBox runat="server" ID="PropertyPostCode"></asp:TextBox>
-                                        <asp:Button ID="PostCodeLookUp" runat="server" Text="Get Address From Postcode" OnClick="PostCodeLookUp_Click" />
+<asp:UpdatePanel ID="PropertyDetailsUpdatePanel" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
+<Triggers>
+    <asp:PostBackTrigger ControlID="SaveButton"/>
+</Triggers>
+<ContentTemplate>
+<asp:Panel ID="Panel3" runat="server" GroupingText="Property Details">
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server">Enter the Location of the property here </asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:TextBox runat="server" ID="PropertyLocation"></asp:TextBox>
-                                    </td>
+    <table>
+        <tr>
+            <td>
+                <asp:Label runat="server">Enter the Title for the property here </asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:TextBox runat="server" ID="propertyName"></asp:TextBox>
+            </td>
 
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server">Enter the LocationX of the property here </asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:TextBox runat="server" ID="PropertyLocationX"></asp:TextBox>
-                                    </td>
+        </tr>
 
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server">Enter the LocationY of the property here </asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:TextBox runat="server" ID="PropertyY"></asp:TextBox>
-                                    </td>
+        <tr>
+            <td>
+                <asp:Label runat="server">Enter the Bedrooms for the property here </asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:DropDownList ID="propertyBedrooms" runat="server">
+                    <asp:ListItem Selected="True">1</asp:ListItem>
+                    <asp:ListItem>2</asp:ListItem>
+                    <asp:ListItem>3</asp:ListItem>
+                    <asp:ListItem>4</asp:ListItem>
+                    <asp:ListItem>5</asp:ListItem>
+                    <asp:ListItem>6</asp:ListItem>
+                    <asp:ListItem>7</asp:ListItem>
+                    <asp:ListItem>8</asp:ListItem>
+                    <asp:ListItem>9</asp:ListItem>
+                    <asp:ListItem>10</asp:ListItem>
+                    <asp:ListItem>11</asp:ListItem>
+                    <asp:ListItem>12</asp:ListItem>
+                    <asp:ListItem>13</asp:ListItem>
+                    <asp:ListItem>14</asp:ListItem>
+                    <asp:ListItem>15</asp:ListItem>
+                    <asp:ListItem>16</asp:ListItem>
+                    <asp:ListItem>17</asp:ListItem>
+                    <asp:ListItem>18</asp:ListItem>
+                    <asp:ListItem>19</asp:ListItem>
+                    <asp:ListItem>20</asp:ListItem>
+                </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label runat="server">chose an image for the property</asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Image ID="imagePreview" runat="server"/>
+               
+                <ajaxToolkit:AsyncFileUpload OnUploadedComplete="MainImage_UploadedComplete" CssClass="imageasyncButtonUpload" runat="server" ID="MainFileUploader" accept=".png,.jpg,.jpeg,.gif" ThrobberID="spinImg" OnClientUploadComplete="preview" />
+                <asp:Image ID="spinImg" runat="server" ImageUrl="../ajax-loader.gif"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label runat="server">Is this a featured property ? check yes empty no</asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:CheckBox ID="propertyPopularCheck" runat="server"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label runat="server">Enter the Amenities of the property here seperated by commas (example: virgin media area, Sky tv, local Tesco) </asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:TextBox runat="server" ID="PropertyAmenities"></asp:TextBox>
+            </td>
 
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Button ID="ClearTextBoxes" runat="server" Text="Clear Boxes" OnClick="ClearTextBoxes_Click"  />
-                                    </td>
-                                </tr>
-                            </table>
-                            <iframe src="" width="1000" runat="server" frameborder="0" id="mapForPostcode" style="border: 0"></iframe>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label runat="server">Enter the property BathType here </asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:CheckBoxList ID="BathTypeCheckBox" runat="server">
+                    <asp:ListItem>Bath</asp:ListItem>
+                    <asp:ListItem>Shower</asp:ListItem>
+                    <asp:ListItem>En Suite</asp:ListItem>
+                    <asp:ListItem>Shower above bath</asp:ListItem>
+                    <asp:ListItem>Multiple baths</asp:ListItem>
+                    <asp:ListItem>Multiple Showers</asp:ListItem>
+                    <asp:ListItem>None</asp:ListItem>
+                </asp:CheckBoxList>
+            </td>
 
-                        </asp:Panel>
-                        <asp:Panel ID="Panel3" runat="server" GroupingText="Property Details">
+        </tr>
 
-                            <table>
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server">Enter the Name of the property here </asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:TextBox runat="server" ID="propertyName"></asp:TextBox>
-                                    </td>
+        <tr>
+            <td>
+                <asp:Label runat="server">Check if pets are allowed or not</asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:CheckBox ID="PetCheckBox" runat="server"/>
+            </td>
 
-                                </tr>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label runat="server">Enter the Available from date</asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>
+                    Date:
+                    <input type="text" id="datepicker1" readonly>
+                </p>
+                <asp:HiddenField ID="datepicker1Value" runat="server"/>
+            </td>
 
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server">Enter the Bedrooms for the property here </asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:DropDownList ID="propertyBedrooms" runat="server">
-                                            <asp:ListItem Selected="True">1</asp:ListItem>
-                                            <asp:ListItem>2</asp:ListItem>
-                                            <asp:ListItem>3</asp:ListItem>
-                                            <asp:ListItem>4</asp:ListItem>
-                                            <asp:ListItem>5</asp:ListItem>
-                                            <asp:ListItem>6</asp:ListItem>
-                                            <asp:ListItem>7</asp:ListItem>
-                                            <asp:ListItem>8</asp:ListItem>
-                                            <asp:ListItem>9</asp:ListItem>
-                                            <asp:ListItem>10</asp:ListItem>
-                                            <asp:ListItem>11</asp:ListItem>
-                                            <asp:ListItem>12</asp:ListItem>
-                                            <asp:ListItem>13</asp:ListItem>
-                                            <asp:ListItem>14</asp:ListItem>
-                                            <asp:ListItem>15</asp:ListItem>
-                                            <asp:ListItem>16</asp:ListItem>
-                                            <asp:ListItem>17</asp:ListItem>
-                                            <asp:ListItem>18</asp:ListItem>
-                                            <asp:ListItem>19</asp:ListItem>
-                                            <asp:ListItem>20</asp:ListItem>
-                                        </asp:DropDownList>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server">chose an image for the property</asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Image ID="imagePreview" runat="server" />
-                                        <asp:FileUpload class="uploaders" ID="propertyImage"  runat="server" accept=".png,.jpg,.jpeg,.gif" />
+        </tr>
+        <tr>
+            <td>
+                <asp:Label runat="server">Enter the avaiable to date or leave blank for indefinate</asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>
+                    Date:
+                    <input type="text" id="datepicker2" readonly>
+                </p>
+                <asp:HiddenField ID="datepicker2Value" runat="server"/>
 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server">Is this a featured property ? check yes empty no</asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:CheckBox ID="propertyPopularCheck" runat="server" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server">Enter the Amenities of the property here seperated by commas (example: virgin media area, Sky tv, local Tesco) </asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:TextBox runat="server" ID="PropertyAmenities"></asp:TextBox>
-                                    </td>
+            </td>
 
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server">Enter the property BathType here </asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:CheckBoxList ID="BathTypeCheckBox" runat="server">
-                                            <asp:ListItem>Bath</asp:ListItem>
-                                            <asp:ListItem>Shower</asp:ListItem>
-                                            <asp:ListItem>En Suite</asp:ListItem>
-                                            <asp:ListItem>Shower above bath</asp:ListItem>
-                                            <asp:ListItem>Multiple baths</asp:ListItem>
-                                            <asp:ListItem>Multiple Showers</asp:ListItem>
-                                            <asp:ListItem>None</asp:ListItem>
-                                        </asp:CheckBoxList>
-                                    </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label runat="server">Enter the Rent Price here</asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:TextBox runat="server" ID="PropertyRentPrice"></asp:TextBox>
+            </td>
 
-                                </tr>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label runat="server">Enter the Deposit amount of the property here </asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:TextBox runat="server" ID="PropertyDeposit"></asp:TextBox>
+            </td>
 
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server">Check if pets are allowed or not</asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:CheckBox ID="PetCheckBox" runat="server" />
-                                    </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label runat="server">upload the property images here </asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:FileUpload ID="PropertyImages" runat="server" AllowMultiple="true"/>
+            </td>
 
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server">Enter the Available from date</asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>
-                                            Date:
-                                        <input type="text" id="datepicker1" readonly >
-                                        </p>
-                                        <asp:HiddenField ID="datepicker1Value" runat="server" />
-                                    </td>
+        </tr>
 
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server">Enter the avaiable to date or leave blank for indefinate</asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>
-                                            Date:
-                                        <input type="text" id="datepicker2" readonly>
-                                        </p>
-                                        <asp:HiddenField ID="datepicker2Value" runat="server" />
+        <tr>
+            <td>
+                <asp:Label runat="server">Enter the property Blurb into the box and press save to save the property</asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:TextBox runat="server" TextMode="multiline" style="margin: 0px; min-width: 388px; min-height: 334px;" ID="PropertyBlurb"></asp:TextBox>
 
-                                    </td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Button ID="SaveButton" runat="server" Text="Save" OnClick="SaveNewProperty"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label runat="server" ID="errorText" ForeColor="Red"></asp:Label>
+            </td>
+        </tr>
+    </table>
+</asp:Panel>
 
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server">Enter the Rent Price here</asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:TextBox runat="server" ID="PropertyRentPrice"></asp:TextBox>
-                                    </td>
+</div>
+</ContentTemplate>
+</asp:UpdatePanel>
+<asp:UpdateProgress ID="PropertyDetailsUpdateProgress" runat="server" AssociatedUpdatePanelID="PropertyDetailsUpdatePanel" DynamicLayout="True">
+    <ProgressTemplate>
+        <img src="../ajax-loader.gif"/>Please Wait Loading ....
+    </ProgressTemplate>
+</asp:UpdateProgress>
+</div>
 
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server">Enter the Deposit amount of the property here </asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:TextBox runat="server" ID="PropertyDeposit"></asp:TextBox>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server">upload the property images here </asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:FileUpload ID="PropertyImages" runat="server" AllowMultiple="true" />
-                                    </td>
-
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server">Enter the property Blurb into the box and press save to save the property</asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <FTB:FreeTextBox ID="PropertyBlurb" runat="Server" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Button ID="SaveButton" runat="server" Text="Save" OnClick="SaveNewProperty" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Label runat="server" ID="errorText" Visible="false"></asp:Label>
-                                    </td>
-                                </tr>
-                            </table>
-                        </asp:Panel>
-
-                    </div>
-                </ContentTemplate>
-            </asp:UpdatePanel>
-        </div>
-
-        <%--        <div id="existingBlog" class="tabcontent">
+<%--        <div id="existingBlog" class="tabcontent">
             <asp:UpdatePanel ID="UpdatePanel3" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                 <Triggers>
                     <asp:PostBackTrigger ControlID="SaveEditBlog" />
@@ -461,7 +489,7 @@
             </asp:UpdatePanel>
 
         </div>--%>
-    </asp:Panel>
+</asp:Panel>
 
 </asp:Content>
 

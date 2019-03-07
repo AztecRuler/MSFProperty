@@ -10,6 +10,12 @@
         </div>
 
         <div id="addUser" class="tabcontent" style="display: table;">
+            <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="AddUserUpdatePanel" DynamicLayout="True">
+             <ProgressTemplate> 
+                 <img src="../ajax-loader.gif" />Loading Please Wait.....
+
+             </ProgressTemplate> 
+            </asp:UpdateProgress>
             <asp:UpdatePanel ID="AddUserUpdatePanel" runat="server">
                 <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="CreateUserButton"/>
@@ -92,6 +98,12 @@
         </div>
 
         <div id="editUser" class="tabcontent">
+            <asp:UpdateProgress ID="UpdateProgress2" runat="server" AssociatedUpdatePanelID="EditUserUpdatePanel" DynamicLayout="True">
+                <ProgressTemplate> 
+                    <img src="../ajax-loader.gif" />Loading Please Wait.....
+
+                </ProgressTemplate> 
+            </asp:UpdateProgress>
             <asp:UpdatePanel ID="EditUserUpdatePanel" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="False">
                 <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="CancelEditUser"/>

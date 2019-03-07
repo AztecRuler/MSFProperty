@@ -29,6 +29,8 @@ function pageLoad() {
                 }
             });
         }
+
+
         $(".imageButtonUpload").on('click', function (event) {
             event.stopPropagation();
             event.stopImmediatePropagation();

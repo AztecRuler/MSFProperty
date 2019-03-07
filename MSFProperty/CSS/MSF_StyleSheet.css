@@ -1589,7 +1589,7 @@ input {
     }
 
         .msf-lvi-box-side > ul > li:before {
-            background-image: url('~/../Icons/wpg-ico-75x60.png');
+            background-image: url('/Icons/wpg-ico-75x60.png');
             background-repeat: no-repeat;
             content: '';
             height: 60px;

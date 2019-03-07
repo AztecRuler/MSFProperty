@@ -63,7 +63,9 @@
                             <li>
                                <a href="EditContactDetails.aspx">Edit Contact Details</a>
                             </li>
-                  
+                            <li>
+                            <a href="Users.aspx">Users</a>
+                            </li>
                         </ul>
                     </div>
 

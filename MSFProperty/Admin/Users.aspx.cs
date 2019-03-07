@@ -36,7 +36,11 @@ namespace MSFProperty.Admin
                 {
                     Username = UserNameTextBox.Text,
                     Password = password,
-                    Email = EmailTextBox.Text
+                    Email = EmailTextBox.Text,
+                    Locked = false,
+                    LogAttempts = 0,
+                    LockedTime = null
+
                 };
                 using (var db = new Model1())
                 {
@@ -51,6 +55,8 @@ namespace MSFProperty.Admin
                     {
                         ErrorLabelMessage.Text = "User with this name already exists";
                     }
+
+                    SetUserRepeater();
                 }
             }
             else

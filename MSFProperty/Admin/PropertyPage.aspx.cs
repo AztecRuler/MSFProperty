@@ -1,45 +1,55 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
+using System.Diagnostics;
+using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Text.RegularExpressions;
+using System.Web.UI;
 using System.Web.UI.WebControls;
+using AjaxControlToolkit;
 using MSFProperty.Admin.EF;
 using RestSharp;
+using Image = System.Web.UI.WebControls.Image;
 using Page = System.Web.UI.Page;
 
 namespace MSFProperty.Admin
 {
     public partial class PropertyPage : Page
     {
+        private string _errorMessage = "";
+        private string _mainImageUrl = "";
+        private string _mainRealAddress = ""; 
+
         protected void SaveNewProperty(object sender, EventArgs e)
         {
-            var todaysDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
+            var todayDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
 
-           // TODO: Added Control validation
+         
             if (Validation())
             {
                 using (var db = new Model1())
                 {
-                    String mainImage = GetMainImage();
-                    int bedrooms = GetRooms();
-                    IList<String> amenities = GetAmenities();
-                    String bathType = GetBathType();
-                    Boolean pets = GetPets();
-                    String availableFrom = GetAvailableFrom();
-                    String avaiableTo = GetAvaiableTo();
-                    int rentPrice = GetRentPrice();
-                    int deposit = GetDeposit();
-                    String blurb = GetBlurb();
-                    Boolean featured = GetFeatured();
-                    DateTime created = todaysDate;
-                    List<String> images = GetImages();
-                    ModelAddress FullAdress = GetAddress();
+                    var mainImage = GetMainImage();
+                    var bedrooms = GetRooms();
+                    var amenities = GetAmenities();
+                    var bathType = GetBathType();
+                    var pets = GetPets();
+                    var availableFrom = GetAvailableFrom();
+                    var avaiableTo = GetAvaiableTo();
+                    var rentPrice = GetRentPrice();
+                    var deposit = GetDeposit();
+                    var blurb = GetBlurb();
+                    var featured = GetFeatured();
+                    var created = todayDate;
+                    var images = GetImages();
+                    var FullAdress = GetAddress();
 
-                    Property property = new Property
+                    var property = new Property
                     {
                         MainImage = mainImage,
                         Bedrooms = bedrooms,
@@ -68,14 +78,14 @@ namespace MSFProperty.Admin
                         Area = FullAdress.Area
                     };
                     db.Properties.Add(property);
-                   SafeSave(db);
-                   EmptyAll();
+                    SafeSave(db);
+                    EmptyAll();
+                    errorText.Text = "Property uploaded";
                 }
             }
             else
             {
-                errorText.Visible = true;
-                errorText.Text = "Please fill in all values";
+                errorText.Text = _errorMessage;
             }
         }
 
@@ -83,45 +93,41 @@ namespace MSFProperty.Admin
         {
             //this is for error checking
             try
-            {  context.SaveChanges();
+            {
+                context.SaveChanges();
             }
             catch (DbEntityValidationException e)
             {
                 Log(e.ToString());
-             
+
                 throw;
             }
         }
 
         private DateTime? ConvertToSystDateTime(string availableFrom)
         {
-            string input = availableFrom;
-            DateTime date = new DateTime();
-         //   input = "12-30-1899 07:50:00";
+            var input = availableFrom;
+            var date = new DateTime();
+          
             if (input != string.Empty)
-            {
                 date = DateTime.ParseExact(input, "MM-dd-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
-            }
             return date;
         }
 
         private string CreateCommaSeperatedList(IList<string> amenities)
         {
-            string seperatedList = "";
+            var separatedList = "";
 
-            foreach (var item in amenities)
-            {
-                seperatedList += item + ",";
-            }
+            foreach (var item in amenities) separatedList += item + ",";
 
-                return seperatedList; 
-         }
+            return separatedList;
+        }
 
         private ModelAddress GetAddress()
         {
-            ModelAddress address = new ModelAddress();
-            Int32.TryParse(PropertyHouseNumber.Text, out int ParsepropertyHouseNumber);
-            address.AddressNumber = ParsepropertyHouseNumber;
+            var address = new ModelAddress();
+            int.TryParse(PropertyHouseNumber.Text, out var parsePropertyHouseNumber);
+            address.AddressNumber = parsePropertyHouseNumber;
             address.Location = PropertyLocation.Text;
             address.LocationX = ConvertToFloat(PropertyLocationX.Text);
             address.LocationY = ConvertToFloat(PropertyY.Text);
@@ -139,9 +145,9 @@ namespace MSFProperty.Admin
         private float ConvertToFloat(string text)
         {
             float num1;
-             
-            if (text != String.Empty) //Added if statement to see if the textBox is empty
-                num1 = (float)Convert.ToDouble(text);
+
+            if (text != string.Empty) //Added if statement to see if the textBox is empty
+                num1 = (float) Convert.ToDouble(text);
             else
                 num1 = 0; //If textBox is empty, set num1 to 0
             return num1;
@@ -151,90 +157,127 @@ namespace MSFProperty.Admin
 
         private string GetMainImage()
         {
-            string realPhysicalPath = "";
+            return _mainImageUrl;
+        }
 
-            if (propertyImage.HasFile)
+        private string GetMainImageAddress()
+        {
+            return _mainRealAddress;
+        }
+
+        protected void MainImage_UploadedComplete(object sender, AsyncFileUploadEventArgs e)
+        {
+            if (!MainFileUploader.HasFile) return;
+            if (IsImage(MainFileUploader.FileContent))
             {
-                if (IsImage(propertyImage.FileContent))
-                {
-
-                    realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + propertyImage.FileName);
-                    propertyImage.SaveAs(realPhysicalPath);
-                    return "MSF-" + propertyImage.FileName;
-                }
+                Session["MainAddress"] =
+                    Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + MainFileUploader.FileName);
+                ScriptManager.RegisterClientScriptBlock(this,
+                    this.GetType(), "newfile",
+                    "window.parent.$find('" + MainFileUploader.ClientID + "').newFileName='" + "MSF-" + MainFileUploader.FileName + "';", true);
+                Session["MainUrl"] = "MSF-" + MainFileUploader.FileName;
+            }
+            else
+            {
+                _errorMessage = " this is not a valid file please select another one. ";
             }
 
-            return null;
         }
 
         private List<string> GetImages()
         {
-            string realPhysicalPath = "";
-            List<String> listOfFiles = new List<String>();
+            var listOfFiles = new List<string>();
 
-            if (PropertyImages.HasFile)
-            {
-                foreach (var uploadedFile in PropertyImages.PostedFiles)
+            if (!PropertyImages.HasFile) return listOfFiles;
+            foreach (var uploadedFile in PropertyImages.PostedFiles)
+                if (IsImage(uploadedFile.InputStream))
                 {
-                    if (IsImage(uploadedFile.InputStream))
-                    {
-                        realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + uploadedFile.FileName);
-                        uploadedFile.SaveAs(realPhysicalPath);
-                        listOfFiles.Add("MSF-" + uploadedFile.FileName);
-                    }
+                    var realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + uploadedFile.FileName);
+                    uploadedFile.SaveAs(realPhysicalPath);
+                    listOfFiles.Add("MSF-" + uploadedFile.FileName);
                 }
-            }
+
             return listOfFiles;
         }
 
-        private bool GetFeatured() => propertyPopularCheck.Checked;
+        private bool GetFeatured()
+        {
+            return propertyPopularCheck.Checked;
+        }
 
-        private string GetBlurb() => PropertyBlurb.Text;
+        private string GetBlurb()
+        {
+            return PropertyBlurb.Text;
+        }
 
         private int GetDeposit()
         {
-            Int32.TryParse(PropertyDeposit.Text, out int retVal);
+            int.TryParse(PropertyDeposit.Text, out var retVal);
             return retVal;
         }
 
         private int GetRentPrice()
         {
-            Int32.TryParse(PropertyRentPrice.Text, out int retVal);
+            int.TryParse(PropertyRentPrice.Text, out var retVal);
             return retVal;
         }
 
-        private String GetAvaiableTo() => datepicker2Value.Value;
-
-        private String GetAvailableFrom() => datepicker1Value.Value;
-
-        private bool GetPets() => PetCheckBox.Checked;
-
-        private String GetBathType()
+        private string GetAvaiableTo()
         {
-            string items = string.Empty;
-            foreach (ListItem i in BathTypeCheckBox.Items)
-            {
-                if (i.Selected)
-                {
-                    items += i.Text + ",";
-                }
-            }
-
-            return items;
-
+            return datepicker2Value.Value;
         }
 
-        private IList<string> GetAmenities() => PropertyAmenities.Text.Split(',').Reverse().ToList();
+        private string GetAvailableFrom()
+        {
+            return datepicker1Value.Value;
+        }
+
+        private bool GetPets()
+        {
+            return PetCheckBox.Checked;
+        }
+
+        private string GetBathType()
+        {
+            var items = string.Empty;
+            foreach (ListItem i in BathTypeCheckBox.Items)
+                if (i.Selected)
+                    items += i.Text + ",";
+
+            return items;
+        }
+
+        private IList<string> GetAmenities()
+        {
+            IList<string> retList = PropertyAmenities.Text.Split(',').Reverse().ToList();
+            retList = retList.Where(x => !string.IsNullOrEmpty(x)).ToList();
+            return retList;
+        }
 
         private int GetRooms()
         {
-            Int32.TryParse(propertyBedrooms.SelectedValue, out int retVal);
+            int.TryParse(propertyBedrooms.SelectedValue, out var retVal);
             return retVal;
-
         }
 
-        protected void Page_Load(Object Src, EventArgs E)
+        protected void Page_Load(object Src, EventArgs E)
         {
+            if (Session["MainUrl"] != null)
+            {
+                if (Session["MainUrl"].ToString() != "")
+                {
+                    _mainImageUrl = Session["MainUrl"].ToString();
+                }
+            }
+            if (Session["MainAddress"] != null)
+            {
+                if (Session["MainAddress"].ToString() != "")
+                {
+                    _mainRealAddress = Session["MainAddress"].ToString();
+                }
+            }
+            
+
             if (!IsPostBack)
             {
                 //fillRepeaterData();
@@ -244,32 +287,87 @@ namespace MSFProperty.Admin
         private bool IsImage(Stream stream)
         {
             stream.Seek(0, SeekOrigin.Begin);
-            List<string> jpg = new List<string> {"FF","D8"};
-            List<string> bmp = new List<string> {"42","4D"};
-            List<string> gif = new List<string> {"47","49","46"};
-            List<string> png = new List<string> {"89","50","4E","47","0D","0A","1A","0A"};
-            List<List<string>> imgTypes = new List<List<string>> {jpg,bmp,gif,png};
-            List<string> bytesIterated = new List<string>();
-            for (int i = 0; i < 8; i++)
+            var jpg = new List<string> {"FF", "D8"};
+            var bmp = new List<string> {"42", "4D"};
+            var gif = new List<string> {"47", "49", "46"};
+            var png = new List<string> {"89", "50", "4E", "47", "0D", "0A", "1A", "0A"};
+            var imgTypes = new List<List<string>> {jpg, bmp, gif, png};
+            var bytesIterated = new List<string>();
+            for (var i = 0; i < 8; i++)
             {
-                string bit = stream.ReadByte().ToString("X2");
+                var bit = stream.ReadByte().ToString("X2");
                 bytesIterated.Add(bit);
-                bool isImage = imgTypes.Any(img => !img.Except(bytesIterated).Any());
-                if (isImage)
-                {
-                    return true;
-                }
+                var isImage = imgTypes.Any(img => !img.Except(bytesIterated).Any());
+                if (isImage) return true;
             }
+
             return false;
         }
+
         private bool Validation()
         {
-            //TODO: set validation here
-            return true;
-             //return (PropertyLocation.Text != "" && PropertyRentPrice.Text != "" && PropertyDeposit.Text != "");
+            bool validationOk = true;
+            var validateBlurb = GetBlurb();
+            _errorMessage = "";
+
+            var mainImage = GetMainImage();
+            long mainImageSize = 0;
+            if (_mainRealAddress !="")
+                mainImageSize = new System.IO.FileInfo(_mainRealAddress).Length;
+            var amenities = GetAmenities();
+            var bathType = GetBathType();
+            var images = GetImages();
+            var imagesCombinedSize = 0;
+
+            if (validateBlurb.Length > 3000)
+            {
+                validationOk = false;
+                _errorMessage += "Blurb is to long max letters are 3000 ";
+            }
+
+            if (PropertyRentPrice.Text == "")
+            {
+                validationOk = false;
+                _errorMessage += "Property needs a rent price please enter one ";
+            }
+
+            Debug.Assert(mainImage != null, nameof(mainImage) + " != null");
+            if (mainImage.Length > 2083)
+            {
+                validationOk = false;
+                _errorMessage += "Image name is too long max is 2000 characters ";
+            }
+            if (mainImageSize > 26214400)
+            {
+                validationOk = false;
+                _errorMessage += "Your Main Image is quite large consider compressing it first it is over 25mb ";
+            }
+            if (amenities.Count > 100)
+            {
+                validationOk = false;
+                _errorMessage += "You have to many amenities please remove some first  ";
+            }
+            if (bathType.Length > 100)
+            {
+                validationOk = false;
+                _errorMessage += "You have to many bath types please remove some first ";
+            }
+            if (images.Count > 2080)
+            {
+                validationOk = false;
+                _errorMessage += "Combined Image names are too long max is 2000 characters try uploading less ";
+            }
+            if (imagesCombinedSize > (26214400*5))
+            {
+                validationOk = false;
+                _errorMessage += "Blurb is to long max letters are 3000 ";
+            }
+           
+
+            return validationOk;
         }
 
-        private string GetReponseBack(string client,string  request)
+        private string GetReponseBack(string client, string request)
         {
             Log("entered");
             var resultClient = new RestClient(client);
@@ -283,94 +381,156 @@ namespace MSFProperty.Admin
             Log("exiting");
             Log(resultconent + " resultconent");
             return resultconent;
-
         }
+
         private void Log(string message)
         {
-            string map = Server.MapPath("~\\Logs\\");
-            LogWriter log = new LogWriter(message, map);
+            var map = Server.MapPath("~\\Logs\\");
+            var log = new LogWriter(message, map);
         }
+
         protected void PostCodeLookUp_Click(object sender, EventArgs e)
         {
-                String postcodeResult = ValidatePostcode(PropertyPostCode.Text);
+            var postcodeResult = ValidatePostcode(PropertyPostCode.Text);
 
-                if (postcodeResult != "")
-                {
-                    var resultconent ="";
-
-                 
-                    using (WebClient wc = new WebClient())
-                    {
-                    Log("https://api.postcodes.io/postcodes/" + postcodeResult);
-                         resultconent = wc.DownloadString("https://api.postcodes.io/postcodes/" + postcodeResult);
-                    Log(resultconent + " resultconent ");
-                    }
-                var  PostCodeRestResult = PostcodeResult.FromJson(resultconent);
-                var houseNumber = "";
-                if (PostCodeRestResult.Result != null)
-                {
-                    houseNumber = ValidateHouseNumber(PropertyHouseNumber.Text);
-                    EmptyTextBoxesForAdress();
-
-                    var content = "";
-                    using (WebClient wc = new WebClient())
-                    {
-                        Log("https://nominatim.openstreetmap.org/" + "reverse?format=json&lat=" +
-                         PostCodeRestResult.Result.Latitude + "&lon=" + PostCodeRestResult.Result.Longitude);
-
-                        content = wc.DownloadString("https://nominatim.openstreetmap.org/" + "reverse?email=info@msfproperty.co.uk&format=json&lat=" +
-                         PostCodeRestResult.Result.Latitude + "&lon=" + PostCodeRestResult.Result.Longitude);
-
-
-                        Log(content + "  content");
-                    }
-
-                    var addressResults = AddressResults.FromJson(content);
-                    var address = addressResults.Address;
-
-                    PropertyHouseNumber.Text = houseNumber;
-                    PropertyStreet.Text = address.Road;
-                    PropertyStreet2.Text = address.Village ?? PostCodeRestResult.Result.AdminWard;
-                    PropertyCounty.Text = address.County ?? PostCodeRestResult.Result.AdminDistrict;
-                    PropertyCountry.Text = address.State ?? PostCodeRestResult.Result.Country;
-                    PropertyPostCode.Text = PropertyPostCode.Text == address.Postcode ? address.Postcode : PostCodeRestResult.Result.Postcode;
-                    PropertyLocation.Text = address.Neighbourhood ?? PostCodeRestResult.Result.AdminDistrict;
-                    PropertyLocationX.Text = PostCodeRestResult.Result.Latitude.ToString();
-                    PropertyY.Text = PostCodeRestResult.Result.Longitude.ToString();
-
-                    mapForPostcode.Attributes["src"] = "http://maps.google.com/maps?q=" + PropertyHouseNumber.Text + " " + address.Road + " " + address.County + "&z=16&output=embed";
-                }
-                else
-                {
-                    //TODO: display error message 
-                    EmptyTextBoxesForAdress();
-                }
+            if (postcodeResult == "")
+            {
+                ErrorAddress.Text = "Your PostCode is not Valid, Please Try a different One";
+                return;
             }
-         
+
+            var details = GetPostCodeDetailsAsJson(postcodeResult);
+            if (details == "")
+            {
+                ErrorAddress.Text =
+                    "Postcode Not Found Please Try A Different One Or Enter Details Manually";
+                EmptyTextBoxesForAdress();
+                return;
+            }
+            var postCodeRestResult = PostcodeResult.FromJson(details);
+            if (postCodeRestResult.Result == null)
+            {
+                ErrorAddress.Text =
+                    "Could Not Retrieve Details From PostCode PLease Enter A New One Or Enter Details Manually";
+                EmptyTextBoxesForAdress();
+                return;
+            }
+
+            var houseNumber = ValidateHouseNumber(PropertyHouseNumber.Text);
+            ErrorAddress.Text = "";
+            if (houseNumber == "")
+            {
+                ErrorAddress.Text =
+                    "Could Not Validate House Number the results will be an estimate, Please check for a typo or enter a new number for a more accurate result";
+            }
+
+            EmptyTextBoxesForAdress();
+
+            using (var wc = new WebClient())
+            {
+                Log("https://nominatim.openstreetmap.org/" + "reverse?format=json&lat=" +
+                    postCodeRestResult.Result.Latitude + "&lon=" + postCodeRestResult.Result.Longitude);
+                const string downloadUrl = "https://nominatim.openstreetmap.org/";
+                const string validationEmail = "reverse?email=info@msfproperty.co.uk&format=json&lat=";
+                var postcodeLongAndLat =  postCodeRestResult.Result.Latitude + "&lon=" + postCodeRestResult.Result.Longitude;
+                var fullAddress = downloadUrl + validationEmail + postcodeLongAndLat;
+                string content;
+                try
+                {
+                    content = wc.DownloadString(fullAddress);
+
+                }
+                catch (Exception exception)
+                {
+                    Log(exception + "  content");
+                    ErrorAddress.Text =
+                        "Something went wrong retrieving the details using the full address";
+                    EmptyTextBoxesForAdress();
+                    return;
+                }
+
+                SetPropertyDetailsAndGetMap(content, houseNumber, postCodeRestResult);
+            }
+
+
         }
 
-        private string ValidateHouseNumber(string text) => Regex.Replace(text, "[^-.//0-9]", "");
-
-        private string ValidatePostcode(string text)
+        private void SetPropertyDetailsAndGetMap(string content, string houseNumber, PostcodeResult postCodeRestResult)
         {
-            var regex = "^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?)|(([a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW])|" +
-             "([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]))) {0,}[0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2}))$";
+            var addressResults = AddressResults.FromJson(content);
+            var address = addressResults.Address;
 
+            PropertyHouseNumber.Text = houseNumber;
+            PropertyStreet.Text = address.Road;
+            PropertyStreet2.Text = address.Village ?? postCodeRestResult.Result.AdminWard;
+            PropertyCounty.Text = address.County ?? postCodeRestResult.Result.AdminDistrict;
+            PropertyCountry.Text = address.State ?? postCodeRestResult.Result.Country;
+            PropertyPostCode.Text = PropertyPostCode.Text == address.Postcode
+                ? address.Postcode
+                : postCodeRestResult.Result.Postcode;
+            PropertyLocation.Text = address.Neighbourhood ?? postCodeRestResult.Result.AdminDistrict;
+            PropertyLocationX.Text = postCodeRestResult.Result.Latitude.ToString();
+            PropertyY.Text = postCodeRestResult.Result.Longitude.ToString();
 
+            var fullAddress = new StringBuilder();
+            fullAddress.Append("http://maps.google.com/maps?q=").Append(PropertyHouseNumber.Text + " ").Append(address.Road + " ").Append(address.County + "&z=16&output=embed");
+            try
+            {
+                mapForPostcode.Attributes["src"] = fullAddress.ToString();
+            }
+            catch (Exception e)
+            {
+                Log(e + "  content");
+                ErrorAddress.Text =
+                    "Something went wrong retrieving the details using the full address";
+                EmptyTextBoxesForAdress();
+                return;
+            }
+        }
+
+        private string GetPostCodeDetailsAsJson(string postcodeResult)
+        {
+            using (var wc = new WebClient())
+            {
+                var resultContent = "";
+                Log("https://api.postcodes.io/postcodes/" + postcodeResult);
+                try
+                {
+                    resultContent = wc.DownloadString("https://api.postcodes.io/postcodes/" + postcodeResult);
+                }
+                catch (Exception exception)
+                {
+                    Log(exception + " resultContent ");
+                }
+
+                return resultContent;
+            }
+        }
+
+        private string ValidateHouseNumber(string text)
+        {
+            Regex.Replace(text, "[^-.//0-9]", "");
+            if (text.Length <= 4) return text.Length < 4 ? text : "";
+            text = text.Substring(0, 3);
+            ErrorAddress.Text =
+                "Could Not Validate House Number the results will be an estimate, Please check for a typo or enter a new number for a more accurate result";
+
+            return text.Length < 4 ? text : "";
+        }
+
+        private static string ValidatePostcode(string text)
+        {
+            const string regex =
+                "^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?)|(([a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW])|" +
+                "([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]))) {0,}[0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2}))$";
             var match = Regex.Match(text, regex, RegexOptions.IgnoreCase);
 
-            if (match.Success)
-            {
-
-                return text;
-            }
-            return "";
-
+            return match.Success ? text : "";
         }
 
         private void EmptyTextBoxesForAdress()
         {
-            String empty = "";
+            const string empty = "";
 
             PropertyHouseNumber.Text = empty;
             PropertyPostCode.Text = empty;
@@ -381,93 +541,30 @@ namespace MSFProperty.Admin
             PropertyLocation.Text = empty;
             PropertyLocationX.Text = empty;
             PropertyY.Text = empty;
+            GetAdressUpdatePanel.Update();
+            PropertyDetailsUpdatePanel.Update();
         }
 
         public class ModelAddress
         {
-            public bool Ready{get; set;}
-            public string Road
-            {
-                get;
-                set;
-            }
-            public string Neighbourhood
-            {
-                get;
-                set;
-            }
-            public string Suburb
-            {
-                get;
-                set;
-            }
-            public string Village
-            {
-                get;
-                set;
-            }
-            public string County
-            {
-                get;
-                set;
-            }
-            public string State
-            {
-                get;
-                set;
-            }
-            public string Postcode
-            {
-                get;
-                set;
-            }
-            public string Country
-            {
-                get;
-                set;
-            }
-            public string CountryCode
-            {
-                get;
-                set;
-            }
+            public bool Ready { get; set; }
+            public string Road { get; set; }
+            public string Neighbourhood { get; set; }
+            public string Suburb { get; set; }
+            public string Village { get; set; }
+            public string County { get; set; }
+            public string State { get; set; }
+            public string Postcode { get; set; }
+            public string Country { get; set; }
+            public string CountryCode { get; set; }
 
-            public string Location
-            {
-                get;
-                set;
-            }
-            public float LocationX
-            {
-                get;
-                set;
-            }
-            public float LocationY
-            {
-                get;
-                set;
-            }
-            public int AddressNumber
-            {
-                get;
-                set;
-            }
-            public string Area
-            {
-                get;
-                set;
-            }
-            public string Street
-            {
-                get;
-                set;
-            }
-            public string Street2
-            {
-                get;
-                set;
-            }
-
+            public string Location { get; set; }
+            public float LocationX { get; set; }
+            public float LocationY { get; set; }
+            public int AddressNumber { get; set; }
+            public string Area { get; set; }
+            public string Street { get; set; }
+            public string Street2 { get; set; }
         }
 
         protected void ClearTextBoxes_Click(object sender, EventArgs e)
@@ -475,18 +572,9 @@ namespace MSFProperty.Admin
             EmptyTextBoxesForAdress();
         }
 
-        //TODO: reset this valuator
-        //private bool EditValidation(string output)
-        //{
-        //    return (output != null && blogEditTextBox1.Text != "" && blogEditTextBox2.Text != "");
-        //}
-
         private void EmptyAll()
         {
             EmptyTextBoxesForAdress();
-
         }
-        
     }
-
 }

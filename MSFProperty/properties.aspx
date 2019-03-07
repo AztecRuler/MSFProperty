@@ -13,7 +13,7 @@
                 <ItemTemplate>
                     <div class="mySlides">
                         <div class="slideShowNumbertext"><%# Container.ItemIndex + 1 %> / <%= GetSlideCount() %></div>
-                        <img class="bgimg lazy" src="~/../Images/<%# Container.DataItem %>">
+                        <img class="bgimg lazy" src="/Images/<%# Container.DataItem %>">
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
@@ -28,7 +28,7 @@
                 <asp:Repeater ID="slideShowColumnRepeater" runat="server">
                     <ItemTemplate>
                         <div class="slideShowColumn">
-                            <img class="slideShowSelector slideShowCursor bgimg lazy" src="~/../Images/<%# Container.DataItem %>" style="width: 100%" onclick="currentSlide(<%# Container.ItemIndex + 1 %>)" alt="<%# Container.DataItem %>">
+                            <img class="slideShowSelector slideShowCursor bgimg lazy" src="/Images/<%# Container.DataItem %>" style="width: 100%" onclick="currentSlide(<%# Container.ItemIndex + 1 %>)" alt="<%# Container.DataItem %>">
                         </div>
 
                     </ItemTemplate>
