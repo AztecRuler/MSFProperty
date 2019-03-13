@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net.Mime;
 using System.Web.UI;
+using AjaxControlToolkit;
 
 namespace MSFProperty.Admin
 {
@@ -34,24 +36,39 @@ namespace MSFProperty.Admin
             GetImagesFromFolder();
         }
 
-
-        protected void Image_Save_Click(object sender, EventArgs e)
+        protected void refreshImages(object sender, EventArgs e)
         {
-            if (hdnfldVariable.Value != "")
-                _elementPageId = Convert.ToInt32(hdnfldVariable.Value);
-
-            if (!IsImage(FileUpload1.FileContent)) return;
-
-            if (FileUpload1.HasFile)
-            {
-                var realPhysicalPath = Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + FileUpload1.FileName);
-                FileUpload1.SaveAs(realPhysicalPath);
-            }
-
-            ErrorLabelImages.Text = "Image Uploaded ! ";
+      
             GetImagesFromFolder();
         }
+        protected void AsyncFileUpload1_UploadedComplete(object sender, AsyncFileUploadEventArgs e)
+        {
+            if (IsImage(AsyncFileUpload1.FileContent) )
+            {
+                if (AsyncFileUpload1.HasFile)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this,
+                        GetType(), "newfile",
+                        "window.parent.$find('" + AsyncFileUpload1.ClientID + "').newFileName='" + "MSF-" +
+                        AsyncFileUpload1.FileName + "';", true);
 
+                    var realPhysicalPath =
+                        Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + AsyncFileUpload1.FileName);
+                    AsyncFileUpload1.SaveAs(realPhysicalPath);
+                }
+              
+        
+            }
+            else
+            {
+                ErrorLabelImages.Text = " this is not a valid file please select another one. ";
+                AsyncFileUpload1.BackColor = Color.Red;
+            }
+            GetImagesFromFolder();
+            UpdatePanel1.Update();
+
+            ErrorLabelImages.Text = "Image Uploaded ! ";
+        }
         private  bool IsImage(Stream stream)
         {
             stream.Seek(0, SeekOrigin.Begin);

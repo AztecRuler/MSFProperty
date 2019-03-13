@@ -81,7 +81,7 @@
                     <ul id="navBar">
                         <asp:LoginStatus style="float: right" ID="LoginStatus1" runat="server" />
 
-                        <li style="float: right"><a href="../Default.aspx">View Live Web Site</a></li>
+                        <li style="float: right"><a href="../Default.aspx" target="_blank">View Live Web Site</a></li>
 
                     </ul>
 

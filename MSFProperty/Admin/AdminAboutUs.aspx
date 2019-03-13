@@ -9,7 +9,18 @@
             <button class="tablinks" id="editAbout_Us" onclick="OpenAdminTab(event, 'existingAbout_Us', 2)">Edit An Existing About Us Section</button>
             <button class="tablinks" id="organizeAbout_Us" onclick="OpenAdminTab(event, 'organiseExistingAbout_Uss', 3)">Organize Existing About Us Section</button>
         </div>
-
+    <asp:UpdateProgress ID="UpdateProgress1" runat="server" DynamicLayout="true" AssociatedUpdatePanelID="UpdatePanel2">
+        <ProgressTemplate>
+            <div id="overlay">
+                <div class="modalprogress">
+                    <div class="theprogress">
+                        <asp:Image class="imgWaitIcon" runat="server" ImageAlign="AbsMiddle" ImageUrl="../ajax-loader.gif" />
+                        Please wait while about us is created ...
+                    </div>
+                </div>
+            </div>
+        </ProgressTemplate>
+    </asp:UpdateProgress> 
         <div id="createAbout_Us" class="tabcontent" style="display: table;">
             <asp:UpdatePanel ID="UpdatePanel2" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                 <Triggers>
@@ -79,7 +90,18 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>
-
+    <asp:UpdateProgress ID="UpdateProgress2" runat="server" DynamicLayout="true" AssociatedUpdatePanelID="UpdatePanel3">
+        <ProgressTemplate>
+            <div id="overlay">
+                <div class="modalprogress">
+                    <div class="theprogress">
+                        <asp:Image class="imgWaitIcon" runat="server" ImageAlign="AbsMiddle" ImageUrl="../ajax-loader.gif" />
+                        Please wait...
+                    </div>
+                </div>
+            </div>
+        </ProgressTemplate>
+    </asp:UpdateProgress> 
         <div id="existingAbout_Us" class="tabcontent">
             <asp:UpdatePanel ID="UpdatePanel3" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                 <Triggers>
@@ -165,7 +187,18 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>
-
+    <asp:UpdateProgress ID="UpdateProgress3" runat="server" DynamicLayout="true" AssociatedUpdatePanelID="UpdatePanel1">
+        <ProgressTemplate>
+            <div id="overlay">
+                <div class="modalprogress">
+                    <div class="theprogress">
+                        <asp:Image class="imgWaitIcon" runat="server" ImageAlign="AbsMiddle" ImageUrl="../ajax-loader.gif" />
+                        Please wait...
+                    </div>
+                </div>
+            </div>
+        </ProgressTemplate>
+    </asp:UpdateProgress> 
         <div id="organiseExistingAbout_Uss" class="tabcontent">
             <asp:UpdatePanel ID="UpdatePanel1" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                 <Triggers>

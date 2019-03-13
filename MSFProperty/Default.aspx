@@ -132,9 +132,9 @@
                                 <ItemTemplate>
                                     <li class="msf-list-villas-inset-item clear-both-fix">
                                         <div class="msf-lvi-box span-table">
-
+                                            
                                             <div class="span-table-cell msf-lvi-box-main lazy" style="background-image: url(Images/<%# Eval("MainImage") %>);">
-                                                <a href="properties.aspx/" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;"></a>
+                                                <a href="properties.aspx?id=<%# Eval("ID") %>" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;"></a>
 
                                             </div>
                                             <div class="span-table-cell vertical-align-middle text-align-center msf-lvi-box-side">

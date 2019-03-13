@@ -27,7 +27,8 @@ namespace MSFProperty
                 _result = db.Properties.SingleOrDefault(b => b.ID == id);
             }
 
-            if (_result != null) Images = GetSplitStrings(_result.Images);
+            if (_result == null) Response.Redirect("~/AcommodationsPage.aspx"); 
+                Images = GetSplitStrings(_result.Images);
             if (Images[0] == "")
                 Images[0] = GetMainImage();
             _slideCount = _imageCount;

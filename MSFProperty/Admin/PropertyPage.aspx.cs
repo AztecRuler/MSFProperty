@@ -229,6 +229,9 @@ namespace MSFProperty.Admin
                     "window.parent.$find('" + MainFileUploader.ClientID + "').newFileName='" + "MSF-" +
                     MainFileUploader.FileName + "';", true);
                 Session["MainUrl"] = "MSF-" + MainFileUploader.FileName;
+                var realPhysicalPath =
+                    Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + MainFileUploader.FileName);
+                MainFileUploader.SaveAs(realPhysicalPath);
             }
             else
             {
