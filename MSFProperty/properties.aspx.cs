@@ -74,12 +74,12 @@ namespace MSFProperty
         
         public string GetMainImage()
         {
-            return _result.MainImage != "" ? "AboutUsPictures\\About_usImagePlaceholder.png" : _result.MainImage;
+            return _result.MainImage == "" ? "AboutUsPictures\\About_usImagePlaceholder.png" : _result.MainImage;
         }
 
         public string GetContents()
         {
-            return _result.Blurb != ""
+            return _result.Blurb == ""
                 ? "Please wait, the information is being created for this property and will be with you shortly"
                 : _result.Blurb;
         }

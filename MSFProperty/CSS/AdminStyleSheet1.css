@@ -415,6 +415,9 @@ div#passwordConfirmPanel {
     display: none;
 }
 
+.blogTitle {
+    min-height: 37px;
+}
 .blogEditPanel tr {
     border: 1px solid lightgrey;
     background: aliceblue;

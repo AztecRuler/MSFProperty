@@ -27,6 +27,7 @@ namespace MSFProperty.Admin
         private string _errorMessage = "";
         private string _mainImageUrl = "";
         private string _mainRealAddress = "";
+        private string _editImageString = "";
 
         protected void SaveNewProperty(object sender, EventArgs e)
         {
@@ -72,7 +73,7 @@ namespace MSFProperty.Admin
                             Street2 = FullAdress.Street2.Trim(),
                             County = FullAdress.County.Trim(),
                             Country = FullAdress.Country.Trim(),
-                            PostCode = FullAdress.Postcode.Trim(),
+                            PostCode = FullAdress.Postcode.ToLower().Trim(),
                             Location = FullAdress.Location.Trim(),
                             LocationX = FullAdress.LocationX,
                             LocationY = FullAdress.LocationY,
@@ -107,8 +108,10 @@ namespace MSFProperty.Admin
                             result.Blurb = blurb.Trim();
                             result.Featured = featured;
                             result.Created = created;
-                            result.Images = CreateCommaSeperatedList(images).Trim();
-                            result.PropertyName = propertyName.Text.Trim();
+                            result.Images = CreateCommaSeperatedList(images).Trim() == ""
+                                ? _editImageString
+                                : CreateCommaSeperatedList(images).Trim();
+                        result.PropertyName = propertyName.Text.Trim();
                             result.Street = FullAdress.Street.Trim();
                             result.Street2 = FullAdress.Street2.Trim();
                             result.County = FullAdress.County.Trim();
@@ -120,7 +123,7 @@ namespace MSFProperty.Admin
                             result.AddressNumber = FullAdress.AddressNumber;
                             result.Area = FullAdress.Area.Trim();
                             SafeSave(db);
-                            fillRepeaterData();
+                    
 
                     }
                 }
@@ -138,6 +141,7 @@ namespace MSFProperty.Admin
             try
             {
                 context.SaveChanges();
+                fillRepeaterData();
             }
            catch (DbEntityValidationException e)
                 {
@@ -317,7 +321,10 @@ namespace MSFProperty.Admin
             if (Session["MainAddress"] != null)
                 if (Session["MainAddress"].ToString() != "")
                     _mainRealAddress = Session["MainAddress"].ToString();
-
+            if (Session["EditImages"] != null)
+                if (Session["EditImages"].ToString() != "")
+                    _editImageString = Session["EditImages"].ToString();
+            
 
             if (!IsPostBack)
             {
@@ -629,6 +636,11 @@ namespace MSFProperty.Admin
             EmptyTextBoxesForAdress();
         }
 
+        protected void ClearFront(object sender, EventArgs e)
+        {
+            EmptyAll();
+
+        }
         private void EmptyAll()
         {
             isEdit.Value = "";
@@ -703,7 +715,7 @@ namespace MSFProperty.Admin
 
                 var result = db.Properties.SingleOrDefault(b => b.ID == propertyEditId);
                 if (result == null) return;
-                result.Featured = FeaturedChanged.Checked;
+                result.Featured = CheckedOrNot.Checked;
                 db.SaveChanges();
                 fillRepeaterData();
             }
@@ -738,7 +750,7 @@ namespace MSFProperty.Admin
                 PropertyStreet2.Text = result.Street2;
                 PropertyCounty.Text = result.County;
                 PropertyCountry.Text = result.Country;
-                PropertyPostCode.Text = result.PostCode;
+                PropertyPostCode.Text = result.PostCode.Trim();
                 PropertyLocation.Text = result.Location;
                 PropertyLocationX.Text = result.LocationX.ToString();
                 PropertyY.Text = result.LocationY.ToString();
@@ -746,6 +758,7 @@ namespace MSFProperty.Admin
                 propertyName.Text = result.PropertyName;
                 if (result.Bedrooms != null) propertyBedrooms.SelectedIndex = (int) result.Bedrooms;
                 imagePreview.ImageUrl = "../Images/" + result.MainImage;
+                Session["MainUrl"] = result.MainImage;
           if (result.Featured != null) propertyPopularCheck.Checked = (bool) result.Featured;
           PropertyAmenities.Text = FixAme(result.Amenities);
           SetBathCheckbox(result.BathType);
@@ -755,8 +768,8 @@ namespace MSFProperty.Admin
           datepicker1Value.Value = result.AvailableFrom;
           datepicker2Value.Value = result.AvaiableTo;
           PropertyRentPrice.Text = result.RentPrice.ToString();
-          PropertyDeposit.Text = result.Deposit.ToString(); 
-          //PropertyImages.
+          PropertyDeposit.Text = result.Deposit.ToString();
+          Session["EditImages"] = result.Images;
           PropertyBlurb.Text = result.Blurb;
           isEdit.Value = "True";
 

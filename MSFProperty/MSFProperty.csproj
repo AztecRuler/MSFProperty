@@ -418,7 +418,6 @@
     <Content Include="Fonts\ionicons.woff" />
     <Content Include="Fonts\fontawesome-webfont.eot" />
     <Content Include="Fonts\KFOmCnqEu92Fr1Mu4mxK.woff2" />
-    <Content Include="DBBak\MSFProperty.bak" />
     <Content Include="Fonts\ProximaNova-Regular.woff2" />
     <Content Include="Fonts\dashicons.eot" />
     <Content Include="Fonts\ProximaNova-Regular.woff" />

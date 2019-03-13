@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Property Details</title>
-    <link rel="canonical" href="" />
+    <link rel="canonical" href=""/>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainBody" runat="server">
 
@@ -79,8 +79,8 @@
                 captionText.innerHTML = dots[slideIndex - 1].alt;
             }
 
-            $(document).ready(function () {
-                const getUrlParameter = function (sParam) {
+            $(document).ready(function() {
+                const getUrlParameter = function(sParam) {
                     const sPageUrl = window.location.search.substring(1);
                     const sUrlVariables = sPageUrl.split('&');
                     var sParameterName,
@@ -139,70 +139,70 @@
                     <button class="tablinks" onclick="OpenTab(event, 'Pricing', 3)">Pricing &amp; Availability</button>
                     <button class="tablinks" onclick="OpenTab(event, 'Location', 4)">Location</button>
 
-                    </div>
+                </div>
 
                 <div id="Overview" class="tabcontent">
                     <div class="tabView">
-                        <img class="rightWrapper" src="~/../Images/<%= GetMainImage() %>" />
+                        <img class="rightWrapper" src="~/../Images/<%= GetMainImage() %>"/>
                         <div class="leftWrapper">
                             <p><%= GetContents() %></p>
                         </div>
                     </div>
                 </div>
-                    <div id="Amenities" class="tabcontent">
-                        <ol>
-                            <li>
-                                <h1>Bedrooms :  <%= GetBedrooms() %> </h1>
-                            </li>
-                            <li>
-                                <h1>Bath facilities : <%= GetBathCount() %></h1>
-                                <br/>
-                          <asp:Repeater ID="bathRepeater" runat="server">
-                                    <ItemTemplate>
-                                        <ul>
-                                           <li class="pointlist"> <%# Container.DataItem %> </li> 
+                <div id="Amenities" class="tabcontent">
+                    <ol>
+                        <li>
+                            <h1>Bedrooms : <%= GetBedrooms() %> </h1>
+                        </li>
+                        <li>
+                            <h1>Bath facilities : <%= GetBathCount() %></h1>
+                            <br/>
+                            <asp:Repeater ID="bathRepeater" runat="server">
+                                <ItemTemplate>
+                                    <ul>
+                                        <li class="pointlist"> <%# Container.DataItem %> </li>
 
-                                        </ul>
-                                    </ItemTemplate>
-                                </asp:Repeater>
-                            </li>
-                            <li>
-                                <h1>Pets allowed :<%=GetPetsAllowed() %> </h1>
-                            </li>
-                            <li>
-                                <h1>General : </h1>
-                                <br/>
-                                <asp:Repeater ID="amRepeater" runat="server">
-                                    <ItemTemplate>
-                                        <ul>
-                                            <li class="pointlist"><%# Container.DataItem %> </li> 
+                                    </ul>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </li>
+                        <li>
+                            <h1>Pets allowed :<%= GetPetsAllowed() %> </h1>
+                        </li>
+                        <li>
+                            <h1>General : </h1>
+                            <br/>
+                            <asp:Repeater ID="amRepeater" runat="server">
+                                <ItemTemplate>
+                                    <ul>
+                                        <li class="pointlist"><%# Container.DataItem %> </li>
 
-                                        </ul>
-                                    </ItemTemplate>
-                                </asp:Repeater>
-                            </li>
-                        </ol>
-                    </div>
-
-                    <div id="Pricing" class="tabcontent">
-                        <ol>
-                        <li class="pricePointList">
-                            <h1>Available from :<%=GetAvaiable() %> </h1>
-                     </li >
-                      <li class="pricePointList">
-                            <h1>Deposit :<%=GetDeposit() %> </h1>
-                      </li>
-                       <li class="pricePointList">
-                            <h1>Monthly Rent :<%=GetRentPrice() %> </h1>
+                                    </ul>
+                                </ItemTemplate>
+                            </asp:Repeater>
                         </li>
                     </ol>
-                    </div>
+                </div>
 
-                    <div id="Location" class="tabcontent">
-                        <iframe src="" runat="server" frameborder="0" id="mapForPostcode" style="border: 0; height: 500px; width: 100%"></iframe>
+                <div id="Pricing" class="tabcontent">
+                    <ol>
+                        <li class="pricePointList">
+                            <h1>Available from :<%= GetAvaiable() %> </h1>
+                        </li >
+                        <li class="pricePointList">
+                            <h1>Deposit :<%= GetDeposit() %> </h1>
+                        </li>
+                        <li class="pricePointList">
+                            <h1>Monthly Rent :<%= GetRentPrice() %> </h1>
+                        </li>
+                    </ol>
+                </div>
+
+                <div id="Location" class="tabcontent">
+                    <iframe src="" runat="server" frameborder="0" id="mapForPostcode" style="border: 0; height: 500px; width: 100%"></iframe>
 
 
-                    </div>
+                </div>
 
 
                 </ContentTemplate>

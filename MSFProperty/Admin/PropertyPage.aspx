@@ -16,32 +16,55 @@
 
     }
 
-    function checkEditProperty() {
-        setTimeout( OpenAdminTab(event, 'createProperty', 1, 1),5000);
+    function ShowItems(event, panel, num) {
+        const UpdatePanel1 = '<%= GetAdressUpdatePanel.ClientID %>';
+        const UpdatePanel2 = '<%= PropertyDetailsUpdatePanel.ClientID %>';
+        const UpdatePanel3 = '<%= EditPropertyListingUpdatePanel.ClientID %>';
+        const UpdatePanel4 = '<%= DeleteUpdatePanel.ClientID %>';
 
-        return confirm('Are you sure you want to edit this property?');
+        if (panel === "createProperty") {
+            $('#ClearAllBoxes').click();
+        }
+        if (UpdatePanel1 != null) {
+            __doPostBack(UpdatePanel1, '');
+        }
+
+        if (UpdatePanel2 != null) {
+            __doPostBack(UpdatePanel2, '');
+        }
+
+        if (UpdatePanel3 != null) {
+            __doPostBack(UpdatePanel3, '');
+        }
+        if (UpdatePanel4 != null) {
+            __doPostBack(UpdatePanel4, '');
+        }
+        canEditProperty = true; 
+        canDeleteProperty = true;
+
+        OpenAdminTab(event, panel, num);
 
     }
 </script>
 <asp:Panel ID="Panel1" runat="server" GroupingText="Property">
 <div class="tab">
-    <button class="tablinks active" id="createNewProperty" onclick="OpenAdminTab(event, 'createProperty', 1)">Create A New Property Listing</button>
-    <button class="tablinks" id="editProperty" onclick="OpenAdminTab(event, 'existingProperty', 2)">Edit An Existing Property Listing</button>
-    <button class="tablinks" id="organizeProperty" onclick="OpenAdminTab(event, 'organiseExistingPropertys', 3)">Organise Existing Property Listing</button>
+    <button class="tablinks active" id="createNewProperty" onclick="ShowItems(event,'createProperty', 1)">Create A New Property Listing</button>
+    <button class="tablinks" id="editProperty" onclick="ShowItems(event, 'existingProperty', 2)">Edit An Existing Property Listing</button>
+    <button class="tablinks" id="organizeProperty" onclick="ShowItems(event, 'organiseExistingPropertys', 3)">Organise Existing Property Listing</button>
 </div>
 
 <div id="createProperty" class="tabcontent" style="display: table;">
 <asp:UpdateProgress ID="GetAdressUpdateProgress" runat="server" AssociatedUpdatePanelID="GetAdressUpdatePanel" DynamicLayout="True">
     <ProgressTemplate>
-        <div id="overlay" >
+        <div id="overlay">
             <div class="modalprogress">
                 <div class="theprogress">
-                    <asp:Image class="imgWaitIcon" runat="server" ImageAlign="AbsMiddle" ImageUrl="../ajax-loader.gif" />
-                    Please Wait while loading ....           
+                    <asp:Image class="imgWaitIcon" runat="server" ImageAlign="AbsMiddle" ImageUrl="../ajax-loader.gif"/>
+                    Please Wait while loading ....
 
                 </div>
             </div>
-        </div>     
+        </div>
     </ProgressTemplate>
 </asp:UpdateProgress>
 <asp:UpdatePanel ID="GetAdressUpdatePanel" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
@@ -49,7 +72,7 @@
 
         <asp:AsyncPostBackTrigger ControlID="PostCodeLookUp"/>
         <asp:AsyncPostBackTrigger ControlID="ClearTextBoxes"/>
-
+        <asp:AsyncPostBackTrigger ControlID="ClearAllBoxes"/>
     </Triggers>
     <ContentTemplate>
         <asp:Label runat="server" ID="propSaved" ForeColor="Red"></asp:Label>
@@ -336,7 +359,9 @@
         <tr>
             <td>
                 <asp:Button ID="SaveButton" runat="server" Text="Save" OnClick="SaveNewProperty"/>
-                <asp:HiddenField ID="isEdit" runat="server"  ClientIDMode="Static"/>
+                <asp:HiddenField ID="isEdit" runat="server" ClientIDMode="Static"/>
+                <asp:Button ID="ClearAllBoxes" runat="server" Text="Clear Boxes" OnClick="ClearFront"/>
+
             </td>
         </tr>
         <tr>
@@ -351,11 +376,11 @@
 </asp:UpdatePanel>
 <asp:UpdateProgress ID="PropertyDetailsUpdateProgress" runat="server" AssociatedUpdatePanelID="PropertyDetailsUpdatePanel" DynamicLayout="True">
     <ProgressTemplate>
-        
-        <div id="overlay" >
+
+        <div id="overlay">
             <div class="modalprogress">
                 <div class="theprogress">
-                    <asp:Image class="imgWaitIcon" runat="server" ImageAlign="AbsMiddle" ImageUrl="../ajax-loader.gif" />
+                    <asp:Image class="imgWaitIcon" runat="server" ImageAlign="AbsMiddle" ImageUrl="../ajax-loader.gif"/>
                     Please wait loading data...
                 </div>
             </div>
@@ -368,15 +393,16 @@
 <div id="existingProperty" class="tabcontent">
     <asp:UpdateProgress ID="EditPropertyListingUpdateProgress" runat="server" AssociatedUpdatePanelID="EditPropertyListingUpdatePanel" DynamicLayout="True">
         <ProgressTemplate>
-            
-            <div id="overlay" >
+
+            <div id="overlay">
                 <div class="modalprogress">
                     <div class="theprogress">
-                        <asp:Image class="imgWaitIcon" runat="server" ImageAlign="AbsMiddle" ImageUrl="../ajax-loader.gif" />
-                        Please Wait while property is being loaded ....                    </div>
+                        <asp:Image class="imgWaitIcon" runat="server" ImageAlign="AbsMiddle" ImageUrl="../ajax-loader.gif"/>
+                        Please Wait while property is being loaded ....
+                    </div>
                 </div>
             </div>
-         
+
         </ProgressTemplate>
     </asp:UpdateProgress>
 
@@ -413,10 +439,10 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:Button ID="PropertyEditCancel" runat="server" CssClass="hidden" Text="Cancel"/>
+                                <asp:Button ID="PropertyEditCancel" runat="server" CssClass="hidden" Text="Cancel" OnClientClick="canEditProperty = true; "/>
                             </td>
                         </tr>
-             
+
                     </table>
 
                 </div>
@@ -430,22 +456,22 @@
 <div id="organiseExistingPropertys" class="tabcontent">
     <asp:UpdateProgress ID="DeleteUpdateProgress" runat="server" AssociatedUpdatePanelID="DeleteUpdatePanel" DynamicLayout="True">
         <ProgressTemplate>
-            <div id="overlay" >
+            <div id="overlay">
                 <div class="modalprogress">
                     <div class="theprogress">
-                        <asp:Image class="imgWaitIcon" runat="server" ImageAlign="AbsMiddle" ImageUrl="../ajax-loader.gif" />
-                        Please Wait while the property is deleted ....           
+                        <asp:Image class="imgWaitIcon" runat="server" ImageAlign="AbsMiddle" ImageUrl="../ajax-loader.gif"/>
+                        Please Wait while the property is updated ....
 
                     </div>
                 </div>
-            </div>     
+            </div>
 
         </ProgressTemplate>
     </asp:UpdateProgress>
     <asp:UpdatePanel ID="DeleteUpdatePanel" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
         <Triggers>
             <asp:AsyncPostBackTrigger ControlID="DeletePropertyBtn"/>
-
+            <asp:AsyncPostBackTrigger ControlID="CheckedOrNot"/>
         </Triggers>
         <ContentTemplate>
             <div class="PropertyEditSelect">
@@ -470,26 +496,24 @@
                 <table>
                     <tr>
                         <td>
-                            <asp:Button ID="DeletePropertyBtn" runat="server" CssClass="hidden" OnClick="DeletePropertyClick" Text="Delete" OnClientClick="return confirm('Are you sure you want to delete this property?');"/>
+                            <asp:Button ID="DeletePropertyBtn" runat="server" CssClass="hidden" OnClick="DeletePropertyClick" Text="Delete" OnClientClick="checkDeleteProperty();"/>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <asp:Button ID="CancelDelete" runat="server" CssClass="hidden" Text="Cancel"/>
+                            <asp:Button ID="CancelDelete" runat="server" CssClass="hidden" Text="Cancel"  OnClientClick="canDeleteProperty = true; "/>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <asp:Label ID="FeaturedChangedLabel" runat="server" CssClass="hidden">Is this a featured property ? check yes empty no</asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:CheckBox ID="FeaturedChanged" runat="server" OnCheckedChanged="FeaturedChangedOnProperty" AutoPostBack="true"/>
+                            <div class="hidden" id="FeaturedChangedHolder">
+                                <asp:CheckBox runat="server" ID="CheckedOrNot" OnCheckedChanged="FeaturedChangedOnProperty" CausesValidation="True" EnableViewState="True" AutoPostBack="True" Text="Is this a featured property ? check yes empty no"/>
+
+                            </div>
+
                         </td>
                     </tr>
                 </table>
-
             </div>
             <asp:HiddenField runat="server" ID="deletePropertyHiddenField1"></asp:HiddenField>
         </ContentTemplate>

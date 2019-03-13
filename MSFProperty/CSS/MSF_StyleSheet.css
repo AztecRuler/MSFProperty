@@ -382,9 +382,13 @@ li.contactDetails.footerAddress {
     margin-bottom: 7px !important;
 }
 
+img.rightWrapper {
+    max-width: 40%;
+}
+
 .leftWrapper {
     float: left;
-    width: 60%;
+    width: 56%;
     font-family: Veranda;
 }
 

@@ -373,6 +373,15 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.WebControls.HiddenField isEdit;
         
         /// <summary>
+        /// ClearAllBoxes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ClearAllBoxes;
+        
+        /// <summary>
         /// errorText control.
         /// </summary>
         /// <remarks>
@@ -481,22 +490,13 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.WebControls.Button CancelDelete;
         
         /// <summary>
-        /// FeaturedChangedLabel control.
+        /// CheckedOrNot control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FeaturedChangedLabel;
-        
-        /// <summary>
-        /// FeaturedChanged control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox FeaturedChanged;
+        protected global::System.Web.UI.WebControls.CheckBox CheckedOrNot;
         
         /// <summary>
         /// deletePropertyHiddenField1 control.

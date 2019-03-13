@@ -1,14 +1,44 @@
 ﻿var oldPanel = null;
 var openPanel = false;
+var canEditProperty = true;
+var canDeleteProperty = true; 
 window.onload = function () {
     $("#overlayLoad").addClass("hidden");
 
 }
+function checkEditProperty() {
 
+    const r = confirm('Are you sure you want to edit this property?');
+    releaseProperties();
+    if (r === true) {
+        setTimeout(OpenAdminTab(event, 'createProperty', 1, 1), 5000);
+
+    } else {
+       
+        return false;
+    }
+
+
+}
+function checkDeleteProperty() {
+
+    const r = confirm('Are you sure you want to delete this property?');
+    releaseProperties();
+    if (r !== true) {
+
+        return false;
+    }
+
+
+}
+function releaseProperties() {
+    canEditProperty = true;
+    canDeleteProperty = true;
+}
 function pageLoad() {
     $(document).ready(function () {
         setBlogEditClick();
-        SetForDeleteBlog();
+        SetForDeleteBlog(); 
         setUserEditClick();
         deletePropertyButtonClick();
         editPropertyButtonClick();
@@ -126,14 +156,13 @@ function deletePropertyButtonClick() {
     $(".PropertyDelete").on("click", function (event) {
         var propId = $(this).data("id");
         var checked = false; 
+        if (!canDeleteProperty) return;
 
         $(".PropertyDelete").not(this).toggleClass("hidden");
         $("#deletePropertyHiddenField1").val(propId);
         $("#DeletePropertyBtn").removeClass("hidden");
         $("#CancelDelete").removeClass("hidden");
-        $("#FeaturedChanged").removeClass("hidden");
-        $("#FeaturedChangedLabel").removeClass("hidden");
-
+        $("#FeaturedChangedHolder").removeClass("hidden");
         
         $.ajax(
             {
@@ -145,13 +174,14 @@ function deletePropertyButtonClick() {
                 success: function (data) {
                     checked = (data.d);
                     if (checked === "True") {
-                        $("#FeaturedChanged").prop("checked", true);
+                        $("#CheckedOrNot").prop("checked", true);
                     }
                 },
                 error: function(data, success, error) {
                     alert("Error : " + error);
                 }
             });
+        canDeleteProperty = false;
         return false;
     });
 
@@ -160,17 +190,20 @@ function deletePropertyButtonClick() {
 function editPropertyButtonClick() {
 
     $(".editProperty").on("click", function (event) {
+        if (!canEditProperty) return;
         var propId = $(this).data("id");
         $(".editProperty").not(this).toggleClass("hidden");
         $("#deletePropertyHiddenField1").val(propId);
         $("#PropertyEditButton").removeClass("hidden");
         $("#PropertyEditCancel").removeClass("hidden");
+        canEditProperty = false;
     });
 
 }
 function setCancelDeleteClick() {
     $("#CancelDelete").on("click", function (event) {
         $(".aboutUsInfoSection").removeClass("hidden");
+
     });
 }
 function setAboutUsEditClick() {
@@ -211,6 +244,7 @@ function resetAboutUsTabs() {
     $(" .About_UsEditPanel, .About_UsDeletePanel").addClass("hidden");
     $(".aboutUsInfoSection, .About_UsEditSelect").removeClass("hidden");
 }
+
 function setBlogEditClick() {
     $(".blogEditSelect .blogCard").on('click', function (event) {
         var arrayCapture = $(this).map(function () {
