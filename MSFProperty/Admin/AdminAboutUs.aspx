@@ -24,7 +24,7 @@
         <div id="createAbout_Us" class="tabcontent" style="display: table;">
             <asp:UpdatePanel ID="UpdatePanel2" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                 <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="SaveButton" EventName="Click"/>
+                    <asp:PostBackTrigger ControlID="SaveButton" />
 
                 </Triggers>
                 <ContentTemplate>
@@ -105,7 +105,7 @@
         <div id="existingAbout_Us" class="tabcontent">
             <asp:UpdatePanel ID="UpdatePanel3" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
                 <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="SaveEditAbout_Us" EventName="Click"/>
+                    <asp:PostBackTrigger ControlID="SaveEditAbout_Us" />
 
                 </Triggers>
                 <ContentTemplate>
@@ -220,7 +220,7 @@
                     <div class="About_UsDeletePanel hidden">
                         <div>
                             <h1>Are you sure you want to delete this about us post?</h1>
-                            <asp:Button ID="DeleteAbout_Us" runat="server" Text="Delete" OnClick="DeleteAbout_UsButton_Click"/>
+                            <asp:Button ID="DeleteAbout_Us" runat="server" Text="Delete" OnClientClick="confirm('Are you sure you want to delete this listing? ');" OnClick="DeleteAbout_UsButton_Click"/>
                             <asp:Button ID="CancelDelete" runat="server" Text="Cancel" OnClick="Cancel_OnClick"/>
 
                         </div>

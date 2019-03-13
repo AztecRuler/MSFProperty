@@ -71,12 +71,26 @@ namespace MSFProperty.Admin
                     result.EmailAdress = EmailAddress.Text.Trim();
                     result.city = city.Text.Trim();
                 }
-
+                if(Validation())
                 db.SaveChanges();
             }
 
-          //  ClearBoxes();
+        //ClearBoxes();
+        ErrorReporter.Text = "Details Changed";
+        }
 
+        private bool Validation()
+        {
+            //if(result.AddressNumber.len
+            //result.AddressLineOne 
+            //result.AddressLineTwo 
+            //result.PostCode 
+            //result.TelephoneNumberLandLine 
+            //result.TelephoneMobile 
+            //result.RegNumber
+            //result.EmailAdress 
+            //result.city
+            return true;
         }
     }
 }

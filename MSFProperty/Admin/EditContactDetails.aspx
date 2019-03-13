@@ -77,6 +77,7 @@
                 <tr>
                     <td>
                         <asp:Button ID="SaveContactDetails" runat="server" Text="Save Details" OnClick="SaveContactDetails_OnClick"/>
+                        <asp:Label runat="server" ID="ErrorReporter" ForeColor="red"></asp:Label>
                     </td>
                 </tr>
             </table>

@@ -85,7 +85,9 @@
     cursor: pointer;
     width: 95%;
 }
-
+img#aboutimagePreview {
+    max-height: 25%;
+}
     .aboutUsInfoSection:hover {
         background-color: #ddd;
     }
