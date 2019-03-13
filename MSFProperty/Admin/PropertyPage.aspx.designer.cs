@@ -49,6 +49,15 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.UpdatePanel GetAdressUpdatePanel;
         
         /// <summary>
+        /// propSaved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label propSaved;
+        
+        /// <summary>
         /// Panel2 control.
         /// </summary>
         /// <remarks>
@@ -274,6 +283,15 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.WebControls.CheckBox PetCheckBox;
         
         /// <summary>
+        /// datepicker1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText datepicker1;
+        
+        /// <summary>
         /// datepicker1Value control.
         /// </summary>
         /// <remarks>
@@ -281,6 +299,15 @@ namespace MSFProperty.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField datepicker1Value;
+        
+        /// <summary>
+        /// datepicker2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText datepicker2;
         
         /// <summary>
         /// datepicker2Value control.
@@ -337,6 +364,15 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.WebControls.Button SaveButton;
         
         /// <summary>
+        /// isEdit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField isEdit;
+        
+        /// <summary>
         /// errorText control.
         /// </summary>
         /// <remarks>
@@ -353,5 +389,122 @@ namespace MSFProperty.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdateProgress PropertyDetailsUpdateProgress;
+        
+        /// <summary>
+        /// EditPropertyListingUpdateProgress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdateProgress EditPropertyListingUpdateProgress;
+        
+        /// <summary>
+        /// EditPropertyListingUpdatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel EditPropertyListingUpdatePanel;
+        
+        /// <summary>
+        /// EditPropertyRepeaterItems control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater EditPropertyRepeaterItems;
+        
+        /// <summary>
+        /// PropertyEditButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button PropertyEditButton;
+        
+        /// <summary>
+        /// PropertyEditCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button PropertyEditCancel;
+        
+        /// <summary>
+        /// DeleteUpdateProgress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdateProgress DeleteUpdateProgress;
+        
+        /// <summary>
+        /// DeleteUpdatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel DeleteUpdatePanel;
+        
+        /// <summary>
+        /// DeletePropertyRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater DeletePropertyRepeater;
+        
+        /// <summary>
+        /// DeletePropertyBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button DeletePropertyBtn;
+        
+        /// <summary>
+        /// CancelDelete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CancelDelete;
+        
+        /// <summary>
+        /// FeaturedChangedLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label FeaturedChangedLabel;
+        
+        /// <summary>
+        /// FeaturedChanged control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox FeaturedChanged;
+        
+        /// <summary>
+        /// deletePropertyHiddenField1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField deletePropertyHiddenField1;
     }
 }

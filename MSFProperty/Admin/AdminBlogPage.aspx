@@ -13,7 +13,6 @@
         <div id="createBlog" class="tabcontent" style="display: table;">
             <asp:UpdatePanel ID="UpdatePanel2" runat="server" >
                 <Triggers>
-<%--                    <asp:PostBackTrigger ControlID="SaveButton" />--%>
                     <asp:AsyncPostBackTrigger ControlID="SaveButton" EventName="Click"/>
 
                 </Triggers>

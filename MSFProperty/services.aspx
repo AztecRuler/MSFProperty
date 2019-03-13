@@ -28,17 +28,19 @@
     </div>
     <div class="foregroundDiv">
         <h3 style="text-align: center; color: <%= GetColour(22) %>;" class="editable"><%=GetText(22)%></h3>
-        <p style ="color: <%= GetColour(23) %>;" class="editable"><%=GetText(23)%></p>
+        <p style ="color: <%= GetColour(23) %>;" class="editable srviveP"><%=GetText(23)%></p>
 
     </div>
+    <hr class="type_4">
     <div class="foregroundDiv">
         <h3 style="text-align: center; color: <%= GetColour(24) %>;" class="editable"><%=GetText(24)%></h3>
-        <p style ="color: <%= GetColour(39) %>;" class="editable"><%=GetText(39)%></p>
+        <p style ="color: <%= GetColour(39) %>;" class="editable srviveP"><%=GetText(39)%></p>
 
     </div>
+    <hr class="type_4">
     <div class="foregroundDiv">
         <h3 style="text-align: center; color: <%= GetColour(40) %>;" class="editable"><%=GetText(40)%></h3>
-        <p style ="color: <%= GetColour(48) %>;" class="editable"><%=GetText(48)%></p>
+        <p style ="color: <%= GetColour(48) %>;" class="editable srviveP"><%=GetText(48)%></p>
 
     </div>
 </asp:Content>

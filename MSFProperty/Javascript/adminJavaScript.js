@@ -1,11 +1,17 @@
 ﻿var oldPanel = null;
+var openPanel = false;
+window.onload = function () {
+    $("#overlayLoad").addClass("hidden");
+
+}
 
 function pageLoad() {
     $(document).ready(function () {
-
         setBlogEditClick();
         SetForDeleteBlog();
         setUserEditClick();
+        deletePropertyButtonClick();
+        editPropertyButtonClick();
         if ($("#createNewAbout_Us").length) {
             setAboutUsEditClick();
             setCancelDeleteClick();
@@ -115,7 +121,53 @@ function setUserEditClick() {
     });
 }
 
+function deletePropertyButtonClick() {
 
+    $(".PropertyDelete").on("click", function (event) {
+        var propId = $(this).data("id");
+        var checked = false; 
+
+        $(".PropertyDelete").not(this).toggleClass("hidden");
+        $("#deletePropertyHiddenField1").val(propId);
+        $("#DeletePropertyBtn").removeClass("hidden");
+        $("#CancelDelete").removeClass("hidden");
+        $("#FeaturedChanged").removeClass("hidden");
+        $("#FeaturedChangedLabel").removeClass("hidden");
+
+        
+        $.ajax(
+            {
+                type: 'Post',
+                url: "PropertyPage.aspx/CheckFeatured",
+                data: `{ "data":${JSON.parse(propId)} }`,
+                dataType: "json",
+                contentType: "application/json",
+                success: function (data) {
+                    checked = (data.d);
+                    if (checked === "True") {
+                        $("#FeaturedChanged").prop("checked", true);
+                    }
+                },
+                error: function(data, success, error) {
+                    alert("Error : " + error);
+                }
+            });
+        return false;
+    });
+
+}
+
+function editPropertyButtonClick() {
+
+    $(".editProperty").on("click", function (event) {
+        var propId = $(this).data("id");
+        $(".editProperty").not(this).toggleClass("hidden");
+        $("#deletePropertyHiddenField1").val(propId);
+        $("#PropertyEditButton").removeClass("hidden");
+        $("#PropertyEditCancel").removeClass("hidden");
+    });
+
+}
 function setCancelDeleteClick() {
     $("#CancelDelete").on("click", function (event) {
         $(".aboutUsInfoSection").removeClass("hidden");
@@ -337,12 +389,19 @@ function setAccordians() {
                 hdnfldVariable.value = $(this).attr("data-id");
             }
             removeAllActive(classList);
-            if (oldPanel !== this) {
+            if (oldPanel !== this || openPanel) {
                 var panel = this.nextElementSibling;
                 this.classList.toggle("active");
                 panel.style.maxHeight = panel.scrollHeight + "px";
+            } else {
+                openPanel = true; 
             }
-            oldPanel = this;
+            if (!oldPanel) {
+                oldPanel = this;
+            } else {
+                oldPanel = null;
+                openPanel = false;
+            }
         });
     }
 
@@ -359,9 +418,11 @@ function removeAllActive(aval) {
 
 //tabs 
 
-function OpenAdminTab(evt, tabName, tabId) {
-    evt.preventDefault();
-    evt.stopPropagation();
+function OpenAdminTab(evt, tabName, tabId, edit = 0) {
+    if (edit === 0) {
+        evt.preventDefault();
+        evt.stopPropagation();
+    }
     if (!$(".blogEditPanel").hasClass("hidden")) {
         $(".blogEditSelect, .blogEditPanel").toggleClass("hidden");
     }

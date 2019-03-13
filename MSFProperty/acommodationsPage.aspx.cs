@@ -112,7 +112,7 @@ namespace MSFProperty
             index = index * number;
             using (var db = new Model1())
             {
-                PropertyRepeater.DataSource = db.Properties.Where(p => p.Featured == true).ToList()
+                PropertyRepeater.DataSource = db.Properties.ToList()
                     .Skip(index - number).Take(number);
                 PropertyRepeater.DataBind();
             }

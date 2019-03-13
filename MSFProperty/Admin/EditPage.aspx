@@ -17,6 +17,18 @@
 
     }
 </script>
+
+
+        <div id="overlayLoad" >
+            <div class="modalprogress">
+                <div class="theprogress">
+                    <asp:Image class="imgWaitIcon" runat="server" ImageAlign="AbsMiddle" ImageUrl="../ajax-loader.gif" />
+                    Please wait loading data...
+                </div>
+            </div>
+        </div>
+
+
 <div class="leftWrapper">
     <span>Select a page to edit it from the list below</span>
     <div id="accordion">
@@ -31,9 +43,22 @@
 
             </ItemTemplate>
         </asp:Repeater>
+
     </div>
 </div>
-
+    
+<asp:UpdateProgress ID="UpdateProgress1" runat="server" DynamicLayout="true" AssociatedUpdatePanelID="UpdatePanel1">
+    <ProgressTemplate>
+        <div id="overlay">
+            <div class="modalprogress">
+                <div class="theprogress">
+                    <asp:Image class="imgWaitIcon" runat="server" ImageAlign="AbsMiddle" ImageUrl="../ajax-loader.gif" />
+                    Please wait...
+                </div>
+            </div>
+        </div>
+    </ProgressTemplate>
+</asp:UpdateProgress> 
 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
     <Triggers>
         <asp:AsyncPostBackTrigger ControlID="ImageSave"/>

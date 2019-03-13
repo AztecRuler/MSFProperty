@@ -139,8 +139,9 @@
     <Content Include="BlogMainPage.aspx" />
     <Content Include="BlogPageView.aspx" />
     <Content Include="ContactUs.aspx" />
-    <Content Include="CSS\MSF_StyleSheet.css" />
+    <Content Include="CSS\Old_MSF_StyleSheet.css" />
     <Content Include="CSS\AdminStyleSheet1.css" />
+    <Content Include="CSS\MSF_StyleSheet.css" />
     <Content Include="Default.aspx" />
     <Content Include="fancyLine.png" />
     <Content Include="favicon.ico" />
@@ -149,10 +150,13 @@
     <Content Include="Icons\font-awesome.css" />
     <Content Include="Icons\ionicons.css" />
     <Content Include="ajax-loader.gif" />
+    <Content Include="Icons\pricing.png" />
+    <Content Include="Images\type_1.png" />
     <Content Include="Icons\wpg-ico-75x60.png" />
     <Content Include="Images\AboutUsPictures\About_usImagePlaceholder.png" />
     <Content Include="Images\img_woods_wide.jpg" />
     <Content Include="Images\msf-img_0108.jpg" />
+    <Content Include="Images\type_4.png" />
     <Content Include="Javascript\adminJavaScript.js" />
     <Content Include="Javascript\msfJavascript.js" />
     <Content Include="Logs\log.txt" />

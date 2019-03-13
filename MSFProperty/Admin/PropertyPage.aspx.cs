@@ -2,37 +2,38 @@
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
-using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Web;
+using System.Web.Script.Serialization;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using AjaxControlToolkit;
+using Antlr.Runtime.Tree;
+using Microsoft.Ajax.Utilities;
 using MSFProperty.Admin.EF;
 using RestSharp;
-using Image = System.Web.UI.WebControls.Image;
-using Page = System.Web.UI.Page;
+
 
 namespace MSFProperty.Admin
 {
-    public partial class PropertyPage : Page
+    public partial class PropertyPage : System.Web.UI.Page
     {
         private string _errorMessage = "";
         private string _mainImageUrl = "";
-        private string _mainRealAddress = ""; 
+        private string _mainRealAddress = "";
 
         protected void SaveNewProperty(object sender, EventArgs e)
         {
             var todayDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
 
-         
+
             if (Validation())
-            {
-                using (var db = new Model1())
                 {
                     var mainImage = GetMainImage();
                     var bedrooms = GetRooms();
@@ -48,45 +49,87 @@ namespace MSFProperty.Admin
                     var created = todayDate;
                     var images = GetImages();
                     var FullAdress = GetAddress();
-
-                    var property = new Property
+                    if (isEdit.Value.ToString() != "True")
                     {
-                        MainImage = mainImage,
-                        Bedrooms = bedrooms,
-                        Amenities = CreateCommaSeperatedList(amenities),
-                        BathType = bathType,
-                        Pets = pets,
-                        AvailableFrom = availableFrom,
-                        AvaiableTo = avaiableTo,
-                        RentPrice = rentPrice,
-                        Deposit = deposit,
-                        Blurb = blurb,
-                        Featured = featured,
-                        Created = created,
-                        Images = CreateCommaSeperatedList(images),
-                        //Todo: add property value 
-                        //PropertyName = 
-                        Street = FullAdress.Street,
-                        Street2 = FullAdress.Street2,
-                        County = FullAdress.County,
-                        Country = FullAdress.Country,
-                        PostCode = FullAdress.Postcode,
-                        Location = FullAdress.Location,
-                        LocationX = FullAdress.LocationX,
-                        LocationY = FullAdress.LocationY,
-                        AddressNumber = FullAdress.AddressNumber,
-                        Area = FullAdress.Area
-                    };
-                    db.Properties.Add(property);
-                    SafeSave(db);
-                    EmptyAll();
-                    errorText.Text = "Property uploaded";
+
+                        var property = new Property
+                        {
+                            MainImage = mainImage.Trim(),
+                            Bedrooms = bedrooms,
+                            Amenities = CreateCommaSeperatedList(amenities).Trim(),
+                            BathType = bathType.Trim(),
+                            Pets = pets,
+                            AvailableFrom = availableFrom.Trim(),
+                            AvaiableTo = avaiableTo.Trim(),
+                            RentPrice = rentPrice,
+                            Deposit = deposit,
+                            Blurb = blurb.Trim(),
+                            Featured = featured,
+                            Created = created,
+                            Images = CreateCommaSeperatedList(images).Trim(),
+                            PropertyName = propertyName.Text.Trim(),
+                            Street = FullAdress.Street.Trim(),
+                            Street2 = FullAdress.Street2.Trim(),
+                            County = FullAdress.County.Trim(),
+                            Country = FullAdress.Country.Trim(),
+                            PostCode = FullAdress.Postcode.Trim(),
+                            Location = FullAdress.Location.Trim(),
+                            LocationX = FullAdress.LocationX,
+                            LocationY = FullAdress.LocationY,
+                            AddressNumber = FullAdress.AddressNumber,
+                            Area = FullAdress.Area.Trim()
+                        };
+                        using (var db = new Model1())
+                        {
+                            db.Properties.Add(property);
+                            SafeSave(db);
+                        }
+
+                        propSaved.Text = "Property uploaded";
+                    }
+                    else
+                    {
+                        int.TryParse(deletePropertyHiddenField1.Value, out var id);
+
+                        using (var db = new Model1())
+                        {
+                            var result = db.Properties.SingleOrDefault(b => b.ID == id);
+                            if (result == null) return;
+                            result.MainImage = mainImage.Trim();
+                            result.Bedrooms = bedrooms;
+                            result.Amenities = CreateCommaSeperatedList(amenities).Trim();
+                            result.BathType = bathType.Trim();
+                            result.Pets = pets;
+                            result.AvailableFrom = availableFrom.Trim();
+                            result.AvaiableTo = avaiableTo.Trim();
+                            result.RentPrice = rentPrice;
+                            result.Deposit = deposit;
+                            result.Blurb = blurb.Trim();
+                            result.Featured = featured;
+                            result.Created = created;
+                            result.Images = CreateCommaSeperatedList(images).Trim();
+                            result.PropertyName = propertyName.Text.Trim();
+                            result.Street = FullAdress.Street.Trim();
+                            result.Street2 = FullAdress.Street2.Trim();
+                            result.County = FullAdress.County.Trim();
+                            result.Country = FullAdress.Country;
+                            result.PostCode = FullAdress.Postcode.Trim();
+                            result.Location = FullAdress.Location.Trim();
+                            result.LocationX = FullAdress.LocationX;
+                            result.LocationY = FullAdress.LocationY;
+                            result.AddressNumber = FullAdress.AddressNumber;
+                            result.Area = FullAdress.Area.Trim();
+                            SafeSave(db);
+                            fillRepeaterData();
+
+                    }
                 }
-            }
+
+                    EmptyAll();
+            
+                }
             else
-            {
                 errorText.Text = _errorMessage;
-            }
         }
 
         private void SafeSave(Model1 context)
@@ -96,19 +139,26 @@ namespace MSFProperty.Admin
             {
                 context.SaveChanges();
             }
-            catch (DbEntityValidationException e)
-            {
-                Log(e.ToString());
+           catch (DbEntityValidationException e)
+                {
+                    foreach (var eve in e.EntityValidationErrors)
+                    {
+                    Log("Entity of type " + eve.Entry.Entity.GetType().Name + " in state " + eve.Entry.State+" has the following validation errors:");
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            Log("- Property: " + ve.PropertyName+", Error:" + ve.ErrorMessage);
+                        }
+                    }
+                    throw;
+                }
 
-                throw;
-            }
         }
 
         private DateTime? ConvertToSystDateTime(string availableFrom)
         {
             var input = availableFrom;
             var date = new DateTime();
-          
+
             if (input != string.Empty)
                 date = DateTime.ParseExact(input, "MM-dd-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
             return date;
@@ -116,11 +166,9 @@ namespace MSFProperty.Admin
 
         private string CreateCommaSeperatedList(IList<string> amenities)
         {
-            var separatedList = "";
+            amenities = amenities.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
 
-            foreach (var item in amenities) separatedList += item + ",";
-
-            return separatedList;
+            return amenities.Aggregate("", (current, item) => current + (item + ",")).TrimEnd(',');
         }
 
         private ModelAddress GetAddress()
@@ -173,15 +221,15 @@ namespace MSFProperty.Admin
                 Session["MainAddress"] =
                     Path.Combine(Server.MapPath("~\\Images\\"), "MSF-" + MainFileUploader.FileName);
                 ScriptManager.RegisterClientScriptBlock(this,
-                    this.GetType(), "newfile",
-                    "window.parent.$find('" + MainFileUploader.ClientID + "').newFileName='" + "MSF-" + MainFileUploader.FileName + "';", true);
+                    GetType(), "newfile",
+                    "window.parent.$find('" + MainFileUploader.ClientID + "').newFileName='" + "MSF-" +
+                    MainFileUploader.FileName + "';", true);
                 Session["MainUrl"] = "MSF-" + MainFileUploader.FileName;
             }
             else
             {
                 _errorMessage = " this is not a valid file please select another one. ";
             }
-
         }
 
         private List<string> GetImages()
@@ -244,7 +292,7 @@ namespace MSFProperty.Admin
                 if (i.Selected)
                     items += i.Text + ",";
 
-            return items;
+            return items.TrimEnd(',');
         }
 
         private IList<string> GetAmenities()
@@ -262,28 +310,35 @@ namespace MSFProperty.Admin
 
         protected void Page_Load(object Src, EventArgs E)
         {
+
             if (Session["MainUrl"] != null)
-            {
                 if (Session["MainUrl"].ToString() != "")
-                {
                     _mainImageUrl = Session["MainUrl"].ToString();
-                }
-            }
             if (Session["MainAddress"] != null)
-            {
                 if (Session["MainAddress"].ToString() != "")
-                {
                     _mainRealAddress = Session["MainAddress"].ToString();
-                }
-            }
-            
+
 
             if (!IsPostBack)
             {
-                //fillRepeaterData();
+                fillRepeaterData();
             }
         }
 
+        private void fillRepeaterData()
+        {
+            using (var db = new Model1())
+            {
+                EditPropertyRepeaterItems.DataSource = db.Properties.ToList();
+                EditPropertyRepeaterItems.DataBind();
+                DeletePropertyRepeater.DataSource = db.Properties.ToList();
+                DeletePropertyRepeater.DataBind();
+            }
+        }
+        public string GetContents(int id)
+        {
+            return DataCalls.GetContents(id);
+        }
         private bool IsImage(Stream stream)
         {
             stream.Seek(0, SeekOrigin.Begin);
@@ -306,14 +361,14 @@ namespace MSFProperty.Admin
 
         private bool Validation()
         {
-            bool validationOk = true;
+            var validationOk = true;
             var validateBlurb = GetBlurb();
             _errorMessage = "";
 
             var mainImage = GetMainImage();
             long mainImageSize = 0;
-            if (_mainRealAddress !="")
-                mainImageSize = new System.IO.FileInfo(_mainRealAddress).Length;
+            if (_mainRealAddress != "")
+                mainImageSize = new FileInfo(_mainRealAddress).Length;
             var amenities = GetAmenities();
             var bathType = GetBathType();
             var images = GetImages();
@@ -337,32 +392,37 @@ namespace MSFProperty.Admin
                 validationOk = false;
                 _errorMessage += "Image name is too long max is 2000 characters ";
             }
+
             if (mainImageSize > 26214400)
             {
                 validationOk = false;
                 _errorMessage += "Your Main Image is quite large consider compressing it first it is over 25mb ";
             }
+
             if (amenities.Count > 100)
             {
                 validationOk = false;
                 _errorMessage += "You have to many amenities please remove some first  ";
             }
+
             if (bathType.Length > 100)
             {
                 validationOk = false;
                 _errorMessage += "You have to many bath types please remove some first ";
             }
+
             if (images.Count > 2080)
             {
                 validationOk = false;
                 _errorMessage += "Combined Image names are too long max is 2000 characters try uploading less ";
             }
-            if (imagesCombinedSize > (26214400*5))
+
+            if (imagesCombinedSize > 26214400 * 5)
             {
                 validationOk = false;
                 _errorMessage += "Blurb is to long max letters are 3000 ";
             }
-           
+
 
             return validationOk;
         }
@@ -407,6 +467,7 @@ namespace MSFProperty.Admin
                 EmptyTextBoxesForAdress();
                 return;
             }
+
             var postCodeRestResult = PostcodeResult.FromJson(details);
             if (postCodeRestResult.Result == null)
             {
@@ -419,10 +480,8 @@ namespace MSFProperty.Admin
             var houseNumber = ValidateHouseNumber(PropertyHouseNumber.Text);
             ErrorAddress.Text = "";
             if (houseNumber == "")
-            {
                 ErrorAddress.Text =
                     "Could Not Validate House Number the results will be an estimate, Please check for a typo or enter a new number for a more accurate result";
-            }
 
             EmptyTextBoxesForAdress();
 
@@ -432,13 +491,13 @@ namespace MSFProperty.Admin
                     postCodeRestResult.Result.Latitude + "&lon=" + postCodeRestResult.Result.Longitude);
                 const string downloadUrl = "https://nominatim.openstreetmap.org/";
                 const string validationEmail = "reverse?email=info@msfproperty.co.uk&format=json&lat=";
-                var postcodeLongAndLat =  postCodeRestResult.Result.Latitude + "&lon=" + postCodeRestResult.Result.Longitude;
+                var postcodeLongAndLat =
+                    postCodeRestResult.Result.Latitude + "&lon=" + postCodeRestResult.Result.Longitude;
                 var fullAddress = downloadUrl + validationEmail + postcodeLongAndLat;
                 string content;
                 try
                 {
                     content = wc.DownloadString(fullAddress);
-
                 }
                 catch (Exception exception)
                 {
@@ -451,8 +510,6 @@ namespace MSFProperty.Admin
 
                 SetPropertyDetailsAndGetMap(content, houseNumber, postCodeRestResult);
             }
-
-
         }
 
         private void SetPropertyDetailsAndGetMap(string content, string houseNumber, PostcodeResult postCodeRestResult)
@@ -473,7 +530,8 @@ namespace MSFProperty.Admin
             PropertyY.Text = postCodeRestResult.Result.Longitude.ToString();
 
             var fullAddress = new StringBuilder();
-            fullAddress.Append("http://maps.google.com/maps?q=").Append(PropertyHouseNumber.Text + " ").Append(address.Road + " ").Append(address.County + "&z=16&output=embed");
+            fullAddress.Append("http://maps.google.com/maps?q=").Append(PropertyHouseNumber.Text + " ")
+                .Append(address.Road + " ").Append(address.County + "&z=16&output=embed");
             try
             {
                 mapForPostcode.Attributes["src"] = fullAddress.ToString();
@@ -484,7 +542,6 @@ namespace MSFProperty.Admin
                 ErrorAddress.Text =
                     "Something went wrong retrieving the details using the full address";
                 EmptyTextBoxesForAdress();
-                return;
             }
         }
 
@@ -574,7 +631,162 @@ namespace MSFProperty.Admin
 
         private void EmptyAll()
         {
+            isEdit.Value = "";
             EmptyTextBoxesForAdress();
+            EmptyTextBoxesForproperty();
+            ErrorAddress.Text = "";
+            mapForPostcode.Attributes["src"] = "";
+           UncheckAll(this);
         }
+
+        private void EmptyTextBoxesForproperty()
+        {
+            const string empty = "";
+
+            propertyName.Text = empty;
+            propertyBedrooms.SelectedIndex = 0;
+            imagePreview.ImageUrl = empty;
+            propertyPopularCheck.Checked = false;
+            PropertyAmenities.Text = empty;
+            BathTypeCheckBox.SelectedIndex = 0;
+            PetCheckBox.Checked = false;
+            datepicker1.Value = empty;
+            datepicker2.Value = empty;
+            datepicker1Value.Value = empty;
+            datepicker2Value.Value = empty;
+            PropertyRentPrice.Text = empty;
+            PropertyDeposit.Text = empty;
+            PropertyImages.Dispose();
+            PropertyBlurb.Text = empty;
+        }
+
+        private void UncheckAll(Control ctrl)
+        {
+            CheckBox chkBox = ctrl as CheckBox;
+            if (chkBox == null)
+            {
+                foreach (Control child in ctrl.Controls)
+                {
+                    UncheckAll(child);
+                }
+            }
+            else
+            {
+                chkBox.Checked = false;
+            }
+        }
+        public string GetTextContents(int id)
+        {
+            return DataCalls.GetContents(id);
+        }
+
+        protected void DeletePropertyClick(object sender, EventArgs e)
+        {
+            using (var db = new Model1())
+            {
+                int.TryParse(deletePropertyHiddenField1.Value, out var propertyEditId);
+
+                var result = db.Properties.SingleOrDefault(b => b.ID == propertyEditId);
+                if (result == null) return;
+                db.Properties.Remove(result);
+                db.SaveChanges();
+                fillRepeaterData();
+                EditPropertyListingUpdatePanel.Update();
+            }
+        }
+
+        protected void FeaturedChangedOnProperty(object sender, EventArgs e)
+        {
+            using (var db = new Model1())
+            {
+                int.TryParse(deletePropertyHiddenField1.Value, out var propertyEditId);
+
+                var result = db.Properties.SingleOrDefault(b => b.ID == propertyEditId);
+                if (result == null) return;
+                result.Featured = FeaturedChanged.Checked;
+                db.SaveChanges();
+                fillRepeaterData();
+            }
+        }
+
+        [WebMethod]
+        public static string CheckFeatured(string data)
+        {
+            int.TryParse(data, out var id);
+            using (var db = new Model1())
+            {
+                var result = db.Properties.SingleOrDefault(b => b.ID == id);
+                if (result != null)
+                {
+                   return result.Featured.ToString();
+                }
+            }
+            return "false";
+        }
+
+        public void EditProperties(object sender, EventArgs e)
+        {
+            EmptyTextBoxesForAdress();
+            int.TryParse(deletePropertyHiddenField1.Value, out var id);
+
+            using (var db = new Model1())
+            {
+                var result = db.Properties.SingleOrDefault(b => b.ID == id);
+                if (result == null) return;
+                PropertyHouseNumber.Text = result.AddressNumber.ToString();
+                PropertyStreet.Text = result.Street;
+                PropertyStreet2.Text = result.Street2;
+                PropertyCounty.Text = result.County;
+                PropertyCountry.Text = result.Country;
+                PropertyPostCode.Text = result.PostCode;
+                PropertyLocation.Text = result.Location;
+                PropertyLocationX.Text = result.LocationX.ToString();
+                PropertyY.Text = result.LocationY.ToString();
+
+                propertyName.Text = result.PropertyName;
+                if (result.Bedrooms != null) propertyBedrooms.SelectedIndex = (int) result.Bedrooms;
+                imagePreview.ImageUrl = "../Images/" + result.MainImage;
+          if (result.Featured != null) propertyPopularCheck.Checked = (bool) result.Featured;
+          PropertyAmenities.Text = FixAme(result.Amenities);
+          SetBathCheckbox(result.BathType);
+          if (result.Pets != null) PetCheckBox.Checked = (bool) result.Pets;
+          datepicker1.Value = result.AvailableFrom;
+          datepicker2.Value = result.AvaiableTo;
+          datepicker1Value.Value = result.AvailableFrom;
+          datepicker2Value.Value = result.AvaiableTo;
+          PropertyRentPrice.Text = result.RentPrice.ToString();
+          PropertyDeposit.Text = result.Deposit.ToString(); 
+          //PropertyImages.
+          PropertyBlurb.Text = result.Blurb;
+          isEdit.Value = "True";
+
+            }
+        }
+
+        private string FixAme(string amenities)
+        {
+
+           var strVal =  CreateCommaSeperatedList(amenities.Split(',').ToList());
+           return strVal.Trim();
+        }
+
+
+        private void SetBathCheckbox(string resultBathType)
+        {
+            List<string> list = resultBathType.Split(',').ToList();
+            var selected = BathTypeCheckBox.Items.Cast<ListItem>();
+            foreach (var checkBoxItem in selected)
+            {
+                foreach (var item in list)
+                {
+                    if (checkBoxItem.Text == item)
+                    {
+                        checkBoxItem.Selected = true;
+                    }
+                }
+            }
+        }
+
+
     }
 }

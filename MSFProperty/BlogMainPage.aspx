@@ -38,7 +38,9 @@
                             <div class="blogCard">
                                 <a href="BlogPageView.aspx?id=<%# Eval("ID") %>">
                                 <h1 class="blogTitle"><%# Eval("Title") %></h1>
-                                <span class="BlogNameAndDate"><%# Eval("Name") %> <%# Eval("Date") %></span>
+                                <span class="BlogNameAndDate"><%# Eval("Name") %> </span>
+                                    <br/>
+                                    <span class="BlogNameAndDate">Added :  <%# Eval("Date") %></span>
                                 <div class="blogImg">
                                     <image src="~/../Images/<%# Eval("ImageUrl") %>"></image>
                                 </div>

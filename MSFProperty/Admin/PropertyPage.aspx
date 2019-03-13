@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminMasterPage.Master" AutoEventWireup="true" CodeBehind="PropertyPage.aspx.cs" Inherits="MSFProperty.Admin.PropertyPage" ValidateRequest="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminMasterPage.Master" AutoEventWireup="True" CodeBehind="PropertyPage.aspx.cs" Inherits="MSFProperty.Admin.PropertyPage" ValidateRequest="false" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 
@@ -10,25 +10,38 @@
     </Scripts>
 </asp:ScriptManagerProxy>
 <script type="text/javascript">
-    AjaxControlToolkit.AsyncFileUpload.prototype.newFileName = null;
-
+    // ReSharper disable once UnusedParameter
     function preview(sender, e) {
-       
-        $("#imagePreview").css("background-image", "url(../Images/" + sender.newFileName + ")");
-     
+        $("#imagePreview").css("background-image", `url(../Images/${sender.newFileName})`);
+
+    }
+
+    function checkEditProperty() {
+        setTimeout( OpenAdminTab(event, 'createProperty', 1, 1),5000);
+
+        return confirm('Are you sure you want to edit this property?');
+
     }
 </script>
 <asp:Panel ID="Panel1" runat="server" GroupingText="Property">
 <div class="tab">
-    <button class="tablinks active" id="createNewBlog" onclick="OpenAdminTab(event, 'createBlog', 1)">Create A New Property Listing</button>
-    <button class="tablinks" id="editBlog" onclick="OpenAdminTab(event, 'existingBlog', 2)">Edit An Existing Property Listing</button>
-    <button class="tablinks" id="organizeBlog" onclick="OpenAdminTab(event, 'organiseExistingBlogs', 3)">Organise Existing Property Listing</button>
+    <button class="tablinks active" id="createNewProperty" onclick="OpenAdminTab(event, 'createProperty', 1)">Create A New Property Listing</button>
+    <button class="tablinks" id="editProperty" onclick="OpenAdminTab(event, 'existingProperty', 2)">Edit An Existing Property Listing</button>
+    <button class="tablinks" id="organizeProperty" onclick="OpenAdminTab(event, 'organiseExistingPropertys', 3)">Organise Existing Property Listing</button>
 </div>
 
-<div id="createBlog" class="tabcontent" style="display: table;">
+<div id="createProperty" class="tabcontent" style="display: table;">
 <asp:UpdateProgress ID="GetAdressUpdateProgress" runat="server" AssociatedUpdatePanelID="GetAdressUpdatePanel" DynamicLayout="True">
     <ProgressTemplate>
-        <img src="../ajax-loader.gif"/>Please Wait Loading ....
+        <div id="overlay" >
+            <div class="modalprogress">
+                <div class="theprogress">
+                    <asp:Image class="imgWaitIcon" runat="server" ImageAlign="AbsMiddle" ImageUrl="../ajax-loader.gif" />
+                    Please Wait while loading ....           
+
+                </div>
+            </div>
+        </div>     
     </ProgressTemplate>
 </asp:UpdateProgress>
 <asp:UpdatePanel ID="GetAdressUpdatePanel" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
@@ -39,95 +52,95 @@
 
     </Triggers>
     <ContentTemplate>
+        <asp:Label runat="server" ID="propSaved" ForeColor="Red"></asp:Label>
+
         <div class="propertyPanel">
-        <asp:Panel ID="Panel2" runat="server" GroupingText="Address">
-            <table id="streetTable">
-                <tr>
-                    <td>
-                        <asp:Label runat="server">Number</asp:Label>
-                        <asp:TextBox runat="server" ID="PropertyHouseNumber"></asp:TextBox>
-                    </td>
+            <asp:Panel ID="Panel2" runat="server" GroupingText="Address">
+                <table id="streetTable">
+                    <tr>
+                        <td>
+                            <asp:Label runat="server">Number</asp:Label>
+                            <asp:TextBox runat="server" ID="PropertyHouseNumber"></asp:TextBox>
+                        </td>
 
 
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label runat="server">Street</asp:Label>
-                        <asp:TextBox runat="server" ID="PropertyStreet"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label runat="server">Street2</asp:Label>
-                        <asp:TextBox runat="server" ID="PropertyStreet2"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label runat="server">County</asp:Label>
-                        <asp:TextBox runat="server" ID="PropertyCounty"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label runat="server">Country</asp:Label>
-                        <asp:TextBox runat="server" ID="PropertyCountry"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label runat="server">PostCode</asp:Label>
-                        <asp:TextBox runat="server" ID="PropertyPostCode"></asp:TextBox>
-                        <asp:Button ID="PostCodeLookUp" runat="server" Text="Get Address From Postcode" OnClick="PostCodeLookUp_Click"/>
-                        <asp:Label runat="server" ID="ErrorAddress" ForeColor="Red"></asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label runat="server">Enter the Location of the property here </asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:TextBox runat="server" ID="PropertyLocation"></asp:TextBox>
-                    </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label runat="server">Street</asp:Label>
+                            <asp:TextBox runat="server" ID="PropertyStreet"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label runat="server">Street2</asp:Label>
+                            <asp:TextBox runat="server" ID="PropertyStreet2"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label runat="server">County</asp:Label>
+                            <asp:TextBox runat="server" ID="PropertyCounty"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label runat="server">Country</asp:Label>
+                            <asp:TextBox runat="server" ID="PropertyCountry"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label runat="server">PostCode</asp:Label>
+                            <asp:TextBox runat="server" ID="PropertyPostCode"></asp:TextBox>
+                            <asp:Button ID="PostCodeLookUp" runat="server" Text="Get Address From Postcode" OnClick="PostCodeLookUp_Click"/>
+                            <asp:Label runat="server" ID="ErrorAddress" ForeColor="Red"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label runat="server">Enter the Location of the property here </asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:TextBox runat="server" ID="PropertyLocation"></asp:TextBox>
+                        </td>
 
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label runat="server">Enter the LocationX of the property here </asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:TextBox runat="server" ID="PropertyLocationX"></asp:TextBox>
-                    </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label runat="server">Enter the LocationX of the property here </asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:TextBox runat="server" ID="PropertyLocationX"></asp:TextBox>
+                        </td>
 
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Label runat="server">Enter the LocationY of the property here </asp:Label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <asp:TextBox runat="server" ID="PropertyY"></asp:TextBox>
-                    </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label runat="server">Enter the LocationY of the property here </asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:TextBox runat="server" ID="PropertyY"></asp:TextBox>
+                        </td>
 
-                </tr>
-                <tr>
-                    <td>
-                        <asp:Button ID="ClearTextBoxes" runat="server" Text="Clear Boxes" OnClick="ClearTextBoxes_Click"/>
-                    </td>
-                </tr>
-            </table>
-            <iframe src="" width="1000" runat="server" frameborder="0" id="mapForPostcode" style="border: 0"> </iframe>
-        </asp:Panel>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Button ID="ClearTextBoxes" runat="server" Text="Clear Boxes" OnClick="ClearTextBoxes_Click"/>
+                        </td>
+                    </tr>
+                </table>
+                <iframe src="" width="1000" runat="server" frameborder="0" id="mapForPostcode" style="border: 0"> </iframe>
+            </asp:Panel>
         </div>
     </ContentTemplate>
 </asp:UpdatePanel>
-
-
 <asp:UpdatePanel ID="PropertyDetailsUpdatePanel" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
 <Triggers>
     <asp:PostBackTrigger ControlID="SaveButton"/>
@@ -187,8 +200,8 @@
         <tr>
             <td>
                 <asp:Image ID="imagePreview" runat="server"/>
-               
-                <ajaxToolkit:AsyncFileUpload OnUploadedComplete="MainImage_UploadedComplete" CssClass="imageasyncButtonUpload" runat="server" ID="MainFileUploader" accept=".png,.jpg,.jpeg,.gif" ThrobberID="spinImg" OnClientUploadComplete="preview" />
+
+                <ajaxToolkit:AsyncFileUpload OnUploadedComplete="MainImage_UploadedComplete" CssClass="imageasyncButtonUpload" runat="server" ID="MainFileUploader" accept=".png,.jpg,.jpeg,.gif" ThrobberID="spinImg" OnClientUploadComplete="preview"/>
                 <asp:Image ID="spinImg" runat="server" ImageUrl="../ajax-loader.gif"/>
             </td>
         </tr>
@@ -253,7 +266,7 @@
             <td>
                 <p>
                     Date:
-                    <input type="text" id="datepicker1" readonly>
+                    <input type="text" id="datepicker1" runat="server">
                 </p>
                 <asp:HiddenField ID="datepicker1Value" runat="server"/>
             </td>
@@ -268,7 +281,7 @@
             <td>
                 <p>
                     Date:
-                    <input type="text" id="datepicker2" readonly>
+                    <input type="text" id="datepicker2" runat="server">
                 </p>
                 <asp:HiddenField ID="datepicker2Value" runat="server"/>
 
@@ -323,6 +336,7 @@
         <tr>
             <td>
                 <asp:Button ID="SaveButton" runat="server" Text="Save" OnClick="SaveNewProperty"/>
+                <asp:HiddenField ID="isEdit" runat="server"  ClientIDMode="Static"/>
             </td>
         </tr>
         <tr>
@@ -333,162 +347,155 @@
     </table>
 </asp:Panel>
 
-</div>
 </ContentTemplate>
 </asp:UpdatePanel>
 <asp:UpdateProgress ID="PropertyDetailsUpdateProgress" runat="server" AssociatedUpdatePanelID="PropertyDetailsUpdatePanel" DynamicLayout="True">
     <ProgressTemplate>
-        <img src="../ajax-loader.gif"/>Please Wait Loading ....
+        
+        <div id="overlay" >
+            <div class="modalprogress">
+                <div class="theprogress">
+                    <asp:Image class="imgWaitIcon" runat="server" ImageAlign="AbsMiddle" ImageUrl="../ajax-loader.gif" />
+                    Please wait loading data...
+                </div>
+            </div>
+        </div>
+
     </ProgressTemplate>
 </asp:UpdateProgress>
 </div>
 
-<%--        <div id="existingBlog" class="tabcontent">
-            <asp:UpdatePanel ID="UpdatePanel3" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
-                <Triggers>
-                    <asp:PostBackTrigger ControlID="SaveEditBlog" />
+<div id="existingProperty" class="tabcontent">
+    <asp:UpdateProgress ID="EditPropertyListingUpdateProgress" runat="server" AssociatedUpdatePanelID="EditPropertyListingUpdatePanel" DynamicLayout="True">
+        <ProgressTemplate>
+            
+            <div id="overlay" >
+                <div class="modalprogress">
+                    <div class="theprogress">
+                        <asp:Image class="imgWaitIcon" runat="server" ImageAlign="AbsMiddle" ImageUrl="../ajax-loader.gif" />
+                        Please Wait while property is being loaded ....                    </div>
+                </div>
+            </div>
+         
+        </ProgressTemplate>
+    </asp:UpdateProgress>
 
-                </Triggers>
-                <ContentTemplate>
+    <asp:UpdatePanel ID="EditPropertyListingUpdatePanel" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
+        <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="PropertyEditButton"/>
+        </Triggers>
+        <ContentTemplate>
+            <asp:Panel runat="server" groupingText="Edit Property">
 
-                    <div class="blogEditSelect">
-                        <h2>Select the Blog you wish to Edit</h2>
-                        <asp:Repeater ID="EditBlogRepeaterItems" runat="server">
+                <div class="PropertyEditSelect">
+                    <h2>Select the Property listing you wish to Edit</h2>
+                    <asp:Repeater ID="EditPropertyRepeaterItems" runat="server">
+                        <ItemTemplate>
+                            <asp:Panel runat="server">
+                                <div runat="server" class="blogCard editProperty" data-id='<%# Eval("ID") %>'>
+                                    <span>
+                                        <h1 class="blogTitle"><%# Eval("PropertyName") %></h1>
+                                        <div class="blogImg">
+                                            <image src="../Images/<%# Eval("MainImage") %>"></image>
+                                        </div>
+                                        <p class="eclipseLines"><%# GetContents(Convert.ToInt32(Eval("ID"))) %> </p>
 
-                            <ItemTemplate>
-                                <asp:Panel runat="server">
-                                    <div runat="server" class="blogCard" data-id='<%#Eval("ID") %>' data-name='<%#Eval("Name") %>' data-date='<%#Eval("Date") %>' data-title='<%#Eval("Title") %>' data-contents='<%#Eval("Contents") %>' data-image='<%#Eval("ImageUrl") %>' data-popular='<%#Eval("Popular") %>'>
-                                        <span>
-                                            <h1 class="blogTitle"><%# Eval("Title") %></h1>
-                                            <span class="BlogNameAndDate"><%# Eval("Name") %> <%# Eval("Date") %></span>
-                                            <div class="blogImg">
-                                                <image src="../Images/<%# Eval("ImageUrl") %>"></image>
-                                            </div>
+                                    </span>
+                                </div>
+                            </asp:Panel>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                    <table>
+                        <tr>
+                            <td>
+                                <asp:Button ID="PropertyEditButton" runat="server" CssClass="hidden" OnClick="EditProperties" Text="Edit property" OnClientClick="checkEditProperty();"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Button ID="PropertyEditCancel" runat="server" CssClass="hidden" Text="Cancel"/>
+                            </td>
+                        </tr>
+             
+                    </table>
 
-                                        </span>
-                                    </div>
-                                </asp:Panel>
-                            </ItemTemplate>
-                        </asp:Repeater>
+                </div>
+
+            </asp:Panel>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+
+</div>
+
+<div id="organiseExistingPropertys" class="tabcontent">
+    <asp:UpdateProgress ID="DeleteUpdateProgress" runat="server" AssociatedUpdatePanelID="DeleteUpdatePanel" DynamicLayout="True">
+        <ProgressTemplate>
+            <div id="overlay" >
+                <div class="modalprogress">
+                    <div class="theprogress">
+                        <asp:Image class="imgWaitIcon" runat="server" ImageAlign="AbsMiddle" ImageUrl="../ajax-loader.gif" />
+                        Please Wait while the property is deleted ....           
+
                     </div>
-                    <div class="blogEditPanel hidden">
-                        <table>
-                            <tr>
-                                <td>
-                                    <asp:Label runat="server">Blog Name</asp:Label>
-                                </td>
+                </div>
+            </div>     
 
-                                <td>
-                                    <asp:TextBox runat="server" ID="blogEditTextBox1"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Label runat="server">Blog Title</asp:Label>
-                                </td>
+        </ProgressTemplate>
+    </asp:UpdateProgress>
+    <asp:UpdatePanel ID="DeleteUpdatePanel" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
+        <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="DeletePropertyBtn"/>
 
-                                <td>
-                                    <asp:TextBox runat="server" ID="blogEditTextBox2"></asp:TextBox>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Label runat="server">Blog Image</asp:Label>
-                                </td>
-
-                                <td>
-                                    <div id="imagePreview" style="background-image: url(&quot;http://localhost:41121/Images/MSF-edinburghView.jpg&quot;);">
-                                        <asp:FileUpload runat="server" ID="blogEditFileUpload1"></asp:FileUpload>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Label runat="server">Popular</asp:Label>
-                                </td>
-
-                                <td>
-                                    <asp:CheckBox ID="blogEditCheckBox1" runat="server" ReadOnly="true" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Label runat="server">Previous Blog Contents</asp:Label>
-                                </td>
-
-                                <td>
-                                    <div id="textBoxPrevious" runat="Server">
+        </Triggers>
+        <ContentTemplate>
+            <div class="PropertyEditSelect">
+                <h2>Select the Property you wish to Delete</h2>
+                <asp:Repeater ID="DeletePropertyRepeater" runat="server">
+                    <ItemTemplate>
+                        <asp:Panel runat="server">
+                            <div runat="server" class="blogCard PropertyDelete" data-id='<%# Eval("ID") %>'>
+                                <span>
+                                    <h1 class="blogTitle"><%# Eval("PropertyName") %></h1>
+                                    <div class="blogImg">
+                                        <image src="../Images/<%# Eval("MainImage") %>"></image>
                                     </div>
-                                </td>
+                                    <p class="eclipseLines"><%# GetContents(Convert.ToInt32(Eval("ID"))) %> </p>
 
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Label runat="server">Blog Contents</asp:Label>
-                                </td>
+                                </span>
+                            </div>
+                        </asp:Panel>
+                    </ItemTemplate>
+                </asp:Repeater>
 
-                                <td>
-                                    <ftb:freetextbox id="blogEditFreeTextBox2" runat="Server" />
-                                </td>
+                <table>
+                    <tr>
+                        <td>
+                            <asp:Button ID="DeletePropertyBtn" runat="server" CssClass="hidden" OnClick="DeletePropertyClick" Text="Delete" OnClientClick="return confirm('Are you sure you want to delete this property?');"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Button ID="CancelDelete" runat="server" CssClass="hidden" Text="Cancel"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="FeaturedChangedLabel" runat="server" CssClass="hidden">Is this a featured property ? check yes empty no</asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:CheckBox ID="FeaturedChanged" runat="server" OnCheckedChanged="FeaturedChangedOnProperty" AutoPostBack="true"/>
+                        </td>
+                    </tr>
+                </table>
 
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Button ID="SaveEditBlog" runat="server" Text="Save" OnClick="EditBlogSaveButton_Click" />
-                                </td>
-                            </tr>
-                            <tr class="hidden">
-                                <td>
-                                    <asp:Label runat="server" ID="Label1" Visible="false"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
+            </div>
+            <asp:HiddenField runat="server" ID="deletePropertyHiddenField1"></asp:HiddenField>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 
-                                    <asp:HiddenField runat="server" ID="editBlogId"></asp:HiddenField>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-
-                </ContentTemplate>
-            </asp:UpdatePanel>
-        </div>
-
-        <div id="organiseExistingBlogs" class="tabcontent">
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
-                <Triggers>
-                    <asp:PostBackTrigger ControlID="SaveEditBlog" />
-
-                </Triggers>
-                <ContentTemplate>
-
-                    <div class="blogEditSelect">
-                        <h2>Select the Blog you wish to Delete</h2>
-                        <asp:Repeater ID="Repeater1" runat="server">
-
-                            <ItemTemplate>
-                                <asp:Panel runat="server">
-                                    <div runat="server" class="blogCardDelete" data-id='<%# Eval("ID") %>' data-name='<%#Eval("Name") %>' data-date='<%#Eval("Date") %>' data-title='<%#Eval("Title") %>' data-contents='<%#Eval("Contents") %>' data-image='<%#Eval("ImageUrl") %>' data-popular='<%#Eval("Popular") %>'>
-                                        <span>
-                                            <h1 class="blogTitle"><%# Eval("Title") %></h1>
-                                            <span class="BlogNameAndDate"><%# Eval("Name") %> <%# Eval("Date") %></span>
-                                            <div class="blogImg">
-                                                <image src="../Images/<%# Eval("ImageUrl") %>"></image>
-                                            </div>
-                                            <asp:Button class="blogDeleteButton" runat="server" data-name='<%#Eval("Name") %>' Text="Delete" OnClick="EditBlogDeleteButton_Click" />
-                                        </span>
-                                    </div>
-                                </asp:Panel>
-                            </ItemTemplate>
-                        </asp:Repeater>
-                    </div>
-                    <asp:HiddenField runat="server" ID="delteHiddenField1"></asp:HiddenField>
-                </ContentTemplate>
-            </asp:UpdatePanel>
-
-        </div>--%>
+</div>
 </asp:Panel>
 
 </asp:Content>

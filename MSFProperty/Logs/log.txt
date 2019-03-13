@@ -592,3 +592,182 @@ Log Entry : 01:44:49 07 March 2019
   :
   :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940029&lon=-3.008716
 -------------------------------
+
+Log Entry : 01:58:16 08 March 2019
+  :
+  :https://api.postcodes.io/postcodes/EH11 2NQ
+-------------------------------
+
+Log Entry : 01:58:17 08 March 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940023&lon=-3.230788
+-------------------------------
+
+Log Entry : 21:44:36 08 March 2019
+  :
+  :https://api.postcodes.io/postcodes/eh39bw
+-------------------------------
+
+Log Entry : 21:44:37 08 March 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.945013&lon=-3.202252
+-------------------------------
+
+Log Entry : 21:44:48 08 March 2019
+  :
+  :https://api.postcodes.io/postcodes/EH3 9BW
+-------------------------------
+
+Log Entry : 21:44:48 08 March 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.945013&lon=-3.202252
+-------------------------------
+
+Log Entry : 21:45:03 08 March 2019
+  :
+  :https://api.postcodes.io/postcodes/EH3 9BW
+-------------------------------
+
+Log Entry : 21:45:03 08 March 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.945013&lon=-3.202252
+-------------------------------
+
+Log Entry : 21:22:09 11 March 2019
+  :
+  :https://api.postcodes.io/postcodes/EH11 2NQ
+-------------------------------
+
+Log Entry : 21:22:10 11 March 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940023&lon=-3.230788
+-------------------------------
+
+Log Entry : 21:22:47 11 March 2019
+  :
+  :System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at MSFProperty.Admin.PropertyPage.SafeSave(Model1 context) in C:\Users\Gerry\source\repos\MSFProperty\MSFProperty\Admin\PropertyPage.aspx.cs:line 95
+-------------------------------
+
+Log Entry : 18:30:18 12 March 2019
+  :
+  :https://api.postcodes.io/postcodes/eh87sj
+-------------------------------
+
+Log Entry : 18:30:19 12 March 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.952026&lon=-3.135528
+-------------------------------
+
+Log Entry : 18:39:10 12 March 2019
+  :
+  :Entity of type Property in state Added has the following validation errors:
+-------------------------------
+
+Log Entry : 18:39:10 12 March 2019
+  :
+  :- Property: Amenities, Error:The field Amenities must be a string with a maximum length of 100.
+-------------------------------
+
+Log Entry : 18:41:04 12 March 2019
+  :
+  :Entity of type Property in state Added has the following validation errors:
+-------------------------------
+
+Log Entry : 18:41:04 12 March 2019
+  :
+  :- Property: Amenities, Error:The field Amenities must be a string with a maximum length of 100.
+-------------------------------
+
+Log Entry : 18:58:07 12 March 2019
+  :
+  :https://api.postcodes.io/postcodes/eh87sj
+-------------------------------
+
+Log Entry : 18:58:08 12 March 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.952026&lon=-3.135528
+-------------------------------
+
+Log Entry : 19:27:51 12 March 2019
+  :
+  :https://api.postcodes.io/postcodes/EH11 2NQ
+-------------------------------
+
+Log Entry : 19:27:52 12 March 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940023&lon=-3.230788
+-------------------------------
+
+Log Entry : 19:56:03 12 March 2019
+  :
+  :https://api.postcodes.io/postcodes/eh218la
+-------------------------------
+
+Log Entry : 19:56:04 12 March 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940029&lon=-3.008716
+-------------------------------
+
+Log Entry : 20:20:04 12 March 2019
+  :
+  :Entity of type Property in state Modified has the following validation errors:
+-------------------------------
+
+Log Entry : 20:20:04 12 March 2019
+  :
+  :- Property: Amenities, Error:The field Amenities must be a string with a maximum length of 100.
+-------------------------------
+
+Log Entry : 20:20:32 12 March 2019
+  :
+  :Entity of type Property in state Modified has the following validation errors:
+-------------------------------
+
+Log Entry : 20:20:32 12 March 2019
+  :
+  :- Property: Amenities, Error:The field Amenities must be a string with a maximum length of 100.
+-------------------------------
+
+Log Entry : 20:36:47 12 March 2019
+  :
+  :Entity of type Property in state Modified has the following validation errors:
+-------------------------------
+
+Log Entry : 20:36:47 12 March 2019
+  :
+  :- Property: Amenities, Error:The field Amenities must be a string with a maximum length of 100.
+-------------------------------
+
+Log Entry : 22:36:30 12 March 2019
+  :
+  :https://api.postcodes.io/postcodes/eh87sj
+-------------------------------
+
+Log Entry : 22:36:31 12 March 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.952026&lon=-3.135528
+-------------------------------
+
+Log Entry : 23:09:18 12 March 2019
+  :
+  :https://api.postcodes.io/postcodes/eh218la
+-------------------------------
+
+Log Entry : 23:09:19 12 March 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940029&lon=-3.008716
+-------------------------------
+
+Log Entry : 00:37:56 13 March 2019
+  :
+  :https://api.postcodes.io/postcodes/EH11 2NQ
+-------------------------------
+
+Log Entry : 00:37:57 13 March 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940023&lon=-3.230788
+-------------------------------
