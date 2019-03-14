@@ -70,7 +70,7 @@
                 </asp:Panel>
 
                 <asp:Panel ID="deleteImages" runat="server" GroupingText="Images In folder">
-                    <div class="leftWrapper">
+                    <div class="ImageEditFolder">
                         <h2>click on a file to delete it from the folder</h2>
                         <table>
                             <tr>

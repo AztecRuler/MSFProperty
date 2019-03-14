@@ -11,15 +11,14 @@
     </Scripts>
 </asp:ScriptManagerProxy>
 <script>
-    function UploadComplete(sender, args) {
-        const control = document.getElementById("<%= ImageSave.ClientID %>");
-        control.style.display = "block";
+    $(document).ready(function() {
+        function UploadComplete(sender, args) {
+            const control = document.getElementById("<%= ImageSave.ClientID %>");
+            control.style.display = "block";
 
-    }
+        }
+    });
 </script>
-
-
-
 
 <div class="leftWrapper">
     <span>Select a page to edit it from the list below</span>

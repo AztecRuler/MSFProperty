@@ -66,15 +66,14 @@ function pageLoad() {
             });
         }
 
-
         $(".imageButtonUpload").on('click', function (event) {
             event.stopPropagation();
             event.stopImmediatePropagation();
             event.preventDefault();
-            UploadComplete();
+           
             $('#uploadedImageUrl').val($(this).attr('src'));
             $("#imagePreview").css("background-image", "url(" + $('#uploadedImageUrl').val() + ")");
-        
+            UploadComplete();
         });
         if ($('iframe').length) {
             $('iframe').load(function() {
@@ -125,11 +124,13 @@ function pageLoad() {
         }
 
         $(".uploaders").change(function () {
+            if ($('#uploadedImageUrl').length)
+                $('#uploadedImageUrl').val('');
             readUrl(this, this.previousElementSibling);
 
         });
       
-      
+ 
     });
 }
 

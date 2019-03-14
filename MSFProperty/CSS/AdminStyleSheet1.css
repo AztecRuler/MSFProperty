@@ -1,6 +1,7 @@
 ﻿html {
     scroll-behavior: smooth;
 }
+
 #overlay, #overlayLoad {
     position: fixed;
     z-index: 99;
@@ -12,28 +13,31 @@
     filter: Alpha(Opacity=90);
     opacity: 0.9;
     -moz-opacity: 0.9;
-}            
+}
+
 .theprogress {
     background-color: #fff;
-    border:1px solid #ccc;
-    padding:10px;
+    border: 1px solid #ccc;
+    padding: 10px;
     width: 300px;
     height: 30px;
-    line-height:30px;
+    line-height: 30px;
     text-align: center;
     filter: Alpha(Opacity=100);
     opacity: 1;
     -moz-opacity: 1;
 }
+
 .modalprogress {
     position: absolute;
     top: 40%;
     left: 50%;
     margin: -11px 0 0 -150px;
     color: #990000;
-    font-weight:bold;
-    font-size:14px;
+    font-weight: bold;
+    font-size: 14px;
 }
+
 .accordion {
     background-color: #eee;
     color: #444;
@@ -56,17 +60,18 @@
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
 }
-    .active, .accordion:hover {
-        background-color: #ccc;
-    }
 
-    .accordion:after {
-        content: '\002B';
-        color: #777;
-        font-weight: bold;
-        float: right;
-        margin-left: 5px;
-    }
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
 
 .panel {
     padding: 0 18px;
@@ -85,12 +90,22 @@
     cursor: pointer;
     width: 95%;
 }
-img#aboutimagePreview {
-    max-height: 25%;
+
+#useUploadedFileAboutUs {
+    padding: 21px 0;
+    width: 100%;
+    max-height: 300px;
+    overflow: auto;
 }
-    .aboutUsInfoSection:hover {
-        background-color: #ddd;
-    }
+
+img#aboutimagePreview {
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.aboutUsInfoSection:hover {
+    background-color: #ddd;
+}
 
 div#msf-About_Us-Image {
     float: left;
@@ -366,6 +381,16 @@ div#passwordConfirmPanel {
 #editUserOptions {
     float: left;
 }
+
+.ImageEditContainer {
+    float: left;
+    margin: 7px;
+}
+
+.ImageEditFolder {
+    max-height: 693px;
+    overflow: auto;
+}
 /* Style the tab */
 .tab {
     overflow: hidden;
@@ -420,6 +445,7 @@ div#passwordConfirmPanel {
 .blogTitle {
     min-height: 37px;
 }
+
 .blogEditPanel tr {
     border: 1px solid lightgrey;
     background: aliceblue;
