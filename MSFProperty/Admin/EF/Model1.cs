@@ -86,6 +86,26 @@ namespace MSFProperty.Admin.EF
                 .Property(e => e.city)
                 .IsFixedLength();
 
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.facebook)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.twitter)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.google)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.pintrst)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.linkin)
+                .IsUnicode(false);
+
             modelBuilder.Entity<ContentImage>()
                 .Property(e => e.ImageUrl)
                 .IsUnicode(false);

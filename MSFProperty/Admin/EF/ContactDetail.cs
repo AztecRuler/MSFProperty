@@ -35,5 +35,20 @@ namespace MSFProperty.Admin.EF
 
         [StringLength(40)]
         public string city { get; set; }
+
+        [StringLength(2083)]
+        public string facebook { get; set; }
+
+        [StringLength(2083)]
+        public string twitter { get; set; }
+
+        [StringLength(2083)]
+        public string google { get; set; }
+
+        [StringLength(2083)]
+        public string pintrst { get; set; }
+
+        [StringLength(2083)]
+        public string linkin { get; set; }
     }
 }

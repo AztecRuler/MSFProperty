@@ -100,5 +100,14 @@ namespace MSFProperty.Admin
             var fileLength = new FileInfo(filename[id]).Length;
             return fileLength;
         }
+
+        protected string GetImageName(int id)
+        {
+            var filenames = Directory.GetFiles(Server.MapPath("~/Images"));
+
+            var imageList = filenames.Select(item => item.Replace(" ", string.Empty).Split('\\').Last()).ToList();
+
+            return imageList[id];
+        }
     }
 }

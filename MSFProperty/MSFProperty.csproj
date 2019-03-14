@@ -135,6 +135,7 @@
     <Content Include="Admin\EditImages.aspx" />
     <Content Include="Admin\EditPage.aspx" />
     <Content Include="Admin\PropertyPage.aspx" />
+    <Content Include="Admin\SocialMediaEditAdmin.aspx" />
     <Content Include="Admin\Users.aspx" />
     <Content Include="BlogMainPage.aspx" />
     <Content Include="BlogPageView.aspx" />
@@ -287,6 +288,13 @@
     </Compile>
     <Compile Include="Admin\PropertyPage.aspx.designer.cs">
       <DependentUpon>PropertyPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SocialMediaEditAdmin.aspx.cs">
+      <DependentUpon>SocialMediaEditAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SocialMediaEditAdmin.aspx.designer.cs">
+      <DependentUpon>SocialMediaEditAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Users.aspx.cs">
       <DependentUpon>Users.aspx</DependentUpon>

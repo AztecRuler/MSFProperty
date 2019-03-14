@@ -15,7 +15,11 @@
 
         gtag('config', 'UA-136136207-1');
     </script>
-
+    <style>
+        a.social[href='']{
+            display:none;
+        }
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="CSS/MSF_StyleSheet.css" rel="stylesheet"/>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -127,9 +131,22 @@
                             <ul id="footerIconsSection">
                                 <li>
                                     Social<br/>
-                                    <a href="#" id="facebookLink">
+                                    <a href="<%#Eval("facebook") %>" class="social" id="facebookLink">
                                         <span>facebook</span>
                                     </a>
+                                    <a href="<%#Eval("twitter") %>" class="social" id="twitterLink">
+                                        <span>twitter</span>
+                                    </a>
+                                    <a href="<%#Eval("google") %>" class="social" id="googleLink">
+                                        <span>google</span>
+                                    </a>
+                                    <a href="<%#Eval("pintrst") %>" class="social" id="pintrstLink">
+                                        <span>pintrst</span>
+                                    </a>
+                                    <a href="<%#Eval("linkin") %>" class="social" id="linkinLink">
+                                        <span>linkin</span>
+                                    </a>
+                                 
                                 </li>
 
                             </ul>
@@ -141,6 +158,7 @@
                     </ItemTemplate>
 
                 </asp:Repeater>
+            </div>
             </div>
         </asp:ContentPlaceHolder>
 

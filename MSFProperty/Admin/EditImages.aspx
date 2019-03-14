@@ -10,9 +10,9 @@
         </Scripts>
     </asp:ScriptManagerProxy>
     <script>
-        function preview(sender, e) {
+       function preview(sender, e) {
             $("#imagePreview").css("background-image", `url(../Images/${sender.newFileName})`);
- 
+          
         }
         function UploadComplete() {}
     </script>
@@ -54,8 +54,9 @@
                                 <td>
                                     <asp:Image ID="imagePreview" runat="server"/>
                               
-                                    <ajaxToolkit:AsyncFileUpload OnUploadedComplete="AsyncFileUpload1_UploadedComplete" CssClass="imageasyncButtonUpload" runat="server" ID="AsyncFileUpload1" accept=".png,.jpg,.jpeg,.gif" ThrobberID="spinImg" OnClientUploadComplete="preview"/>
+                                    <ajaxToolkit:AsyncFileUpload OnUploadedComplete="AsyncFileUpload1_UploadedComplete " CssClass="imageasyncButtonUpload" runat="server" ID="AsyncFileUpload1" accept=".png,.jpg,.jpeg,.gif" ThrobberID="spinImg" OnClientUploadComplete="preview"/>
                                     <asp:Image ID="spinImg" runat="server" ImageUrl="../ajax-loader.gif"/>
+
                                     <asp:Label runat="server" ID="ErrorLabelImages" ForeColor="Red"></asp:Label>
 
                                 </td>
@@ -79,6 +80,7 @@
                                             <ItemTemplate>
                                                 <div class="ImageEditContainer">
                                                 <asp:ImageButton CssClass="imageButtonUpload" runat="server" ImageUrl='<%# string.Format("../images/{0}", Container.DataItem) %>'/>
+                                                    <div class="ImageSizeDiv">file name : <%# GetImageName(Convert.ToInt32(Container.ItemIndex)) %> </div>
                                                 <div class="ImageSizeDiv">file size : <%# GetImageSize(Convert.ToInt32(Container.ItemIndex)) %> kb</div>
                                                 </div>
                                             </ItemTemplate>
