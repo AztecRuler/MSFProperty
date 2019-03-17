@@ -22,7 +22,7 @@ namespace MSFProperty.Admin
         {
             var filenames = Directory.GetFiles(Server.MapPath("~/Images"));
 
-            var imageList = filenames.Select(item => item.Replace(" ", string.Empty).Split('\\').Last()).ToList();
+            var imageList = filenames.Select(item => item.Split('\\').Last()).ToList();
 
             ImageRepeater.DataSource = imageList.ToList();
             ImageRepeater.DataBind();

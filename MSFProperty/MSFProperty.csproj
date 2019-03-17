@@ -173,6 +173,7 @@
     <Content Include="star.png" />
     <Content Include="TodoList.aspx" />
     <Content Include="UserControls\AboutUsInfo.ascx" />
+    <Content Include="UserControls\StarRatingDisplay.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -411,6 +412,13 @@
     </Compile>
     <Compile Include="UserControls\AboutUsInfo.ascx.designer.cs">
       <DependentUpon>AboutUsInfo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\StarRatingDisplay.ascx.cs">
+      <DependentUpon>StarRatingDisplay.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\StarRatingDisplay.ascx.designer.cs">
+      <DependentUpon>StarRatingDisplay.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

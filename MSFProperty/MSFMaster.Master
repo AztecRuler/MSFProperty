@@ -4,29 +4,14 @@
 
 <html>
 <head runat="server">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136136207-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
 
-        function gtag() { dataLayer.push(arguments); }
-
-        gtag('js', new Date());
-
-        gtag('config', 'UA-136136207-1');
-    </script>
-    <style>
-        a.social[href='']{
-            display:none;
-        }
-    </style>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     <link href="CSS/MSF_StyleSheet.css" rel="stylesheet"/>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="Javascript/msfJavascript.js"></script>
-
+    <link rel="canonical" href="" runat="server" id="canonical"/>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <script> var pagePath = "<%= PagePath %>";</script>
@@ -131,19 +116,19 @@
                             <ul id="footerIconsSection">
                                 <li>
                                     Social<br/>
-                                    <a href="<%#Eval("facebook") %>" class="social" id="facebookLink">
+                                    <a href="<%#Eval("facebook") %>" target="_blank" class="social" id="facebookLink">
                                         <span>facebook</span>
                                     </a>
-                                    <a href="<%#Eval("twitter") %>" class="social" id="twitterLink">
+                                    <a href="<%#Eval("twitter") %>" target="_blank" class="social" id="twitterLink">
                                         <span>twitter</span>
                                     </a>
-                                    <a href="<%#Eval("google") %>" class="social" id="googleLink">
+                                    <a href="<%#Eval("google") %>" target="_blank" class="social" id="googleLink">
                                         <span>google</span>
                                     </a>
-                                    <a href="<%#Eval("pintrst") %>" class="social" id="pintrstLink">
+                                    <a href="<%#Eval("pintrst") %>" target="_blank" class="social" id="pintrstLink">
                                         <span>pintrst</span>
                                     </a>
-                                    <a href="<%#Eval("linkin") %>" class="social" id="linkinLink">
+                                    <a href="<%#Eval("linkin") %>" target="_blank" class="social" id="linkinLink">
                                         <span>linkin</span>
                                     </a>
                                  

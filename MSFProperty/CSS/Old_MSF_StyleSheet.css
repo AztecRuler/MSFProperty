@@ -201,13 +201,7 @@ h3 {
     max-height: 450px;
     height: auto;
     min-height: 450px;
-    /* STOP SMOOTHING, GIVE ME SPEED  */
-    /* Firefox                        */
-    /* Opera                          */
-    /* Chrome (and eventually Safari) */
-    /* Chrome */
-    /* CSS3 Proposed                  */
-    /* IE8+                           */
+
 }
 
 
@@ -297,14 +291,13 @@ img.slideShowSelector.slideShowCursor.bgimg {
 .slideShowSelector {
     opacity: 0.6;
 }
-
-    .activeSlideShow,
-    .slideShowSelector:hover {
+.activeSlideShow,
+.slideShowSelector:hover {
         opacity: 1;
     }
 /*end of slideshow*/
+
 /*start of tabs*/
-/* Style the tab */
 .tab {
     overflow: hidden;
     background-color: #f1f1f1;

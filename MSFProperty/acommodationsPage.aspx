@@ -2,12 +2,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Properties</title>
-    <link rel="canonical" href=""/>
+    
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainBody" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <div class="msf-main-bg-header bgimg  editable lazy" style="background-image: url('../Images/<%= GetImage(5) %>')" max-height: "871px;">
+    <div class="msf-main-bg-header bgimg  editable lazy" style="background-image: url('../Images/<%= GetImage(5) %>'); max-height:871px;">
         <div class="span-table">
             <div class="span-table-cell vertical-align-middle text-align-center">
                 <div class="container">
@@ -45,7 +45,7 @@
                                         <li class="msf-list-villas-inset-item clear-both-fix">
                                             <div class="span-table">
 
-                                                <div class="span-table-cell msf-lvi-box-main lazy" style="background-image: url(Images/<%# Eval("MainImage") %>);">
+                                                <div class="span-table-cell msf-lvi-box-main lazy" style="background-image: url('Images/<%# Eval("MainImage") %>');">
                                                     <a href="properties.aspx?id=<%# Eval("ID") %>" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;"></a>
 
                                                 </div>
@@ -78,9 +78,9 @@
                                                             <a href="properties.aspx?id=<%# Eval("ID") %>&tab=Pricing">Pricing</a> <small style="padding-top: 20px;">Availability</small>
                                                         </li>
                                                         <li class="msf-ico-cost msf-ico">
-                                                            <a style="text-indent: 5px; font-size: 14px; text-align: center;" href="properties.aspx?id=<%# Eval("ID") %>&tab=Pricing"><%# Eval("RentPrice") %></a>
+                                                            <a style="text-indent: 5px; font-size: 14px; text-align: center;" href="properties.aspx?id=<%# Eval("ID") %>&tab=Pricing"><%# Eval("RentPrice", "{0:0.00}") %></a>
                                                             <small>
-                                                                <span><%# Eval("RentPrice") %> per month </span>
+                                                                <span><%# Eval("RentPrice", "{0:0.00}") %> per month </span>
                                                             </small>
                                                         </li>
                                                     </ul>

@@ -36,9 +36,9 @@ namespace MSFProperty.Admin.EF
         [StringLength(50)]
         public string AvaiableTo { get; set; }
 
-        public int RentPrice { get; set; }
+        public decimal RentPrice { get; set; }
 
-        public int Deposit { get; set; }
+        public decimal Deposit { get; set; }
 
         public int? AddressNumber { get; set; }
 

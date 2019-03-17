@@ -100,13 +100,13 @@ namespace MSFProperty
         {
             return _result.AvailableFrom != ""  ?_result.AvailableFrom : "Date still pending" ;
         }
-        protected int GetDeposit()
+        protected string GetDeposit()
         {
-            return _result.Deposit;
+            return _result.Deposit.ToString("F");
         }
-        protected int GetRentPrice()
+        protected string GetRentPrice()
         {
-            return _result.RentPrice;
+            return _result.RentPrice.ToString("F");
         }
         public static bool IsEmpty(DateTime dateTime)
         {

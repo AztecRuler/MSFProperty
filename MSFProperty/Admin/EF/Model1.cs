@@ -175,6 +175,14 @@ namespace MSFProperty.Admin.EF
                 .IsUnicode(false);
 
             modelBuilder.Entity<Property>()
+                .Property(e => e.RentPrice)
+                .HasPrecision(19, 4);
+
+            modelBuilder.Entity<Property>()
+                .Property(e => e.Deposit)
+                .HasPrecision(19, 4);
+
+            modelBuilder.Entity<Property>()
                 .Property(e => e.Area)
                 .IsFixedLength();
 
@@ -213,10 +221,6 @@ namespace MSFProperty.Admin.EF
             modelBuilder.Entity<Review>()
                 .Property(e => e.ReviewLeft)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<Review>()
-                .Property(e => e.Rating)
-                .IsFixedLength();
 
             modelBuilder.Entity<Review>()
                 .Property(e => e.UserName)

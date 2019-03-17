@@ -177,10 +177,23 @@ hr.type_4 {
     width: 32%;
 }
 
+/*start of slideShow*/
+
+.slideShowContainer {
+    padding-top: 14px;
+}
+
 .titleSlideShow {
     text-align: center;
-    font-size: 38px;
     padding: 10px;
+    font-size: 38px;
+}
+
+.slidePageContainer {
+    margin: 0 auto;
+    max-width: 1196px;
+    min-width: 260px;
+    position: relative;
 }
 
 .mySlides img {
@@ -191,42 +204,59 @@ hr.type_4 {
     min-height: 450px;
 }
 
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
 .slideShowCursor {
     cursor: pointer;
 }
 
-.slideShowPrev, .slideShowNext {
+/* slideShowNext & slideShowPrevious buttons */
+.slideShowPrev,
+.slideShowNext {
     cursor: pointer;
     position: absolute;
     top: 15%;
     width: auto;
-    color: #FFF;
-    font-weight: 700;
-    font-size: 46px;
     padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 46px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
+/* Position the "slideShowNext button" to the right */
 .slideShowNext {
     right: 0;
+    border-radius: 3px 0 0 3px;
 }
 
-    .slideShowPrev:hover, .slideShowNext:hover {
-        background-color: #000000;
-        background-color: rgba(0,0,0,.5);
+    /* On hover, add a black background color with a little bit see-through */
+    .slideShowPrev:hover,
+    .slideShowNext:hover {
+        background-color: rgba(0, 0, 0, .5);
     }
 
+/* Number text (1/3 etc) */
 .slideShowNumbertext {
     color: #f2f2f2;
     font-size: 12px;
-    position: absolute;
     padding: 8px 12px;
+    position: absolute;
 }
 
+/* Container for image text */
 .caption-container {
     text-align: center;
     background-color: #222;
-    color: #FFF;
     padding: 2px 16px;
+    color: white;
 }
 
 .slideShowRow {
@@ -246,6 +276,7 @@ img.slideShowSelector.slideShowCursor.bgimg {
     clear: both;
 }
 
+/* Six slideShowColumns side by side */
 .slideShowColumn {
     width: 10%;
     min-height: 150px;
@@ -256,6 +287,97 @@ img.slideShowSelector.slideShowCursor.bgimg {
     margin: 4px;
 }
 
+/* Add a transparency effect for thumnbail images */
+.slideShowSelector {
+    opacity: 0.6;
+}
+
+    .activeSlideShow,
+    .slideShowSelector:hover {
+        opacity: 1;
+    }
+/*end of slideshow*/
+/*modal*/
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9999;
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {  
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes zoom {
+    from {transform: scale(0.1)} 
+    to {transform: scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+/*end of modal*/
+
+/*tabs*/
 .tab {
     overflow: hidden;
     background-color: #f1f1f1;
@@ -555,6 +677,9 @@ input {
     right: 0;
     top: 0;
     z-index: 999;
+    -webkit-box-shadow: 0 2px 21px -7px grey;
+    -moz-box-shadow: 0 2px 21px -7px grey;
+    box-shadow: 0 2px 21px -7px grey;
 }
 
     #msf-nav-bar .container {
@@ -2208,7 +2333,7 @@ textarea#TextBoxReview {
     border-radius: 105px 105px 105px 105px;
     box-shadow: 20px 28px 40px -5px #b5aeb5;
     box-shadow: 20px 28px 40px -5px rgba(181, 174, 181, 1);
-    height: 100%;
+    object-fit: fill;
 }
 
 .aboutUsInfoSection, .reviewContainer {
@@ -2237,21 +2362,18 @@ textarea#TextBoxReview {
     }
 
 div#msf-About_Us-Image {
-    height: 210px;
     margin-top: 1%;
 }
 
 div#msf-About_Us-text {
-    margin: 0 auto;
+    margin: 14px auto;
     width: 80%;
     word-wrap: break-word;
 }
 
 h3#msf-About_Us-title {
-    font-size: 22px;
-    font-size: 2.2rem;
-    margin-top: 8px;
-    padding: 21px;
+    font-size: 25px;
+    font-size: 2.5rem;
 }
 
 p#msf-About_Us-P {

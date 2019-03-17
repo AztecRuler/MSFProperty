@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MSFMaster.Master" AutoEventWireup="true" CodeBehind="ContactUs.aspx.cs" Inherits="MSFProperty.ContactUs" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>ContactUs</title>
-    <link rel="canonical" href="" />
+   
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainBody" runat="server">

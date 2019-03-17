@@ -21,6 +21,7 @@
 
                 <asp:ScriptReference Path="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></asp:ScriptReference>
                 <asp:ScriptReference Path="../Javascript/adminJavaScript.js"></asp:ScriptReference>
+                <asp:ScriptReference Path="https://cdn.tinymce.com/4/tinymce.min.js"></asp:ScriptReference>
 
             </Scripts>
         </asp:ScriptManager>
@@ -81,7 +82,7 @@
                     <ul id="navBar">
                         <asp:LoginStatus style="float: right" ID="LoginStatus1" runat="server" />
 
-                        <li style="float: right"><a href="../Default.aspx" target="_blank">View Live Web Site</a></li>
+                        <li style="float: right"><a href="../Default.aspx" target="_blank" >View Live Web Site</a></li>
 
                     </ul>
 

@@ -7,9 +7,54 @@
 <asp:ScriptManagerProxy ID="ScriptManagerProxy1" runat="server">
     <Scripts>
         <asp:ScriptReference Path="../Javascript/adminJavaScript.js"></asp:ScriptReference>
+
     </Scripts>
 </asp:ScriptManagerProxy>
 <script type="text/javascript">
+    $(document).ready(function () {
+        /* initial load of editor */
+        LoadTinyMCE();
+    });
+
+    Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler_Page);
+
+    /* fire this event to remove the existing editor and re-initialize it*/
+    function EndRequestHandler_Page(sender, args) {
+        //1. Remove the existing TinyMCE instance of TinyMCE
+        tinymce.remove( "#<%=PropertyBlurb.ClientID%>");
+        //2. Re-init the TinyMCE editor
+        LoadTinyMCE();
+    }
+
+    function SaveTextBoxBeforePostBack() {
+        tinymce.triggerSave();
+    }
+
+    function LoadTinyMCE() {
+
+        /* initialize the TinyMCE editor */
+        tinymce.init({
+            selector: "#<%=PropertyBlurb.ClientID%>",
+            plugins: ['advlist autolink lists link image charmap print preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks visualchars code fullscreen',
+                'insertdatetime media nonbreaking save table contextmenu directionality',
+                'emoticons template paste textcolor colorpicker textpattern imagetools'
+            ],
+            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            toolbar2: 'print preview media | forecolor backcolor emoticons',
+            image_advtab: true,
+            templates: [
+                { title: 'Test template 1', content: 'Test 1' },
+                { title: 'Test template 2', content: 'Test 2' }
+            ],
+            content_css: ['//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+                '//www.tinymce.com/css/codepen.min.css'
+            ]
+        });
+    }
+
+
+
     // ReSharper disable once UnusedParameter
     function preview(sender, e) {
         $("#imagePreview").css("background-image", `url(../Images/${sender.newFileName})`);
@@ -18,19 +63,16 @@
 
     function ShowItems(event, panel, num) {
         const UpdatePanel1 = '<%= GetAdressUpdatePanel.ClientID %>';
-        const UpdatePanel2 = '<%= PropertyDetailsUpdatePanel.ClientID %>';
         const UpdatePanel3 = '<%= EditPropertyListingUpdatePanel.ClientID %>';
         const UpdatePanel4 = '<%= DeleteUpdatePanel.ClientID %>';
 
         if (panel === "createProperty") {
             $('#ClearAllBoxes').click();
+            $('#errorText').val = "";
+            $('#ErrorAddress').val = "";
         }
         if (UpdatePanel1 != null) {
             __doPostBack(UpdatePanel1, '');
-        }
-
-        if (UpdatePanel2 != null) {
-            __doPostBack(UpdatePanel2, '');
         }
 
         if (UpdatePanel3 != null) {
@@ -43,9 +85,9 @@
         canDeleteProperty = true;
 
         OpenAdminTab(event, panel, num);
-
     }
 </script>
+
 <asp:Panel ID="Panel1" runat="server" GroupingText="Property">
 <div class="tab">
     <button class="tablinks active" id="createNewProperty" onclick="ShowItems(event,'createProperty', 1)">Create A New Property Listing</button>
@@ -69,7 +111,7 @@
 </asp:UpdateProgress>
 <asp:UpdatePanel ID="GetAdressUpdatePanel" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
     <Triggers>
-
+        <asp:PostBackTrigger ControlID="SaveButton"/>
         <asp:AsyncPostBackTrigger ControlID="PostCodeLookUp"/>
         <asp:AsyncPostBackTrigger ControlID="ClearTextBoxes"/>
         <asp:AsyncPostBackTrigger ControlID="ClearAllBoxes"/>
@@ -162,13 +204,7 @@
                 <iframe src="" width="1000" runat="server" frameborder="0" id="mapForPostcode" style="border: 0"> </iframe>
             </asp:Panel>
         </div>
-    </ContentTemplate>
-</asp:UpdatePanel>
-<asp:UpdatePanel ID="PropertyDetailsUpdatePanel" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
-<Triggers>
-    <asp:PostBackTrigger ControlID="SaveButton"/>
-</Triggers>
-<ContentTemplate>
+
 <asp:Panel ID="Panel3" runat="server" GroupingText="Property Details">
 
     <table>
@@ -358,7 +394,7 @@
         </tr>
         <tr>
             <td>
-                <asp:Button ID="SaveButton" runat="server" Text="Save" OnClick="SaveNewProperty"/>
+                <asp:Button ID="SaveButton" runat="server" Text="Save" OnClick="SaveNewProperty" />
                 <asp:HiddenField ID="isEdit" runat="server" ClientIDMode="Static"/>
                 <asp:Button ID="ClearAllBoxes" runat="server" Text="Clear Boxes" OnClick="ClearFront"/>
 
@@ -374,20 +410,6 @@
 
 </ContentTemplate>
 </asp:UpdatePanel>
-<asp:UpdateProgress ID="PropertyDetailsUpdateProgress" runat="server" AssociatedUpdatePanelID="PropertyDetailsUpdatePanel" DynamicLayout="True">
-    <ProgressTemplate>
-
-        <div id="overlay">
-            <div class="modalprogress">
-                <div class="theprogress">
-                    <asp:Image class="imgWaitIcon" runat="server" ImageAlign="AbsMiddle" ImageUrl="../ajax-loader.gif"/>
-                    Please wait loading data...
-                </div>
-            </div>
-        </div>
-
-    </ProgressTemplate>
-</asp:UpdateProgress>
 </div>
 
 <div id="existingProperty" class="tabcontent">

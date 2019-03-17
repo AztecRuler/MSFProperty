@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>MSF Property Management</title>
-    <link rel="canonical" href=""/>
+    
 
 </asp:Content>
 
@@ -129,65 +129,65 @@
 
                             <asp:Repeater ID="PropertyRepeaterHome" runat="server">
 
-                                <ItemTemplate>
-                                    <li class="msf-list-villas-inset-item clear-both-fix">
-                                        <div class="msf-lvi-box span-table">
-                                            
-                                            <div class="span-table-cell msf-lvi-box-main lazy" style="background-image: url(Images/<%# Eval("MainImage") %>);">
-                                                <a href="properties.aspx?id=<%# Eval("ID") %>" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;"></a>
+                                    <ItemTemplate>
+                                        <li class="msf-list-villas-inset-item clear-both-fix">
+                                            <div class="span-table">
 
+                                                <div class="span-table-cell msf-lvi-box-main lazy" style="background-image: url('Images/<%# Eval("MainImage") %>');">
+                                                    <a href="properties.aspx?id=<%# Eval("ID") %>" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;"></a>
+
+                                                </div>
+                                                <div class="span-table-cell  msf-lvi-box-side">
+                                                    <ul class="clear-both-fix">
+                                                        <li class="msf-ico-bed msf-ico">
+                                                            <strong>Bed</strong> <span><%# Eval("Bedrooms") %></span>
+                                                            <small>
+                                                                <%# Eval("Bedrooms") %><br>
+                                                                Bedrooms
+                                                            </small>
+                                                        </li>
+                                                        <li class="msf-ico-computer msf-ico">
+                                                            <strong>Computer</strong><small style="padding-top: 10px;"><%# Eval("Amenities") %></small>
+                                                        </li>
+                                                        <li class="msf-ico-bath msf-ico">
+                                                            <strong>Washing Facilities</strong><small><%# Eval("BathType") %></small>
+                                                        </li>
+                                                        <li class="msf-ico-location msf-ico">
+                                                            <a href="properties.aspx?id=<%# Eval("ID") %>&tab=Location">Location</a><small style="padding-top: 20px;">Location</small>
+                                                        </li>
+                                                        <li class="msf-ico-pet msf-ico">
+                                                            <strong>Pet</strong> <span><%# Eval("Pets").ToString().Replace("True", " Yes").Replace("False", " No") %></span>
+                                                            <small style="padding-top: 10px;">
+                                                                <br>
+                                                                Pets
+                                                            </small>
+                                                        </li>
+                                                        <li class="msf-ico-email msf-ico">
+                                                            <a href="properties.aspx?id=<%# Eval("ID") %>&tab=Pricing">Pricing</a> <small style="padding-top: 20px;">Availability</small>
+                                                        </li>
+                                                        <li class="msf-ico-cost msf-ico">
+                                                            <a style="text-indent: 5px; font-size: 14px; text-align: center;" href="properties.aspx?id=<%# Eval("ID") %>&tab=Pricing"><%# Eval("RentPrice", "{0:0.00}") %></a>
+                                                            <small>
+                                                                <span><%# Eval("RentPrice", "{0:0.00}") %> per month </span>
+                                                            </small>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
-                                            <div class="span-table-cell vertical-align-middle text-align-center msf-lvi-box-side">
-                                                <ul class="clear-both-fix">
-                                                    <li class="msf-ico-bed msf-ico">
-                                                        <strong>Bed</strong> <span><%# Eval("Bedrooms") %></span>
-                                                        <small>
-                                                            <%# Eval("Bedrooms") %><br>
-                                                            Bedrooms
-                                                        </small>
-                                                    </li>
-                                                    <li class="msf-ico-computer msf-ico">
-                                                        <strong>Computer</strong><small style="padding-top: 10px;"><%# Eval("Amenities") %></small>
-                                                    </li>
-                                                    <li class="msf-ico-bath msf-ico">
-                                                        <strong>Washing Facilities</strong><small><%# Eval("BathType") %></small>
-                                                    </li>
-                                                    <li class="msf-ico-location msf-ico">
-                                                        <a href="properties.aspx/#location">Location</a><small style="padding-top: 20px;">Location</small>
-                                                    </li>
-                                                    <li class="msf-ico-pet msf-ico">
-                                                        <strong>Pet</strong> <span><%# Eval("Pets").ToString().Replace("True", " Yes").Replace("False", " No") %></span>
-                                                        <small style="padding-top: 10px;">
-                                                            <br>
-                                                            Pets
-                                                        </small>
-                                                    </li>
-                                                    <li class="msf-ico-email msf-ico">
-                                                        <a href="properties.aspx/#pricing-availability">Pricing</a> <small style="padding-top: 20px;">Availability</small>
-                                                    </li>
-                                                    <li class="msf-ico-cost msf-ico">
-                                                        <a style="text-indent: 5px; font-size: 14px; text-align: center;" href="properties.aspx/#pricing-availability"><%# Eval("RentPrice") %></a>
-                                                        <small>
-                                                            <span><%# Eval("RentPrice") %> per month </span>
-                                                        </small>
-                                                    </li>
-                                                </ul>
+                                            <div class="msf-lvi-sub-box">
+                                                <h3>
+                                                    <a href="properties.aspx?id=<%# Eval("ID") %>"><%# Eval("PropertyName") %></a>
+                                                </h3>
+                                                <p></p>
+                                                <p style="width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><%# GetTextContents(Convert.ToInt32(Eval("ID"))) %> </p>
+                                                <a style="z-index: 1; color: gray; font-weight: bold; position: relative; bottom: 1px;" href="properties.aspx?id=<%# Eval("ID") %>">more</a>
+
+                                                <a class="msf-more-button" href="properties.aspx?id=<%# Eval("ID") %>">More Information</a>
                                             </div>
-                                        </div>
-                                        <div class="msf-lvi-sub-box">
-                                            <h3>
-                                                <a href="properties.aspx/"><%# Eval("PropertyName") %></a>
-                                            </h3>
-                                            <p></p>
-                                            <p style="width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><%# GetTextContents(Convert.ToInt32(Eval("ID"))) %> </p>
-                                            <a style="z-index: 1; color: gray; font-weight: bold; position: relative; bottom: 1px;" href="properties.aspx/">more</a>
 
-                                            <a class="msf-more-button" href="properties.aspx/">More Information</a>
-                                        </div>
-
-                                        <span class="property_line"></span>
-                                    </li>
-                                </ItemTemplate>
+                                            <span class="property_line"></span>
+                                        </li>
+                                    </ItemTemplate>
                             </asp:Repeater>
 
                         </ul>

@@ -50,7 +50,7 @@
                   </td>
               </tr>
           </table>
-          <asp:Button runat="server" ID="saveSocial"OnClick="saveSocial_OnClick"/>
+          <asp:Button ID="saveSocial" runat="server" Text="Save social links" OnClick="SaveSocial_OnClick"/>
           <asp:Label runat="server" ForeColor="Red" ID="SocialError" ></asp:Label>
       </ContentTemplate>
   </asp:UpdatePanel>

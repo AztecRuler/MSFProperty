@@ -1,8 +1,8 @@
-﻿using MSFProperty.Admin.EF;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
+using System.Web;
 using System.Web.UI;
+using MSFProperty.Admin.EF;
 
 namespace MSFProperty
 {
@@ -21,6 +21,8 @@ namespace MSFProperty
         protected void Page_Load(object sender, EventArgs e)
         {
             FillRepeater();
+            var url = HttpContext.Current.Request.Url.AbsoluteUri;
+            canonical.Href = url;
         }
 
         protected void FillRepeater()
@@ -31,6 +33,5 @@ namespace MSFProperty
                 ContactUsRepeater.DataBind();
             }
         }
-
     }
 }

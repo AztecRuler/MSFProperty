@@ -6,13 +6,13 @@ window.onload = function () {
     $("#overlayLoad").addClass("hidden");
 
 }
+
 function checkEditProperty() {
 
     const r = confirm('Are you sure you want to edit this property?');
     releaseProperties();
     if (r === true) {
         setTimeout(OpenAdminTab(event, 'createProperty', 1, 1), 5000);
-
     } else {
        
         return false;
@@ -37,11 +37,14 @@ function releaseProperties() {
 }
 function pageLoad() {
     $(document).ready(function () {
+
         setBlogEditClick();
         SetForDeleteBlog(); 
         setUserEditClick();
         deletePropertyButtonClick();
         editPropertyButtonClick();
+        setEditReviewsClick();
+
         if ($("#createNewAbout_Us").length) {
             setAboutUsEditClick();
             setCancelDeleteClick();
@@ -65,6 +68,8 @@ function pageLoad() {
                 }
             });
         }
+        
+     
 
         $(".imageButtonUpload").on('click', function (event) {
             event.stopPropagation();
@@ -156,7 +161,6 @@ function deletePropertyButtonClick() {
 
     $(".PropertyDelete").on("click", function (event) {
         var propId = $(this).data("id");
-        var checked = false; 
         if (!canDeleteProperty) return;
 
         $(".PropertyDelete").not(this).toggleClass("hidden");
@@ -164,30 +168,45 @@ function deletePropertyButtonClick() {
         $("#DeletePropertyBtn").removeClass("hidden");
         $("#CancelDelete").removeClass("hidden");
         $("#FeaturedChangedHolder").removeClass("hidden");
-        
-        $.ajax(
-            {
-                type: 'Post',
-                url: "PropertyPage.aspx/CheckFeatured",
-                data: `{ "data":${JSON.parse(propId)} }`,
-                dataType: "json",
-                contentType: "application/json",
-                success: function (data) {
-                    checked = (data.d);
-                    if (checked === "True") {
-                        $("#CheckedOrNot").prop("checked", true);
-                    }
-                },
-                error: function(data, success, error) {
-                    alert("Error : " + error);
-                }
-            });
+        restCallCheckbox(propId, "PropertyPage.aspx/CheckFeatured", "#CheckedOrNot");
         canDeleteProperty = false;
         return false;
     });
 
 }
 
+function setEditReviewsClick() {
+    $(".reviewCard").on('click',
+        function(event) {
+            const id = $(this).data("id");
+            $(".reviewCard").not(this).toggleClass("hidden");
+            $(".editReviewControls").removeClass("hidden");
+            $("#reviewNumber").val(id);
+            restCallCheckbox(id, "AdminReviewOverview.aspx/CheckFeatured", "#isFeatured");
+        });
+}
+
+function restCallCheckbox(propId, URL, element) {
+    var checked = false; 
+
+    $.ajax(
+        {
+            type: "Post",
+            url: URL,
+            data: `{ "data":${JSON.parse(propId)} }`,
+            dataType: "json",
+            contentType: "application/json",
+            success: function (data) {
+                checked = (data.d);
+                if (checked === "True") {
+                    $(element).prop("checked", true);
+                }
+            },
+            error: function (data, success, error) {
+                alert(`Error : ${error}`);
+            }
+        });
+}
 function editPropertyButtonClick() {
 
     $(".editProperty").on("click", function (event) {
@@ -395,7 +414,7 @@ function loadTextAdminPanel(allTextElements, selectedElement) {
 }
 
 function rgb2hex(rgb) {
-    if (rgb.search("rgb") == -1) {
+    if (rgb.search("rgb") === -1) {
         return rgb;
     } else {
         rgb = rgb.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?\)$/);

@@ -11,13 +11,14 @@
     </Scripts>
 </asp:ScriptManagerProxy>
 <script>
-    $(document).ready(function() {
-        function UploadComplete(sender, args) {
+  
+    function UploadComplete(sender, args) {
+        $(document).ready(function() {
             const control = document.getElementById("<%= ImageSave.ClientID %>");
             control.style.display = "block";
-
+        });
         }
-    });
+
 </script>
 
 <div class="leftWrapper">

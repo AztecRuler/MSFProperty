@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Property Details</title>
-    <link rel="canonical" href=""/>
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainBody" runat="server">
 
@@ -13,7 +13,7 @@
                 <ItemTemplate>
                     <div class="mySlides">
                         <div class="slideShowNumbertext"><%# Container.ItemIndex + 1 %> / <%= GetSlideCount() %></div>
-                        <img class="bgimg lazy" src="/Images/<%# Container.DataItem %>">
+                        <img class="bgimg lazy modalimg" src="/Images/<%# Container.DataItem %>">
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
@@ -35,7 +35,46 @@
                 </asp:Repeater>
             </div>
         </div>
+        
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <span class="close">×</span>
+            <img alt="" class="modal-content bgimg lazy " id="img01">
+            <div id="caption"></div>
+        </div>
+
         <script>
+            //modal 
+            // Get the modal
+            var modal = document.getElementById('myModal');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+            var img = $('.modalimg');
+            console.log(1);
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            img.on('click',
+                function(event) {
+            
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    captionText.innerHTML = this.alt;
+                    slideShowStopped = true;
+                });
+
+ //Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+            var md =  document.getElementById("myModal");
+ //When the user clicks on <span> (x), close the modal
+            span.onclick = function() { 
+                modal.style.display = "none";
+                slideShowStopped = false;
+            }
+            md.onclick = function() { 
+                modal.style.display = "none";
+                slideShowStopped = false;
+            }
+            //slideshow
             var slideIndex = 1;
             showSlides(slideIndex);
 
@@ -50,6 +89,7 @@
             var timerSlides = setInterval(slide, 3000);
 
             function slide() {
+                if(!slideShowStopped)
                 plusSlides(1);
             }
 

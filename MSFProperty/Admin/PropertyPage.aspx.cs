@@ -32,6 +32,7 @@ namespace MSFProperty.Admin
         protected void SaveNewProperty(object sender, EventArgs e)
         {
             var todayDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
+            string htmlEncoded = WebUtility.HtmlEncode(PropertyBlurb.Text);
 
 
             if (Validation())
@@ -43,8 +44,8 @@ namespace MSFProperty.Admin
                     var pets = GetPets();
                     var availableFrom = GetAvailableFrom();
                     var avaiableTo = GetAvaiableTo();
-                    var rentPrice = GetRentPrice();
-                    var deposit = GetDeposit();
+                    decimal rentPrice = GetRentPrice();
+                    decimal deposit = GetDeposit();
                     var blurb = GetBlurb();
                     var featured = GetFeatured();
                     var created = todayDate;
@@ -265,15 +266,15 @@ namespace MSFProperty.Admin
             return PropertyBlurb.Text;
         }
 
-        private int GetDeposit()
+        private decimal GetDeposit()
         {
-            int.TryParse(PropertyDeposit.Text, out var retVal);
+            decimal.TryParse(PropertyDeposit.Text, out var retVal);
             return retVal;
         }
 
-        private int GetRentPrice()
+        private decimal GetRentPrice()
         {
-            int.TryParse(PropertyRentPrice.Text, out var retVal);
+            decimal.TryParse(PropertyRentPrice.Text, out var retVal);
             return retVal;
         }
 
@@ -317,6 +318,12 @@ namespace MSFProperty.Admin
 
         protected void Page_Load(object Src, EventArgs E)
         {
+            // ReSharper disable once PossibleNullReferenceException
+            if (!ScriptManager.GetCurrent(Page).IsInAsyncPostBack)
+            {
+                ScriptManager.RegisterOnSubmitStatement(this, this.GetType(), "SaveTextBoxBeforePostBack", "SaveTextBoxBeforePostBack()");
+
+            }
 
             if (Session["MainUrl"] != null)
                 if (Session["MainUrl"].ToString() != "")
@@ -383,12 +390,6 @@ namespace MSFProperty.Admin
             var bathType = GetBathType();
             var images = GetImages();
             var imagesCombinedSize = 0;
-
-            if (validateBlurb.Length > 3000)
-            {
-                validationOk = false;
-                _errorMessage += "Blurb is to long max letters are 3000 ";
-            }
 
             if (PropertyRentPrice.Text == "")
             {
@@ -609,7 +610,6 @@ namespace MSFProperty.Admin
             PropertyLocationX.Text = empty;
             PropertyY.Text = empty;
             GetAdressUpdatePanel.Update();
-            PropertyDetailsUpdatePanel.Update();
         }
 
         public class ModelAddress
@@ -770,8 +770,8 @@ namespace MSFProperty.Admin
           datepicker2.Value = result.AvaiableTo;
           datepicker1Value.Value = result.AvailableFrom;
           datepicker2Value.Value = result.AvaiableTo;
-          PropertyRentPrice.Text = result.RentPrice.ToString();
-          PropertyDeposit.Text = result.Deposit.ToString();
+          PropertyRentPrice.Text = result.RentPrice.ToString("F");
+          PropertyDeposit.Text = result.Deposit.ToString("F");
           Session["EditImages"] = result.Images;
           PropertyBlurb.Text = result.Blurb;
           isEdit.Value = "True";

@@ -20,7 +20,7 @@ namespace MSFProperty.Admin
         {
             var fileNames = Directory.GetFiles(Server.MapPath("~/Images"));
 
-            var imageList = fileNames.Select(item => item.Replace(" ", string.Empty).Split('\\').Last()).ToList();
+            var imageList = fileNames.Select(item => item.Split('\\').Last()).ToList();
 
             Repeater1.DataSource = imageList.ToList();
             Repeater2.DataSource = imageList.ToList();

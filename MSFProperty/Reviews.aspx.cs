@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Linq;
-using System.Web.UI.WebControls;
 using MSFProperty.Admin.EF;
+using Page = System.Web.UI.Page;
 
 namespace MSFProperty
 {
-    public partial class Reviews : System.Web.UI.Page
+    public partial class Reviews : Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
             using (var db = new Model1())
@@ -22,10 +21,10 @@ namespace MSFProperty
         {
             return DataCalls.GetColour(id);
         }
+
         public string GetText(int id)
         {
             return DataCalls.GetText(id);
-
         }
 
         public string GetImage(int id)
@@ -36,22 +35,23 @@ namespace MSFProperty
 
         protected void SaveReview_OnClick_(object sender, EventArgs e)
         {
-            bool validated = ValidateInput();
-            string userName = TextBoxUserName.Text;
+            var validated = ValidateInput();
+            var userName = TextBoxUserName.Text;
 
             if (!validated) return;
             if (userName == "")
                 userName = "Anonymous";
-            Review reviewObject = new Review
+            var reviewObject = new Review
             {
                 Allowed = false,
                 Date = DateTime.Today,
                 Featured = false,
-                Rating = Rating.Text,
+                Rating = Convert.ToInt32(Rating.Text),
                 UserName = userName,
-                ReviewLeft = TextBoxReview.Text
+                ReviewLeft = TextBoxReview.Text,
+                New = true
             };
-                
+
             using (var db = new Model1())
             {
                 db.Reviews.Add(reviewObject);
@@ -64,14 +64,13 @@ namespace MSFProperty
 
         protected bool ValidateInput()
         {
-            return TextBoxReview.Text != ""; 
+            return TextBoxReview.Text != "";
         }
 
         protected void ClearBoxes()
         {
             TextBoxReview.Text = "";
-            TextBoxUserName.Text = ""; 
-
+            TextBoxUserName.Text = "";
         }
     }
 }

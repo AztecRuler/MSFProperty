@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MSFMaster.Master" AutoEventWireup="true" CodeBehind="Privacy.aspx.cs" Inherits="MSFProperty.Privacy" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Privacy Policy</title>
-    <link rel="canonical" href=""/>
+    
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainBody" runat="server">

@@ -184,15 +184,6 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.HtmlControls.HtmlIframe mapForPostcode;
         
         /// <summary>
-        /// PropertyDetailsUpdatePanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel PropertyDetailsUpdatePanel;
-        
-        /// <summary>
         /// Panel3 control.
         /// </summary>
         /// <remarks>
@@ -389,15 +380,6 @@ namespace MSFProperty.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label errorText;
-        
-        /// <summary>
-        /// PropertyDetailsUpdateProgress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdateProgress PropertyDetailsUpdateProgress;
         
         /// <summary>
         /// EditPropertyListingUpdateProgress control.
