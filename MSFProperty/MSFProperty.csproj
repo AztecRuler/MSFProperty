@@ -260,6 +260,7 @@
       <DependentUpon>EditPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\EF\AboutUsInfo.cs" />
+    <Compile Include="Admin\EF\Analytic.cs" />
     <Compile Include="Admin\EF\Blog.cs" />
     <Compile Include="Admin\EF\ContactDetail.cs" />
     <Compile Include="Admin\EF\ContentImage.cs" />

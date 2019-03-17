@@ -6,6 +6,12 @@
 <head runat="server">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <noscript>Your browser does not support JavaScript! this may effect your experience</noscript>
+    <meta charset="UTF-8">
+    <meta name="description" content="<%= GetMetaDescription() %>">
+    <meta name="keywords" content="<%= GetMetaKeywords() %>">
+    <meta name="author" content="www.classantics.co.uk">
+
     <link href="CSS/MSF_StyleSheet.css" rel="stylesheet"/>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">

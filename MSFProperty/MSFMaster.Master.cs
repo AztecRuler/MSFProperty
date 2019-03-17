@@ -23,6 +23,7 @@ namespace MSFProperty
             FillRepeater();
             var url = HttpContext.Current.Request.Url.AbsoluteUri;
             canonical.Href = url;
+
         }
 
         protected void FillRepeater()
@@ -31,7 +32,34 @@ namespace MSFProperty
             {
                 ContactUsRepeater.DataSource = db.ContactDetails.ToList();
                 ContactUsRepeater.DataBind();
+
             }
+        }
+
+        protected string GetMetaDescription()
+        {
+            var retString = "";
+            using (var db = new Model1())
+            {
+                var  result = db.Analytics.SingleOrDefault(b => b.ID == 1);
+                if (result != null) retString = result.MeataDescription;
+            }
+
+          
+            return retString;
+        }
+
+        protected string GetMetaKeywords()
+        {
+            var retString = "";
+            using (var db = new Model1())
+            {
+                var result = db.Analytics.SingleOrDefault(b => b.ID == 1);
+                if (result != null) retString = result.Keywords;
+            }
+
+
+            return retString;
         }
     }
 }
