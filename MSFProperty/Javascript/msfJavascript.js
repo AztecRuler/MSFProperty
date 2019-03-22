@@ -1,5 +1,17 @@
 ﻿$(document).ready(function() {
     setNavMenu();
+    document.onkeydown = function (e) {
+        var keycode;
+        if (e === null) { // ie 
+            keycode = event.keyCode;
+        } else { // mozilla 
+            keycode = e.which;
+        }
+        if (keycode === 27) { 
+            // Go back one page
+            document.location.href = "/admin/admin.aspx";
+        }
+    };
 
     $("#privacyCheck").click(function() {
         if ($("#privacyCheck").is(":checked")) {

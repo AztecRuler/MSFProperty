@@ -5,8 +5,7 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
-        body { font-family: Arial; }
-
+   
         /* Style the adminReviewTab */
 
         .adminReviewTab {

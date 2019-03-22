@@ -22,7 +22,7 @@
 </script>
 
 <div class="leftWrapper">
-    <span>Select a page to edit it from the list below</span>
+    <h1>Select a page to edit it from the list below</h1>
     <div id="accordion">
 
         <asp:Repeater ID="rpData" runat="server">

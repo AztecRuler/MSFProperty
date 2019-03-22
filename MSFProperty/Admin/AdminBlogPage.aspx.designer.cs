@@ -22,13 +22,22 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
-        /// UpdatePanel2 control.
+        /// CreateBlogUpdateProgress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+        protected global::System.Web.UI.UpdateProgress CreateBlogUpdateProgress;
+        
+        /// <summary>
+        /// CreateBlogUpdatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel CreateBlogUpdatePanel;
         
         /// <summary>
         /// blogName control.
@@ -76,13 +85,13 @@ namespace MSFProperty.Admin {
         protected global::System.Web.UI.WebControls.CheckBox popularCheck;
         
         /// <summary>
-        /// FreeTextBox1 control.
+        /// BlogBlurb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::FreeTextBoxControls.FreeTextBox FreeTextBox1;
+        protected global::System.Web.UI.WebControls.TextBox BlogBlurb;
         
         /// <summary>
         /// SaveButton control.
@@ -181,7 +190,7 @@ namespace MSFProperty.Admin {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::FreeTextBoxControls.FreeTextBox blogEditFreeTextBox2;
+        protected global::System.Web.UI.WebControls.TextBox blogEditFreeTextBox2;
         
         /// <summary>
         /// SaveEditBlog control.

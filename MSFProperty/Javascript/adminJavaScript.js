@@ -286,7 +286,8 @@ function setBlogEditClick() {
         $("#imagePreview").attr("readonly", false).css("background-image", "url(../images/" + blogArray[1] + ")");
         $("#blogEditCheckBox1").attr("readonly", false).prop('checked', blogArray[0]);
         $("#textBoxPrevious").text(blogArray[2]);
-        $("#blogEditFreeTextBox2").val(blogArray[2]);
+        $("#blogEditFreeTextBox2").text(blogArray[2]);
+        $(tinymce.get('blogEditFreeTextBox2').getBody()).html(blogArray[2]);
         $(".blogEditSelect, .blogEditPanel").toggleClass("hidden");
 
         $("#editBlogId").val(blogArray[6]);

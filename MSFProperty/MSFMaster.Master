@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     <noscript>Your browser does not support JavaScript! this may effect your experience</noscript>
     <meta charset="UTF-8">
-    <meta name="description" content="<%= GetMetaDescription() %>">
-    <meta name="keywords" content="<%= GetMetaKeywords() %>">
+    <meta name="description" content=<%= GetMetaDescription() %>>
+    <meta name="keywords" content=<%= GetMetaKeywords() %>>
     <meta name="author" content="www.classantics.co.uk">
 
     <link href="CSS/MSF_StyleSheet.css" rel="stylesheet"/>
@@ -20,7 +20,38 @@
     <link rel="canonical" href="" runat="server" id="canonical"/>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <script> var pagePath = "<%= PagePath %>";</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136323896-1"></script>
+
+    <script> var pagePath = "<%= PagePath %>";
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+ 
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-136323896-1');
+
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window,document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2298301687108268'); 
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" 
+             src="https://www.facebook.com/tr?id=2298301687108268&ev=PageView
+&noscript=1"/>
+    </noscript>
+    <style>
+        A[href=""], A[href="#"] {
+            display: none;
+        }
+    </style>
 </head>
 <body>
 <form id="form1" runat="server">
@@ -114,7 +145,7 @@
                             <ul class="footerUL">
                                 <li class="contactDetails">LandLine:<%#Eval("TelephoneNumberLandLine") %></li>
                                 <li class="contactDetails footerMobile">Mobile:<%#Eval("TelephoneMobile") %></li>
-                                <li class="contactDetails">Property Reg number:<%#Eval("RegNumber") %></li>
+                                <li class="contactDetails">Letting Agent Registration Number:<%#Eval("RegNumber") %></li>
 
                             </ul>
                         </div>

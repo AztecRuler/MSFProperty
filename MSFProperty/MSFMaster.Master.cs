@@ -42,7 +42,7 @@ namespace MSFProperty
             using (var db = new Model1())
             {
                 var  result = db.Analytics.SingleOrDefault(b => b.ID == 1);
-                if (result != null) retString = result.MeataDescription;
+                if (result != null) retString = '"' + result.MeataDescription + '"';
             }
 
           
@@ -55,7 +55,7 @@ namespace MSFProperty
             using (var db = new Model1())
             {
                 var result = db.Analytics.SingleOrDefault(b => b.ID == 1);
-                if (result != null) retString = result.Keywords;
+                if (result != null) retString = '"' + result.Keywords + '"';
             }
 
 

@@ -1,6 +1,22 @@
 ﻿html {
     scroll-behavior: smooth;
+    background: rgb(255,255,255); /* Old browsers */
+    background: -moz-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(229,229,229,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
+
+#logInUpdate {
+    margin: 0 auto;
+    width: min-content;
+}
+
+#RecoverPasswordPanel {
+    margin: 0 auto;
+    width: min-content;
+}
+
 
 #overlay, #overlayLoad {
     -moz-opacity: 0.9;
@@ -46,8 +62,13 @@
     font-size: 15px;
     outline: none;
     padding: 18px;
-    text-align: left;
+    text-align: center;
     transition: 0.4s;
+    background: rgb(242,245,246); /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover, rgba(242,245,246,1) 0%, rgba(227,234,237,1) 37%, rgba(200,215,220,1) 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center, rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', endColorstr='#c8d7dc',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 .eclipseLines {
@@ -62,7 +83,11 @@
 }
 
 .active, .accordion:hover {
-    background-color: #ccc;
+    background: rgb(242,245,246); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(242,245,246,1) 0%, rgba(227,234,237,1) 37%, rgba(200,215,220,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', endColorstr='#c8d7dc',GradientType=0 ); /* IE6-9 */
 }
 
 .accordion:after {
@@ -186,6 +211,17 @@ input, a, button {
     cursor: pointer;
 }
 
+input, textarea {
+    background: rgb(254,255,255); /* Old browsers */
+    background: -moz-linear-gradient(45deg, rgba(254,255,255,1) 0%, rgba(210,235,249,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, rgba(254,255,255,1) 0%,rgba(210,235,249,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, rgba(254,255,255,1) 0%,rgba(210,235,249,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#d2ebf9',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+.textBoxSize {
+    min-width: 327px;
+    min-height: 62px;
+}
 #wrapper {
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -495,6 +531,23 @@ div#passwordConfirmPanel {
         }
 
 /* Style the tab content */
+.blogCard.PropertyDelete {
+    min-height: 600px;
+}
+
+input[type="button"], input[type="submit"], input[type="file" i ] {
+    background: rgb(242,245,246);
+    background: -moz-linear-gradient(top, rgba(242,245,246,1) 0%, rgba(227,234,237,1) 37%, rgba(200,215,220,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%);
+    background: linear-gradient(to bottom, rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', endColorstr='#c8d7dc',GradientType=0 );
+}
+
+    input[type="button"]:hover, input[type="submit"]:hover, input[type="file" i ]:hover {
+        background: -moz-linear-gradient(bottom, rgba(242,245,246,1) 0%, rgba(227,234,237,1) 37%, rgba(200,215,220,1) 100%);
+        background: -webkit-linear-gradient(bottom, rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%);
+        background: linear-gradient(to top, rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%);
+    }
 
 .adminPanel input {
     cursor: auto;
@@ -517,8 +570,13 @@ div#passwordConfirmPanel {
     display: none;
 }
 
+#blogImagePreview {
+    max-width: 200px;
+    max-height: 200px;
+}
+
 .blogTitle {
-    min-height: 37px;
+    min-height: 75px;
 }
 
 .blogEditPanel tr {
@@ -535,6 +593,14 @@ div#passwordConfirmPanel {
     width: 100%;
 }
 
+.blogCard.editProperty {
+    min-height: 600px;
+}
+
+.blogCard.PropertyDelete {
+    min-height: 600px;
+}
+
 .blogCard, .blogCardDelete {
     background-color: #f2f2f2;
     float: left;
@@ -542,7 +608,12 @@ div#passwordConfirmPanel {
     margin: 14px 14px;
     padding: 17px 50px;
     text-align: center;
-    width: 569px;
+    width: 39%;
+    background: rgb(242,245,246);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(242,245,246,1) 0%, rgba(227,234,237,1) 37%, rgba(200,215,220,1) 100%);
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(242,245,246,1) 0%,rgba(227,234,237,1) 37%,rgba(200,215,220,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', endColorstr='#c8d7dc',GradientType=1 );
 }
 
 #textBoxPrevious {
@@ -588,6 +659,11 @@ table#streetTable {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     font-size: 16px;
     width: 50%;
+}
+
+tr {
+    text-shadow: 1px 1px 1px #fff;
+    height: 35px;
 }
 
 #streetTable tr {
