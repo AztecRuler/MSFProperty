@@ -22,8 +22,17 @@
     </asp:ContentPlaceHolder>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136323896-1"></script>
 
-    <script> var pagePath = "<%= PagePath %>";
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.height = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.height = "0%";
+        }
+
+        var pagePath = "<%= PagePath %>";
+        // Global site tag (gtag.js) - Google Analytics 
  
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -31,14 +40,14 @@
 
         gtag('config', 'UA-136323896-1');
 
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-                    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-                n.queue=[];t=b.createElement(e);t.async=!0;
-                t.src=v;s=b.getElementsByTagName(e)[0];
-                s.parentNode.insertBefore(t,s)}(window,document,'script',
-                'https://connect.facebook.net/en_US/fbevents.js');
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window,document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '2298301687108268'); 
         fbq('track', 'PageView');
     </script>
@@ -51,6 +60,59 @@
         A[href=""], A[href="#"] {
             display: none;
         }
+
+
+        
+.master-overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-y: hidden;
+  transition: 0.5s;
+}
+
+.master-overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.master-overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.master-overlay a:hover, .master-overlay a:focus {
+  color: #f1f1f1;
+}
+
+.master-overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .master-overlay {overflow-y: auto;}
+  .master-overlay a {font-size: 20px}
+  .master-overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
     </style>
 </head>
 <body>
@@ -66,18 +128,8 @@
                             <span>MSF Property Management</span>
                         </a>
                     </h1>
-                    <ul class="msf-nav-bar-mobile-menu">
-                        <li class="msf-phone-button">
-                            <a href="tel:07709 649 292 ">
-                                <span>Phone</span>
-                            </a>
-                        </li>
-                        <li class="msf-open-menu-button">
-                            <a href="#">
-                                <span>Open menu </span>
-                            </a>
-                        </li>
-                    </ul>
+                  
+
                     <ul id="menu-main-menu" class="msf-nav-bar-main-menu msf-mobile-menu">
                         <li id="menu-item-1" class="current-menu-item">
                             <a href="Default.aspx">Home</a>
@@ -97,7 +149,21 @@
                         <li id="menu-item-6" class="">
                             <a href="ContactUs.aspx">Contact Us</a>
                         </li>
-                    </ul>
+                      </ul>
+                    <span class="msf-nav-bar-mobile-menu" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+                </div>
+                    
+                <div id="myNav" class="master-overlay">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <div class="master-overlay-content">
+                            <a href="Default.aspx">Home</a>
+                            <a href="services.aspx">Services</a>
+                            <a href="AcommodationsPage.aspx">Properties</a>
+                            <a href="About_Us.aspx">About us</a>
+                            <a href="BlogMainPage.aspx">Blog</a>
+                            <a href="ContactUs.aspx">Contact Us</a>
+                    </div>
                 </div>
             </div>
         </asp:ContentPlaceHolder>

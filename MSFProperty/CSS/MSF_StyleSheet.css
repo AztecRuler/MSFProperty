@@ -334,7 +334,7 @@ img.slideShowSelector.slideShowCursor.bgimg {
 }
 
 /* Add Animation */
-.modal-content, #caption {  
+.modal-content, #caption {
     -webkit-animation-name: zoom;
     -webkit-animation-duration: 0.6s;
     animation-name: zoom;
@@ -342,13 +342,23 @@ img.slideShowSelector.slideShowCursor.bgimg {
 }
 
 @-webkit-keyframes zoom {
-    from {-webkit-transform: scale(0)} 
-    to {-webkit-transform: scale(1)}
+    from {
+        -webkit-transform: scale(0)
+    }
+
+    to {
+        -webkit-transform: scale(1)
+    }
 }
 
 @keyframes zoom {
-    from {transform: scale(0.1)} 
-    to {transform: scale(1)}
+    from {
+        transform: scale(0.1)
+    }
+
+    to {
+        transform: scale(1)
+    }
 }
 
 /* The Close Button */
@@ -362,15 +372,15 @@ img.slideShowSelector.slideShowCursor.bgimg {
     transition: 0.3s;
 }
 
-.close:hover,
-.close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-}
+    .close:hover,
+    .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
 /* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 700px) {
     .modal-content {
         width: 100%;
     }
@@ -2870,7 +2880,7 @@ a#pintrstLink, a#linkinLink {
     }
 }
 
-/*@media only screen and (maxdevice-width: 1024px) {
+@media only screen and (maxdevice-width: 1024px) {
     .bgimg-1, .bgimg-2, .bgimg-3 {
         background-attachment: scroll;
     }
@@ -2901,72 +2911,13 @@ a#pintrstLink, a#linkinLink {
         width: 100%;
     }
 
-        .msf-mobile-menu li {
-            font-size: 16px;
-        }
-
-            .msf-mobile-menu li a {
-                display: block;
-                text-decoration: none;
-                padding: 10px 20px;
-            }
-
-    .msf-nav-bar-black-inset li a:hover, .msf-nav-bar-main-menu li a:hover {
-        background: rgba(255,255,255,.2);
-    }
-
-    .msf-nav-bar-main-menu li a span {
-        color: #fff;
-        font-family: Georgia, "Times New Roman", Times, serif;
-        font-style: italic;
-    }
-
     .msf-nav-bar-mobile-menu {
         display: block;
         float: right;
         margin-top: 26px;
+        right: 10px;
+        position: relative;
     }
-
-        .msf-nav-bar-mobile-menu li {
-            border-left: 1px solid #b7b7b7;
-            color: #b7b7b7;
-            float: left;
-        }
-
-            .msf-nav-bar-mobile-menu li:first-child {
-                border-left: none;
-            }
-
-            .msf-nav-bar-mobile-menu li a {
-                display: block;
-                font-size: 60px;
-                height: 80px;
-                line-height: 80px;
-                overflow: hidden;
-                text-align: center;
-                text-decoration: none;
-                width: 85px;
-            }
-
-                .msf-nav-bar-mobile-menu li a span {
-                    display: none;
-                }
-
-                .msf-nav-bar-mobile-menu li a:before {
-                    font-family: dashicons;
-                }
-
-            .msf-nav-bar-mobile-menu li.msf-open-menu-button a:before {
-                content: '\f333';
-            }
-
-            .msf-nav-bar-mobile-menu li.msf-phone-button a {
-                font-size: 40px;
-            }
-
-                .msf-nav-bar-mobile-menu li.msf-phone-button a:before {
-                    content: '\f525';
-                }
 
     .msf-main-bg-header {
         background-attachment: scroll;
@@ -2977,168 +2928,15 @@ a#pintrstLink, a#linkinLink {
         }
 }
 
-@media screen and (max-width: 768px) {
-    .msf-nav-bar-black-tel, .msf-nav-bar-black-email {
-        display: none;
-    }
-
-    .msf-mobile-menu li {
-        font-size: 14px;
-    }
-
-    .msf-list-villas-inset > li {
-        float: none;
-        margin-bottom: 14px;
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-    }
-
-        .msf-list-villas-inset > li .msf-lvi-box, .msf-list-villas-inset > li .msf-lvi-sub-box {
-            float: left;
-            height: 366px;
-            margin-bottom: 0;
-            overflow: hidden;
-            width: 50%;
-        }
-
-        .msf-list-villas-inset > li .msf-lvi-sub-box {
-            position: relative;
-            text-align: left;
-            padding: 0 0 0 14px;
-        }
-
-        .msf-list-villas-inset > li .msf-more-button {
-            left: 14px;
-            right: 0;
-        }
-
-        .msf-list-villas-inset > li .msf-lvi-box-main, .msf-list-villas-inset > li .msf-lvi-box-side {
-            display: block;
-            width: 100%;
-        }
-
-        .msf-list-villas-inset > li .msf-lvi-box-main {
-            height: 243px;
-        }
-
-        .msf-list-villas-inset > li .msf-lvi-box-side {
-            border-top: 1px solid #fff;
-            height: 120px;
-        }
-
-            .msf-list-villas-inset > li .msf-lvi-box-side > ul > li {
-                width: 25%;
-            }
-
-                .msf-list-villas-inset > li .msf-lvi-box-side > ul > li.msf-ico-cost {
-                    width: 50%;
-                }
-
-                .msf-list-villas-inset > li .msf-lvi-box-side > ul > li.msf-ico-bed, .msf-list-villas-inset > li .msf-lvi-box-side > ul > li.msf-ico-pet {
-                    border-left: none;
-                }
-}
-
-@media screen and (max-width: 560px) {
-    .msfLogo {
-        font-size: 1.8rem;
-        height: 80px;
-        padding-left: 14px;
-        padding-right: 0;
-    }
-
-        .msfLogo a span {
-            font-size: .7rem;
-            letter-spacing: 1px;
-        }
-
-    .msf-nav-bar-mobile-menu {
-        margin-top: 14px;
-    }
-
-        .msf-nav-bar-mobile-menu li.msf-phone-button a {
-            font-size: 20px;
-        }
-
-        .msf-nav-bar-mobile-menu li.msf-open-menu-button a {
-            font-size: 40px;
-        }
-
-        .msf-nav-bar-mobile-menu li a {
-            height: 52px;
-            line-height: 52px;
-            width: 57px;
-        }
-
-    .msf-mobile-menu {
-        width: 100%;
-    }
-
-        .msf-mobile-menu li a {
-            padding: 10px 14px;
-        }
-
-    .msf-main-bg-header h2 {
-        font-size: 3rem;
-    }
-}
-
-@media screen and (max-width: 460px) {
-    .msf-mobile-menu li {
-        font-size: 12px;
-    }
-
-    .msf-buttons-info li a {
-        font-size: 11px !important;
-        overflow: hidden;
-        text-align: center;
-    }
-
-    .msf-main-bg-header > .span-table {
-        height: 200px;
-    }
-}
-
-@media screen and (max-width: 520px) {
-    .msf-buttons-info {
-        padding-left: 11px;
-        padding-right: 11px;
-    }
-
-        .msf-buttons-info li {
-            display: block;
-        }
-
-    .msf-list-villas-inset > li .msf-lvi-box, .msf-list-villas-inset > li .msf-lvi-sub-box {
-        width: 100%;
-    }
-
-    .msf-list-villas-inset > li .msf-lvi-sub-box {
-        height: auto;
-        padding: 14px 0 0;
-    }
-
-        .msf-list-villas-inset > li .msf-lvi-sub-box:after {
-            display: none;
-        }
-
-    .msf-list-villas-inset > li .msf-more-button {
-        position: static;
-    }
-
-    .msf-lvi-sub-box h3 {
-        font-size: 2rem;
-    }
-}
 
 @media screen and (max-width: 800px) {
     .blogLeftcolumn, .blogRightcolumn {
         width: 100%;
         padding: 0;
     }
-}*/
+}
 
+/***************************************************FONTS*************************************/
 
 @font-face {
     font-family: 'Roboto';
