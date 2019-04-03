@@ -1,11 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace MSFProperty
 {
@@ -40,7 +38,6 @@ namespace MSFProperty
             }
             else
             {
-                //sendMessage.Attributes.Remove("disabled");
                 privacyCheck.Checked = false;
             }
         }
@@ -124,12 +121,14 @@ namespace MSFProperty
                     DeliveryMethod = SmtpDeliveryMethod.Network,
                     EnableSsl = false,
                     Host = "smtpout.europe.secureserver.net",
-                    Port = 25
+                    Port = 80,
+                    Timeout = 10000,
+
                 };
 
                 //Setup credentials to login to our sender email address ("UserName", "Password")
                 var credentials = new NetworkCredential("info@msfproperty.co.uk", "Marc1914");
-                client.UseDefaultCredentials = true;
+                //client.UseDefaultCredentials = true;
                 client.Credentials = credentials;
 
                 //Send the msg
@@ -163,6 +162,7 @@ namespace MSFProperty
             C_U_Enquiry_Error.Text = empty;
 
             privacyCheck.Checked = false;
+            sendMessage.Attributes.Remove("disabled");
 
         }
     }
