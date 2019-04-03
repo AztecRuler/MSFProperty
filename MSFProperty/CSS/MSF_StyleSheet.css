@@ -93,7 +93,7 @@ h3 {
     background-color: #FFF;
     color: #777;
     text-align: center;
-    padding: 3% 14%;
+    padding: 38px 14%;
 }
 
     .foregroundDiv h3 {
@@ -505,6 +505,10 @@ ul.footerUL {
     font-size: 16px;
 }
 
+.classAntics a {
+    font-size: 11px !important;
+}
+
 #footer li, #footer a {
     font-size: 18px;
 }
@@ -566,9 +570,6 @@ img.rightWrapper {
 
 p.classAntics {
     position: relative;
-    top: 6px;
-    right: 17px;
-    float: right;
     margin: 0;
 }
 
@@ -585,7 +586,6 @@ li.contactDetails.footerMobile {
 }
 
 #footerIconsSection {
-    border-bottom: 1px solid #c4c4c4;
     font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     padding-bottom: 36px;
 }
@@ -999,7 +999,7 @@ input {
 }
 
     .msf-list-villas-inset > li .msf-lvi-sub-box {
-        height: 205px;
+        height: 260px;
         overflow: hidden;
         position: relative;
     }
@@ -2214,6 +2214,42 @@ p, li {
     text-align: left;
 }
 
+
+#overlay, #overlayLoad {
+    -moz-opacity: 0.9;
+    background-color: #f8f8f8;
+    filter: Alpha(Opacity=90);
+    height: 100%;
+    left: 0px;
+    opacity: 0.9;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 99;
+}
+
+.theprogress {
+    -moz-opacity: 1;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    filter: Alpha(Opacity=100);
+    line-height: 30px;
+    opacity: 1;
+    padding: 10px;
+    text-align: center;
+    width: 300px;
+}
+
+.modalprogress {
+    color: #990000;
+    font-size: 14px;
+    font-weight: bold;
+    left: 50%;
+    margin: -11px 0 0 -150px;
+    position: absolute;
+    top: 40%;
+}
+
 #cuDIV_8, #cumainSearchContainer1, #cumainSearchContainer4, #cumainSearchContainer7 {
     font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     height: 60px;
@@ -2225,10 +2261,14 @@ p, li {
     border: 2px solid #acacac;
     font: normal normal 400 normal 18px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     width: 100%;
-    padding: 10px 14px;
+    padding: 5px 14px;
 }
 
-#cuTEXTAREA_22 {
+input#sendMessage:hover {
+    filter: invert(100%);
+}
+
+#C_U_Enquiry {
     border: 2px solid #acacac;
     display: block;
     font: normal normal 400 normal 18px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
@@ -2759,7 +2799,7 @@ a#pintrstLink, a#linkinLink {
     content: "\f237";
 }
 
-#cuFORM_1:after, #cuFORM_1:before, #cusmallSearchContainer:after, #cusmallSearchContainer:before, #cuDIV_8:after, #cumainSearchContainer1:after, #cumainSearchContainer4:after, #cumainSearchContainer7:after, #cuDIV_8:before, #cumainSearchContainer1:before, #cumainSearchContainer4:before, #cumainSearchContainer7:before, #cuSPAN_9:after, #cuSPAN_12:after, #cuSPAN_15:after, #cuSPAN_18:after, #cuSPAN_21:after, #cuSPAN_9:before, #cuSPAN_12:before, #cuSPAN_15:before, #cuSPAN_18:before, #cuSPAN_21:before, #cusmallSearchContainer0:after, #cusmallSearchContainer0:before, #cusmallSearchContainer3:after, #cusmallSearchContainer3:before, #cuSPAN_24:after, #cuSPAN_24:before, #cuSPAN_26:after, #cuSPAN_26:before, #cusmallSearchContainer8:after, #cusmallSearchContainer8:before, #cuDIV_31:after, #cuDIV_31:before {
+#cuFORM_1:after, #cuFORM_1:before, #cusmallSearchContainer:after, #cusmallSearchContainer:before, #cuDIV_8:after, #cumainSearchContainer1:after, #cumainSearchContainer4:after, #cumainSearchContainer7:after, #cuDIV_8:before, #cumainSearchContainer1:before, #cumainSearchContainer4:before, #cumainSearchContainer7:before, #cuSPAN_9:after, #cuSPAN_12:after, #cuSPAN_15:after, #cuSPAN_18:after, #cuSPAN_21:after, #cuSPAN_9:before, #cuSPAN_12:before, #cuSPAN_15:before, #cuSPAN_18:before, #cuSPAN_21:before, #cusmallSearchContainer0:after, #cusmallSearchContainer0:before, #cusmallSearchContainer3:after, #cusmallSearchContainer3:before, #cuSPAN_24:after, #cuSPAN_24:before, #C_U_PrivayAccept:after, #C_U_PrivayAccept:before, #cusmallSearchContainer8:after, #cusmallSearchContainer8:before, #cuDIV_31:after, #cuDIV_31:before {
     font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     text-align: left;
 }
@@ -2779,7 +2819,7 @@ a#pintrstLink, a#linkinLink {
         font: normal normal 400 normal 13.3333px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
 
-#cuINPUT_10:after, #cuINPUT_13:after, #cuINPUT_19:after, #cuINPUT_10:before, #cuINPUT_13:before, #cuINPUT_19:before, #cuINPUT_16:after, #cuINPUT_16:before, #cuTEXTAREA_22:after, #cuTEXTAREA_22:before {
+#C_U_Subject:after, #C_U_Name:after, #C_U_Phone:after, #C_U_Subject:before, #C_U_Name:before, #C_U_Phone:before, #C_U_Email:after, #C_U_Email:before, #C_U_Enquiry:after, #C_U_Enquiry:before {
     font: normal normal 400 normal 18px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
 }
 
@@ -2880,17 +2920,6 @@ a#pintrstLink, a#linkinLink {
     }
 }
 
-@media only screen and (maxdevice-width: 1024px) {
-    .bgimg-1, .bgimg-2, .bgimg-3 {
-        background-attachment: scroll;
-    }
-}
-
-@media (max-width: 414px) {
-    div h1.msfLogo {
-        height: 85px;
-    }
-}
 
 @media screen and (max-width: 1000px) {
     .container {
@@ -2911,11 +2940,16 @@ a#pintrstLink, a#linkinLink {
         width: 100%;
     }
 
+    .msfLogo {
+        left: 39px;
+        position: relative;
+    }
+
     .msf-nav-bar-mobile-menu {
         display: block;
         float: right;
         margin-top: 26px;
-        right: 10px;
+        right: 35px;
         position: relative;
     }
 
@@ -2926,14 +2960,111 @@ a#pintrstLink, a#linkinLink {
         .msf-main-bg-header > .span-table {
             height: 300px;
         }
+
+    li.msf-list-villas-inset-item.clear-both-fix {
+        width: 100%;
+        margin: 0;
+    }
+
+    .footerColumn.columnFirst {
+        display: none;
+    }
+
+    p.classAntics {
+        float: none;
+    }
 }
 
+@media only screen and (max-width: 896px) {
+    .bgimg-1 {
+        margin-bottom: 100px;
+    }
+}
 
 @media screen and (max-width: 800px) {
     .blogLeftcolumn, .blogRightcolumn {
         width: 100%;
         padding: 0;
     }
+}
+
+@media only screen and (max-width: 896px) {
+    .bgimg-1 {
+        margin-bottom: 180px;
+    }
+}
+
+@media only screen and (max-device-width: 768px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        background-attachment: scroll;
+    }
+}
+
+@media only screen and (max-width: 636px) {
+    #UL_5 {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-device-width: 460px) {
+    .foregroundDiv_dark {
+        padding: 14px 0;
+    }
+
+    #footer div:not(:first-child) {
+        display: inline;
+        border-left: none;
+    }
+
+    li.pricePointList h1 {
+        font-size: 18px;
+    }
+
+    .tabcontent {
+        display: none;
+        width: 100%;
+        padding: 6px 4px;
+    }
+
+    div#Amenities li h1 {
+        font-size: 16px;
+    }
+
+    .tab li {
+        padding: 15px 15px 20px 40px;
+    }
+
+        .tab li:before {
+            left: 0;
+        }
+
+    .blogRightcolumn {
+        display: none;
+    }
+
+    .foregroundDiv {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-device-width: 335px) {
+    .msf-nav-bar-mobile-menu {
+        right: 14px;
+        margin-top: 19px;
+    }
+
+    .span-table-cell.msf-lvi-box-main {
+        background-size: auto;
+    }
+
+    .mainBlogContents {
+        padding: 7px;
+    }
+
+        .mainBlogContents p {
+            text-align: justify;
+            padding: 0 14px;
+        }
 }
 
 /***************************************************FONTS*************************************/

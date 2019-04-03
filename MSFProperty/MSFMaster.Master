@@ -4,8 +4,9 @@
 
 <html>
 <head runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86, shrink-to-fit=yes">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+<%--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">--%>
     <noscript>Your browser does not support JavaScript! this may effect your experience</noscript>
     <meta charset="UTF-8">
     <meta name="description" content=<%= GetMetaDescription() %>>
@@ -78,7 +79,7 @@
 
 .master-overlay-content {
   position: relative;
-  top: 25%;
+  top: 10%;
   width: 100%;
   text-align: center;
   margin-top: 30px;
@@ -163,6 +164,10 @@
                             <a href="About_Us.aspx">About us</a>
                             <a href="BlogMainPage.aspx">Blog</a>
                             <a href="ContactUs.aspx">Contact Us</a>
+                            <a href="SearchResults.aspx">Search Page</a>
+                            <a href="FindUs.aspx">Find Us</a>
+                            <a href="Privacy.aspx">Privacy Policy</a>
+                            <a href="Reviews.aspx">Reviews</a>
                     </div>
                 </div>
             </div>

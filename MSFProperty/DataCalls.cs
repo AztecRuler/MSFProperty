@@ -112,6 +112,20 @@ namespace MSFProperty
 
             return (title, chat, quote, imageUrl);
         }
+
+        public static string GetMobileNumber()
+        {
+            using (var db = new Model1())
+            {
+                foreach (var item in db.ContactDetails)
+                {
+                    return item.TelephoneMobile;
+
+                }
+            }
+
+            return "";
+        }
     }
 
     

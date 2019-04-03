@@ -3338,31 +3338,31 @@ p, li {
     width: 100%;
 }
 
-#cuINPUT_10:after, #cuINPUT_13:after, #cuINPUT_19:after {
+#C_U_Subject:after, #C_U_Name:after, #C_U_Phone:after {
     box-sizing: border-box;
     font: normal normal 400 normal 18px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
 }
 
-/*#cuINPUT_10:after, #cuINPUT_13:after, #cuINPUT_19:after*/
+/*#C_U_Subject:after, #C_U_Name:after, #C_U_Phone:after*/
 
-#cuINPUT_10:before, #cuINPUT_13:before, #cuINPUT_19:before {
+#C_U_Subject:before, #C_U_Name:before, #C_U_Phone:before {
     box-sizing: border-box;
     font: normal normal 400 normal 18px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
 }
 
-#cuINPUT_16:after {
+#C_U_Email:after {
     box-sizing: border-box;
     font: normal normal 400 normal 18px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
 }
 
-/*#cuINPUT_16:after*/
+/*#C_U_Email:after*/
 
-#cuINPUT_16:before {
+#C_U_Email:before {
     box-sizing: border-box;
     font: normal normal 400 normal 18px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
 }
 
-/*#cuINPUT_16:before*/
+/*#C_U_Email:before*/
 
 #cusmallSearchContainer0 {
     box-sizing: border-box;
@@ -3388,7 +3388,7 @@ p, li {
 
 /*#cusmallSearchContainer0:before*/
 
-#cuTEXTAREA_22 {
+#C_U_Enquiry {
     border: 2px solid rgb(172, 172, 172);
     display: block;
     font: normal normal 400 normal 18px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
@@ -3396,21 +3396,21 @@ p, li {
     width: 100%;
 }
 
-    /*#cuTEXTAREA_22*/
+    /*#C_U_Enquiry*/
 
-    #cuTEXTAREA_22:after {
+    #C_U_Enquiry:after {
         box-sizing: border-box;
         font: normal normal 400 normal 18px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
 
-    /*#cuTEXTAREA_22:after*/
+    /*#C_U_Enquiry:after*/
 
-    #cuTEXTAREA_22:before {
+    #C_U_Enquiry:before {
         box-sizing: border-box;
         font: normal normal 400 normal 18px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
 
-/*#cuTEXTAREA_22:before*/
+/*#C_U_Enquiry:before*/
 
 #cusmallSearchContainer3 {
     font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
@@ -3476,21 +3476,21 @@ p, li {
         font: normal normal 400 normal 13.3333px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     }
 
-#cuSPAN_26:after {
+#C_U_PrivayAccept:after {
     box-sizing: border-box;
     font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     text-align: left;
 }
 
-/*#cuSPAN_26:after*/
+/*#C_U_PrivayAccept:after*/
 
-#cuSPAN_26:before {
+#C_U_PrivayAccept:before {
     box-sizing: border-box;
     font: normal normal 400 normal 10px/normal Roboto, proxima-nova, Arial, Helvetica, sans-serif;
     text-align: left;
 }
 
-/*#cuSPAN_26:before*/
+/*#C_U_PrivayAccept:before*/
 
 #cuA_27 {
     border: 0 none rgb(0, 0, 0);

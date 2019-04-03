@@ -27,5 +27,10 @@ namespace MSFProperty
         {
             return DataCalls.GetColour(id);
         }
+        protected object GetMobileNumber()
+        {
+            return DataCalls.GetMobileNumber();
+        }
+        
     }
 }

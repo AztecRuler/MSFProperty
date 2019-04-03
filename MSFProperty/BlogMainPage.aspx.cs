@@ -55,5 +55,9 @@ namespace MSFProperty
         {
             return DataCalls.GetImage(id);
         }
+        protected object GetMobileNumber()
+        {
+            return DataCalls.GetMobileNumber();
+        }
     }
 }

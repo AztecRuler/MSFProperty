@@ -228,3 +228,13 @@ Log Entry : 10:48:52 17 March 2019
   :
   :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940023&lon=-3.230788
 -------------------------------
+
+Log Entry : 16:15:09 03 April 2019
+  :
+  :https://api.postcodes.io/postcodes/eh218la
+-------------------------------
+
+Log Entry : 16:15:10 03 April 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940029&lon=-3.008716
+-------------------------------
