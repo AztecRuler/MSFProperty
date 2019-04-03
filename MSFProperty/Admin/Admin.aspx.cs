@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
+using System.Web;
 using System.Web.Security;
 using MSFProperty.Admin.EF;
 using Page = System.Web.UI.Page;
@@ -141,13 +142,13 @@ namespace MSFProperty.Admin
         private void SendPasswordResetEmail(string toEmail, string userName, string uniqueId)
         {
             var sbEmailBody = new StringBuilder();
+            var url = Request.Url.Host;
             sbEmailBody.Append("Dear " + userName + ",<br/><br/>");
             sbEmailBody.Append("We received a request to reset your password if this was not you please ignore this<br/>");
             sbEmailBody.Append("Otherwise<br/>");
-
             sbEmailBody.Append("Please click on the following link to reset your password this link will expire in 24hrs");
             sbEmailBody.Append("<br/>");
-            sbEmailBody.Append("<a href='http://localhost:41121/Admin/ChangePassword.aspx?uid='"+ uniqueId +">Click here to reset password</a>" );
+            sbEmailBody.Append("<a href='http://" + url + "/Admin/ChangePassword.aspx?uid='"+ uniqueId +">Click here to reset password</a>" );
             sbEmailBody.Append("<br/><br/>");
             sbEmailBody.Append("<b>msfproperty.co.uk</b> </br> Letting Agent Registration Number: LARN1809015");
 

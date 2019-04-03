@@ -13,6 +13,7 @@ namespace MSFProperty.Admin.EF
         }
 
         public virtual DbSet<AboutUsInfo> AboutUsInfoes { get; set; }
+        public virtual DbSet<Analytic> Analytics { get; set; }
         public virtual DbSet<Blog> Blogs { get; set; }
         public virtual DbSet<ContactDetail> ContactDetails { get; set; }
         public virtual DbSet<ContentImage> ContentImages { get; set; }
@@ -40,6 +41,14 @@ namespace MSFProperty.Admin.EF
 
             modelBuilder.Entity<AboutUsInfo>()
                 .Property(e => e.ImageUrl)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Analytic>()
+                .Property(e => e.MeataDescription)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Analytic>()
+                .Property(e => e.Keywords)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Blog>()
@@ -81,6 +90,30 @@ namespace MSFProperty.Admin.EF
             modelBuilder.Entity<ContactDetail>()
                 .Property(e => e.EmailAdress)
                 .IsFixedLength();
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.city)
+                .IsFixedLength();
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.facebook)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.twitter)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.google)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.pintrst)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ContactDetail>()
+                .Property(e => e.linkin)
+                .IsUnicode(false);
 
             modelBuilder.Entity<ContentImage>()
                 .Property(e => e.ImageUrl)
@@ -151,6 +184,14 @@ namespace MSFProperty.Admin.EF
                 .IsUnicode(false);
 
             modelBuilder.Entity<Property>()
+                .Property(e => e.RentPrice)
+                .HasPrecision(19, 4);
+
+            modelBuilder.Entity<Property>()
+                .Property(e => e.Deposit)
+                .HasPrecision(19, 4);
+
+            modelBuilder.Entity<Property>()
                 .Property(e => e.Area)
                 .IsFixedLength();
 
@@ -191,10 +232,6 @@ namespace MSFProperty.Admin.EF
                 .IsUnicode(false);
 
             modelBuilder.Entity<Review>()
-                .Property(e => e.Rating)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Review>()
                 .Property(e => e.UserName)
                 .IsFixedLength();
 
@@ -233,6 +270,10 @@ namespace MSFProperty.Admin.EF
             modelBuilder.Entity<TextContent>()
                 .Property(e => e.ElementLink)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<TextContent>()
+                .Property(e => e.Color)
+                .IsFixedLength();
         }
     }
 }

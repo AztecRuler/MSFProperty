@@ -8,7 +8,6 @@ namespace MSFProperty.Admin.EF
 
     public partial class Page
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { get; set; }
 
         [Required]

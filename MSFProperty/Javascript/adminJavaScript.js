@@ -1,10 +1,50 @@
-﻿function pageLoad() {
+﻿var oldPanel = null;
+var openPanel = false;
+var canEditProperty = true;
+var canDeleteProperty = true; 
+window.onload = function () {
+    $("#overlayLoad").addClass("hidden");
+
+}
+
+function checkEditProperty() {
+
+    const r = confirm('Are you sure you want to edit this property?');
+    releaseProperties();
+    if (r === true) {
+        setTimeout(OpenAdminTab(event, 'createProperty', 1, 1), 5000);
+    } else {
+       
+        return false;
+    }
+
+
+}
+function checkDeleteProperty() {
+
+    const r = confirm('Are you sure you want to delete this property?');
+    releaseProperties();
+    if (r !== true) {
+
+        return false;
+    }
+
+
+}
+function releaseProperties() {
+    canEditProperty = true;
+    canDeleteProperty = true;
+}
+function pageLoad() {
     $(document).ready(function () {
-        var oldPanel;
 
         setBlogEditClick();
-        SetForDeleteBlog();
+        SetForDeleteBlog(); 
         setUserEditClick();
+        deletePropertyButtonClick();
+        editPropertyButtonClick();
+        setEditReviewsClick();
+
         if ($("#createNewAbout_Us").length) {
             setAboutUsEditClick();
             setCancelDeleteClick();
@@ -28,13 +68,17 @@
                 }
             });
         }
+        
+     
+
         $(".imageButtonUpload").on('click', function (event) {
             event.stopPropagation();
             event.stopImmediatePropagation();
             event.preventDefault();
+           
             $('#uploadedImageUrl').val($(this).attr('src'));
             $("#imagePreview").css("background-image", "url(" + $('#uploadedImageUrl').val() + ")");
-        
+            UploadComplete();
         });
         if ($('iframe').length) {
             $('iframe').load(function() {
@@ -43,7 +87,11 @@
                         "<style type='text/css'>  #footer,#msf-nav-bar{display:none;} .editable{ box-shadow: none;} .editable:hover {box-shadow: 0 0 25px red;  inset 0 0 10px white;}  div[class*='bgimg'] {width: 99%; margin: auto;}</style>"));
                 var allTextElements = $(this).contents().find(".editable").not('div[class*="bgimg"]');
                 var allImageElements = $(this).contents().find('div[class*="bgimg"]');
-
+                $(this).contents().find(".editable").each(function () {
+                    if ($(this).text() === "") {
+                        $(this).text("This is an empty box but can be edited");
+                    }
+                });
 
                 $(this).contents().find(".editable").on('click',
                     function(event) {
@@ -81,13 +129,17 @@
         }
 
         $(".uploaders").change(function () {
+            if ($('#uploadedImageUrl').length)
+                $('#uploadedImageUrl').val('');
             readUrl(this, this.previousElementSibling);
 
         });
       
-      
+ 
     });
 }
+
+
 
 function setUserEditClick() {
     $(".userViewContainer").on('click', function (event) {
@@ -105,10 +157,73 @@ function setUserEditClick() {
     });
 }
 
+function deletePropertyButtonClick() {
 
+    $(".PropertyDelete").on("click", function (event) {
+        var propId = $(this).data("id");
+        if (!canDeleteProperty) return;
+
+        $(".PropertyDelete").not(this).toggleClass("hidden");
+        $("#deletePropertyHiddenField1").val(propId);
+        $("#DeletePropertyBtn").removeClass("hidden");
+        $("#CancelDelete").removeClass("hidden");
+        $("#FeaturedChangedHolder").removeClass("hidden");
+        restCallCheckbox(propId, "PropertyPage.aspx/CheckFeatured", "#CheckedOrNot");
+        canDeleteProperty = false;
+        return false;
+    });
+
+}
+
+function setEditReviewsClick() {
+    $(".reviewCard").on('click',
+        function(event) {
+            const id = $(this).data("id");
+            $(".reviewCard").not(this).toggleClass("hidden");
+            $(".editReviewControls").removeClass("hidden");
+            $("#reviewNumber").val(id);
+            restCallCheckbox(id, "AdminReviewOverview.aspx/CheckFeatured", "#isFeatured");
+        });
+}
+
+function restCallCheckbox(propId, URL, element) {
+    var checked = false; 
+
+    $.ajax(
+        {
+            type: "Post",
+            url: URL,
+            data: `{ "data":${JSON.parse(propId)} }`,
+            dataType: "json",
+            contentType: "application/json",
+            success: function (data) {
+                checked = (data.d);
+                if (checked === "True") {
+                    $(element).prop("checked", true);
+                }
+            },
+            error: function (data, success, error) {
+                alert(`Error : ${error}`);
+            }
+        });
+}
+function editPropertyButtonClick() {
+
+    $(".editProperty").on("click", function (event) {
+        if (!canEditProperty) return;
+        var propId = $(this).data("id");
+        $(".editProperty").not(this).toggleClass("hidden");
+        $("#deletePropertyHiddenField1").val(propId);
+        $("#PropertyEditButton").removeClass("hidden");
+        $("#PropertyEditCancel").removeClass("hidden");
+        canEditProperty = false;
+    });
+
+}
 function setCancelDeleteClick() {
     $("#CancelDelete").on("click", function (event) {
         $(".aboutUsInfoSection").removeClass("hidden");
+
     });
 }
 function setAboutUsEditClick() {
@@ -149,6 +264,7 @@ function resetAboutUsTabs() {
     $(" .About_UsEditPanel, .About_UsDeletePanel").addClass("hidden");
     $(".aboutUsInfoSection, .About_UsEditSelect").removeClass("hidden");
 }
+
 function setBlogEditClick() {
     $(".blogEditSelect .blogCard").on('click', function (event) {
         var arrayCapture = $(this).map(function () {
@@ -170,7 +286,8 @@ function setBlogEditClick() {
         $("#imagePreview").attr("readonly", false).css("background-image", "url(../images/" + blogArray[1] + ")");
         $("#blogEditCheckBox1").attr("readonly", false).prop('checked', blogArray[0]);
         $("#textBoxPrevious").text(blogArray[2]);
-        $("#blogEditFreeTextBox2").val(blogArray[2]);
+        $("#blogEditFreeTextBox2").text(blogArray[2]);
+        $(tinymce.get('blogEditFreeTextBox2').getBody()).html(blogArray[2]);
         $(".blogEditSelect, .blogEditPanel").toggleClass("hidden");
 
         $("#editBlogId").val(blogArray[6]);
@@ -251,46 +368,62 @@ function loadImageAdminPanel(allImageElements, selectedElement) {
     $("#ImageUrl").val(EditableEllement.ImageUrl);
     $("#ImagePageName").val(EditableEllement.PageName);
     $("#ImagePageId").val(EditableEllement.PageId);
-   
+    window.scrollTo(0, 0);
 }
 
 function loadTextAdminPanel(allTextElements, selectedElement) {
    
     $('#TextChangePanel').css({ 'display': 'block' });
 
-    var EditableEllement = {
+    var editableEllement = {
         id: 1,
         pageName: "",
         pageId: 1,
         elementText: "",
         elementNumber: 0,
         elementType: "",
-        elemenetLink: ""
+        elemenetLink: "",
+        elementColor:""
     };
 
     allTextElements.each(function (i, obj) {
         if (obj === selectedElement) {
 
-            EditableEllement.elementNumber = i;
+            editableEllement.elementNumber = i;
 
-            EditableEllement.pageName = "Home";
-            EditableEllement.pageId = 1;
-
-            EditableEllement.elementText = $(obj).text();
-            EditableEllement.elementType = obj.tagName;
+            editableEllement.pageName = "Home";
+            editableEllement.pageId = 1;
+            editableEllement.elementColor = (rgb2hex($(this).css('color')));
+            editableEllement.elementText = $(obj).text();
+            editableEllement.elementType = obj.tagName;
             if (obj.tagName === "A") {
-                EditableEllement.elemenetLink = $(obj).attr('href');
+                editableEllement.elemenetLink = $(obj).attr('href');
             }
             return false;
         }
     });
 
-    $("#pageName").val(EditableEllement.pageName);
-    $("#pageId").val(EditableEllement.pageId);
-    $("#elementText").val(EditableEllement.elementText);
-    $("#elementNumber").val(EditableEllement.elementNumber);
-    $("#elementType").val(EditableEllement.elementType);
-    $("#elemenetLink").val(EditableEllement.elemenetLink);
+    $("#pageName").val(editableEllement.pageName);
+    $("#pageId").val(editableEllement.pageId);
+    $("#elementText").val(editableEllement.elementText);
+    $('#textColor').val(editableEllement.elementColor);
+    $("#elementNumber").val(editableEllement.elementNumber);
+    $("#elementType").val(editableEllement.elementType);
+    $("#elemenetLink").val(editableEllement.elemenetLink);
+    window.scrollTo(0,0);
+
+}
+
+function rgb2hex(rgb) {
+    if (rgb.search("rgb") === -1) {
+        return rgb;
+    } else {
+        rgb = rgb.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?\)$/);
+        function hex(x) {
+            return ("0" + parseInt(x).toString(16)).slice(-2);
+        }
+        return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+    }
 }
 
 function clearIframe(num) {
@@ -310,17 +443,20 @@ function setAccordians() {
                 var hdnfldVariable = document.getElementById('hdnfldVariable');
                 hdnfldVariable.value = $(this).attr("data-id");
             }
-            closeRelatedAccordians(classList);
-            var panel = this.nextElementSibling;
-            if (this.classList.contains("active")) {
-                panel.style.maxHeight = null;
-               
-            } else {
+            removeAllActive(classList);
+            if (oldPanel !== this || openPanel) {
+                var panel = this.nextElementSibling;
+                this.classList.toggle("active");
                 panel.style.maxHeight = panel.scrollHeight + "px";
-                removeAllActive(classList);
+            } else {
+                openPanel = true; 
             }
-            this.classList.toggle("active");
-            oldPanel = this; 
+            if (!oldPanel) {
+                oldPanel = this;
+            } else {
+                oldPanel = null;
+                openPanel = false;
+            }
         });
     }
 
@@ -331,25 +467,17 @@ function removeAllActive(aval) {
     var acc = document.getElementsByClassName(aval[0]);
     for (var i = 0; i < acc.length; i++) {
         acc[i].classList.remove("active");
-    }
-}
-
-function closeRelatedAccordians(aval) {
-
-    var acc = document.getElementsByClassName(aval[0]);
-    for (var i = 0; i < acc.length; i++) {
-       
-        var panel = acc[i].nextElementSibling;
-        panel.style.maxHeight = null;
-       
+        acc[i].nextElementSibling.style.maxHeight = null;
     }
 }
 
 //tabs 
 
-function OpenAdminTab(evt, tabName, tabId) {
-    evt.preventDefault();
-    evt.stopPropagation();
+function OpenAdminTab(evt, tabName, tabId, edit = 0) {
+    if (edit === 0) {
+        evt.preventDefault();
+        evt.stopPropagation();
+    }
     if (!$(".blogEditPanel").hasClass("hidden")) {
         $(".blogEditSelect, .blogEditPanel").toggleClass("hidden");
     }

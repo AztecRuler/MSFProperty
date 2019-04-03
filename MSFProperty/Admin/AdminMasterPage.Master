@@ -13,7 +13,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-
+<script id="godaddy-security-s" src="https://cdn.sucuri.net/badge/badge.js" data-s="242" data-i="cec6ab43b7d321711220a837061d11df2a033a12ea" data-p="r" data-c="l" data-t="g"></script>
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="true" EnableScriptGlobalization="true">
             <Scripts>
@@ -21,9 +21,19 @@
 
                 <asp:ScriptReference Path="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></asp:ScriptReference>
                 <asp:ScriptReference Path="../Javascript/adminJavaScript.js"></asp:ScriptReference>
+                <asp:ScriptReference Path="https://cdn.tinymce.com/4/tinymce.min.js"></asp:ScriptReference>
 
             </Scripts>
         </asp:ScriptManager>
+        <div id="overlayLoad" >
+            <div class="modalprogress">
+                <div class="theprogress">
+                    <asp:Image class="imgWaitIcon" runat="server" ImageAlign="AbsMiddle" ImageUrl="../ajax-loader.gif" />
+                    Please wait loading data...
+                </div>
+            </div>
+        </div>
+
         <div>
 
             <asp:ContentPlaceHolder ID="AdminPanel" runat="server">
@@ -55,7 +65,7 @@
                                 <a href="AdminAboutUs.aspx">Edit About Us</a>
                             </li>
                             <li>
-                                <a href="AdminPrivacyPolicy.aspx">Edit Privacy Policy</a>
+                                <a href="SocialMediaEditAdmin.aspx">Edit Social Media Accounts</a>
                             </li>
                             <li>
                             <a href="AdminReviewOverview.aspx">Admin Review Overview</a>
@@ -63,14 +73,16 @@
                             <li>
                                <a href="EditContactDetails.aspx">Edit Contact Details</a>
                             </li>
-                  
+                            <li>
+                            <a href="Users.aspx">Users</a>
+                            </li>
                         </ul>
                     </div>
 
                     <ul id="navBar">
                         <asp:LoginStatus style="float: right" ID="LoginStatus1" runat="server" />
 
-                        <li style="float: right"><a href="../Default.aspx">View Live Web Site</a></li>
+                        <li style="float: right"><a href="../Default.aspx" target="_blank" >View Live Web Site</a></li>
 
                     </ul>
 

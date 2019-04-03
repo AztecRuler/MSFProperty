@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Web.UI;
 using MSFProperty.Admin.EF;
 using Page = System.Web.UI.Page;
 
@@ -11,6 +12,12 @@ namespace MSFProperty.Admin
     {
         protected void Page_Load(object src, EventArgs e)
         {
+            // ReSharper disable once PossibleNullReferenceException
+            if (!ScriptManager.GetCurrent(Page).IsInAsyncPostBack)
+            {
+                ScriptManager.RegisterOnSubmitStatement(this, this.GetType(), "SaveTextBoxBeforePostBack", "SaveTextBoxBeforePostBack()");
+
+            }
             if (!IsPostBack) FillRepeaterData();
             Page.Form.Attributes.Add("enctype", "multipart/form-data");
         }
@@ -114,7 +121,7 @@ namespace MSFProperty.Admin
         // ReSharper disable once MethodTooLong
         protected void SaveButton_Click1(object sender, EventArgs e)
         {
-            var output = FreeTextBox1.Text;
+            var output = BlogBlurb.Text;
             var todayDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day);
 
             if (Validation(output))
@@ -194,7 +201,7 @@ namespace MSFProperty.Admin
         {
             blogTitle.Text = "";
             blogName.Text = "";
-            FreeTextBox1.Text = "";
+            BlogBlurb.Text = "";
         }
     }
 }

@@ -18,7 +18,10 @@ namespace MSFProperty
                 BlogRepeaterItems.DataBind();
             }
         }
-
+        protected object GetColour(int id)
+        {
+            return DataCalls.GetColour(id);
+        }
         public string GetContents(int id)
         {
             return DataCalls.GetContents(id);

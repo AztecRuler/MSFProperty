@@ -13,13 +13,31 @@ namespace MSFProperty.Admin {
     public partial class Admin {
         
         /// <summary>
-        /// UpdatePanel1 control.
+        /// logInUpdateProgress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.UpdateProgress logInUpdateProgress;
+        
+        /// <summary>
+        /// loginPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel loginPanel;
+        
+        /// <summary>
+        /// logInUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel logInUpdate;
         
         /// <summary>
         /// UserNameLabel control.
@@ -101,15 +119,6 @@ namespace MSFProperty.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button LoginButton;
-        
-        /// <summary>
-        /// RecoverPasswordPanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel RecoverPasswordPanel;
         
         /// <summary>
         /// ResetpassLabel control.

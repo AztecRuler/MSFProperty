@@ -15,8 +15,7 @@ namespace MSFProperty.Admin.EF
         [StringLength(5000)]
         public string ReviewLeft { get; set; }
 
-        [StringLength(10)]
-        public string Rating { get; set; }
+        public int? Rating { get; set; }
 
         public bool? Allowed { get; set; }
 
@@ -24,5 +23,7 @@ namespace MSFProperty.Admin.EF
 
         [StringLength(500)]
         public string UserName { get; set; }
+
+        public bool? New { get; set; }
     }
 }

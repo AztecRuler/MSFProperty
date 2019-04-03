@@ -33,7 +33,10 @@ namespace MSFProperty
             
         }
 
-
+        protected object GetColour(int id)
+        {
+            return DataCalls.GetColour(id);
+        }
         private List<Page> FillPageSearchRepeater(ICollection<int> pageIdsToShow)
         {
             List<Page> searchList;

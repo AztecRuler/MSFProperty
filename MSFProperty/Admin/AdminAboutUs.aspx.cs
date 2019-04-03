@@ -16,7 +16,18 @@ namespace MSFProperty.Admin
             FillRepeaterData();
             
         }
+        private void GetImagesFromFolder()
+        {
+            var fileNames = Directory.GetFiles(Server.MapPath("~/Images"));
 
+            var imageList = fileNames.Select(item => item.Split('\\').Last()).ToList();
+
+            Repeater1.DataSource = imageList.ToList();
+            Repeater2.DataSource = imageList.ToList();
+
+            Repeater1.DataBind();
+            Repeater2.DataBind();
+        }
         // ReSharper disable once MethodTooLong
         protected void SaveButton_Click1(object sender, EventArgs e)
         {
@@ -25,6 +36,7 @@ namespace MSFProperty.Admin
                 using (var db = new Model1())
                 {
                     var filename = "";
+                    var filenameLocation = "";
 
                     if (AboutImage.HasFile)
                         if (IsImage(AboutImage.FileContent))
@@ -33,9 +45,18 @@ namespace MSFProperty.Admin
                                 "MSF-" + AboutImage.FileName);
                             AboutImage.SaveAs(realPhysicalPath);
                             filename = "MSF-" + AboutImage.FileName;
+                            uploadedImageUrl.Text = "";
                         }
 
-                    var filenameLocation = "../Images/AboutUsPictures/" + filename;
+                    if (uploadedImageUrl.Text == "")
+                    {
+                        filenameLocation = "../Images/AboutUsPictures/" + filename;
+                    }
+                    else
+                    {
+                        filenameLocation = uploadedImageUrl.Text;
+                        filename = "1";
+                    }
                     var selectedFile = filename != "" ? filenameLocation : PlaceholderImage;
                     var aboutUsModel = new AboutUsInfo
                     {
@@ -145,11 +166,12 @@ namespace MSFProperty.Admin
                                     "MSF-" + FileUpload1.FileName);
                                 FileUpload1.SaveAs(realPhysicalPath);
                                 filename = "../Images/AboutUsPictures/MSF-" + FileUpload1.FileName;
+                                uploadedImageUrl.Text = "";
                             }
                         }
                         else
                         {
-                            filename = oldResults.ImageUrl;
+                            filename = uploadedImageUrl.Text == "" ? oldResults.ImageUrl : uploadedImageUrl.Text;
                         }
 
                         result.Title = About_UsEditTextBox1.Text == "" ? oldResults.Title : About_UsEditTextBox1.Text;
@@ -179,6 +201,7 @@ namespace MSFProperty.Admin
             DeleteAboutUsRepeater.DataSource = GetAboutUsInfo();
             DeleteAboutUsRepeater.DataBind();
             EditAbout_UsRepeaterItems.DataBind();
+            GetImagesFromFolder();
             UpdatePanel1.Update();
             UpdatePanel3.Update();
         }

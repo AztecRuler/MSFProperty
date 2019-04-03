@@ -47,6 +47,10 @@
     <LangVersion>7.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=18.1.1.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Documents\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
@@ -131,12 +135,14 @@
     <Content Include="Admin\EditImages.aspx" />
     <Content Include="Admin\EditPage.aspx" />
     <Content Include="Admin\PropertyPage.aspx" />
+    <Content Include="Admin\SocialMediaEditAdmin.aspx" />
     <Content Include="Admin\Users.aspx" />
     <Content Include="BlogMainPage.aspx" />
     <Content Include="BlogPageView.aspx" />
-    <Content Include="contact-us.aspx" />
-    <Content Include="CSS\MSF_StyleSheet.css" />
+    <Content Include="ContactUs.aspx" />
+    <Content Include="CSS\Old_MSF_StyleSheet.css" />
     <Content Include="CSS\AdminStyleSheet1.css" />
+    <Content Include="CSS\MSF_StyleSheet.css" />
     <Content Include="Default.aspx" />
     <Content Include="fancyLine.png" />
     <Content Include="favicon.ico" />
@@ -145,9 +151,9 @@
     <Content Include="Icons\font-awesome.css" />
     <Content Include="Icons\ionicons.css" />
     <Content Include="ajax-loader.gif" />
+    <Content Include="Icons\pricing.png" />
     <Content Include="Icons\wpg-ico-75x60.png" />
     <Content Include="Images\AboutUsPictures\About_usImagePlaceholder.png" />
-    <Content Include="Images\img_woods_wide.jpg" />
     <Content Include="Javascript\adminJavaScript.js" />
     <Content Include="Javascript\msfJavascript.js" />
     <Content Include="Logs\log.txt" />
@@ -155,6 +161,7 @@
     <Content Include="properties.aspx" />
     <Content Include="Reviews.aspx" />
     <Content Include="Admin\Web.config" />
+    <None Include="Properties\PublishProfiles\msfproperty.co.uk - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1-vsdoc.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -162,9 +169,11 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="SearchResults.aspx" />
     <Content Include="services.aspx" />
+    <Content Include="SocialMediaEditAdmin.aspx" />
     <Content Include="star.png" />
     <Content Include="TodoList.aspx" />
     <Content Include="UserControls\AboutUsInfo.ascx" />
+    <Content Include="UserControls\StarRatingDisplay.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -247,7 +256,11 @@
     <Compile Include="Admin\EditContactDetails.aspx.designer.cs">
       <DependentUpon>EditContactDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EditPage.aspx.designer.cs">
+      <DependentUpon>EditPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\EF\AboutUsInfo.cs" />
+    <Compile Include="Admin\EF\Analytic.cs" />
     <Compile Include="Admin\EF\Blog.cs" />
     <Compile Include="Admin\EF\ContactDetail.cs" />
     <Compile Include="Admin\EF\ContentImage.cs" />
@@ -271,15 +284,19 @@
       <DependentUpon>EditPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\EditPage.aspx.designer.cs">
-      <DependentUpon>EditPage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\PropertyPage.aspx.cs">
       <DependentUpon>PropertyPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\PropertyPage.aspx.designer.cs">
       <DependentUpon>PropertyPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SocialMediaEditAdmin.aspx.cs">
+      <DependentUpon>SocialMediaEditAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SocialMediaEditAdmin.aspx.designer.cs">
+      <DependentUpon>SocialMediaEditAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Users.aspx.cs">
       <DependentUpon>Users.aspx</DependentUpon>
@@ -302,12 +319,12 @@
     <Compile Include="BlogPageView.aspx.designer.cs">
       <DependentUpon>BlogPageView.aspx</DependentUpon>
     </Compile>
-    <Compile Include="contact-us.aspx.cs">
-      <DependentUpon>contact-us.aspx</DependentUpon>
+    <Compile Include="ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="contact-us.aspx.designer.cs">
-      <DependentUpon>contact-us.aspx</DependentUpon>
+    <Compile Include="ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -376,6 +393,13 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataCalls.cs" />
+    <Compile Include="SocialMediaEditAdmin.aspx.cs">
+      <DependentUpon>SocialMediaEditAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SocialMediaEditAdmin.aspx.designer.cs">
+      <DependentUpon>SocialMediaEditAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TodoList.aspx.cs">
       <DependentUpon>TodoList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -390,6 +414,13 @@
     <Compile Include="UserControls\AboutUsInfo.ascx.designer.cs">
       <DependentUpon>AboutUsInfo.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\StarRatingDisplay.ascx.cs">
+      <DependentUpon>StarRatingDisplay.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\StarRatingDisplay.ascx.designer.cs">
+      <DependentUpon>StarRatingDisplay.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Fonts\Roboto-Regular.ttf" />
@@ -400,12 +431,10 @@
     <Content Include="Fonts\ionicons.woff" />
     <Content Include="Fonts\fontawesome-webfont.eot" />
     <Content Include="Fonts\KFOmCnqEu92Fr1Mu4mxK.woff2" />
-    <Content Include="DBBak\MSFProperty.bak" />
     <Content Include="Fonts\ProximaNova-Regular.woff2" />
     <Content Include="Fonts\dashicons.eot" />
     <Content Include="Fonts\ProximaNova-Regular.woff" />
     <None Include="packages.config" />
-    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -27,7 +27,8 @@ namespace MSFProperty
                 _result = db.Properties.SingleOrDefault(b => b.ID == id);
             }
 
-            if (_result != null) Images = GetSplitStrings(_result.Images);
+            if (_result == null) Response.Redirect("~/AcommodationsPage.aspx"); 
+                Images = GetSplitStrings(_result.Images);
             if (Images[0] == "")
                 Images[0] = GetMainImage();
             _slideCount = _imageCount;
@@ -74,12 +75,12 @@ namespace MSFProperty
         
         public string GetMainImage()
         {
-            return _result.MainImage != "" ? "AboutUsPictures\\About_usImagePlaceholder.png" : _result.MainImage;
+            return _result.MainImage == "" ? "AboutUsPictures\\About_usImagePlaceholder.png" : _result.MainImage;
         }
 
         public string GetContents()
         {
-            return _result.Blurb != ""
+            return _result.Blurb == ""
                 ? "Please wait, the information is being created for this property and will be with you shortly"
                 : _result.Blurb;
         }
@@ -99,13 +100,13 @@ namespace MSFProperty
         {
             return _result.AvailableFrom != ""  ?_result.AvailableFrom : "Date still pending" ;
         }
-        protected int GetDeposit()
+        protected string GetDeposit()
         {
-            return _result.Deposit;
+            return _result.Deposit.ToString("F");
         }
-        protected int GetRentPrice()
+        protected string GetRentPrice()
         {
-            return _result.RentPrice;
+            return _result.RentPrice.ToString("F");
         }
         public static bool IsEmpty(DateTime dateTime)
         {
