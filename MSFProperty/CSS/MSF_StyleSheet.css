@@ -220,7 +220,6 @@ hr.type_4 {
 .slideShowNext {
     cursor: pointer;
     position: absolute;
-    top: 15%;
     width: auto;
     padding: 16px;
     color: white;
@@ -230,7 +229,10 @@ hr.type_4 {
     user-select: none;
     -webkit-user-select: none;
 }
-
+.controlsContainer {
+    position: relative;
+    bottom: 230px;
+}
 /* Position the "slideShowNext button" to the right */
 .slideShowNext {
     right: 0;
@@ -2959,7 +2961,7 @@ ul.findUsList {
         display: block;
         float: right;
         margin-top: 26px;
-        right: 35px;
+        right: 20px;
         position: relative;
     }
 

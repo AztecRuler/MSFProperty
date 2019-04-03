@@ -17,9 +17,10 @@
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
+            <div class="controlsContainer">
             <a class="slideShowPrev" onclick="plusSlides(-1)">❮</a>
             <a class="slideShowNext" onclick="plusSlides(1)">❯</a>
-
+                </div>
             <div class="caption-container">
                 <p id="slideShowCaption"></p>
             </div>
@@ -47,7 +48,7 @@
             //modal 
             // Get the modal
             var modal = document.getElementById('myModal');
-
+            var slideShowStopped = false; 
 // Get the image and insert it inside the modal - use its "alt" text as a caption
             var img = $('.modalimg');
             console.log(1);

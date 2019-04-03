@@ -139,7 +139,6 @@
     <Content Include="BlogMainPage.aspx" />
     <Content Include="BlogPageView.aspx" />
     <Content Include="ContactUs.aspx" />
-    <Content Include="CSS\Old_MSF_StyleSheet.css" />
     <Content Include="CSS\AdminStyleSheet1.css" />
     <Content Include="CSS\MSF_StyleSheet.css" />
     <Content Include="Default.aspx" />
