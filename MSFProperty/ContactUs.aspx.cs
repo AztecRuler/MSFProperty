@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
@@ -11,17 +12,21 @@ namespace MSFProperty
     public partial class ContactUs : Page
     {
         protected void Page_Load(object sender, EventArgs e)
+
         {
+         
         }
 
         public string GetText(int id)
         {
             return DataCalls.GetText(id);
         }
+
         protected object GetColour(int id)
         {
             return DataCalls.GetColour(id);
         }
+
         public string GetImage(int id)
         {
             return DataCalls.GetImage(id);
@@ -29,10 +34,15 @@ namespace MSFProperty
 
         protected void sendMessage_OnClick(object sender, EventArgs e)
         {
-            if(Validation())
-            //SendContactForm("info@msfproperty.co.uk", "Admin");
-            SendContactForm("gfs_god@yahoo.com", "Admin");
-
+            if (Validation())
+            {
+                SendContactForm("info@msfproperty.co.uk", "Admin");
+            }
+            else
+            {
+                //sendMessage.Attributes.Remove("disabled");
+                privacyCheck.Checked = false;
+            }
         }
 
         private bool Validation()
@@ -43,33 +53,35 @@ namespace MSFProperty
                 C_U_Subject_Error.Text = "Please Enter A Subject ! ";
                 validated = false;
             }
+
             if (C_U_Name.Text == "")
             {
                 C_U_Name_Error.Text = "Please Enter Your Name ! ";
                 validated = false;
             }
+
             if (C_U_Email.Text == "")
             {
                 C_U_Email_Error.Text = "Please Enter Your Email ! ";
                 validated = false;
             }
 
-            bool testEmail = CheckEmailFormat(C_U_Email.Text);
-            if (testEmail)
+            if (!CheckEmailFormat(C_U_Email.Text))
             {
-                C_U_Email_Error.Text += " This Is Not A Valid Email Addrees Format Please Add A Valid Email Address ";
+                C_U_Email_Error.Text += " This Is Not A Valid Email Address Format Please Add A Valid Email Address ";
                 validated = false;
             }
+
             if (C_U_Enquiry.Text == "")
             {
                 C_U_Enquiry_Error.Text = "Please Enter A Message ! ";
                 validated = false;
             }
-         
-            return validated; 
+
+            return validated;
         }
 
-        private bool CheckEmailFormat(string text)
+        private static bool CheckEmailFormat(string text)
         {
             return new EmailAddressAttribute().IsValid(text);
         }
@@ -84,13 +96,13 @@ namespace MSFProperty
             sbEmailBody.Append("<br/><br/>");
             sbEmailBody.Append("Subject : <br/>" + C_U_Subject.Text);
             sbEmailBody.Append("<br/><br/>");
-            sbEmailBody.Append("enquier name : <br/>" + C_U_Name.Text);
+            sbEmailBody.Append("enquirer name : <br/>" + C_U_Name.Text);
             sbEmailBody.Append("<br/><br/>");
             sbEmailBody.Append("Email Address : <br/>" + C_U_Email.Text);
             sbEmailBody.Append("<br/><br/>");
             sbEmailBody.Append("Telephone number : <br/>" + C_U_Phone.Text);
             sbEmailBody.Append("<br/><br/>");
-            sbEmailBody.Append("Enquiry : <br/>" + C_U_Enquiry.Text);
+            sbEmailBody.Append("Message : <br/>" + C_U_Enquiry.Text);
             sbEmailBody.Append("<br/><br/>");
             sbEmailBody.Append("<b>msfproperty.co.uk</b> </br> Letting Agent Registration Number: LARN1809015");
             try
@@ -103,7 +115,7 @@ namespace MSFProperty
                 msg.IsBodyHtml = true;
                 var address = new MailAddress("info@msfproperty.co.uk");
                 msg.From = address;
-                msg.Subject = "Enquiry From WebSite";
+                msg.Subject = "Inquiry From WebSite";
                 msg.Body = sbEmailBody.ToString();
 
                 //Configure an SmtpClient to send the mail.
@@ -116,7 +128,7 @@ namespace MSFProperty
                 };
 
                 //Setup credentials to login to our sender email address ("UserName", "Password")
-                NetworkCredential credentials = new NetworkCredential("info@msfproperty.co.uk", "Marc1914");
+                var credentials = new NetworkCredential("info@msfproperty.co.uk", "Marc1914");
                 client.UseDefaultCredentials = true;
                 client.Credentials = credentials;
 
@@ -125,6 +137,7 @@ namespace MSFProperty
 
                 //Display some feedback to the user to let them know it was sent
                 error.Text = "Your message was sent!";
+                ClearMessageBoxes();
             }
             catch (Exception ex)
             {
@@ -132,6 +145,25 @@ namespace MSFProperty
                 error.Text = ex.ToString();
                 //"Your message failed to send, please try again."
             }
+        }
+
+        private void ClearMessageBoxes()
+        {
+
+            var empty = "";
+            C_U_Subject.Text = empty;
+            C_U_Name.Text = empty;
+            C_U_Email.Text = empty;
+            C_U_Phone.Text = empty;
+            C_U_Enquiry.Text = empty;
+
+            C_U_Subject_Error.Text = empty;
+            C_U_Name_Error.Text = empty;
+            C_U_Email_Error.Text = empty;
+            C_U_Enquiry_Error.Text = empty;
+
+            privacyCheck.Checked = false;
+
         }
     }
 }

@@ -2858,6 +2858,16 @@ a#pintrstLink, a#linkinLink {
     visibility: hidden;
 }
 
+ul.findUsList {
+    text-align: center;
+    width: 100%;
+    padding: 36px;
+}
+
+    ul.findUsList li {
+        font-size: 25px;
+    }
+
 .followFade:nth-of-type(2), #spinner3 {
     top: 75px;
 }
@@ -2927,7 +2937,7 @@ a#pintrstLink, a#linkinLink {
     }
 
     .blogCard {
-        width: 100% !important;
+        width: 96%;
     }
 
     .msf-mobile-menu {
@@ -3045,6 +3055,16 @@ a#pintrstLink, a#linkinLink {
     .foregroundDiv {
         padding: 10px;
     }
+
+    .Cu {
+        width: 90%;
+    }
+    .reviewContainer.addcoment {
+        margin: 0;
+    }
+    textarea#TextBoxReview {
+        min-width: unset;
+    }
 }
 
 @media screen and (max-device-width: 335px) {
@@ -3065,6 +3085,10 @@ a#pintrstLink, a#linkinLink {
             text-align: justify;
             padding: 0 14px;
         }
+
+    ul#footerIconsSection {
+        padding-top: 14px;
+    }
 }
 
 /***************************************************FONTS*************************************/
