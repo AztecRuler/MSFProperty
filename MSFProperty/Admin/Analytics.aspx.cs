@@ -14,8 +14,6 @@ namespace MSFProperty.Admin
             DesciptionAnalyticsTexBox.Text = GetDescription();
             Error.Text = "";
 
-
-
         }
 
         protected void UpdateDescription(object sender, EventArgs e)

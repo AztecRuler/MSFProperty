@@ -13,12 +13,13 @@
     <meta name="keywords" content=<%= GetMetaKeywords() %>>
     <meta name="author" content="www.classantics.co.uk">
 
-    <link href="CSS/MSF_StyleSheet.css" rel="stylesheet"/>
+    <link href="CSS/MSF_StyleSheet.css?v1.0.0" rel="stylesheet"/>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="Javascript/msfJavascript.js"></script>
     <link rel="canonical" href="" runat="server" id="canonical"/>
+    <title runat="server" visible="false"></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136323896-1"></script>

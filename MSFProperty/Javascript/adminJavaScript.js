@@ -1,7 +1,9 @@
 ﻿var oldPanel = null;
 var openPanel = false;
 var canEditProperty = true;
-var canDeleteProperty = true; 
+var canDeleteProperty = true;
+var imageList = [];
+
 window.onload = function () {
     $("#overlayLoad").addClass("hidden");
 
@@ -11,8 +13,10 @@ function checkEditProperty() {
 
     const r = confirm('Are you sure you want to edit this property?');
     releaseProperties();
+
     if (r === true) {
-        setTimeout(OpenAdminTab(event, 'createProperty', 1, 1), 5000);
+        setTimeout(OpenAdminTab(event, 'createProperty', 1, 10), 5000);
+
     } else {
        
         return false;
@@ -36,14 +40,15 @@ function releaseProperties() {
     canDeleteProperty = true;
 }
 function pageLoad() {
-    $(document).ready(function () {
+    $(document).ready(function() {
 
         setBlogEditClick();
-        SetForDeleteBlog(); 
+        SetForDeleteBlog();
         setUserEditClick();
         deletePropertyButtonClick();
         editPropertyButtonClick();
         setEditReviewsClick();
+      //  $('.EditPropertiesImages').addClass("hidden");
 
         if ($("#createNewAbout_Us").length) {
             setAboutUsEditClick();
@@ -68,8 +73,40 @@ function pageLoad() {
                 }
             });
         }
-        
-     
+        $('#PropertyImages').on('click',
+            function() {
+                $('.imageButtonUploadMulti').each(function(i, obj) {
+                    $(this).removeClass("imageButtonUploadMultiSelected");
+
+                });
+                $('#multipleUploadedImageUrl').val("");
+                $('.useUploadedImagesProperties').addClass('hidden');
+            });
+
+        $('.imageButtonUploadMultiPrevious').on('click',
+            function() {
+                event.stopPropagation();
+                event.stopImmediatePropagation();
+                event.preventDefault();
+            });
+
+        $('.imageButtonUploadMulti').on('click',
+            function(event) {
+                event.stopPropagation();
+                event.stopImmediatePropagation();
+                event.preventDefault();
+                if (!$(this).hasClass("imageButtonUploadMultiSelected")) {
+                    var result = /[^/]*$/.exec($(this).attr('src'))[0];
+                    imageList.push(result);
+                } else {
+                    var itemtoRemove = $(this).attr('src');
+                    
+                    imageList.splice($.inArray(itemtoRemove, imageList), 1);
+
+                }
+                $(this).toggleClass("imageButtonUploadMultiSelected");
+                $('#multipleUploadedImageUrl').val(imageList);
+            });
 
         $(".imageButtonUpload").on('click', function (event) {
             event.stopPropagation();
@@ -78,6 +115,7 @@ function pageLoad() {
            
             $('#uploadedImageUrl').val($(this).attr('src'));
             $("#imagePreview").css("background-image", "url(" + $('#uploadedImageUrl').val() + ")");
+            $("#imagePreview").attr('src', "");
             UploadComplete();
         });
         if ($('iframe').length) {
@@ -478,6 +516,7 @@ function OpenAdminTab(evt, tabName, tabId, edit = 0) {
         evt.preventDefault();
         evt.stopPropagation();
     }
+
     if (!$(".blogEditPanel").hasClass("hidden")) {
         $(".blogEditSelect, .blogEditPanel").toggleClass("hidden");
     }
