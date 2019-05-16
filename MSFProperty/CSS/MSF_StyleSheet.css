@@ -145,7 +145,7 @@ p.editable.srviveP {
 }
 
 .play {
-    background: url(http://localhost:50996/Images/HomePage/Video/play.png) 0 0 no-repeat;
+    background: url(https://localhost:50996/Images/HomePage/Video/play.png) 0 0 no-repeat;
     display: block;
     height: 75px;
     left: 50%;

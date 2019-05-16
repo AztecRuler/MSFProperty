@@ -46,7 +46,7 @@ namespace MSFProperty
             amRepeater.DataSource = amenitiesResults;
             amRepeater.DataBind();
             if (_result != null)
-                mapForPostcode.Attributes["src"] = "http://maps.google.com/maps?q=" + _result.AddressNumber + " " +
+                mapForPostcode.Attributes["src"] = "https://maps.google.com/maps?q=" + _result.AddressNumber + " " +
                                                    _result.Street + " " + _result.County + "&z=16&output=embed";
         }
 

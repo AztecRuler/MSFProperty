@@ -23,7 +23,7 @@ namespace MSFProperty
 
             if (_result != null)
                 mapForPostcode.Attributes["src"] =
-                    $"http://maps.google.com/maps?q={_result.AddressNumber} {_result.AddressLineOne} {_result.AddressLineTwo}&z=16&output=embed";
+                    $"https://maps.google.com/maps?q={_result.AddressNumber} {_result.AddressLineOne} {_result.AddressLineTwo}&z=16&output=embed";
         }
         protected void FillRepeater()
         {

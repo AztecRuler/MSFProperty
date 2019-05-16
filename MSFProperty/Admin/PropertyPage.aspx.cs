@@ -551,7 +551,7 @@ namespace MSFProperty.Admin
             PropertyY.Text = postCodeRestResult.Result.Longitude.ToString();
 
             var fullAddress = new StringBuilder();
-            fullAddress.Append("http://maps.google.com/maps?q=").Append(PropertyHouseNumber.Text + " ")
+            fullAddress.Append("https://maps.google.com/maps?q=").Append(PropertyHouseNumber.Text + " ")
                 .Append(address.Road + " ").Append(address.County + "&z=16&output=embed");
             try
             {
