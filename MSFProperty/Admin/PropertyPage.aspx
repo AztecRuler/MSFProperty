@@ -18,6 +18,8 @@
 
     Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler_Page);
 
+    function UploadComplete() {
+    }
     /* fire this event to remove the existing editor and re-initialize it*/
     function EndRequestHandler_Page(sender, args) {
         //1. Remove the existing TinyMCE instance of TinyMCE
@@ -58,6 +60,7 @@
     // ReSharper disable once UnusedParameter
     function preview(sender, e) {
         $("#imagePreview").css("background-image", `url(../Images/${sender.newFileName})`);
+        $('#uploadedImageUrl').val("");
 
     }
 
@@ -258,10 +261,25 @@
         </tr>
         <tr>
             <td>
-                <asp:Image ID="imagePreview" runat="server"/>
+                <asp:Image ID="imagePreview" runat="server" />
 
-                <ajaxToolkit:AsyncFileUpload OnUploadedComplete="MainImage_UploadedComplete" CssClass="imageasyncButtonUpload" runat="server" ID="MainFileUploader" accept=".png,.jpg,.jpeg,.gif" ThrobberID="spinImg" OnClientUploadComplete="preview"/>
-                <asp:Image ID="spinImg" runat="server" ImageUrl="../ajax-loader.gif"/>
+                <ajaxToolkit:AsyncFileUpload OnUploadedComplete="MainImage_UploadedComplete" CssClass="imageasyncButtonUpload" runat="server" ID="MainFileUploader" accept=".png,.jpg,.jpeg,.gif" ThrobberID="spinImg" OnClientUploadComplete="preview" />
+                <asp:Image ID="spinImg" runat="server" ImageUrl="../ajax-loader.gif" />
+
+                <br />
+                <br />
+                <asp:Button ID="Button1" runat="server" Text="Use An Uploaded Image" OnClientClick=" event.preventDefault();$('.useUploadedFileProperties').removeClass('hidden');" />
+                <asp:Panel GroupingText="Use Image From folder" CssClass="hidden useUploadedFileProperties" runat="server">
+                    <asp:Repeater ID="folderRepeater" runat="server">
+                        <ItemTemplate>
+                            <asp:ImageButton CssClass="imageButtonUpload" runat="server" ImageUrl='<%# string.Format("../images/{0}", Container.DataItem) %>' />
+
+                        </ItemTemplate>
+
+                    </asp:Repeater>
+                    <asp:TextBox ID="uploadedImageUrl" runat="server"></asp:TextBox>
+
+                </asp:Panel>
             </td>
         </tr>
         <tr>
@@ -369,6 +387,19 @@
             </td>
 
         </tr>
+    <tr>
+    <td>
+        <asp:Panel GroupingText="Previous Images" CssClass="EditPropertiesImages" ID="EditPropertiesImages" Visible="False"  runat="server">
+            <asp:Repeater ID="Repeater2" runat="server">
+                <ItemTemplate>
+                    <asp:ImageButton CssClass="imageButtonUploadMultiPrevious" runat="server" ImageUrl='<%# string.Format("../images/{0}", Container.DataItem) %>' />
+
+                </ItemTemplate>
+
+            </asp:Repeater>
+            </asp:Panel>
+    </td>
+    </tr>
         <tr>
             <td>
                 <asp:Label runat="server">upload the property images here </asp:Label>
@@ -376,7 +407,23 @@
         </tr>
         <tr>
             <td>
-                <asp:FileUpload ID="PropertyImages" runat="server" AllowMultiple="true"/>
+                <asp:FileUpload ID="PropertyImages" runat="server" AllowMultiple="true" />
+                
+                <br />
+                <br />
+                <asp:Button ID="Button2" runat="server" Text="Use Uploaded Images" OnClientClick=" event.preventDefault();$('.useUploadedImagesProperties').removeClass('hidden');" />
+                <asp:Panel GroupingText="Use Images From folder" CssClass="hidden useUploadedImagesProperties" runat="server">
+                <h2>Select all the images you want to add</h2>
+                    <asp:Repeater ID="Repeater1" runat="server">
+                        <ItemTemplate>
+                            <asp:ImageButton CssClass="imageButtonUploadMulti" runat="server" ImageUrl='<%# string.Format("../images/{0}", Container.DataItem) %>' />
+
+                        </ItemTemplate>
+
+                    </asp:Repeater>
+                    <asp:TextBox ID="multipleUploadedImageUrl" runat="server"></asp:TextBox>
+
+                </asp:Panel>
             </td>
 
         </tr>

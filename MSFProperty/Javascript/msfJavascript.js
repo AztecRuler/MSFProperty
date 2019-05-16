@@ -1,13 +1,13 @@
 ﻿$(document).ready(function() {
     setNavMenu();
-    document.onkeydown = function (e) {
+    document.onkeydown = function(e) {
         var keycode;
         if (e === null) { // ie 
             keycode = event.keyCode;
         } else { // mozilla 
             keycode = e.which;
         }
-        if (keycode === 27) { 
+        if (keycode === 27) {
             // Go back one page
             document.location.href = "/admin/admin.aspx";
         }
@@ -21,14 +21,14 @@
         }
     });
 
-    $("#searchSubmitButton").click(function (e) {
+    $("#searchSubmitButton").click(function(e) {
         e.preventDefault();
         const searchCriteria = $("#searchInput").val();
         if (searchCriteria !== "") {
             const dates = $("#flexDates").is(":checked");
             const smoking = $("#smokingSearch").is(":checked");
             const pets = $("#petSearch").is(":checked");
-            window.location=
+            window.location =
                 `SearchResults.aspx?query=${searchCriteria}&dates=${dates}&Smoking=${smoking}&Pets=${pets}`;
         }
 
@@ -54,71 +54,75 @@ function setNavMenu() {
 
 function HideBackPagination(value) {
     if (value) {
-        $('#pagerBack').css('visibility', 'hidden');
+        $("#pagerBack").css("visibility", "hidden");
     } else {
-        $('#pagerBack').css('visibility', 'visible');
+        $("#pagerBack").css("visibility", "visible");
     }
 }
+
 function HideForwardsPagination(value) {
     if (value) {
-        $('#pagerForwards').css('visibility', 'hidden');
+        $("#pagerForwards").css("visibility", "hidden");
     } else {
-        $('#pagerForwards').css('visibility', 'visible');
+        $("#pagerForwards").css("visibility", "visible");
     }
 }
+
 function setActivePagination(number) {
-    $('.paginationNumber').each(function (index) {
+    $(".paginationNumber").each(function(index) {
         $(this).removeClass("active");
     });
-    $('#pagination_' + number).addClass("active");
+    $(`#pagination_${number}`).addClass("active");
 }
-    document.addEventListener("DOMContentLoaded",
-        function() {
-            var lazyloadImages;
 
-            if ("IntersectionObserver" in window) {
-                lazyloadImages = document.querySelectorAll(".lazy");
-                var imageObserver = new IntersectionObserver(function(entries, observer) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            var image = entry.target;
-                            image.classList.remove("lazy");
-                            imageObserver.unobserve(image);
-                        }
-                    });
-                });
+//document.addEventListener("DOMContentLoaded",
+//    function() {
+//        var lazyLoadImages;
 
-                lazyloadImages.forEach(function(image) {
-                    imageObserver.observe(image);
-                });
-            } else {
-                var lazyloadThrottleTimeout;
-                lazyloadImages = document.querySelectorAll(".lazy");
+//        var lazyLoadThrottleTimeout;
+//        if ("IntersectionObserver" in window) {
+//            lazyLoadImages = document.querySelectorAll(".lazy");
+//            var imageObserver = new IntersectionObserver(function(entries, observer) {
+//                entries.forEach(function(entry) {
+//                    if (entry.isIntersecting) {
+//                        const image = entry.target;
+//                        image.classList.remove("lazy");
+//                        imageObserver.unobserve(image);
+//                    }
+//                });
+//            });
 
-                function lazyload() {
-                    if (lazyloadThrottleTimeout) {
-                        clearTimeout(lazyloadThrottleTimeout);
-                    }
+//            lazyLoadImages.forEach(function(image) {
+//                imageObserver.observe(image);
+//            });
+//        } else {
+//            lazyLoadImages = document.querySelectorAll(".lazy");
+//        }
 
-                    lazyloadThrottleTimeout = setTimeout(function() {
-                            var scrollTop = window.pageYOffset;
-                            lazyloadImages.forEach(function(img) {
-                                if (img.offsetTop < (window.innerHeight + scrollTop)) {
-                                    img.src = img.dataset.src;
-                                    img.classList.remove('lazy');
-                                }
-                            });
-                            if (lazyloadImages.length === 0) {
-                                document.removeEventListener("scroll", lazyload);
-                                window.removeEventListener("resize", lazyload);
-                                window.removeEventListener("orientationChange", lazyload);
-                            }
-                        },
-                        20);
-                }
+//        function lazyLoad() {
+//            if (lazyLoadThrottleTimeout) {
+//                clearTimeout(lazyLoadThrottleTimeout);
+//            }
 
-                document.addEventListener("scroll", lazyload);
-                window.addEventListener("resize", lazyload);
-                window.addEventListener("orientationChange", lazyload);
-            }
-        });
+//            lazyLoadThrottleTimeout = setTimeout(function() {
+//                    var scrollTop = window.pageYOffset;
+//                    lazyLoadImages.forEach(function(img) {
+//                        if (img.offsetTop < (window.innerHeight + scrollTop)) {
+//                            img.src = img.dataset.src;
+//                            img.classList.remove("lazy");
+//                        }
+//                    });
+//                    if (lazyLoadImages.length === 0) {
+//                        document.removeEventListener("scroll", lazyLoad);
+//                        window.removeEventListener("resize", lazyLoad);
+//                        window.removeEventListener("orientationChange", lazyLoad);
+//                    }
+//                },
+//                20);
+//        }
+
+//        document.addEventListener("scroll", lazyLoad);
+//        window.addEventListener("resize", lazyLoad);
+//        window.addEventListener("orientationChange", lazyLoad);
+//    });
+        

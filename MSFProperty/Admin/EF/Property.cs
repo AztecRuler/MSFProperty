@@ -40,7 +40,8 @@ namespace MSFProperty.Admin.EF
 
         public decimal Deposit { get; set; }
 
-        public int? AddressNumber { get; set; }
+        [StringLength(10)]
+        public string AddressNumber { get; set; }
 
         [StringLength(100)]
         public string Area { get; set; }

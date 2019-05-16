@@ -148,7 +148,7 @@ namespace MSFProperty.Admin
             sbEmailBody.Append("Otherwise<br/>");
             sbEmailBody.Append("Please click on the following link to reset your password this link will expire in 24hrs");
             sbEmailBody.Append("<br/>");
-            sbEmailBody.Append("<a href='http://" + url + "/Admin/ChangePassword.aspx?uid='"+ uniqueId +">Click here to reset password</a>" );
+            sbEmailBody.Append("<a href='https://" + url + "/Admin/ChangePassword.aspx?uid='"+ uniqueId +">Click here to reset password</a>" );
             sbEmailBody.Append("<br/><br/>");
             sbEmailBody.Append("<b>msfproperty.co.uk</b> </br> Letting Agent Registration Number: LARN1809015");
 

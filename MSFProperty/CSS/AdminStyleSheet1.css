@@ -175,7 +175,7 @@ span#errorText {
     width: 200px;
 }
 
-.imageButtonUpload {
+.imageButtonUpload, .imageButtonUploadMulti, .imageButtonUploadMultiPrevious {
     height: 150px;
     width: 200px;
 }
@@ -184,11 +184,14 @@ span#errorText {
         border: red solid 3px;
     }
 
-.ImageSizeDiv {
-    height: 41px;
-    width: 200px;
-    word-wrap: break-word;
-}
+    .imageButtonUploadMultiSelected {
+        border: red solid 3px;
+    }
+    .ImageSizeDiv {
+        height: 41px;
+        width: 200px;
+        word-wrap: break-word;
+    }
 
 #useUploadedFile {
     max-height: 500px;

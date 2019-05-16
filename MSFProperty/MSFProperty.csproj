@@ -121,6 +121,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="404.aspx" />
+    <Content Include="500.aspx" />
     <Content Include="About_Us.aspx" />
     <Content Include="AcommodationsPage.aspx" />
     <Content Include="Admin\Admin.aspx" />
@@ -139,7 +141,6 @@
     <Content Include="BlogMainPage.aspx" />
     <Content Include="BlogPageView.aspx" />
     <Content Include="ContactUs.aspx" />
-    <Content Include="CSS\Old_MSF_StyleSheet.css" />
     <Content Include="CSS\AdminStyleSheet1.css" />
     <Content Include="CSS\MSF_StyleSheet.css" />
     <Content Include="Default.aspx" />
@@ -176,6 +177,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="500.aspx.cs">
+      <DependentUpon>500.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="500.aspx.designer.cs">
+      <DependentUpon>500.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AboutUsInfoObject.cs" />
     <Compile Include="About_Us.aspx.cs">
       <DependentUpon>About_Us.aspx</DependentUpon>

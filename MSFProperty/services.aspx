@@ -20,8 +20,8 @@
     <div class="msf-buttons-info msf-bg-grey">
         <div class="container clear-both-fix text-align-center">
             <ul>
-                <li class="msf-button-info-book"><a href="Default.aspx" style ="color: <%= GetColour(19) %>;" class="editable"><%=GetText(19)%></a></li>
-                <li class="msf-button-info-phone"><a href="tel:07709 649 292 " style ="color: <%= GetColour(20) %>;" class="editable"><%=GetText(20)%></a></li>
+                <li class="msf-button-info-book"><a href="ContactUs.aspx" style ="color: <%= GetColour(19) %>;" class="editable"><%=GetText(19)%></a></li>
+                <li class="msf-button-info-phone"><a href="tel:<%= GetMobileNumber() %>" style ="color: <%= GetColour(20) %>;" ><%= GetMobileNumber() %></a></li>
                 <li class="msf-button-info-contact"><a href="ContactUs.aspx" style ="color: <%= GetColour(21) %>;" class="editable"><%=GetText(21)%></a></li>
             </ul>
         </div>

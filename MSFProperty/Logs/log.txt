@@ -228,3 +228,193 @@ Log Entry : 10:48:52 17 March 2019
   :
   :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940023&lon=-3.230788
 -------------------------------
+
+Log Entry : 16:15:09 03 April 2019
+  :
+  :https://api.postcodes.io/postcodes/eh218la
+-------------------------------
+
+Log Entry : 16:15:10 03 April 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940029&lon=-3.008716
+-------------------------------
+
+Log Entry : 23:18:36 03 April 2019
+  :
+  :https://api.postcodes.io/postcodes/eh218la
+-------------------------------
+
+Log Entry : 23:18:37 03 April 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940029&lon=-3.008716
+-------------------------------
+
+Log Entry : 16:32:06 05 April 2019
+  :
+  :https://api.postcodes.io/postcodes/EH11 2NQ
+-------------------------------
+
+Log Entry : 16:35:58 05 April 2019
+  :
+  :https://api.postcodes.io/postcodes/EH11 2NQ
+-------------------------------
+
+Log Entry : 16:37:26 05 April 2019
+  :
+  :https://api.postcodes.io/postcodes/EH11 2NQ
+-------------------------------
+
+Log Entry : 16:37:42 05 April 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940023&lon=-3.230788
+-------------------------------
+
+Log Entry : 16:38:38 05 April 2019
+  :
+  :https://api.postcodes.io/postcodes/EH11 2NQ
+-------------------------------
+
+Log Entry : 16:38:46 05 April 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940023&lon=-3.230788
+-------------------------------
+
+Log Entry : 16:39:50 05 April 2019
+  :
+  :https://api.postcodes.io/postcodes/EH11 2NQ
+-------------------------------
+
+Log Entry : 16:39:54 05 April 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940023&lon=-3.230788
+-------------------------------
+
+Log Entry : 16:40:05 05 April 2019
+  :
+  :https://api.postcodes.io/postcodes/EH11 2NQ
+-------------------------------
+
+Log Entry : 16:40:08 05 April 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940023&lon=-3.230788
+-------------------------------
+
+Log Entry : 16:40:22 05 April 2019
+  :
+  :https://api.postcodes.io/postcodes/EH11 2NQ
+-------------------------------
+
+Log Entry : 16:40:29 05 April 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940023&lon=-3.230788
+-------------------------------
+
+Log Entry : 16:40:34 05 April 2019
+  :
+  :https://api.postcodes.io/postcodes/EH11 2NQ
+-------------------------------
+
+Log Entry : 16:40:37 05 April 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940023&lon=-3.230788
+-------------------------------
+
+Log Entry : 16:40:45 05 April 2019
+  :
+  :https://api.postcodes.io/postcodes/EH11 2NQ
+-------------------------------
+
+Log Entry : 16:40:47 05 April 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940023&lon=-3.230788
+-------------------------------
+
+Log Entry : 16:48:12 05 April 2019
+  :
+  :https://api.postcodes.io/postcodes/EH11 2NQ
+-------------------------------
+
+Log Entry : 16:48:13 05 April 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940023&lon=-3.230788
+-------------------------------
+
+Log Entry : 16:48:20 05 April 2019
+  :
+  :https://api.postcodes.io/postcodes/EH11 2NQ
+-------------------------------
+
+Log Entry : 16:48:20 05 April 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940023&lon=-3.230788
+-------------------------------
+
+Log Entry : 16:48:31 05 April 2019
+  :
+  :https://api.postcodes.io/postcodes/EH11 2NQ
+-------------------------------
+
+Log Entry : 16:48:31 05 April 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940023&lon=-3.230788
+-------------------------------
+
+Log Entry : 16:48:42 05 April 2019
+  :
+  :https://api.postcodes.io/postcodes/EH11 2NQ
+-------------------------------
+
+Log Entry : 16:48:42 05 April 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940023&lon=-3.230788
+-------------------------------
+
+Log Entry : 16:55:14 05 April 2019
+  :
+  :https://api.postcodes.io/postcodes/EH6 4DT
+-------------------------------
+
+Log Entry : 16:55:15 05 April 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.978906&lon=-3.184649
+-------------------------------
+
+Log Entry : 17:00:02 05 April 2019
+  :
+  :https://api.postcodes.io/postcodes/EH11 2NQ
+-------------------------------
+
+Log Entry : 17:00:50 05 April 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940023&lon=-3.230788
+-------------------------------
+
+Log Entry : 17:03:23 05 April 2019
+  :
+  :https://api.postcodes.io/postcodes/EH11 2NQ
+-------------------------------
+
+Log Entry : 17:03:26 05 April 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940023&lon=-3.230788
+-------------------------------
+
+Log Entry : 17:03:46 05 April 2019
+  :
+  :https://api.postcodes.io/postcodes/EH11 2NQ
+-------------------------------
+
+Log Entry : 17:03:46 05 April 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.940023&lon=-3.230788
+-------------------------------
+
+Log Entry : 17:18:42 05 April 2019
+  :
+  :https://api.postcodes.io/postcodes/EH6 4DT
+-------------------------------
+
+Log Entry : 17:18:43 05 April 2019
+  :
+  :https://nominatim.openstreetmap.org/reverse?format=json&lat=55.978906&lon=-3.184649
+-------------------------------

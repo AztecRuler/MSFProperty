@@ -4,20 +4,22 @@
 
 <html>
 <head runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86, shrink-to-fit=yes">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+<%--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">--%>
     <noscript>Your browser does not support JavaScript! this may effect your experience</noscript>
     <meta charset="UTF-8">
     <meta name="description" content=<%= GetMetaDescription() %>>
     <meta name="keywords" content=<%= GetMetaKeywords() %>>
     <meta name="author" content="www.classantics.co.uk">
 
-    <link href="CSS/MSF_StyleSheet.css" rel="stylesheet"/>
+    <link href="CSS/MSF_StyleSheet.css?v1.0.0" rel="stylesheet"/>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="Javascript/msfJavascript.js"></script>
     <link rel="canonical" href="" runat="server" id="canonical"/>
+    <title runat="server" visible="false"></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136323896-1"></script>
@@ -78,7 +80,7 @@
 
 .master-overlay-content {
   position: relative;
-  top: 25%;
+  top: 10%;
   width: 100%;
   text-align: center;
   margin-top: 30px;
@@ -163,6 +165,10 @@
                             <a href="About_Us.aspx">About us</a>
                             <a href="BlogMainPage.aspx">Blog</a>
                             <a href="ContactUs.aspx">Contact Us</a>
+                            <a href="SearchResults.aspx">Search Page</a>
+                            <a href="FindUs.aspx">Find Us</a>
+                            <a href="Privacy.aspx">Privacy Policy</a>
+                            <a href="Reviews.aspx">Reviews</a>
                     </div>
                 </div>
             </div>

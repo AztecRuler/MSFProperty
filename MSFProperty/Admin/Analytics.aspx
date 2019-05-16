@@ -51,7 +51,6 @@
     </asp:UpdatePanel>
         
         </asp:Panel>
-    <h1> Google analytic will be added here after a new account is set up for MSFProperty this can take up to 48hrs </h1>
     <asp:Panel runat="server" GroupingText="Google Analytic">
         <asp:UpdateProgress ID="AnalyticUpdateProgress1" runat="server" DynamicLayout="true" AssociatedUpdatePanelID="AnalyticUpdatePanel">
             <ProgressTemplate>

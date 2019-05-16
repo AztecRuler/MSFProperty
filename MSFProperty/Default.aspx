@@ -10,7 +10,7 @@
 <asp:ScriptManager ID="ScriptManager1" runat="server">
 </asp:ScriptManager>
 
-<div id="bgimg-1" class="bgimg-1  editable lazy" style="background-image: url('~/../Images/<%= GetImage(1) %>')">
+<div id="bgimg-1" class="bgimg-1  editable " style="background-image: url('~/../Images/<%= GetImage(1) %>')">
     <div class="caption">
         <div class="container" style="margin-top: -300px;">
             <h2  style ="color: <%= GetColour(1) %>;" class=" editable"><%= GetText(1) %></h2>
